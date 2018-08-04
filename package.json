@@ -1,0 +1,126 @@
+{
+	"name": "text-power-tools",
+	"displayName": "Text Power Tools",
+	"description": "Text manipulation tools: filtering, removing lines and more",
+	"version": "1.0.0",
+	"publisher": "qcz",
+	"private": true,
+	"engines": {
+		"vscode": "^1.20.0"
+	},
+	"license": "SEE LICENSE IN LICENSE.md",
+	"icon": "images/icon.png",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/qcz/vscode-text-power-tools.git"
+	},
+	"bugs": {
+		"url": "https://github.com/qcz/vscode-text-power-tools/issues"
+	},
+	"categories": [
+		"Other"
+	],
+	"galleryBanner": {
+		"color": "#1e415e",
+		"theme": "dark"
+	},
+	"activationEvents": [
+		"onCommand:extension.filterLinesIncludingString",
+		"onCommand:extension.filterLinesIncludingStringInNewEditor",
+		"onCommand:extension.filterLinesMatchingRegex",
+		"onCommand:extension.filterLinesMatchingRegexInNewEditor",
+		"onCommand:extension.filterLinesNotIncludingString",
+		"onCommand:extension.filterLinesNotIncludingStringInNewEditor",
+		"onCommand:extension.filterLinesNotMatchingRegex",
+		"onCommand:extension.filterLinesNotMatchingRegexInNewEditor",
+		"onCommand:extension.removeDuplicates",
+		"onCommand:extension.removeBlankLines",
+		"onCommand:extension.removeSurplusBlankLines"
+	],
+	"main": "./out/extension",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.filterLinesIncludingString",
+				"category": "Text PowerTools",
+				"title": "Filter lines including string"
+			},
+			{
+				"command": "extension.filterLinesIncludingStringInNewEditor",
+				"category": "Text PowerTools",
+				"title": "Filter lines including string into a new editor"
+			},
+			{
+				"command": "extension.filterLinesMatchingRegex",
+				"category": "Text PowerTools",
+				"title": "Filter lines matching a regex"
+			},
+			{
+				"command": "extension.filterLinesMatchingRegexInNewEditor",
+				"category": "Text PowerTools",
+				"title": "Filter lines matching a regex into a new editor"
+			},
+			{
+				"command": "extension.filterLinesNotIncludingString",
+				"category": "Text PowerTools",
+				"title": "Filter lines not including string"
+			},
+			{
+				"command": "extension.filterLinesNotIncludingStringInNewEditor",
+				"category": "Text PowerTools",
+				"title": "Filter lines not including string into a new editor"
+			},
+			{
+				"command": "extension.filterLinesNotMatchingRegex",
+				"category": "Text PowerTools",
+				"title": "Filter lines not matching a regex"
+			},
+			{
+				"command": "extension.filterLinesNotMatchingRegexInNewEditor",
+				"category": "Text PowerTools",
+				"title": "Filter lines not matching a regex into a new editor"
+			},
+			{
+				"command": "extension.removeDuplicates",
+				"category": "Text PowerTools",
+				"title": "Remove duplicated lines"
+			},
+			{
+				"command": "extension.removeBlankLines",
+				"category": "Text PowerTools",
+				"title": "Remove blank lines"
+			},
+			{
+				"command": "extension.removeSurplusBlankLines",
+				"category": "Text PowerTools",
+				"title": "Remove surplus blank lines"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "Text Power Tools",
+			"properties": {
+				"textPowerTools.caseSensitiveFiltering": {
+					"type": "boolean",
+					"default": false,
+					"description": "Use case sensitive comparison when performing filter operations."
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "npm run compile && node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"@types/mocha": "^2.2.42",
+		"@types/node": "^7.0.43",
+		"tslint": "^5.8.0",
+		"typescript": "^2.6.1",
+		"vscode": "^1.1.6"
+	},
+	"dependencies": {}
+}
