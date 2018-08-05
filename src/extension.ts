@@ -13,27 +13,27 @@ export function activate(context: vscode.ExtensionContext) {
 	// Now provide the implementation of the command with  registerCommand
 	// The commandId parameter must match the command field in package.json
 
-	context.subscriptions.push(vscode.commands.registerCommand("extension.filterLinesIncludingString", () =>
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.filterLinesIncludingString", () =>
 		filterText({ type: FilterType.Include, sourceType: FilterSourceType.String, inNewEditor: false })));
-	context.subscriptions.push(vscode.commands.registerCommand("extension.filterLinesIncludingStringInNewEditor", () =>
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.filterLinesIncludingStringInNewEditor", () =>
 		filterText({ type: FilterType.Include, sourceType: FilterSourceType.String, inNewEditor: true })));
-	context.subscriptions.push(vscode.commands.registerCommand("extension.filterLinesMatchingRegex", () =>
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.filterLinesMatchingRegex", () =>
 		filterText({ type: FilterType.Include, sourceType: FilterSourceType.Regex, inNewEditor: false })));
-	context.subscriptions.push(vscode.commands.registerCommand("extension.filterLinesMatchingRegexInNewEditor", () =>
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.filterLinesMatchingRegexInNewEditor", () =>
 		filterText({ type: FilterType.Include, sourceType: FilterSourceType.Regex, inNewEditor: true })));
-	context.subscriptions.push(vscode.commands.registerCommand("extension.filterLinesNotIncludingString", () =>
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.filterLinesNotIncludingString", () =>
 		filterText({ type: FilterType.Exclude, sourceType: FilterSourceType.String, inNewEditor: false })));
-	context.subscriptions.push(vscode.commands.registerCommand("extension.filterLinesNotIncludingStringInNewEditor", () =>
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.filterLinesNotIncludingStringInNewEditor", () =>
 		filterText({ type: FilterType.Exclude, sourceType: FilterSourceType.String, inNewEditor: true })));
-	context.subscriptions.push(vscode.commands.registerCommand("extension.filterLinesNotMatchingRegex", () =>
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.filterLinesNotMatchingRegex", () =>
 		filterText({ type: FilterType.Exclude, sourceType: FilterSourceType.Regex, inNewEditor: false })));
-	context.subscriptions.push(vscode.commands.registerCommand("extension.filterLinesNotMatchingRegexInNewEditor", () =>
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.filterLinesNotMatchingRegexInNewEditor", () =>
 		filterText({ type: FilterType.Exclude, sourceType: FilterSourceType.Regex, inNewEditor: true })));
-	context.subscriptions.push(vscode.commands.registerCommand("extension.removeDuplicates", () =>
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.removeDuplicates", () =>
 		removeDuplicates()));
-	context.subscriptions.push(vscode.commands.registerCommand("extension.removeBlankLines", () =>
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.removeBlankLines", () =>
 		removeBlankLines({ onlySurplus: false })));
-	context.subscriptions.push(vscode.commands.registerCommand("extension.removeSurplusBlankLines", () =>
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.removeSurplusBlankLines", () =>
 		removeBlankLines({ onlySurplus: true })));
 }
 

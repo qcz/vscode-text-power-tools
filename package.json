@@ -2,7 +2,7 @@
 	"name": "text-power-tools",
 	"displayName": "Text Power Tools",
 	"description": "Text manipulation tools: filtering, removing lines and more",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"publisher": "qcz",
 	"private": true,
 	"engines": {
@@ -25,74 +25,74 @@
 		"theme": "dark"
 	},
 	"activationEvents": [
-		"onCommand:extension.filterLinesIncludingString",
-		"onCommand:extension.filterLinesIncludingStringInNewEditor",
-		"onCommand:extension.filterLinesMatchingRegex",
-		"onCommand:extension.filterLinesMatchingRegexInNewEditor",
-		"onCommand:extension.filterLinesNotIncludingString",
-		"onCommand:extension.filterLinesNotIncludingStringInNewEditor",
-		"onCommand:extension.filterLinesNotMatchingRegex",
-		"onCommand:extension.filterLinesNotMatchingRegexInNewEditor",
-		"onCommand:extension.removeDuplicates",
-		"onCommand:extension.removeBlankLines",
-		"onCommand:extension.removeSurplusBlankLines"
+		"onCommand:textPowerTools.filterLinesIncludingString",
+		"onCommand:textPowerTools.filterLinesIncludingStringInNewEditor",
+		"onCommand:textPowerTools.filterLinesMatchingRegex",
+		"onCommand:textPowerTools.filterLinesMatchingRegexInNewEditor",
+		"onCommand:textPowerTools.filterLinesNotIncludingString",
+		"onCommand:textPowerTools.filterLinesNotIncludingStringInNewEditor",
+		"onCommand:textPowerTools.filterLinesNotMatchingRegex",
+		"onCommand:textPowerTools.filterLinesNotMatchingRegexInNewEditor",
+		"onCommand:textPowerTools.removeDuplicates",
+		"onCommand:textPowerTools.removeBlankLines",
+		"onCommand:textPowerTools.removeSurplusBlankLines"
 	],
 	"main": "./out/extension",
 	"contributes": {
 		"commands": [
 			{
-				"command": "extension.filterLinesIncludingString",
-				"category": "Text PowerTools",
+				"command": "textPowerTools.filterLinesIncludingString",
+				"category": "Text Power Tools",
 				"title": "Filter lines including string"
 			},
 			{
-				"command": "extension.filterLinesIncludingStringInNewEditor",
-				"category": "Text PowerTools",
+				"command": "textPowerTools.filterLinesIncludingStringInNewEditor",
+				"category": "Text Power Tools",
 				"title": "Filter lines including string into a new editor"
 			},
 			{
-				"command": "extension.filterLinesMatchingRegex",
-				"category": "Text PowerTools",
+				"command": "textPowerTools.filterLinesMatchingRegex",
+				"category": "Text Power Tools",
 				"title": "Filter lines matching a regex"
 			},
 			{
-				"command": "extension.filterLinesMatchingRegexInNewEditor",
-				"category": "Text PowerTools",
+				"command": "textPowerTools.filterLinesMatchingRegexInNewEditor",
+				"category": "Text Power Tools",
 				"title": "Filter lines matching a regex into a new editor"
 			},
 			{
-				"command": "extension.filterLinesNotIncludingString",
-				"category": "Text PowerTools",
+				"command": "textPowerTools.filterLinesNotIncludingString",
+				"category": "Text Power Tools",
 				"title": "Filter lines not including string"
 			},
 			{
-				"command": "extension.filterLinesNotIncludingStringInNewEditor",
-				"category": "Text PowerTools",
+				"command": "textPowerTools.filterLinesNotIncludingStringInNewEditor",
+				"category": "Text Power Tools",
 				"title": "Filter lines not including string into a new editor"
 			},
 			{
-				"command": "extension.filterLinesNotMatchingRegex",
-				"category": "Text PowerTools",
+				"command": "textPowerTools.filterLinesNotMatchingRegex",
+				"category": "Text Power Tools",
 				"title": "Filter lines not matching a regex"
 			},
 			{
-				"command": "extension.filterLinesNotMatchingRegexInNewEditor",
-				"category": "Text PowerTools",
+				"command": "textPowerTools.filterLinesNotMatchingRegexInNewEditor",
+				"category": "Text Power Tools",
 				"title": "Filter lines not matching a regex into a new editor"
 			},
 			{
-				"command": "extension.removeDuplicates",
-				"category": "Text PowerTools",
+				"command": "textPowerTools.removeDuplicates",
+				"category": "Text Power Tools",
 				"title": "Remove duplicated lines"
 			},
 			{
-				"command": "extension.removeBlankLines",
-				"category": "Text PowerTools",
+				"command": "textPowerTools.removeBlankLines",
+				"category": "Text Power Tools",
 				"title": "Remove blank lines"
 			},
 			{
-				"command": "extension.removeSurplusBlankLines",
-				"category": "Text PowerTools",
+				"command": "textPowerTools.removeSurplusBlankLines",
+				"category": "Text Power Tools",
 				"title": "Remove surplus blank lines"
 			}
 		],
