@@ -1,8 +1,8 @@
 {
 	"name": "text-power-tools",
 	"displayName": "Text Power Tools",
-	"description": "Text manipulation tools: filtering, removing lines and more",
-	"version": "1.0.1",
+	"description": "Text manipulation tools: filtering, removing lines and more. Great for finding information in logs.",
+	"version": "1.1.0",
 	"publisher": "qcz",
 	"private": true,
 	"engines": {
@@ -26,13 +26,17 @@
 	},
 	"activationEvents": [
 		"onCommand:textPowerTools.filterLinesIncludingString",
-		"onCommand:textPowerTools.filterLinesIncludingStringInNewEditor",
+		"onCommand:textPowerTools.filterLinesIncludingStringToNewEditor",
 		"onCommand:textPowerTools.filterLinesMatchingRegex",
-		"onCommand:textPowerTools.filterLinesMatchingRegexInNewEditor",
+		"onCommand:textPowerTools.filterLinesMatchingRegexToNewEditor",
 		"onCommand:textPowerTools.filterLinesNotIncludingString",
-		"onCommand:textPowerTools.filterLinesNotIncludingStringInNewEditor",
+		"onCommand:textPowerTools.filterLinesNotIncludingStringToNewEditor",
 		"onCommand:textPowerTools.filterLinesNotMatchingRegex",
-		"onCommand:textPowerTools.filterLinesNotMatchingRegexInNewEditor",
+		"onCommand:textPowerTools.filterLinesNotMatchingRegexToNewEditor",
+		"onCommand:textPowerTools.extractInformation",
+		"onCommand:textPowerTools.extractInformationToNewEditor",
+		"onCommand:textPowerTools.countOccurrences",
+		"onCommand:textPowerTools.countOccurrencesToNewEditor",
 		"onCommand:textPowerTools.removeDuplicates",
 		"onCommand:textPowerTools.removeBlankLines",
 		"onCommand:textPowerTools.removeSurplusBlankLines"
@@ -46,7 +50,7 @@
 				"title": "Filter lines including string"
 			},
 			{
-				"command": "textPowerTools.filterLinesIncludingStringInNewEditor",
+				"command": "textPowerTools.filterLinesIncludingStringToNewEditor",
 				"category": "Text Power Tools",
 				"title": "Filter lines including string into a new editor"
 			},
@@ -56,7 +60,7 @@
 				"title": "Filter lines matching a regex"
 			},
 			{
-				"command": "textPowerTools.filterLinesMatchingRegexInNewEditor",
+				"command": "textPowerTools.filterLinesMatchingRegexToNewEditor",
 				"category": "Text Power Tools",
 				"title": "Filter lines matching a regex into a new editor"
 			},
@@ -66,7 +70,7 @@
 				"title": "Filter lines not including string"
 			},
 			{
-				"command": "textPowerTools.filterLinesNotIncludingStringInNewEditor",
+				"command": "textPowerTools.filterLinesNotIncludingStringToNewEditor",
 				"category": "Text Power Tools",
 				"title": "Filter lines not including string into a new editor"
 			},
@@ -76,9 +80,29 @@
 				"title": "Filter lines not matching a regex"
 			},
 			{
-				"command": "textPowerTools.filterLinesNotMatchingRegexInNewEditor",
+				"command": "textPowerTools.filterLinesNotMatchingRegexToNewEditor",
 				"category": "Text Power Tools",
 				"title": "Filter lines not matching a regex into a new editor"
+			},
+			{
+				"command": "textPowerTools.extractInformation",
+				"category": "Text Power Tools",
+				"title": "Extract information from text"
+			},
+			{
+				"command": "textPowerTools.extractInformationToNewEditor",
+				"category": "Text Power Tools",
+				"title": "Extract information from text into a new editor"
+			},
+			{
+				"command": "textPowerTools.countOccurrences",
+				"category": "Text Power Tools",
+				"title": "Count line occurrences"
+			},
+			{
+				"command": "textPowerTools.countOccurrencesToNewEditor",
+				"category": "Text Power Tools",
+				"title": "Count line occurrences into a new editor"
 			},
 			{
 				"command": "textPowerTools.removeDuplicates",

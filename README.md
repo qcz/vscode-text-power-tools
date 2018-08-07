@@ -21,6 +21,26 @@ Filter line commands take an input (a raw text or a regular expression) and filt
 | **Filter lines not matching a regex** | Regular expression | Replaces the content of all selections (or the full document if nothing is selected) with only the lines which do not match the regular expression. | Supports multiple selections. Works on the full document if nothing selected.
 | **Filter lines not matching a regex into a new editor** | Regular expression| Creates a new document with the lines which do not match the regular expression. | Supports multiple selections. Works on the full document if nothing selected.
 
+### Extracting information from text
+
+Extract information from the source lines using regular expressions. First input is the regular expression which should be matched with capture groups to find the desired parts of the lines. The second input is the replacement rule, which should contain capture group references. With these commands you can transform matching lines to the desired format in seconds.
+
+![sample extracting](images/extracting.gif)
+
+| Command | Input | Description | Selection support |
+| ------- | ----- | ----------- | ------------------|
+| **Extract information from text** | Regular expression and a replacement rule | Extracts captured information and transforms matching lines to the desired format. | Supports multiple selections. Works on the full document if nothing selected.
+| **Extract information from text into a new editor** | Regular expression and a replacement rule | Creates a new document with extracted and transformed information from the original document. | Supports multiple selections. Works on the full document if nothing selected.
+
+### Counting line occurrences
+
+![sample filtering](images/counting.gif)
+
+| Command | Input | Description | Selection support |
+| ------- | ----- | ----------- | ------------------|
+| **Count line occurrences** | _none_ | Counts line occurrences and transforms the selections/document to show the resuls. The result contains two columns, the line count and the actual line separated with a tabulator.
+| **Count line occurrences into a new editor** | _none_ | Counts line occurrences and creates a new document to show the resuls. The result contains two columns, the line count and the actual line separated with a tabulator.
+
 ### Removing lines
 
 | Command | Input | Description | Selection support |
@@ -32,3 +52,9 @@ Filter line commands take an input (a raw text or a regular expression) and filt
 ## Requirements
 
 This extension requires at least Visual Studio Code 1.20.
+
+## License
+
+MIT
+
+Sample images use text files from the [Elasticsearch Examples](https://github.com/elastic/examples) and [TensorFlow Models](https://github.com/tensorflow/models) projects. Both are under the Apache 2.0 License.
