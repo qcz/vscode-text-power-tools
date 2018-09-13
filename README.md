@@ -8,6 +8,8 @@ Text Power Tools is an extension for text manipulation inspired by _TextFX_ for 
 
 Filter line commands take an input (a raw text or a regular expression) and filter the selected lines based on whether to include or exclude the them. These commands search/match in a case insensitive manner. To use case sensitive search/match, set the value of the `textPowerTools.caseSensitiveFiltering` setting to `true`.
 
+The last 10 filter strings and regular expressions are presented and can be used quickly when executing these commands.
+
 ![sample filtering](images/filtering.gif)
 
 | Command | Input | Description | Selection support |
@@ -24,6 +26,8 @@ Filter line commands take an input (a raw text or a regular expression) and filt
 ### Extracting information from text
 
 Extract information from the source lines using regular expressions. First input is the regular expression which should be matched with capture groups to find the desired parts of the lines. The second input is the replacement rule, which should contain capture group references. With these commands you can transform matching lines to the desired format in seconds.
+
+The last 10 filter strings and replacement expressions are presented and can be used quickly when executing these commands.
 
 ![sample extracting](images/extracting.gif)
 

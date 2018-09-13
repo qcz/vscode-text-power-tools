@@ -1,5 +1,5 @@
 import * as vscode from "vscode";
-import { replaceLinesOfSelections, getSelections, getSelectionLines } from "../helpers/vsCodeHelpers";
+import { getSelectionLines, getSelections, replaceLinesOfSelections } from "../helpers/vsCodeHelpers";
 
 export interface RemoveBlankLinesCommandOptions {
 	onlySurplus: boolean;

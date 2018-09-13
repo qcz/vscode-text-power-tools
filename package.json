@@ -6,7 +6,7 @@
 	"publisher": "qcz",
 	"private": true,
 	"engines": {
-		"vscode": "^1.20.0"
+		"vscode": "^1.26.0"
 	},
 	"license": "SEE LICENSE IN LICENSE.md",
 	"icon": "images/icon.png",
@@ -144,7 +144,7 @@
 		"@types/node": "^7.0.43",
 		"tslint": "^5.8.0",
 		"typescript": "^2.6.1",
-		"vscode": "^1.1.6"
+		"vscode": "^1.1.21"
 	},
 	"dependencies": {}
 }

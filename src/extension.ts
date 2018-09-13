@@ -12,25 +12,25 @@ export function activate(context: vscode.ExtensionContext) {
 	// The commandId parameter must match the command field in package.json
 
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.filterLinesIncludingString", () =>
-		filterText({ type: FilterType.Include, sourceType: FilterSourceType.String, inNewEditor: false })));
+		filterText(context, { type: FilterType.Include, sourceType: FilterSourceType.String, inNewEditor: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.filterLinesIncludingStringToNewEditor", () =>
-		filterText({ type: FilterType.Include, sourceType: FilterSourceType.String, inNewEditor: true })));
+		filterText(context, { type: FilterType.Include, sourceType: FilterSourceType.String, inNewEditor: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.filterLinesMatchingRegex", () =>
-		filterText({ type: FilterType.Include, sourceType: FilterSourceType.Regex, inNewEditor: false })));
+		filterText(context, { type: FilterType.Include, sourceType: FilterSourceType.Regex, inNewEditor: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.filterLinesMatchingRegexToNewEditor", () =>
-		filterText({ type: FilterType.Include, sourceType: FilterSourceType.Regex, inNewEditor: true })));
+		filterText(context, { type: FilterType.Include, sourceType: FilterSourceType.Regex, inNewEditor: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.filterLinesNotIncludingString", () =>
-		filterText({ type: FilterType.Exclude, sourceType: FilterSourceType.String, inNewEditor: false })));
+		filterText(context, { type: FilterType.Exclude, sourceType: FilterSourceType.String, inNewEditor: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.filterLinesNotIncludingStringToNewEditor", () =>
-		filterText({ type: FilterType.Exclude, sourceType: FilterSourceType.String, inNewEditor: true })));
+		filterText(context, { type: FilterType.Exclude, sourceType: FilterSourceType.String, inNewEditor: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.filterLinesNotMatchingRegex", () =>
-		filterText({ type: FilterType.Exclude, sourceType: FilterSourceType.Regex, inNewEditor: false })));
+		filterText(context, { type: FilterType.Exclude, sourceType: FilterSourceType.Regex, inNewEditor: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.filterLinesNotMatchingRegexToNewEditor", () =>
-		filterText({ type: FilterType.Exclude, sourceType: FilterSourceType.Regex, inNewEditor: true })));
+		filterText(context, { type: FilterType.Exclude, sourceType: FilterSourceType.Regex, inNewEditor: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.extractInformation", () =>
-		extractInfo({ inNewEditor: false })));
+		extractInfo(context, { inNewEditor: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.extractInformationToNewEditor", () =>
-		extractInfo({ inNewEditor: true })));
+		extractInfo(context, { inNewEditor: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.countOccurrences", () =>
 		countOccurrences({ inNewEditor: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.countOccurrencesToNewEditor", () =>
