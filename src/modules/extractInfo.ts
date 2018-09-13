@@ -1,6 +1,7 @@
 import * as vscode from "vscode";
 import { getExtensionSettings } from "../helpers/tptSettings";
 import { getSelectionLines, getSelections, replaceLinesOfSelections, showHistoryQuickPick } from "../helpers/vsCodeHelpers";
+import { NO_ACTIVE_EDITOR } from "../consts";
 
 export interface ExtractInfoCommandOptions {
 	inNewEditor: boolean;
@@ -11,7 +12,7 @@ export async function extractInfo(context: vscode.ExtensionContext, options: Ext
 
 	const editor = vscode.window.activeTextEditor;
 	if (!editor) {
-		vscode.window.showErrorMessage("Please open an editor to use this function.");
+		vscode.window.showErrorMessage(NO_ACTIVE_EDITOR);
 		return;
 	}
 

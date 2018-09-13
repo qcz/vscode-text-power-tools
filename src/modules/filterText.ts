@@ -1,6 +1,7 @@
 import * as vscode from "vscode";
 import { getExtensionSettings } from "../helpers/tptSettings";
 import { getSelectionLines, getSelections, replaceLinesOfSelections, showHistoryQuickPick } from "../helpers/vsCodeHelpers";
+import { NO_ACTIVE_EDITOR } from "../consts";
 
 export enum FilterType {
 	Include,
@@ -24,7 +25,7 @@ export async function filterText(context: vscode.ExtensionContext, options: Filt
 	const editor = vscode.window.activeTextEditor;
 	if (!editor) {
 		console.log(vscode.window.visibleTextEditors);
-		vscode.window.showErrorMessage("Please open an editor to use this function.");
+		vscode.window.showWarningMessage(NO_ACTIVE_EDITOR);
 		return;
 	}
 

@@ -1,4 +1,5 @@
 import * as vscode from "vscode";
+import { NO_ACTIVE_EDITOR } from "../consts";
 import { getSelectionLines, getSelections, replaceLinesOfSelections } from "../helpers/vsCodeHelpers";
 
 export interface RemoveBlankLinesCommandOptions {
@@ -8,7 +9,7 @@ export interface RemoveBlankLinesCommandOptions {
 export async function removeBlankLines(options: RemoveBlankLinesCommandOptions) {
 	const editor = vscode.window.activeTextEditor;
 	if (!editor) {
-		vscode.window.showErrorMessage("Please open an editor to use this function.");
+		vscode.window.showWarningMessage(NO_ACTIVE_EDITOR);
 		return;
 	}
 

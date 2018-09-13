@@ -1,5 +1,6 @@
 import * as vscode from "vscode";
 import { getSelectionLines, getSelections, replaceLinesOfSelections } from "../helpers/vsCodeHelpers";
+import { NO_ACTIVE_EDITOR } from "../consts";
 
 export interface CountLinesCommandOptions {
 	inNewEditor: boolean;
@@ -8,7 +9,7 @@ export interface CountLinesCommandOptions {
 export async function countOccurrences(options: CountLinesCommandOptions) {
 	const editor = vscode.window.activeTextEditor;
 	if (!editor) {
-		vscode.window.showErrorMessage("Please open an editor to use this function.");
+		vscode.window.showWarningMessage(NO_ACTIVE_EDITOR);
 		return;
 	}
 
