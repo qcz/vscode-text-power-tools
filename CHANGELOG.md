@@ -1,6 +1,7 @@
 # Changelog
 
 ## [1.2.1] - 2018-09-18
+- Fix minimum supported version of VS Code in README.
 - Fix Sublime plugin reference in README.
 
 ## [1.2.0] - 2018-09-13

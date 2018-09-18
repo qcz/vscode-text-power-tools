@@ -55,7 +55,7 @@ The last 10 filter strings and replacement expressions are presented and can be 
 
 ## Requirements
 
-This extension requires at least Visual Studio Code 1.20.
+This extension requires at least Visual Studio Code 1.26.
 
 ## License
 
