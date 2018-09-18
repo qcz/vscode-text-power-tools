@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.2.1] - 2018-09-18
+- Fix Sublime plugin reference in README.
+
 ## [1.2.0] - 2018-09-13
 - Add history support for Filter text and Extract information commands.
 - Clarify message displayed when there are no active editors to point out that the opened file may

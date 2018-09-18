@@ -1,6 +1,6 @@
 # Text Power Tools
 
-Text Power Tools is an extension for text manipulation inspired by _TextFX_ for Notepad++ and _Filter Text_ for Sublime Text. All commands supports multiple selections where it is applicable, and many of them can target new documents, so the original source remains unchanged.
+Text Power Tools is an extension for text manipulation inspired by _TextFX_ for Notepad++ and _Filter Lines_ for Sublime Text. All commands supports multiple selections where it is applicable, and many of them can target new documents, so the original source remains unchanged.
 
 ## Features
 
