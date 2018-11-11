@@ -1,7 +1,7 @@
 {
 	"name": "text-power-tools",
 	"displayName": "Text Power Tools",
-	"description": "Text manipulation tools: filtering, removing lines and more. Great for finding information in logs.",
+	"description": "Text manipulation tools: filtering (grep), removing lines and more. Great for finding information in logs.",
 	"version": "1.2.1",
 	"publisher": "qcz",
 	"private": true,
@@ -57,12 +57,12 @@
 			{
 				"command": "textPowerTools.filterLinesMatchingRegex",
 				"category": "Text Power Tools",
-				"title": "Filter lines matching a regex"
+				"title": "Filter lines matching a regex (grep)"
 			},
 			{
 				"command": "textPowerTools.filterLinesMatchingRegexToNewEditor",
 				"category": "Text Power Tools",
-				"title": "Filter lines matching a regex into a new editor"
+				"title": "Filter lines matching a regex (grep) into a new editor"
 			},
 			{
 				"command": "textPowerTools.filterLinesNotIncludingString",
@@ -77,12 +77,12 @@
 			{
 				"command": "textPowerTools.filterLinesNotMatchingRegex",
 				"category": "Text Power Tools",
-				"title": "Filter lines not matching a regex"
+				"title": "Filter lines not matching a regex (grep)"
 			},
 			{
 				"command": "textPowerTools.filterLinesNotMatchingRegexToNewEditor",
 				"category": "Text Power Tools",
-				"title": "Filter lines not matching a regex into a new editor"
+				"title": "Filter lines not matching a regex (grep) into a new editor"
 			},
 			{
 				"command": "textPowerTools.extractInformation",

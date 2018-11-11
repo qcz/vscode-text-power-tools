@@ -4,9 +4,9 @@ Text Power Tools is an extension for text manipulation inspired by _TextFX_ for 
 
 ## Features
 
-### Filtering lines
+### Filtering lines (grep)
 
-Filter line commands take an input (a raw text or a regular expression) and filter the selected lines based on whether to include or exclude the them. These commands search/match in a case insensitive manner. To use case sensitive search/match, set the value of the `textPowerTools.caseSensitiveFiltering` setting to `true`.
+Filter line commands take an input (a raw text or a regular expression) and filter the selected lines based on whether to include or exclude the them. They work like `grep` but inside VS Code. These commands search/match in a case insensitive manner. To use case sensitive search/match, set the value of the `textPowerTools.caseSensitiveFiltering` setting to `true`.
 
 The last 10 filter strings and regular expressions are presented and can be used quickly when executing these commands.
 
@@ -16,12 +16,12 @@ The last 10 filter strings and regular expressions are presented and can be used
 | ------- | ----- | ----------- | ------------------|
 | **Filter lines including string** | Raw text | Replaces the content of all selections (or the full document if nothing is selected) with only the lines which include the input string. | Supports multiple selections. Works on the full document if nothing selected.
 | **Filter lines including string into a new editor** | Raw text | Creates a new document with the lines which include the input string. | Supports multiple selections. Works on the full document if nothing selected.
-| **Filter lines matching a regex** | Regular expression | Replaces the content of all selections (or the full document if nothing is selected) with only the lines which match the regular expression. | Supports multiple selections. Works on the full document if nothing selected.
-| **Filter lines matching a regex into a new editor** | Regular expression | Creates a new document with the lines which match the regular expression. | Supports multiple selections. Works on the full document if nothing selected.
+| **Filter lines matching a regex (grep)** | Regular expression | Replaces the content of all selections (or the full document if nothing is selected) with only the lines which match the regular expression. | Supports multiple selections. Works on the full document if nothing selected.
+| **Filter lines matching a regex (grep) into a new editor** | Regular expression | Creates a new document with the lines which match the regular expression. | Supports multiple selections. Works on the full document if nothing selected.
 | **Filter lines not including string** | Raw text | Replaces the content of all selections (or the full document if nothing is selected) with only the lines which do not include the input string. | Supports multiple selections. Works on the full document if nothing selected.
 | **Filter lines not including string into a new editor** | Raw text | Creates a new document with the lines which do not include the input string. | Supports multiple selections. Works on the full document if nothing selected.
-| **Filter lines not matching a regex** | Regular expression | Replaces the content of all selections (or the full document if nothing is selected) with only the lines which do not match the regular expression. | Supports multiple selections. Works on the full document if nothing selected.
-| **Filter lines not matching a regex into a new editor** | Regular expression| Creates a new document with the lines which do not match the regular expression. | Supports multiple selections. Works on the full document if nothing selected.
+| **Filter lines not matching a regex (grep)** | Regular expression | Replaces the content of all selections (or the full document if nothing is selected) with only the lines which do not match the regular expression. | Supports multiple selections. Works on the full document if nothing selected.
+| **Filter lines not matching a regex (grep) into a new editor** | Regular expression| Creates a new document with the lines which do not match the regular expression. | Supports multiple selections. Works on the full document if nothing selected.
 
 ### Extracting information from text
 
