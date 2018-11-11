@@ -1,5 +1,5 @@
 import * as vscode from "vscode";
-import { getSelectionLines, getSelections, replaceLinesOfSelections } from "../helpers/vsCodeHelpers";
+import { getSelectionLines, getSelectionsOrFullDocument, replaceLinesOfSelections } from "../helpers/vsCodeHelpers";
 import { NO_ACTIVE_EDITOR } from "../consts";
 
 export interface CountLinesCommandOptions {
@@ -13,7 +13,7 @@ export async function countOccurrences(options: CountLinesCommandOptions) {
 		return;
 	}
 
-	const selections = getSelections(editor);
+	const selections = getSelectionsOrFullDocument(editor);
 	const linesBySelection: string[][] = [];
 
 	for (const selection of selections) {

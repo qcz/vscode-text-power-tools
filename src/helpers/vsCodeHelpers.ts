@@ -9,7 +9,11 @@ export function getFullDocumentRange(editor: vscode.TextEditor): vscode.Selectio
 	return new vscode.Selection(0, 0, 0, 0);
 }
 
-export function getSelections(editor: vscode.TextEditor): vscode.Selection[] {
+export function getPureSelections(editor: vscode.TextEditor): vscode.Selection[] {
+	return editor.selections || [];
+}
+
+export function getSelectionsOrFullDocument(editor: vscode.TextEditor): vscode.Selection[] {
 	var selections = editor.selections;
 
 	if (!selections
@@ -39,6 +43,22 @@ export function * getSelectionLines(editor: vscode.TextEditor, selection: vscode
 			yield currentLine.text;
 		}
 	}
+}
+
+export function sortSelectionsByPosition(selections: vscode.Selection[]) {
+	selections.sort((a, b) => {
+		if (a.start.line < b.start.line) {
+			return -1;
+		} else if (b.start.line < a.start.line) {
+			return 1;
+		} else if (a.start.character < b.start.character) {
+			return -1;
+		} else if (b.start.character < a.start.character) {
+			return 1;
+		} else {
+			return 0;
+		}
+	});
 }
 
 export async function replaceLinesOfSelections(editor: vscode.TextEditor, selections: vscode.Selection[],

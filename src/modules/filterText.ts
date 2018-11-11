@@ -1,6 +1,6 @@
 import * as vscode from "vscode";
 import { getExtensionSettings } from "../helpers/tptSettings";
-import { getSelectionLines, getSelections, replaceLinesOfSelections, showHistoryQuickPick } from "../helpers/vsCodeHelpers";
+import { getSelectionLines, getSelectionsOrFullDocument, replaceLinesOfSelections, showHistoryQuickPick } from "../helpers/vsCodeHelpers";
 import { NO_ACTIVE_EDITOR } from "../consts";
 
 export enum FilterType {
@@ -47,7 +47,7 @@ export async function filterText(context: vscode.ExtensionContext, options: Filt
 			const regexObject = options.sourceType === FilterSourceType.Regex ? new RegExp(filter, settings.caseSensitiveFiltering === false ? "i" : undefined) : new RegExp("");
 
 			const matchingLinesBySelection: string[][] = [];
-			const selections = getSelections(editor);
+			const selections = getSelectionsOrFullDocument(editor);
 			
 			for (const selection of selections) {
 				matchingLinesBySelection.push([]);

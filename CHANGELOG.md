@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.3.0] - 2018-11-11
+- Added _Insert decimal number_/_Insert hex number_ commands
+
 ## [1.2.1] - 2018-09-18
 - Fix minimum supported version of VS Code in README.
 - Fix Sublime plugin reference in README.

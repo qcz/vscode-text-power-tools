@@ -39,7 +39,15 @@
 		"onCommand:textPowerTools.countOccurrencesToNewEditor",
 		"onCommand:textPowerTools.removeDuplicates",
 		"onCommand:textPowerTools.removeBlankLines",
-		"onCommand:textPowerTools.removeSurplusBlankLines"
+		"onCommand:textPowerTools.removeSurplusBlankLines",
+		"onCommand:textPowerTools.insertDecimalNumbers",
+		"onCommand:textPowerTools.insertDecimalNumbersStartingAt",
+		"onCommand:textPowerTools.insertDecimalNumbersWithIncrements",
+		"onCommand:textPowerTools.insertDecimalNumbersWithIncrementsStartingAt",
+		"onCommand:textPowerTools.insertHexNumbers",
+		"onCommand:textPowerTools.insertHexNumbersStartingAt",
+		"onCommand:textPowerTools.insertHexNumbersWithIncrements",
+		"onCommand:textPowerTools.insertHexNumbersWithIncrementsStartingAt"
 	],
 	"main": "./out/extension",
 	"contributes": {
@@ -118,6 +126,46 @@
 				"command": "textPowerTools.removeSurplusBlankLines",
 				"category": "Text Power Tools",
 				"title": "Remove surplus blank lines"
+			},
+			{
+				"command": "textPowerTools.insertDecimalNumbers",
+				"category": "Text Power Tools",
+				"title": "Insert decimal numbers"
+			},
+			{
+				"command": "textPowerTools.insertDecimalNumbersStartingAt",
+				"category": "Text Power Tools",
+				"title": "Insert decimal numbers starting at..."
+			},
+			{
+				"command": "textPowerTools.insertDecimalNumbersWithIncrements",
+				"category": "Text Power Tools",
+				"title": "Insert decimal numbers with custom increments"
+			},
+			{
+				"command": "textPowerTools.insertDecimalNumbersWithIncrementsStartingAt",
+				"category": "Text Power Tools",
+				"title": "Insert decimal numbers with custom increments starting at..."
+			},
+			{
+				"command": "textPowerTools.insertHexNumbers",
+				"category": "Text Power Tools",
+				"title": "Insert hex numbers"
+			},
+			{
+				"command": "textPowerTools.insertHexNumbersStartingAt",
+				"category": "Text Power Tools",
+				"title": "Insert hex numbers starting at..."
+			},
+			{
+				"command": "textPowerTools.insertHexNumbersWithIncrements",
+				"category": "Text Power Tools",
+				"title": "Insert hex numbers with custom increments"
+			},
+			{
+				"command": "textPowerTools.insertHexNumbersWithIncrementsStartingAt",
+				"category": "Text Power Tools",
+				"title": "Insert hex numbers with custom increments starting at..."
 			}
 		],
 		"configuration": {
@@ -128,6 +176,11 @@
 					"type": "boolean",
 					"default": false,
 					"description": "Use case sensitive comparison when performing filter operations."
+				},
+				"textPowerTools.insertUppercaseHexNumbers": {
+					"type": "boolean",
+					"default": true,
+					"description": "Insert uppercase hex numbers when using the 'Insert hex number' function."
 				}
 			}
 		}

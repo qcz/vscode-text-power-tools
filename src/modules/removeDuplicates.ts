@@ -1,6 +1,6 @@
 import * as vscode from "vscode";
 import { NO_ACTIVE_EDITOR } from "../consts";
-import { getSelectionLines, getSelections, replaceLinesOfSelections } from "../helpers/vsCodeHelpers";
+import { getSelectionLines, getSelectionsOrFullDocument, replaceLinesOfSelections } from "../helpers/vsCodeHelpers";
 
 export async function removeDuplicates() {
 	const editor = vscode.window.activeTextEditor;
@@ -10,7 +10,7 @@ export async function removeDuplicates() {
 	}
 
 	const matchingLinesBySelection: string[][] = [];
-	const selections = getSelections(editor);
+	const selections = getSelectionsOrFullDocument(editor);
 		
 	for (const selection of selections) {
 		matchingLinesBySelection.push([]);

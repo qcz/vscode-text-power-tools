@@ -1,6 +1,6 @@
 import * as vscode from "vscode";
 import { getExtensionSettings } from "../helpers/tptSettings";
-import { getSelectionLines, getSelections, replaceLinesOfSelections, showHistoryQuickPick } from "../helpers/vsCodeHelpers";
+import { getSelectionLines, getSelectionsOrFullDocument, replaceLinesOfSelections, showHistoryQuickPick } from "../helpers/vsCodeHelpers";
 import { NO_ACTIVE_EDITOR } from "../consts";
 
 export interface ExtractInfoCommandOptions {
@@ -46,7 +46,7 @@ export async function extractInfo(context: vscode.ExtensionContext, options: Ext
 					}
 
 					const matchingLinesBySelection: string[][] = [];
-					const selections = getSelections(editor);
+					const selections = getSelectionsOrFullDocument(editor);
 					
 					for (const selection of selections) {
 						matchingLinesBySelection.push([]);

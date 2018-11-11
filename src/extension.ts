@@ -3,6 +3,7 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from "vscode";
 import { filterText, extractInfo, countOccurrences, removeDuplicates, removeBlankLines, FilterType, FilterSourceType } from "./modules";
+import { insertNumbers, InsertNumbersNumberFormat } from "./modules/insertNumbers";
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -41,6 +42,22 @@ export function activate(context: vscode.ExtensionContext) {
 		removeBlankLines({ onlySurplus: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.removeSurplusBlankLines", () =>
 		removeBlankLines({ onlySurplus: true })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertDecimalNumbers", () =>
+		insertNumbers({ numberFormat: InsertNumbersNumberFormat.Decimal, askForIncrements: false, askForStartingNumber: false })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertDecimalNumbersStartingAt", () =>
+		insertNumbers({ numberFormat: InsertNumbersNumberFormat.Decimal, askForIncrements: false, askForStartingNumber: true })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertDecimalNumbersWithIncrements", () =>
+		insertNumbers({ numberFormat: InsertNumbersNumberFormat.Decimal, askForIncrements: true, askForStartingNumber: false })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertDecimalNumbersWithIncrementsStartingAt", () =>
+		insertNumbers({ numberFormat: InsertNumbersNumberFormat.Decimal, askForIncrements: true, askForStartingNumber: true })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertHexNumbers", () =>
+		insertNumbers({ numberFormat: InsertNumbersNumberFormat.Hex, askForIncrements: false, askForStartingNumber: false })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertHexNumbersStartingAt", () =>
+		insertNumbers({ numberFormat: InsertNumbersNumberFormat.Hex, askForIncrements: false, askForStartingNumber: true })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertHexNumbersWithIncrements", () =>
+		insertNumbers({ numberFormat: InsertNumbersNumberFormat.Hex, askForIncrements: true, askForStartingNumber: false })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertHexNumbersWithIncrementsStartingAt", () =>
+		insertNumbers({ numberFormat: InsertNumbersNumberFormat.Hex, askForIncrements: true, askForStartingNumber: true })));
 }
 
 // this method is called when your extension is deactivated

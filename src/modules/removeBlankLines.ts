@@ -1,6 +1,6 @@
 import * as vscode from "vscode";
 import { NO_ACTIVE_EDITOR } from "../consts";
-import { getSelectionLines, getSelections, replaceLinesOfSelections } from "../helpers/vsCodeHelpers";
+import { getSelectionLines, getSelectionsOrFullDocument, replaceLinesOfSelections } from "../helpers/vsCodeHelpers";
 
 export interface RemoveBlankLinesCommandOptions {
 	onlySurplus: boolean;
@@ -14,7 +14,7 @@ export async function removeBlankLines(options: RemoveBlankLinesCommandOptions) 
 	}
 
 	const matchingLinesBySelection: string[][] = [];
-	const selections = getSelections(editor);
+	const selections = getSelectionsOrFullDocument(editor);
 
 	for (const selection of selections) {
 		matchingLinesBySelection.push([]);
