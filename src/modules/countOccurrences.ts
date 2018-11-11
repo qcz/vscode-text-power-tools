@@ -2,11 +2,11 @@ import * as vscode from "vscode";
 import { getSelectionLines, getSelectionsOrFullDocument, replaceLinesOfSelections } from "../helpers/vsCodeHelpers";
 import { NO_ACTIVE_EDITOR } from "../consts";
 
-export interface CountLinesCommandOptions {
+interface ICountLinesCommandOptions {
 	inNewEditor: boolean;
 }
 
-export async function countOccurrences(options: CountLinesCommandOptions) {
+export async function countOccurrences(options: ICountLinesCommandOptions) {
 	const editor = vscode.window.activeTextEditor;
 	if (!editor) {
 		vscode.window.showWarningMessage(NO_ACTIVE_EDITOR);

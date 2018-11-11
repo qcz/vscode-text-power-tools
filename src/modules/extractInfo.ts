@@ -3,11 +3,11 @@ import { getExtensionSettings } from "../helpers/tptSettings";
 import { getSelectionLines, getSelectionsOrFullDocument, replaceLinesOfSelections, showHistoryQuickPick } from "../helpers/vsCodeHelpers";
 import { NO_ACTIVE_EDITOR } from "../consts";
 
-export interface ExtractInfoCommandOptions {
+interface IExtractInfoCommandOptions {
 	inNewEditor: boolean;
 }
 
-export async function extractInfo(context: vscode.ExtensionContext, options: ExtractInfoCommandOptions) {
+export async function extractInfo(context: vscode.ExtensionContext, options: IExtractInfoCommandOptions) {
 	const settings = getExtensionSettings();
 
 	const editor = vscode.window.activeTextEditor;

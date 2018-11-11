@@ -13,13 +13,13 @@ export enum FilterSourceType {
 	Regex
 }
 
-export interface FilterTextCommandOptions {
+interface IFilterTextCommandOptions {
 	type: FilterType;
 	sourceType: FilterSourceType;
 	inNewEditor: boolean;
 }
 
-export async function filterText(context: vscode.ExtensionContext, options: FilterTextCommandOptions) {
+export async function filterText(context: vscode.ExtensionContext, options: IFilterTextCommandOptions) {
 	const settings = getExtensionSettings();
 
 	const editor = vscode.window.activeTextEditor;

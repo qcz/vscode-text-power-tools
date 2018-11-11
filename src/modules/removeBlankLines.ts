@@ -2,11 +2,11 @@ import * as vscode from "vscode";
 import { NO_ACTIVE_EDITOR } from "../consts";
 import { getSelectionLines, getSelectionsOrFullDocument, replaceLinesOfSelections } from "../helpers/vsCodeHelpers";
 
-export interface RemoveBlankLinesCommandOptions {
+interface IRemoveBlankLinesCommandOptions {
 	onlySurplus: boolean;
 }
 
-export async function removeBlankLines(options: RemoveBlankLinesCommandOptions) {
+export async function removeBlankLines(options: IRemoveBlankLinesCommandOptions) {
 	const editor = vscode.window.activeTextEditor;
 	if (!editor) {
 		vscode.window.showWarningMessage(NO_ACTIVE_EDITOR);
