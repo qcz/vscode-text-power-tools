@@ -2,6 +2,13 @@
 
 Text Power Tools is an extension for text manipulation inspired by _TextFX_ for Notepad++ and _Filter Lines_ for Sublime Text. All commands supports multiple selections where it is applicable, and many of them can target new documents, so the original source remains unchanged.
 
+Overview of features:
+* Filtering lines using strings or regular expressions (grep like experience), even into new editors
+* Extracting information from text using regular expressions, even into new editors
+* Remove duplicated lines and extra empty lines
+* Count occurrences of lines
+* Insert incrementing decimal and hex numbers
+
 ## Features
 
 ### Filtering lines (grep)
