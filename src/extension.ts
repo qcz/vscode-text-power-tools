@@ -2,7 +2,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from "vscode";
-import { filterText, extractInfo, countOccurrences, removeDuplicates, removeBlankLines, FilterType, FilterSourceType } from "./modules";
+import { countOccurrences, extractInfo, FilterSourceType, filterText, FilterType, pad, PadDirection, removeBlankLines, removeDuplicates } from "./modules";
 import { insertNumbers, InsertNumbersNumberFormat } from "./modules/insertNumbers";
 
 // this method is called when your extension is activated
@@ -58,6 +58,14 @@ export function activate(context: vscode.ExtensionContext) {
 		insertNumbers({ numberFormat: InsertNumbersNumberFormat.Hex, askForIncrements: true, askForStartingNumber: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertHexNumbersWithIncrementsStartingAt", () =>
 		insertNumbers({ numberFormat: InsertNumbersNumberFormat.Hex, askForIncrements: true, askForStartingNumber: true })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.padStart", () =>
+		pad({ direction: PadDirection.Start, askForPadCharacters: false })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.padStartWithCustomString", () =>
+		pad({ direction: PadDirection.Start, askForPadCharacters: true })));
+		context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.padEnd", () =>
+		pad({ direction: PadDirection.End, askForPadCharacters: false })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.padEndWithCustomString", () =>
+		pad({ direction: PadDirection.End, askForPadCharacters: true })));
 }
 
 // this method is called when your extension is deactivated

@@ -47,7 +47,11 @@
 		"onCommand:textPowerTools.insertHexNumbers",
 		"onCommand:textPowerTools.insertHexNumbersStartingAt",
 		"onCommand:textPowerTools.insertHexNumbersWithIncrements",
-		"onCommand:textPowerTools.insertHexNumbersWithIncrementsStartingAt"
+		"onCommand:textPowerTools.insertHexNumbersWithIncrementsStartingAt",
+		"onCommand:textPowerTools.padStart",
+		"onCommand:textPowerTools.padStartWithCustomString",
+		"onCommand:textPowerTools.padEnd",
+		"onCommand:textPowerTools.padEndWithCustomString"
 	],
 	"main": "./out/extension",
 	"contributes": {
@@ -166,6 +170,26 @@
 				"command": "textPowerTools.insertHexNumbersWithIncrementsStartingAt",
 				"category": "Text Power Tools",
 				"title": "Insert hex numbers with custom increments starting at..."
+			},
+			{
+				"command": "textPowerTools.padStart",
+				"category": "Text Power Tools",
+				"title": "Pad start with default string"
+			},
+			{
+				"command": "textPowerTools.padStartWithCustomString",
+				"category": "Text Power Tools",
+				"title": "Pad start with custom string"
+			},
+			{
+				"command": "textPowerTools.padEnd",
+				"category": "Text Power Tools",
+				"title": "Pad end with default string"
+			},
+			{
+				"command": "textPowerTools.padEndWithCustomString",
+				"category": "Text Power Tools",
+				"title": "Pad end with custom string"
 			}
 		],
 		"configuration": {
@@ -176,6 +200,10 @@
 					"type": "boolean",
 					"default": false,
 					"description": "Use case sensitive comparison when performing filter operations."
+				},
+				"textPowerTools.defaultPadString": {
+					"type": "string",
+					"description": "Default pad string for the 'Pad start' and 'Pad end' functions."
 				},
 				"textPowerTools.insertUppercaseHexNumbers": {
 					"type": "boolean",

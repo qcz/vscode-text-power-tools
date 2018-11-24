@@ -45,6 +45,14 @@ export function * getSelectionLines(editor: vscode.TextEditor, selection: vscode
 	}
 }
 
+export function getSelectionContent(editor: vscode.TextEditor, selection: vscode.Selection) {
+	let fullContent = "";
+	for (const line of getSelectionLines(editor, selection)) {
+		fullContent += line;
+	}
+	return fullContent;
+}
+
 export function sortSelectionsByPosition(selections: vscode.Selection[]) {
 	selections.sort((a, b) => {
 		if (a.start.line < b.start.line) {

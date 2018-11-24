@@ -8,6 +8,7 @@ Overview of features:
 * Remove duplicated lines and extra empty lines
 * Count occurrences of lines
 * Insert incrementing decimal and hex numbers
+* Pad start and end of strings
 
 ## Features
 
@@ -73,6 +74,16 @@ Inserts incremental decimal or hex numbers to every selection. When inserting he
 | **Insert hex numbers starting at...** | Starting number in hex format | Inserts incremental hex numbers starting with the number provided by the user to every selection. | Supports multiple selections.
 | **Insert hex numbers with custom increments** | Increment in hex format| Inserts incremental hex numbers using custom increments starting with 1 to every selection. | Supports multiple selections.
 | **Insert hex numbers with custom increments starting at...** | Starting number and increment in hex format | Inserts incremental hex numbers using custom increments starting with the number provided by the user to every selection. | Supports multiple selections.
+
+### Pad strings
+Pad the start or the end of selections to the desired length with default or custom strings. The default pad string can be customized with the `textPowerTools.defaultPadString` setting.
+
+| Command | Input | Description | Selection support |
+| ------- | ----- | ----------- | ------------------|
+| **Pad start with default string** | Desired length | Pads the start of the selections to the desired length with the default pad string. | Supports multiple selections.
+| **Pad start with custom string** | Desired length, custom pad string | Pads the start of the selections to the desired length with the pad string provided by the user. | Supports multiple selections.
+| **Pad end with default string** | Desired length | Pads the end of the selections to the desired length with the default pad string. | Supports multiple selections.
+| **Pad end with custom string** | Desired length, custom pad string | Pads the end of the selections to the desired length with the pad string provided by the user. | Supports multiple selections.
 
 ## Requirements
 
