@@ -59,13 +59,13 @@ Inserts incremental decimal or hex numbers to every selection. When inserting he
 | Command | Input | Description | Selection support |
 | ------- | ----- | ----------- | ------------------|
 | **Insert decimal numbers** | _none_ | Inserts incremental decimal numbers starting with 1 to every selection. | Supports multiple selections.
-| **Insert decimal numbers starting at...** | _none_ | Inserts incremental decimal numbers starting with the number provided by the user to every selection. | Supports multiple selections.
-| **Insert decimal numbers with custom increments** | _none_ | Inserts incremental decimal numbers using custom increments starting with 1 to every selection. | Supports multiple selections.
-| **Insert decimal numbers with custom increments starting at...** | _none_ | Inserts incremental decimal numbers using custom increments starting with the number provided by the user to every selection. | Supports multiple selections.
+| **Insert decimal numbers starting at...** | Starting number in decimal format | Inserts incremental decimal numbers starting with the number provided by the user to every selection. | Supports multiple selections.
+| **Insert decimal numbers with custom increments** | Increment in decimal format | Inserts incremental decimal numbers using custom increments starting with 1 to every selection. | Supports multiple selections.
+| **Insert decimal numbers with custom increments starting at...** | Starting number and increment in decimal format | Inserts incremental decimal numbers using custom increments starting with the number provided by the user to every selection. | Supports multiple selections.
 | **Insert hex numbers** | _none_ | Inserts incremental hex numbers starting with 1 to every selection. | Supports multiple selections.
-| **Insert hex numbers starting at...** | _none_ | Inserts incremental hex numbers starting with the number provided by the user to every selection. | Supports multiple selections.
-| **Insert hex numbers with custom increments** | _none_ | Inserts incremental hex numbers using custom increments starting with 1 to every selection. | Supports multiple selections.
-| **Insert hex numbers with custom increments starting at...** | _none_ | Inserts incremental hex numbers using custom increments starting with the number provided by the user to every selection. | Supports multiple selections.
+| **Insert hex numbers starting at...** | Starting number in hex format | Inserts incremental hex numbers starting with the number provided by the user to every selection. | Supports multiple selections.
+| **Insert hex numbers with custom increments** | Increment in hex format| Inserts incremental hex numbers using custom increments starting with 1 to every selection. | Supports multiple selections.
+| **Insert hex numbers with custom increments starting at...** | Starting number and increment in hex format | Inserts incremental hex numbers using custom increments starting with the number provided by the user to every selection. | Supports multiple selections.
 
 ## Requirements
 
