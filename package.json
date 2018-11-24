@@ -1,8 +1,9 @@
 {
 	"name": "text-power-tools",
 	"displayName": "Text Power Tools",
-	"description": "Text manipulation tools: filtering (grep), removing lines and more. Great for finding information in logs.",
-	"version": "1.3.0",
+	"description": "Text manipulation tools: filtering (grep), removing lines and more. Great for finding information in logs and manipulating text.",
+	"keywords": ["text",  "tools", "logs", "grep", "utilities"],
+	"version": "1.4.0",
 	"publisher": "qcz",
 	"private": true,
 	"engines": {

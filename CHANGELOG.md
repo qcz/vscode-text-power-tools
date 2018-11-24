@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.4.0] - 2018-11-24
+- Added _Pad start_/_Pad end_ commands
+
 ## [1.3.0] - 2018-11-11
 - Added _Insert decimal number_/_Insert hex number_ commands
 
