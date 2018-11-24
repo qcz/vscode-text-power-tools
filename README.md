@@ -10,7 +10,7 @@ Overview of features:
 * Insert incrementing decimal and hex numbers
 * Pad start and end of strings
 
-**Note:** Due to current architectural limitations of VSCode, no extension can access files larger than 50 Megabytes. Vote for [ttps://github.com/Microsoft/vscode/issues/31078](VSCode issue #31078), which once implemented, will allows this extension to work with these large files. In the meantime you can trick VSCode by opening a new file and copying the content of the large file there (without saving).
+**Note:** Due to current architectural limitations of VSCode, no extension can access files larger than 50 Megabytes. Vote for [VSCode issue #31078](https://github.com/Microsoft/vscode/issues/31078), which once implemented, will allows this extension to work with these large files. In the meantime you can trick VSCode by opening a new file and copying the content of the large file there (without saving).
 
 ## Features
 
