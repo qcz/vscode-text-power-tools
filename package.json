@@ -55,6 +55,10 @@
 		"onCommand:textPowerTools.insertHexNumbersStartingAt",
 		"onCommand:textPowerTools.insertHexNumbersWithIncrements",
 		"onCommand:textPowerTools.insertHexNumbersWithIncrementsStartingAt",
+		"onCommand:textPowerTools.insertLineNumbers",
+		"onCommand:textPowerTools.insertLineNumbersFixedLength",
+		"onCommand:textPowerTools.insertRelativeLineNumbers",
+		"onCommand:textPowerTools.insertRelativeLineNumbersFixedLength",
 		"onCommand:textPowerTools.padStart",
 		"onCommand:textPowerTools.padStartWithCustomString",
 		"onCommand:textPowerTools.padEnd",
@@ -177,6 +181,26 @@
 				"command": "textPowerTools.insertHexNumbersWithIncrementsStartingAt",
 				"category": "Text Power Tools",
 				"title": "Insert hex numbers with custom increments starting at..."
+			},
+			{
+				"command": "textPowerTools.insertLineNumbers",
+				"category": "Text Power Tools",
+				"title": "Insert line numbers"
+			},
+			{
+				"command": "textPowerTools.insertLineNumbersFixedLength",
+				"category": "Text Power Tools",
+				"title": "Insert fixed length line numbers"
+			},
+			{
+				"command": "textPowerTools.insertRelativeLineNumbers",
+				"category": "Text Power Tools",
+				"title": "Insert line numbers starting with 1"
+			},
+			{
+				"command": "textPowerTools.insertRelativeLineNumbersFixedLength",
+				"category": "Text Power Tools",
+				"title": "Insert fixed line numbers starting with 1"
 			},
 			{
 				"command": "textPowerTools.padStart",

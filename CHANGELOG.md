@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.5.0] - 2018-12-09
+- Added _Insert line number_ commands
+
 ## [1.4.0] - 2018-11-24
 - Added _Pad start_/_Pad end_ commands
 

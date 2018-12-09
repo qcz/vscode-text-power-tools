@@ -8,6 +8,7 @@ Overview of features:
 * Remove duplicated lines and extra empty lines
 * Count occurrences of lines
 * Insert incrementing decimal and hex numbers
+* Insert line numbers
 * Pad start and end of strings
 
 **Note:** Due to current architectural limitations of VSCode, no extension can access files larger than 50 Megabytes. Vote for [VSCode issue #31078](https://github.com/Microsoft/vscode/issues/31078), which once implemented, will allows this extension to work with these large files. In the meantime you can trick VSCode by opening a new file and copying the content of the large file there (without saving).
@@ -76,6 +77,16 @@ Inserts incremental decimal or hex numbers to every selection. When inserting he
 | **Insert hex numbers starting at...** | Starting number in hex format | Inserts incremental hex numbers starting with the number provided by the user to every selection. | Supports multiple selections.
 | **Insert hex numbers with custom increments** | Increment in hex format| Inserts incremental hex numbers using custom increments starting with 1 to every selection. | Supports multiple selections.
 | **Insert hex numbers with custom increments starting at...** | Starting number and increment in hex format | Inserts incremental hex numbers using custom increments starting with the number provided by the user to every selection. | Supports multiple selections.
+
+### Insert line numbers
+Inserts line numbers to the start of each line in every selection. Line numbers can be real line numbers in the file or can start with 1.
+
+| Command | Input | Description | Selection support |
+| ------- | ----- | ----------- | ------------------|
+| **Insert line numbers** | _none_ | Inserts line numbers to the start of each line in every selection. | Supports multiple selections.
+| **Insert fixed length line numbers** | _none_ | Inserts line numbers to the start of each line in every selection padded with zeros to the length of the largest number inserted. | Supports multiple selections.
+| **Insert line numbers starting with 1** | _none_ | Inserts line numbers to the start of each line in every selection starting with 1. | Supports multiple selections.
+| **Insert fixed length line numbers starting with 1** | _none_ | Inserts line numbers to the start of each line in every selection starting with padded with zeros to the length of the largest number inserted. | Supports multiple selections. | Supports multiple selections.
 
 ### Pad strings
 Pad the start or the end of selections to the desired length with default or custom strings. The default pad string can be customized with the `textPowerTools.defaultPadString` setting.

@@ -2,8 +2,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from "vscode";
-import { countOccurrences, extractInfo, FilterSourceType, filterText, FilterType, pad, PadDirection, removeBlankLines, removeDuplicates } from "./modules";
-import { insertNumbers, InsertNumbersNumberFormat } from "./modules/insertNumbers";
+import { countOccurrences, extractInfo, FilterSourceType, filterText, FilterType, insertNumbers, InsertNumbersNumberFormat, pad, PadDirection, removeBlankLines, removeDuplicates, insertLineNumbers, LineNumberType } from "./modules";
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -58,6 +57,14 @@ export function activate(context: vscode.ExtensionContext) {
 		insertNumbers({ numberFormat: InsertNumbersNumberFormat.Hex, askForIncrements: true, askForStartingNumber: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertHexNumbersWithIncrementsStartingAt", () =>
 		insertNumbers({ numberFormat: InsertNumbersNumberFormat.Hex, askForIncrements: true, askForStartingNumber: true })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertLineNumbers", () =>
+		insertLineNumbers({ type: LineNumberType.Real, padWithZero: false })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertLineNumbersFixedLength", () =>
+			insertLineNumbers({ type: LineNumberType.Real, padWithZero: true })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertRelativeLineNumbers", () =>
+		insertLineNumbers({ type: LineNumberType.Relative, padWithZero: false })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertRelativeLineNumbersFixedLength", () =>
+		insertLineNumbers({ type: LineNumberType.Relative, padWithZero: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.padStart", () =>
 		pad({ direction: PadDirection.Start, askForPadCharacters: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.padStartWithCustomString", () =>
