@@ -1,3 +1,4 @@
+export { alignByCharacter, ASK_SPLIT_CHARACTER_FROM_USER } from "./alignByCharacter";
 export { countOccurrences } from "./countOccurrences";
 export { extractInfo } from "./extractInfo";
 export { FilterSourceType, filterText, FilterType } from "./filterText";

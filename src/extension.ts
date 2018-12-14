@@ -2,7 +2,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from "vscode";
-import { countOccurrences, extractInfo, FilterSourceType, filterText, FilterType, insertNumbers, InsertNumbersNumberFormat, pad, PadDirection, removeBlankLines, removeDuplicates, insertLineNumbers, LineNumberType } from "./modules";
+import { alignByCharacter, ASK_SPLIT_CHARACTER_FROM_USER, countOccurrences, extractInfo, FilterSourceType, filterText, FilterType, insertLineNumbers, insertNumbers, InsertNumbersNumberFormat, LineNumberType, pad, PadDirection, removeBlankLines, removeDuplicates } from "./modules";
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -60,7 +60,7 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertLineNumbers", () =>
 		insertLineNumbers({ type: LineNumberType.Real, padWithZero: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertLineNumbersFixedLength", () =>
-			insertLineNumbers({ type: LineNumberType.Real, padWithZero: true })));
+		insertLineNumbers({ type: LineNumberType.Real, padWithZero: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertRelativeLineNumbers", () =>
 		insertLineNumbers({ type: LineNumberType.Relative, padWithZero: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertRelativeLineNumbersFixedLength", () =>
@@ -69,10 +69,26 @@ export function activate(context: vscode.ExtensionContext) {
 		pad({ direction: PadDirection.Start, askForPadCharacters: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.padStartWithCustomString", () =>
 		pad({ direction: PadDirection.Start, askForPadCharacters: true })));
-		context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.padEnd", () =>
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.padEnd", () =>
 		pad({ direction: PadDirection.End, askForPadCharacters: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.padEndWithCustomString", () =>
 		pad({ direction: PadDirection.End, askForPadCharacters: true })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.formatContentAsTableByTabulator", () =>
+		alignByCharacter({splitChar: "\t", padAlignChar: false})));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.formatContentAsTableBySemicolon", () =>
+		alignByCharacter({splitChar: ";", padAlignChar: false})));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.formatContentAsTableByComma", () =>
+		alignByCharacter({splitChar: ",", padAlignChar: false})));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.formatContentAsTableByPipe", () =>
+		alignByCharacter({splitChar: "|", padAlignChar: false})));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.formatContentAsTableByCustomCharacter", () =>
+		alignByCharacter({splitChar: ASK_SPLIT_CHARACTER_FROM_USER, padAlignChar: false})));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.formatContentAsTableBySemicolonWithPadding", () =>
+		alignByCharacter({splitChar: ";", padAlignChar: true})));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.formatContentAsTableByPipeWithPadding", () =>
+		alignByCharacter({splitChar: "|", padAlignChar: true})));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.formatContentAsTableByCustomCharacterWithPadding", () =>
+		alignByCharacter({splitChar: ASK_SPLIT_CHARACTER_FROM_USER, padAlignChar: true})));
 }
 
 // this method is called when your extension is deactivated

@@ -64,6 +64,22 @@ The last 10 filter strings and replacement expressions are presented and can be 
 | **Remove blank lines** | _none_ | Removes all blank lines from the document or selections. | Supports multiple selections. Works on the full document if nothing selected.
 | **Remove surplus blank lines** | _none_ | Removes surplus blank lines if there are two or more are in the document or selections consecutively. | Supports multiple selections. Works on the full document if nothing selected.
 
+### Format content as table
+Format content as table by splitting text to pieces by predefined or custom characters or strings and formatting them as a table with equal length columns using space characters.
+
+![sample formatting as table](images/formatAsTable.gif)
+
+| Command | Input | Description | Selection support |
+| ------- | ----- | ----------- | ------------------|
+| **Format content as table using tabulator as splitter** | _none_ | Formats content as table by aligning content at tabulator characters. | Supports multiple selections.
+| **Format content as table using semicolon as splitter** | _none_ | Formats content as table by aligning content at semicolon characters. | Supports multiple selections.
+| **Format content as table using comma as splitter** | _none_ | Formats content as table by aligning content at comma characters. | Supports multiple selections.
+| **Format content as table using pipe as splitter** | _none_ | Formats content as table by aligning content at pipe characters. | Supports multiple selections.
+| **Format content as table using custom string as splitter** | Character or string to split by | Formats content as table by aligning content at the characters or strings enetered by the user. | Supports multiple selections.
+| **Format content as table using semicolon as splitter (with padding)** | _none_ | Formats content as table by aligning content at semicolon characters. Inserts additional space characters around the splitter character. | Supports multiple selections.
+| **Format content as table using pipe as splitter (with padding)** | _none_ | Formats content as table by aligning content at pipe characters. Inserts additional space characters around the splitter character. | Supports multiple selections.
+| **Format content as table using custom string as splitter (with padding)** | Character or string to split by | Formats content as table by aligning content at the characters or strings enetered by the user. Inserts additional space characters around the splitter character or string. | Supports multiple selections.
+
 ### Insert number sequence
 Inserts sequence o decimal or hex numbers to every selection. When inserting hex numbers, by default they will be uppercase. To insert lowercase hex numbers, set the value of the `textPowerTools.insertUppercaseHexNumbers` setting to `false`.
 
