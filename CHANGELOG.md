@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.6.0] - 2018-12-14
+- Added _Format content as table_ commands
+- Improve naming of _Insert decimal number_/_Insert hex number_ commands
+
 ## [1.5.0] - 2018-12-09
 - Added _Insert line number_ commands
 
