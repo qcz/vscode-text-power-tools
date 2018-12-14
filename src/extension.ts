@@ -2,7 +2,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from "vscode";
-import { alignByCharacter, ASK_SPLIT_CHARACTER_FROM_USER, countOccurrences, extractInfo, FilterSourceType, filterText, FilterType, insertLineNumbers, insertNumbers, InsertNumbersNumberFormat, LineNumberType, pad, PadDirection, removeBlankLines, removeDuplicates } from "./modules";
+import { ASK_SPLIT_CHARACTER_FROM_USER, countOccurrences, extractInfo, FilterSourceType, filterText, FilterType, formatContentAsTable, insertLineNumbers, insertNumbers, InsertNumbersNumberFormat, LineNumberType, pad, PadDirection, removeBlankLines, removeDuplicates } from "./modules";
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -74,21 +74,21 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.padEndWithCustomString", () =>
 		pad({ direction: PadDirection.End, askForPadCharacters: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.formatContentAsTableByTabulator", () =>
-		alignByCharacter({splitChar: "\t", padAlignChar: false})));
+		formatContentAsTable({splitChar: "\t", padAlignChar: false})));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.formatContentAsTableBySemicolon", () =>
-		alignByCharacter({splitChar: ";", padAlignChar: false})));
+		formatContentAsTable({splitChar: ";", padAlignChar: false})));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.formatContentAsTableByComma", () =>
-		alignByCharacter({splitChar: ",", padAlignChar: false})));
+		formatContentAsTable({splitChar: ",", padAlignChar: false})));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.formatContentAsTableByPipe", () =>
-		alignByCharacter({splitChar: "|", padAlignChar: false})));
+		formatContentAsTable({splitChar: "|", padAlignChar: false})));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.formatContentAsTableByCustomCharacter", () =>
-		alignByCharacter({splitChar: ASK_SPLIT_CHARACTER_FROM_USER, padAlignChar: false})));
+		formatContentAsTable({splitChar: ASK_SPLIT_CHARACTER_FROM_USER, padAlignChar: false})));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.formatContentAsTableBySemicolonWithPadding", () =>
-		alignByCharacter({splitChar: ";", padAlignChar: true})));
+		formatContentAsTable({splitChar: ";", padAlignChar: true})));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.formatContentAsTableByPipeWithPadding", () =>
-		alignByCharacter({splitChar: "|", padAlignChar: true})));
+		formatContentAsTable({splitChar: "|", padAlignChar: true})));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.formatContentAsTableByCustomCharacterWithPadding", () =>
-		alignByCharacter({splitChar: ASK_SPLIT_CHARACTER_FROM_USER, padAlignChar: true})));
+		formatContentAsTable({splitChar: ASK_SPLIT_CHARACTER_FROM_USER, padAlignChar: true})));
 }
 
 // this method is called when your extension is deactivated

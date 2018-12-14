@@ -10,7 +10,7 @@ interface IAlignByCharacterOptions {
 	padAlignChar: boolean;
 }
 
-export async function alignByCharacter(options: IAlignByCharacterOptions) {
+export async function formatContentAsTable(options: IAlignByCharacterOptions) {
 	const editor = vscode.window.activeTextEditor;
 	if (!editor) {
 		console.log(vscode.window.visibleTextEditors);
@@ -21,7 +21,7 @@ export async function alignByCharacter(options: IAlignByCharacterOptions) {
 	if (options.splitChar === ASK_SPLIT_CHARACTER_FROM_USER) {
 		askForSplitCharacter(editor, options);
 	} else {
-		await alignByCharacterInternal(editor, options.splitChar, options.padAlignChar);
+		await formatContentAsTableInternal(editor, options.splitChar, options.padAlignChar);
 	}
 }
 
@@ -39,11 +39,11 @@ async function askForSplitCharacter(editor: vscode.TextEditor, options: IAlignBy
 			return;
 		}
 
-		await alignByCharacterInternal(editor, splitChar, options.padAlignChar);
+		await formatContentAsTableInternal(editor, splitChar, options.padAlignChar);
 	});
 }
 
-async function alignByCharacterInternal(editor: vscode.TextEditor, alignCharacter: string, padAlignCharacter: boolean) {
+async function formatContentAsTableInternal(editor: vscode.TextEditor, alignCharacter: string, padAlignCharacter: boolean) {
 	const replacedLinesBySelection: string[][] = [];
 	const selections = getSelectionsOrFullDocument(editor);
 
