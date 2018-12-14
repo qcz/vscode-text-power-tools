@@ -64,19 +64,19 @@ The last 10 filter strings and replacement expressions are presented and can be 
 | **Remove blank lines** | _none_ | Removes all blank lines from the document or selections. | Supports multiple selections. Works on the full document if nothing selected.
 | **Remove surplus blank lines** | _none_ | Removes surplus blank lines if there are two or more are in the document or selections consecutively. | Supports multiple selections. Works on the full document if nothing selected.
 
-### Insert numbers
-Inserts incremental decimal or hex numbers to every selection. When inserting hex numbers, by default they will be uppercase. To insert lowercase hex numbers, set the value of the `textPowerTools.insertUppercaseHexNumbers` setting to `false`.
+### Insert number sequence
+Inserts sequence o decimal or hex numbers to every selection. When inserting hex numbers, by default they will be uppercase. To insert lowercase hex numbers, set the value of the `textPowerTools.insertUppercaseHexNumbers` setting to `false`.
 
 | Command | Input | Description | Selection support |
 | ------- | ----- | ----------- | ------------------|
-| **Insert decimal numbers** | _none_ | Inserts incremental decimal numbers starting with 1 to every selection. | Supports multiple selections.
-| **Insert decimal numbers starting at...** | Starting number in decimal format | Inserts incremental decimal numbers starting with the number provided by the user to every selection. | Supports multiple selections.
-| **Insert decimal numbers with custom increments** | Increment in decimal format | Inserts incremental decimal numbers using custom increments starting with 1 to every selection. | Supports multiple selections.
-| **Insert decimal numbers with custom increments starting at...** | Starting number and increment in decimal format | Inserts incremental decimal numbers using custom increments starting with the number provided by the user to every selection. | Supports multiple selections.
-| **Insert hex numbers** | _none_ | Inserts incremental hex numbers starting with 1 to every selection. | Supports multiple selections.
-| **Insert hex numbers starting at...** | Starting number in hex format | Inserts incremental hex numbers starting with the number provided by the user to every selection. | Supports multiple selections.
-| **Insert hex numbers with custom increments** | Increment in hex format| Inserts incremental hex numbers using custom increments starting with 1 to every selection. | Supports multiple selections.
-| **Insert hex numbers with custom increments starting at...** | Starting number and increment in hex format | Inserts incremental hex numbers using custom increments starting with the number provided by the user to every selection. | Supports multiple selections.
+| **Insert decimal number sequence** | _none_ | Inserts incremental decimal numbers starting with 1 to every selection. | Supports multiple selections.
+| **Insert decimal number sequence starting at...** | Starting number in decimal format | Inserts incremental decimal numbers starting with the number provided by the user to every selection. | Supports multiple selections.
+| **Insert decimal number sequence with custom increments** | Increment in decimal format | Inserts incremental decimal numbers using custom increments starting with 1 to every selection. | Supports multiple selections.
+| **Insert decimal number sequence with custom increments starting at...** | Starting number and increment in decimal format | Inserts incremental decimal numbers using custom increments starting with the number provided by the user to every selection. | Supports multiple selections.
+| **Insert hex number sequence** | _none_ | Inserts incremental hex numbers starting with 1 to every selection. | Supports multiple selections.
+| **Insert hex number sequence starting at...** | Starting number in hex format | Inserts incremental hex numbers starting with the number provided by the user to every selection. | Supports multiple selections.
+| **Insert hex number sequence with custom increments** | Increment in hex format| Inserts incremental hex numbers using custom increments starting with 1 to every selection. | Supports multiple selections.
+| **Insert hex number sequence with custom increments starting at...** | Starting number and increment in hex format | Inserts incremental hex numbers using custom increments starting with the number provided by the user to every selection. | Supports multiple selections.
 
 ### Insert line numbers
 Inserts line numbers to the start of each line in every selection. Line numbers can be real line numbers in the file or can start with 1.

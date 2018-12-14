@@ -145,42 +145,42 @@
 			{
 				"command": "textPowerTools.insertDecimalNumbers",
 				"category": "Text Power Tools",
-				"title": "Insert decimal numbers"
+				"title": "Insert decimal number sequence"
 			},
 			{
 				"command": "textPowerTools.insertDecimalNumbersStartingAt",
 				"category": "Text Power Tools",
-				"title": "Insert decimal numbers starting at..."
+				"title": "Insert decimal number sequence starting at..."
 			},
 			{
 				"command": "textPowerTools.insertDecimalNumbersWithIncrements",
 				"category": "Text Power Tools",
-				"title": "Insert decimal numbers with custom increments"
+				"title": "Insert decimal number sequence with custom increments"
 			},
 			{
 				"command": "textPowerTools.insertDecimalNumbersWithIncrementsStartingAt",
 				"category": "Text Power Tools",
-				"title": "Insert decimal numbers with custom increments starting at..."
+				"title": "Insert decimal number sequence with custom increments starting at..."
 			},
 			{
 				"command": "textPowerTools.insertHexNumbers",
 				"category": "Text Power Tools",
-				"title": "Insert hex numbers"
+				"title": "Insert hex number sequence"
 			},
 			{
 				"command": "textPowerTools.insertHexNumbersStartingAt",
 				"category": "Text Power Tools",
-				"title": "Insert hex numbers starting at..."
+				"title": "Insert hex number sequence starting at..."
 			},
 			{
 				"command": "textPowerTools.insertHexNumbersWithIncrements",
 				"category": "Text Power Tools",
-				"title": "Insert hex numbers with custom increments"
+				"title": "Insert hex number sequence with custom increments"
 			},
 			{
 				"command": "textPowerTools.insertHexNumbersWithIncrementsStartingAt",
 				"category": "Text Power Tools",
-				"title": "Insert hex numbers with custom increments starting at..."
+				"title": "Insert hex number sequence with custom increments starting at..."
 			},
 			{
 				"command": "textPowerTools.insertLineNumbers",
