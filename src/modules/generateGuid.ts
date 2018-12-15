@@ -1,8 +1,8 @@
+import { v4 } from "node-uuid";
 import * as vscode from "vscode";
 import { NO_ACTIVE_EDITOR } from "../consts";
 import { getExtensionSettings } from "../helpers/tptSettings";
 import { getPureSelections, replaceLinesOfSelections } from "../helpers/vsCodeHelpers";
-import uuid = require("uuid");
 
 export enum  InsertNumbersNumberFormat {
 	Decimal,
@@ -29,7 +29,7 @@ export async function generateGuid(options: IGenerateGuidOptions) {
 
 export async function askForGuidCount(editor: vscode.TextEditor) {
 	vscode.window.showInputBox({
-		placeHolder: `Please enter how many GUIDs you want to generate`,
+		placeHolder: `Please enter how many GUIDs do you want to generate`,
 		value: "1",
 	}).then(async (rawGuidCount: string | undefined) => {
 		if (typeof rawGuidCount === "undefined") {
@@ -60,7 +60,7 @@ export async function generateGuidInternal(editor: vscode.TextEditor, guidCount:
 		replacesBySelection.push([]);
 
 		for (let i = 0; i < guidCount; i++) {
-			var guid = uuid.v4();
+			var guid = v4();
 			replacesBySelection[replacesBySelection.length - 1].push(
 				settings.insertUppercaseGuids ? guid.toUpperCase() : guid);
 		}

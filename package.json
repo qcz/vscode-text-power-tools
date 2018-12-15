@@ -9,7 +9,7 @@
 		"grep",
 		"utilities"
 	],
-	"version": "1.7.0",
+	"version": "1.7.1",
 	"publisher": "qcz",
 	"private": true,
 	"engines": {
@@ -319,12 +319,12 @@
 	"devDependencies": {
 		"@types/mocha": "^2.2.42",
 		"@types/node": "^7.0.43",
+		"@types/node-uuid": "0.0.28",
 		"tslint": "^5.8.0",
 		"typescript": "^2.6.1",
 		"vscode": "^1.1.24"
 	},
 	"dependencies": {
-		"@types/uuid": "^3.4.4",
 		"node-uuid": "^1.4.8"
 	}
 }
