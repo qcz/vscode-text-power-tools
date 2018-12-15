@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.7.1] - 2018-12-15
+- Fix missing node module error
+
 ## [1.7.0] - 2018-12-15
 - Added _Generate GUID_ commands
 
