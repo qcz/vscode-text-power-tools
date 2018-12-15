@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.7.0] - 2018-12-15
+- Added _Generate GUID_ commands
+
 ## [1.6.0] - 2018-12-14
 - Added _Format content as table_ commands
 - Improve naming of _Insert decimal number_/_Insert hex number_ commands
