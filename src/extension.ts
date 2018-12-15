@@ -2,7 +2,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from "vscode";
-import { ASK_SPLIT_CHARACTER_FROM_USER, countOccurrences, extractInfo, FilterSourceType, filterText, FilterType, formatContentAsTable, insertLineNumbers, insertNumbers, InsertNumbersNumberFormat, LineNumberType, pad, PadDirection, removeBlankLines, removeDuplicates } from "./modules";
+import { ASK_SPLIT_CHARACTER_FROM_USER, countOccurrences, extractInfo, FilterSourceType, filterText, FilterType, formatContentAsTable, insertLineNumbers, insertNumbers, InsertNumbersNumberFormat, LineNumberType, pad, PadDirection, removeBlankLines, removeDuplicates, generateGuid } from "./modules";
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -89,6 +89,11 @@ export function activate(context: vscode.ExtensionContext) {
 		formatContentAsTable({splitChar: "|", padAlignChar: true})));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.formatContentAsTableByCustomCharacterWithPadding", () =>
 		formatContentAsTable({splitChar: ASK_SPLIT_CHARACTER_FROM_USER, padAlignChar: true})));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateGuid", () =>
+		generateGuid({count: "single"})));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateMultipleGuids", () =>
+		generateGuid({count: "multiple"})));
+	
 }
 
 // this method is called when your extension is deactivated

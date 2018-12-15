@@ -7,8 +7,9 @@ Overview of features:
 * Extracting information from text using regular expressions, even into new editors
 * Remove duplicated lines and extra empty lines
 * Count occurrences of lines
-* Insert incrementing decimal and hex numbers
+* Insert decimal and hex number sequences
 * Insert line numbers
+* Generate GUIDs
 * Pad start and end of strings
 
 **Note:** Due to current architectural limitations of VSCode, no extension can access files larger than 50 Megabytes. Vote for [VSCode issue #31078](https://github.com/Microsoft/vscode/issues/31078), which once implemented, will allows this extension to work with these large files. In the meantime you can trick VSCode by opening a new file and copying the content of the large file there (without saving).
@@ -113,6 +114,12 @@ Pad the start or the end of selections to the desired length with default or cus
 | **Pad start with custom string** | Desired length, custom pad string | Pads the start of the selections to the desired length with the pad string provided by the user. | Supports multiple selections.
 | **Pad end with default string** | Desired length | Pads the end of the selections to the desired length with the default pad string. | Supports multiple selections.
 | **Pad end with custom string** | Desired length, custom pad string | Pads the end of the selections to the desired length with the pad string provided by the user. | Supports multiple selections.
+
+### Generate GUIDs
+Inserts GUIDs (globally unique identifiers or universally unique identifier) to the text. Mutiple GUIDs can be inserted at once. To insert GUIDs with uppercase hex characters, set the value of the `textPowerTools.insertUppercaseGuids` setting to `true`.
+
+| **Generate a GUID** | _none_ | Inserts a random GUID to the text. | Supports multiple selections.
+| **Generate multiple GUIDs** | How many GUIDs to generate | Inserts random GUIDs to the text. The number of random GUIDs is entered by the user. | Supports multiple selections.
 
 ## Requirements
 

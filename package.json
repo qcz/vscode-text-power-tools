@@ -1,7 +1,7 @@
 {
 	"name": "text-power-tools",
 	"displayName": "Text Power Tools",
-	"description": "Text manipulation tools: filtering (grep), removing lines, inserting number sequences, format content as table and more. Great for finding information in logs and manipulating text.",
+	"description": "Text manipulation tools: filtering (grep), remove lines, insert number sequences and GUIDs, format content as table and more. Great for finding information in logs and manipulating text.",
 	"keywords": [
 		"text",
 		"tools",
@@ -70,7 +70,9 @@
 		"onCommand:textPowerTools.formatContentAsTableByCustomCharacter",
 		"onCommand:textPowerTools.formatContentAsTableBySemicolonWithPadding",
 		"onCommand:textPowerTools.formatContentAsTableByPipeWithPadding",
-		"onCommand:textPowerTools.formatContentAsTableByCustomCharacterWithPadding"
+		"onCommand:textPowerTools.formatContentAsTableByCustomCharacterWithPadding",
+		"onCommand:textPowerTools.generateGuid",
+		"onCommand:textPowerTools.generateMultipleGuids"
 	],
 	"main": "./out/extension",
 	"contributes": {
@@ -269,6 +271,16 @@
 				"command": "textPowerTools.formatContentAsTableByCustomCharacterWithPadding",
 				"category": "Text Power Tools",
 				"title": "Format content as table using custom string as splitter (with padding)"
+			},
+			{
+				"command": "textPowerTools.generateGuid",
+				"category": "Text Power Tools",
+				"title": "Generate a GUID"
+			},
+			{
+				"command": "textPowerTools.generateMultipleGuids",
+				"category": "Text Power Tools",
+				"title": "Generate multiple GUIDs"
 			}
 		],
 		"configuration": {
@@ -288,6 +300,11 @@
 					"type": "boolean",
 					"default": true,
 					"description": "Insert uppercase hex numbers when using the 'Insert hex number' function."
+				},
+				"textPowerTools.insertUppercaseGuids": {
+					"type": "boolean",
+					"default": false,
+					"description": "Insert uppercase GUIDs when using the 'Generate a GUID' or 'Generate multiple GUIDs' functions."
 				}
 			}
 		}
@@ -306,5 +323,8 @@
 		"typescript": "^2.6.1",
 		"vscode": "^1.1.24"
 	},
-	"dependencies": {}
+	"dependencies": {
+		"@types/uuid": "^3.4.4",
+		"node-uuid": "^1.4.8"
+	}
 }
