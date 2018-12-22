@@ -117,10 +117,12 @@ Pad the start or the end of selections to the desired length with default or cus
 | **Pad end with custom string** | Desired length, custom pad string | Pads the end of the selections to the desired length with the pad string provided by the user. | Supports multiple selections.
 
 ### Generate GUIDs
-Inserts GUIDs (globally unique identifiers or universally unique identifier) to the text. Mutiple GUIDs can be inserted at once. To insert GUIDs with uppercase hex characters, set the value of the `textPowerTools.insertUppercaseGuids` setting to `true`.
+Inserts GUIDs (globally unique identifiers or universally unique identifier) to the text in the selected format. Mutiple GUIDs can be inserted at once. To insert GUIDs with uppercase hex characters, set the value of the `textPowerTools.insertUppercaseGuids` setting to `true`.
 
-| **Generate a GUID** | _none_ | Inserts a random GUID to the text. | Supports multiple selections.
-| **Generate multiple GUIDs** | How many GUIDs to generate | Inserts random GUIDs to the text. The number of random GUIDs is entered by the user. | Supports multiple selections.
+![GUID format selector](images/guidFormatSelector.png)
+
+| **Generate a GUID** | GUID format | Inserts a random GUID to the text. | Supports multiple selections.
+| **Generate multiple GUIDs** | GUID format, how many GUIDs to generate | Inserts random GUIDs to the text. The number of random GUIDs is entered by the user. | Supports multiple selections.
 
 ## Requirements
 
