@@ -47,6 +47,7 @@
 		"onCommand:textPowerTools.removeDuplicates",
 		"onCommand:textPowerTools.removeBlankLines",
 		"onCommand:textPowerTools.removeSurplusBlankLines",
+		"onCommand:textPowerTools.removeControlCharacters",
 		"onCommand:textPowerTools.insertDecimalNumbers",
 		"onCommand:textPowerTools.insertDecimalNumbersStartingAt",
 		"onCommand:textPowerTools.insertDecimalNumbersWithIncrements",
@@ -151,6 +152,11 @@
 				"command": "textPowerTools.removeSurplusBlankLines",
 				"category": "Text Power Tools",
 				"title": "Remove surplus blank lines"
+			},
+			{
+				"command": "textPowerTools.removeControlCharacters",
+				"category": "Text Power Tools",
+				"title": "Remove control characters"
 			},
 			{
 				"command": "textPowerTools.insertDecimalNumbers",

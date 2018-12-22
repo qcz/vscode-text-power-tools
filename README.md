@@ -57,13 +57,14 @@ The last 10 filter strings and replacement expressions are presented and can be 
 | **Count line occurrences** | _none_ | Counts line occurrences and transforms the selections/document to show the resuls. The result contains two columns, the line count and the actual line separated with a tabulator.
 | **Count line occurrences into a new editor** | _none_ | Counts line occurrences and creates a new document to show the resuls. The result contains two columns, the line count and the actual line separated with a tabulator.
 
-### Removing lines
+### Removing lines and content
 
 | Command | Input | Description | Selection support |
 | ------- | ----- | ----------- | ------------------|
 | **Remove duplicated lines** | _none_ | Removes all duplicates of lines, so only the first occurrence remains in the document or selections. | Supports multiple selections. Works on the full document if nothing selected.
 | **Remove blank lines** | _none_ | Removes all blank lines from the document or selections. | Supports multiple selections. Works on the full document if nothing selected.
 | **Remove surplus blank lines** | _none_ | Removes surplus blank lines if there are two or more are in the document or selections consecutively. | Supports multiple selections. Works on the full document if nothing selected.
+| **Remove control characters** | _none_ | Removes ASCII control characters from the text | Supports multiple selections. Works on the full document if nothing selected.
 
 ### Format content as table
 Format content as table by splitting text to pieces by predefined or custom characters or strings and formatting them as a table with equal length columns using space characters.

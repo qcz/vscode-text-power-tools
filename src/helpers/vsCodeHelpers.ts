@@ -69,6 +69,16 @@ export function sortSelectionsByPosition(selections: vscode.Selection[]) {
 	});
 }
 
+export async function replaceSelectionsWithText(editor: vscode.TextEditor, selections: vscode.Selection[],
+	contentBySelection: string[])
+{
+	editor.edit((editBuilder) => {
+		for (let i = 0; i < selections.length; i++) {
+			editBuilder.replace(selections[i], contentBySelection[i]);
+		}
+	});
+}
+
 export async function replaceSelectionsWithLines(editor: vscode.TextEditor, selections: vscode.Selection[],
 	contentBySelection: string[][], openNewDocument: boolean)
 {
