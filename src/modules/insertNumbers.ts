@@ -1,7 +1,7 @@
 import * as vscode from "vscode";
 import { NO_ACTIVE_EDITOR } from "../consts";
 import { getExtensionSettings } from "../helpers/tptSettings";
-import { getPureSelections, replaceLinesOfSelections, sortSelectionsByPosition } from "../helpers/vsCodeHelpers";
+import { getPureSelections, replaceSelectionsWithLines, sortSelectionsByPosition } from "../helpers/vsCodeHelpers";
 
 export enum  InsertNumbersNumberFormat {
 	Decimal,
@@ -109,5 +109,5 @@ export async function insertNumbersInternal(editor: vscode.TextEditor, numberFor
 		insertedNumber += increments;
 	}
 
-	await replaceLinesOfSelections(editor, selections, replacesBySelection, false);
+	await replaceSelectionsWithLines(editor, selections, replacesBySelection, false);
 }

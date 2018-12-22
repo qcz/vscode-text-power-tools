@@ -1,6 +1,6 @@
 import * as vscode from "vscode";
 import { NO_ACTIVE_EDITOR } from "../consts";
-import { getSelectionLines, getSelectionsOrFullDocument, replaceLinesOfSelections } from "../helpers/vsCodeHelpers";
+import { getSelectionLines, getSelectionsOrFullDocument, replaceSelectionsWithLines } from "../helpers/vsCodeHelpers";
 
 export enum  LineNumberType {
 	Real,
@@ -55,5 +55,5 @@ export async function insertLineNumbers(options: IInsertLineNumberCommandOptions
 		}
 	}
 
-	await replaceLinesOfSelections(editor, selections, replacedLinesBySelection, /*openInNewEditor:*/ false);
+	await replaceSelectionsWithLines(editor, selections, replacedLinesBySelection, /*openInNewEditor:*/ false);
 }

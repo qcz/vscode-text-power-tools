@@ -1,6 +1,6 @@
 import * as vscode from "vscode";
 import { getExtensionSettings } from "../helpers/tptSettings";
-import { getSelectionLines, getSelectionsOrFullDocument, replaceLinesOfSelections, showHistoryQuickPick } from "../helpers/vsCodeHelpers";
+import { getSelectionLines, getSelectionsOrFullDocument, replaceSelectionsWithLines, showHistoryQuickPick } from "../helpers/vsCodeHelpers";
 import { NO_ACTIVE_EDITOR } from "../consts";
 
 export enum FilterType {
@@ -70,7 +70,7 @@ export async function filterText(context: vscode.ExtensionContext, options: IFil
 				}
 			}
 
-			await replaceLinesOfSelections(editor, selections, matchingLinesBySelection, options.inNewEditor);
+			await replaceSelectionsWithLines(editor, selections, matchingLinesBySelection, options.inNewEditor);
 		}
 	});
 }

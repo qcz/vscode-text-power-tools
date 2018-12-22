@@ -1,5 +1,5 @@
 import * as vscode from "vscode";
-import { getSelectionLines, getSelectionsOrFullDocument, replaceLinesOfSelections } from "../helpers/vsCodeHelpers";
+import { getSelectionLines, getSelectionsOrFullDocument, replaceSelectionsWithLines } from "../helpers/vsCodeHelpers";
 import { NO_ACTIVE_EDITOR } from "../consts";
 
 interface ICountLinesCommandOptions {
@@ -43,5 +43,5 @@ export async function countOccurrences(options: ICountLinesCommandOptions) {
 		}
 	}
 
-	await replaceLinesOfSelections(editor, selections, linesBySelection, options.inNewEditor);
+	await replaceSelectionsWithLines(editor, selections, linesBySelection, options.inNewEditor);
 }

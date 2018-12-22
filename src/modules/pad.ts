@@ -1,7 +1,7 @@
 import * as vscode from "vscode";
 import { NO_ACTIVE_EDITOR } from "../consts";
 import { getExtensionSettings } from "../helpers/tptSettings";
-import { getPureSelections, getSelectionContent, replaceLinesOfSelections, sortSelectionsByPosition } from "../helpers/vsCodeHelpers";
+import { getPureSelections, getSelectionContent, replaceSelectionsWithLines, sortSelectionsByPosition } from "../helpers/vsCodeHelpers";
 
 export enum  PadDirection {
 	Start,
@@ -84,5 +84,5 @@ export async function padInternal(editor: vscode.TextEditor, direction: PadDirec
 		}
 	}
 
-	await replaceLinesOfSelections(editor, selections, replacesBySelection, false);
+	await replaceSelectionsWithLines(editor, selections, replacesBySelection, false);
 }

@@ -1,6 +1,6 @@
 import * as vscode from "vscode";
 import { getExtensionSettings } from "../helpers/tptSettings";
-import { getSelectionLines, getSelectionsOrFullDocument, replaceLinesOfSelections, showHistoryQuickPick } from "../helpers/vsCodeHelpers";
+import { getSelectionLines, getSelectionsOrFullDocument, replaceSelectionsWithLines, showHistoryQuickPick } from "../helpers/vsCodeHelpers";
 import { NO_ACTIVE_EDITOR } from "../consts";
 
 interface IExtractInfoCommandOptions {
@@ -60,7 +60,7 @@ export async function extractInfo(context: vscode.ExtensionContext, options: IEx
 						}
 					}
 
-					await replaceLinesOfSelections(editor, selections, matchingLinesBySelection, options.inNewEditor);
+					await replaceSelectionsWithLines(editor, selections, matchingLinesBySelection, options.inNewEditor);
 				}
 			});
 		}

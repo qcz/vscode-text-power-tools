@@ -1,6 +1,6 @@
 import * as vscode from "vscode";
 import { NO_ACTIVE_EDITOR } from "../consts";
-import { getSelectionLines, getSelectionsOrFullDocument, replaceLinesOfSelections } from "../helpers/vsCodeHelpers";
+import { getSelectionLines, getSelectionsOrFullDocument, replaceSelectionsWithLines } from "../helpers/vsCodeHelpers";
 
 export type ASK_SPLIT_CHARACTER_FROM_USER = 1;
 export const ASK_SPLIT_CHARACTER_FROM_USER = 1;
@@ -74,5 +74,5 @@ async function formatContentAsTableInternal(editor: vscode.TextEditor, alignChar
 		}
 	}
 
-	await replaceLinesOfSelections(editor, selections, replacedLinesBySelection, /*openInNewEditor:*/ false);
+	await replaceSelectionsWithLines(editor, selections, replacedLinesBySelection, /*openInNewEditor:*/ false);
 }

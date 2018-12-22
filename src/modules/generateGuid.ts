@@ -2,7 +2,7 @@ import { v4 } from "node-uuid";
 import * as vscode from "vscode";
 import { NO_ACTIVE_EDITOR } from "../consts";
 import { getExtensionSettings } from "../helpers/tptSettings";
-import { getPureSelections, replaceLinesOfSelections } from "../helpers/vsCodeHelpers";
+import { getPureSelections, replaceSelectionsWithLines } from "../helpers/vsCodeHelpers";
 
 export enum  InsertNumbersNumberFormat {
 	Decimal,
@@ -66,5 +66,5 @@ export async function generateGuidInternal(editor: vscode.TextEditor, guidCount:
 		}
 	}
 
-	await replaceLinesOfSelections(editor, selections, replacesBySelection, false);
+	await replaceSelectionsWithLines(editor, selections, replacesBySelection, false);
 }
