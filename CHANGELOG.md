@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.8.0] - 2018-12-22
+- Added _Remove control characters_ command
+- Added additional output formats for the _Generate GUID_ command (eg. without dashes, with braces)
+
 ## [1.7.1] - 2018-12-15
 - Fix missing node module error
 
