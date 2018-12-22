@@ -16,7 +16,7 @@ interface IGenerateGuidOptions {
 const FORMAT_NO_DASHES = "No dashes";
 const FORMAT_DASHES = "Dashes";
 const FORMAT_DASHES_AND_BRACES = "Dashes and braces";
-const FORMAT_CSHARP = "C# Guid contructor";
+const FORMAT_CSHARP = "C# Guid constructor";
 
 export async function generateGuid(options: IGenerateGuidOptions) {
 	const editor = vscode.window.activeTextEditor;
@@ -98,7 +98,7 @@ export async function generateGuidInternal(editor: vscode.TextEditor, type: stri
 
 		for (let i = 0; i < guidCount; i++) {
 			let guid = v4();
-			
+
 			if (settings.insertUppercaseGuids) {
 				guid = guid.toUpperCase();
 			}
