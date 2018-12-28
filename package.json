@@ -1,7 +1,7 @@
 {
 	"name": "text-power-tools",
 	"displayName": "Text Power Tools",
-	"description": "Text manipulation tools: filtering (grep), remove lines, insert number sequences and GUIDs, format content as table and more. Great for finding information in logs and manipulating text.",
+	"description": "Text manipulation tools: filtering (grep), remove lines, insert number sequences and GUIDs, format content as table, change case and more. Great for finding information in logs and manipulating text.",
 	"keywords": [
 		"text",
 		"tools",
@@ -73,7 +73,14 @@
 		"onCommand:textPowerTools.formatContentAsTableByPipeWithPadding",
 		"onCommand:textPowerTools.formatContentAsTableByCustomCharacterWithPadding",
 		"onCommand:textPowerTools.generateGuid",
-		"onCommand:textPowerTools.generateMultipleGuids"
+		"onCommand:textPowerTools.generateMultipleGuids",
+		"onCommand:textPowerTools.changeCaseToCamelCase",
+		"onCommand:textPowerTools.changeCaseToPascalCase",
+		"onCommand:textPowerTools.changeCaseToSnakeCase",
+		"onCommand:textPowerTools.changeCaseToDashCase",
+		"onCommand:textPowerTools.changeCaseToConstantCase",
+		"onCommand:textPowerTools.changeCaseToDotCase",
+		"onCommand:textPowerTools.changeCaseToSwapCase"
 	],
 	"main": "./out/extension",
 	"contributes": {
@@ -287,6 +294,41 @@
 				"command": "textPowerTools.generateMultipleGuids",
 				"category": "Text Power Tools",
 				"title": "Generate multiple GUIDs"
+			},
+			{
+				"command": "textPowerTools.changeCaseToCamelCase",
+				"category": "Text Power Tools",
+				"title": "Change case to camel case (camelCase)"
+			},
+			{
+				"command": "textPowerTools.changeCaseToPascalCase",
+				"category": "Text Power Tools",
+				"title": "Change case to Pascal case (PascalCase)"
+			},
+			{
+				"command": "textPowerTools.changeCaseToSnakeCase",
+				"category": "Text Power Tools",
+				"title": "Change case to snake case (snake_case)"
+			},
+			{
+				"command": "textPowerTools.changeCaseToDashCase",
+				"category": "Text Power Tools",
+				"title": "Change case to dash case (dash-case)"
+			},
+			{
+				"command": "textPowerTools.changeCaseToConstantCase",
+				"category": "Text Power Tools",
+				"title": "Change case to to constant case (CONSTANT_CASE)"
+			},
+			{
+				"command": "textPowerTools.changeCaseToDotCase",
+				"category": "Text Power Tools",
+				"title": "Change text case to dot case (dot.case)"
+			},
+			{
+				"command": "textPowerTools.changeCaseToSwapCase",
+				"category": "Text Power Tools",
+				"title": "Swap text case"
 			}
 		],
 		"configuration": {
@@ -331,6 +373,7 @@
 		"vscode": "^1.1.24"
 	},
 	"dependencies": {
+		"change-case": "^3.0.2",
 		"node-uuid": "^1.4.8"
 	}
 }

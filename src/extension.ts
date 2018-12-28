@@ -2,7 +2,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from "vscode";
-import { ASK_SPLIT_CHARACTER_FROM_USER, countOccurrences, extractInfo, FilterSourceType, filterText, FilterType, formatContentAsTable, generateGuid, insertLineNumbers, insertNumbers, InsertNumbersNumberFormat, LineNumberType, pad, PadDirection, removeBlankLines, removeControlCharacters, removeDuplicates } from "./modules";
+import { ASK_SPLIT_CHARACTER_FROM_USER, changeCase, ChangeCaseType, countOccurrences, extractInfo, FilterSourceType, filterText, FilterType, formatContentAsTable, generateGuid, insertLineNumbers, insertNumbers, InsertNumbersNumberFormat, LineNumberType, pad, PadDirection, removeBlankLines, removeControlCharacters, removeDuplicates } from "./modules";
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -95,7 +95,20 @@ export function activate(context: vscode.ExtensionContext) {
 		generateGuid({count: "single"})));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateMultipleGuids", () =>
 		generateGuid({count: "multiple"})));
-	
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.changeCaseToCamelCase", () =>
+		changeCase({ type: ChangeCaseType.CamelCase })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.changeCaseToPascalCase", () =>
+		changeCase({ type: ChangeCaseType.PascalCase })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.changeCaseToSnakeCase", () =>
+		changeCase({ type: ChangeCaseType.SnakeCase })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.changeCaseToDashCase", () =>
+		changeCase({ type: ChangeCaseType.DashCase })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.changeCaseToConstantCase", () =>
+		changeCase({ type: ChangeCaseType.ConstantCase })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.changeCaseToDotCase", () =>
+		changeCase({ type: ChangeCaseType.DotCase })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.changeCaseToSwapCase", () =>
+		changeCase({ type: ChangeCaseType.SwapCase })));
 }
 
 // this method is called when your extension is deactivated

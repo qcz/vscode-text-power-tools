@@ -10,6 +10,7 @@ Overview of features:
 * Insert decimal and hex number sequences
 * Insert line numbers
 * Generate GUIDs
+* Change case of text (camelCase, PascalCase, snake_case, CONSTANT_CASE, dash-case, dot.case) and swap casing
 * Pad start and end of strings
 
 **Note:** Due to current architectural limitations of VSCode, no extension can access files larger than 50 Megabytes. Vote for [VSCode issue #31078](https://github.com/Microsoft/vscode/issues/31078), which once implemented, will allows this extension to work with these large files. In the meantime you can trick VSCode by opening a new file and copying the content of the large file there (without saving).
@@ -105,6 +106,20 @@ Inserts line numbers to the start of each line in every selection. Line numbers 
 | **Insert fixed length line numbers** | _none_ | Inserts line numbers to the start of each line in every selection padded with zeros to the length of the largest number inserted. | Supports multiple selections.
 | **Insert line numbers starting with 1** | _none_ | Inserts line numbers to the start of each line in every selection starting with 1. | Supports multiple selections.
 | **Insert fixed length line numbers starting with 1** | _none_ | Inserts line numbers to the start of each line in every selection starting with padded with zeros to the length of the largest number inserted. | Supports multiple selections. | Supports multiple selections.
+
+### Change case
+Change the case of the selected text.
+
+| Command | Input | Description | Selection support |
+| ------- | ----- | ----------- | ------------------|
+| **Change text case to camel case (camelCase)** | _none_ | Changes the case of the text to camel case (camelCase). | Supports multiple selections.
+| **Change text case to Pascal case (PascalCase)** | _none_ | Changes the case of the text to Pascal case (PascalCase). | Supports multiple selections.
+| **Change text case to Pascal case (PascalCase)** | _none_ | Changes the case of the text to Pascal case (PascalCase). | Supports multiple selections.
+| **Change text case to snake case (snake_case)** | _none_ | Changes the case of the text to snake case (snake_case). | Supports multiple selections.
+| **Change text case to dash case (dash-case)** | _none_ | Changes the case of the text to dash case (dash-case). | Supports multiple selections.
+| **Change text case to constant case (CONSTANT_CASE)** | _none_ | Changes the case of the text to constant case (CONSTANT_CASE). | Supports multiple selections.
+| **Change text case to dot case (dot.case)** | _none_ | Changes the case of the text to dot case (dot.case). | Supports multiple selections.
+| **Swap text case** | _none_ | Swaps the case of the currently selected text. | Supports multiple selections.
 
 ### Pad strings
 Pad the start or the end of selections to the desired length with default or custom strings. The default pad string can be customized with the `textPowerTools.defaultPadString` setting.

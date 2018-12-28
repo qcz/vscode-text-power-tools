@@ -1,3 +1,4 @@
+export { changeCase, ChangeCaseType } from "./changeCase";
 export { countOccurrences } from "./countOccurrences";
 export { extractInfo } from "./extractInfo";
 export { FilterSourceType, filterText, FilterType } from "./filterText";
