@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.9.0] - 2018-12-28
+- Added change case commands (camelCase, PascalCase, snake_case, CONSTANT_CASE, dash-case, dot.case, swap case)
+
 ## [1.8.0] - 2018-12-22
 - Added _Remove control characters_ command
 - Added additional output formats for the _Generate GUID_ command (eg. without dashes, with braces)
