@@ -1,46 +1,46 @@
 # Changelog
 
-## [1.9.1] - 2019-01-03
+## **1.9.1** (2019. 01. 03.)
 - Fix _Generate Guid_ command descriptions
 
-## [1.9.0] - 2018-12-28
+## **1.9.0** (2018. 12. 28.)
 - Added change case commands (camelCase, PascalCase, snake_case, CONSTANT_CASE, dash-case, dot.case, swap case)
 
-## [1.8.0] - 2018-12-22
+## **1.8.0** (2018. 12. 22.)
 - Added _Remove control characters_ command
 - Added additional output formats for the _Generate GUID_ command (eg. without dashes, with braces)
 
-## [1.7.1] - 2018-12-15
+## **1.7.1** (2018. 12. 15.)
 - Fix missing node module error
 
-## [1.7.0] - 2018-12-15
+## **1.7.0** (2018. 12. 15.)
 - Added _Generate GUID_ commands
 
-## [1.6.0] - 2018-12-14
+## **1.6.0** (2018. 12. 14.)
 - Added _Format content as table_ commands
 - Improve naming of _Insert decimal number_/_Insert hex number_ commands
 
-## [1.5.0] - 2018-12-09
+## **1.5.0** (2018. 12. 09.)
 - Added _Insert line number_ commands
 
-## [1.4.0] - 2018-11-24
+## **1.4.0** (2018. 11. 24.)
 - Added _Pad start_/_Pad end_ commands
 
-## [1.3.0] - 2018-11-11
+## **1.3.0** (2018. 11. 11.)
 - Added _Insert decimal number_/_Insert hex number_ commands
 
-## [1.2.1] - 2018-09-18
+## **1.2.1** (2018. 09. 18.)
 - Fix minimum supported version of VS Code in README.
 - Fix Sublime plugin reference in README.
 
-## [1.2.0] - 2018-09-13
+## **1.2.0** (2018. 09. 13.)
 - Add history support for Filter text and Extract information commands.
 - Clarify message displayed when there are no active editors to point out that the opened file may
   be too large.
 
-## [1.1.0] - 2018-08-07
+## **1.1.0** (2018. 08. 07.)
 - Added _Extract information_ commands.
 - Added _Count occurrences_ commands.
 
-## [1.0.0] - 2018-08-05
+## **1.0.0** (2018. 08. 05.)
 - Initial release.
