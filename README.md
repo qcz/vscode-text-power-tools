@@ -136,6 +136,8 @@ Inserts GUIDs (globally unique identifiers or universally unique identifier) to 
 
 ![GUID format selector](images/guidFormatSelector.png)
 
+| Command | Input | Description | Selection support |
+| ------- | ----- | ----------- | ------------------|
 | **Generate a GUID** | GUID format | Inserts a random GUID to the text. | Supports multiple selections.
 | **Generate multiple GUIDs** | GUID format, how many GUIDs to generate | Inserts random GUIDs to the text. The number of random GUIDs is entered by the user. | Supports multiple selections.
 

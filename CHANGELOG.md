@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.9.1] - 2019-01-03
+- Fix _Generate Guid_ command descriptions
+
 ## [1.9.0] - 2018-12-28
 - Added change case commands (camelCase, PascalCase, snake_case, CONSTANT_CASE, dash-case, dot.case, swap case)
 
