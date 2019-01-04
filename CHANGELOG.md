@@ -1,5 +1,8 @@
 # Changelog
 
+## **1.10.0** (2019. 01. 04.)
+- Add _Copy content of selections to a new editor_ command
+
 ## **1.9.1** (2019. 01. 03.)
 - Fix _Generate Guid_ command descriptions
 

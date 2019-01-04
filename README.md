@@ -12,6 +12,7 @@ Overview of features:
 * Generate GUIDs
 * Change case of text (camelCase, PascalCase, snake_case, CONSTANT_CASE, dash-case, dot.case) and swap casing
 * Pad start and end of strings
+* Copy content of selections to a new editor
 
 **Note:** Due to current architectural limitations of VSCode, no extension can access files larger than 50 Megabytes. Vote for [VSCode issue #31078](https://github.com/Microsoft/vscode/issues/31078), which once implemented, will allows this extension to work with these large files. In the meantime you can trick VSCode by opening a new file and copying the content of the large file there (without saving).
 
@@ -140,6 +141,12 @@ Inserts GUIDs (globally unique identifiers or universally unique identifier) to 
 | ------- | ----- | ----------- | ------------------|
 | **Generate a GUID** | GUID format | Inserts a random GUID to the text. | Supports multiple selections.
 | **Generate multiple GUIDs** | GUID format, how many GUIDs to generate | Inserts random GUIDs to the text. The number of random GUIDs is entered by the user. | Supports multiple selections.
+
+### Other
+
+| Command | Input | Description | Selection support |
+| ------- | ----- | ----------- | ------------------|
+| **Copy content of selections to a new editor** | _none_ | Copy the content of all selections to a new editor.
 
 ## Requirements
 

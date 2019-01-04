@@ -9,7 +9,7 @@
 		"grep",
 		"utilities"
 	],
-	"version": "1.9.1",
+	"version": "1.10.0",
 	"publisher": "qcz",
 	"private": true,
 	"engines": {
@@ -80,7 +80,8 @@
 		"onCommand:textPowerTools.changeCaseToDashCase",
 		"onCommand:textPowerTools.changeCaseToConstantCase",
 		"onCommand:textPowerTools.changeCaseToDotCase",
-		"onCommand:textPowerTools.changeCaseToSwapCase"
+		"onCommand:textPowerTools.changeCaseToSwapCase",
+		"onCommand:textPowerTools.copySelectionsToNewEditor"
 	],
 	"main": "./out/extension",
 	"contributes": {
@@ -329,6 +330,11 @@
 				"command": "textPowerTools.changeCaseToSwapCase",
 				"category": "Text Power Tools",
 				"title": "Swap text case"
+			},
+			{
+				"command": "textPowerTools.copySelectionsToNewEditor",
+				"category": "Text Power Tools",
+				"title": "Copy content of selections to a new editor"
 			}
 		],
 		"configuration": {

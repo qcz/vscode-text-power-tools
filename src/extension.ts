@@ -2,7 +2,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from "vscode";
-import { ASK_SPLIT_CHARACTER_FROM_USER, changeCase, ChangeCaseType, countOccurrences, extractInfo, FilterSourceType, filterText, FilterType, formatContentAsTable, generateGuid, insertLineNumbers, insertNumbers, InsertNumbersNumberFormat, LineNumberType, pad, PadDirection, removeBlankLines, removeControlCharacters, removeDuplicates } from "./modules";
+import { ASK_SPLIT_CHARACTER_FROM_USER, changeCase, ChangeCaseType, copySelectionsToNewEditor, countOccurrences, extractInfo, FilterSourceType, filterText, FilterType, formatContentAsTable, generateGuid, insertLineNumbers, insertNumbers, InsertNumbersNumberFormat, LineNumberType, pad, PadDirection, removeBlankLines, removeControlCharacters, removeDuplicates } from "./modules";
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -109,6 +109,8 @@ export function activate(context: vscode.ExtensionContext) {
 		changeCase({ type: ChangeCaseType.DotCase })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.changeCaseToSwapCase", () =>
 		changeCase({ type: ChangeCaseType.SwapCase })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.copySelectionsToNewEditor", () =>
+		copySelectionsToNewEditor()));
 }
 
 // this method is called when your extension is deactivated

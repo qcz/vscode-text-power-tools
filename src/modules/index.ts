@@ -1,4 +1,5 @@
 export { changeCase, ChangeCaseType } from "./changeCase";
+export { copySelectionsToNewEditor } from "./copySelectionsToNewEditor";
 export { countOccurrences } from "./countOccurrences";
 export { extractInfo } from "./extractInfo";
 export { FilterSourceType, filterText, FilterType } from "./filterText";
