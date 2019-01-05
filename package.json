@@ -7,7 +7,9 @@
 		"tools",
 		"logs",
 		"grep",
-		"utilities"
+		"utilities",
+		"case",
+		"TextFX"
 	],
 	"version": "1.10.0",
 	"publisher": "qcz",
