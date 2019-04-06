@@ -147,6 +147,8 @@ Inserts GUIDs (globally unique identifiers or universally unique identifier) to 
 | Command | Input | Description | Selection support |
 | ------- | ----- | ----------- | ------------------|
 | **Copy content of selections to a new editor** | _none_ | Copy the content of all selections to a new editor.
+| **Convert decimal numbers to hexadecimal** | _none_ | Convert all selected numbers from decimal to hexadecimal. Works with individually selected numbers or with one single number by line.
+| **Convert hexadecimal numbers to decimal** | _none_ | Convert all selected numbers from hexadecimal to decimal. Works with individually selected numbers or with one single number by line.
 
 ## Requirements
 

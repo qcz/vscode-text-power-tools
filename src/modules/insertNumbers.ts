@@ -2,14 +2,10 @@ import * as vscode from "vscode";
 import { NO_ACTIVE_EDITOR } from "../consts";
 import { getExtensionSettings } from "../helpers/tptSettings";
 import { getPureSelections, replaceSelectionsWithLines, sortSelectionsByPosition } from "../helpers/vsCodeHelpers";
-
-export enum  InsertNumbersNumberFormat {
-	Decimal,
-	Hex,
-}
+import { NumeralSystem } from "../interfaces";
 
 interface InsertNumbersOptions {
-	numberFormat: InsertNumbersNumberFormat;
+	numberFormat: NumeralSystem;
 	askForIncrements: boolean;
 	askForStartingNumber: boolean;
 }
@@ -31,7 +27,7 @@ export async function insertNumbers(options: InsertNumbersOptions) {
 }
 
 export async function askForStartingNumber(editor: vscode.TextEditor, options: InsertNumbersOptions) {
-	const numberType = options.numberFormat === InsertNumbersNumberFormat.Decimal ? "decimal" : "hex";
+	const numberType = options.numberFormat === NumeralSystem.Decimal ? "decimal" : "hex";
 
 	vscode.window.showInputBox({
 		placeHolder: `Please enter the starting number in ${numberType} format`,
@@ -46,7 +42,7 @@ export async function askForStartingNumber(editor: vscode.TextEditor, options: I
 			return;
 		}
 
-		const startingNumber = Number.parseInt(filter, options.numberFormat === InsertNumbersNumberFormat.Decimal ? 10 : 16);
+		const startingNumber = Number.parseInt(filter, options.numberFormat === NumeralSystem.Decimal ? 10 : 16);
 		if (isNaN(startingNumber)) {
 			vscode.window.showErrorMessage(`The entered starting number is not a valid ${numberType} number.`);
 			return;
@@ -60,8 +56,8 @@ export async function askForStartingNumber(editor: vscode.TextEditor, options: I
 	});
 }
 
-export async function askForIncrements(editor: vscode.TextEditor, numberFormat: InsertNumbersNumberFormat, startingNumber: number) {
-	const numberType = numberFormat === InsertNumbersNumberFormat.Decimal ? "decimal" : "hex";
+export async function askForIncrements(editor: vscode.TextEditor, numberFormat: NumeralSystem, startingNumber: number) {
+	const numberType = numberFormat === NumeralSystem.Decimal ? "decimal" : "hex";
 
 	vscode.window.showInputBox({
 		placeHolder: `Please enter the number to increment by in ${numberType} format`,
@@ -76,7 +72,7 @@ export async function askForIncrements(editor: vscode.TextEditor, numberFormat: 
 			return;
 		}
 
-		const increments = Number.parseInt(filter, numberFormat === InsertNumbersNumberFormat.Decimal ? 10 : 16);
+		const increments = Number.parseInt(filter, numberFormat === NumeralSystem.Decimal ? 10 : 16);
 		if (isNaN(increments)) {
 			vscode.window.showErrorMessage(`The entered number to increment by is not a valid ${numberType} number.`);
 			return;
@@ -87,7 +83,7 @@ export async function askForIncrements(editor: vscode.TextEditor, numberFormat: 
 }
 
 
-export async function insertNumbersInternal(editor: vscode.TextEditor, numberFormat: InsertNumbersNumberFormat, increments: number, startingNumber: number) {
+export async function insertNumbersInternal(editor: vscode.TextEditor, numberFormat: NumeralSystem, increments: number, startingNumber: number) {
 	const settings = getExtensionSettings();
 	const replacesBySelection: string[][] = [];
 	const selections = getPureSelections(editor);
@@ -95,7 +91,7 @@ export async function insertNumbersInternal(editor: vscode.TextEditor, numberFor
 	
 	let insertedNumber: number = startingNumber;
 	for (let i = 0, len = selections.length; i < len; i++) {
-		if (numberFormat === InsertNumbersNumberFormat.Hex) {
+		if (numberFormat === NumeralSystem.Hexadecimal) {
 			let insertedString = insertedNumber.toString(16);
 			if (settings.insertUppercaseHexNumbers) {
 				insertedString = insertedString.toLocaleUpperCase();

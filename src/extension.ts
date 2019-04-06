@@ -2,7 +2,8 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from "vscode";
-import { ASK_SPLIT_CHARACTER_FROM_USER, changeCase, ChangeCaseType, copySelectionsToNewEditor, countOccurrences, extractInfo, FilterSourceType, filterText, FilterType, formatContentAsTable, generateGuid, insertLineNumbers, insertNumbers, InsertNumbersNumberFormat, LineNumberType, pad, PadDirection, removeBlankLines, removeControlCharacters, removeDuplicates } from "./modules";
+import { NumeralSystem } from "./interfaces";
+import { ASK_SPLIT_CHARACTER_FROM_USER, changeCase, ChangeCaseType, convertNumbers, copySelectionsToNewEditor, countOccurrences, extractInfo, FilterSourceType, filterText, FilterType, formatContentAsTable, generateGuid, insertLineNumbers, insertNumbers, LineNumberType, pad, PadDirection, removeBlankLines, removeControlCharacters, removeDuplicates } from "./modules";
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -44,21 +45,21 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.removeControlCharacters", () =>
 		removeControlCharacters()));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertDecimalNumbers", () =>
-		insertNumbers({ numberFormat: InsertNumbersNumberFormat.Decimal, askForIncrements: false, askForStartingNumber: false })));
+		insertNumbers({ numberFormat: NumeralSystem.Decimal, askForIncrements: false, askForStartingNumber: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertDecimalNumbersStartingAt", () =>
-		insertNumbers({ numberFormat: InsertNumbersNumberFormat.Decimal, askForIncrements: false, askForStartingNumber: true })));
+		insertNumbers({ numberFormat: NumeralSystem.Decimal, askForIncrements: false, askForStartingNumber: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertDecimalNumbersWithIncrements", () =>
-		insertNumbers({ numberFormat: InsertNumbersNumberFormat.Decimal, askForIncrements: true, askForStartingNumber: false })));
+		insertNumbers({ numberFormat: NumeralSystem.Decimal, askForIncrements: true, askForStartingNumber: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertDecimalNumbersWithIncrementsStartingAt", () =>
-		insertNumbers({ numberFormat: InsertNumbersNumberFormat.Decimal, askForIncrements: true, askForStartingNumber: true })));
+		insertNumbers({ numberFormat: NumeralSystem.Decimal, askForIncrements: true, askForStartingNumber: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertHexNumbers", () =>
-		insertNumbers({ numberFormat: InsertNumbersNumberFormat.Hex, askForIncrements: false, askForStartingNumber: false })));
+		insertNumbers({ numberFormat: NumeralSystem.Hexadecimal, askForIncrements: false, askForStartingNumber: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertHexNumbersStartingAt", () =>
-		insertNumbers({ numberFormat: InsertNumbersNumberFormat.Hex, askForIncrements: false, askForStartingNumber: true })));
+		insertNumbers({ numberFormat: NumeralSystem.Hexadecimal, askForIncrements: false, askForStartingNumber: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertHexNumbersWithIncrements", () =>
-		insertNumbers({ numberFormat: InsertNumbersNumberFormat.Hex, askForIncrements: true, askForStartingNumber: false })));
+		insertNumbers({ numberFormat: NumeralSystem.Hexadecimal, askForIncrements: true, askForStartingNumber: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertHexNumbersWithIncrementsStartingAt", () =>
-		insertNumbers({ numberFormat: InsertNumbersNumberFormat.Hex, askForIncrements: true, askForStartingNumber: true })));
+		insertNumbers({ numberFormat: NumeralSystem.Hexadecimal, askForIncrements: true, askForStartingNumber: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertLineNumbers", () =>
 		insertLineNumbers({ type: LineNumberType.Real, padWithZero: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertLineNumbersFixedLength", () =>
@@ -111,6 +112,10 @@ export function activate(context: vscode.ExtensionContext) {
 		changeCase({ type: ChangeCaseType.SwapCase })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.copySelectionsToNewEditor", () =>
 		copySelectionsToNewEditor()));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.convertHexadecimalNumbersToDecimal", () =>
+		convertNumbers({ target: NumeralSystem.Decimal })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.convertDecimalNumbersToHexadecimal", () =>
+		convertNumbers({ target: NumeralSystem.Hexadecimal })));
 }
 
 // this method is called when your extension is deactivated

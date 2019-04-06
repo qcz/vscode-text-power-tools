@@ -1,5 +1,8 @@
 # Changelog
 
+## **1.11.0** (2019. 04. 06.)
+- Add _Convert selected hexadecimal numbers to decimal_ and Convert selected decimal numbers to hexadecimal_ commands.
+
 ## **1.10.0** (2019. 01. 04.)
 - Add _Copy content of selections to a new editor_ command
 

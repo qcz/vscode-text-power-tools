@@ -1,7 +1,7 @@
 {
 	"name": "text-power-tools",
 	"displayName": "Text Power Tools",
-	"description": "Text manipulation tools: filtering (grep), remove lines, insert number sequences and GUIDs, format content as table, change case and more. Great for finding information in logs and manipulating text.",
+	"description": "Text manipulation tools: filtering (grep), remove lines, insert number sequences and GUIDs, format content as table, change case, converting numbers and more. Great for finding information in logs and manipulating text.",
 	"keywords": [
 		"text",
 		"tools",
@@ -9,9 +9,11 @@
 		"grep",
 		"utilities",
 		"case",
-		"TextFX"
+		"TextFX",
+		"converter",
+		"converting"
 	],
-	"version": "1.10.0",
+	"version": "1.11.0",
 	"publisher": "qcz",
 	"private": true,
 	"engines": {
@@ -83,7 +85,9 @@
 		"onCommand:textPowerTools.changeCaseToConstantCase",
 		"onCommand:textPowerTools.changeCaseToDotCase",
 		"onCommand:textPowerTools.changeCaseToSwapCase",
-		"onCommand:textPowerTools.copySelectionsToNewEditor"
+		"onCommand:textPowerTools.copySelectionsToNewEditor",
+		"onCommand:textPowerTools.convertDecimalNumbersToHexadecimal",
+		"onCommand:textPowerTools.convertHexadecimalNumbersToDecimal"
 	],
 	"main": "./out/extension",
 	"contributes": {
@@ -337,6 +341,16 @@
 				"command": "textPowerTools.copySelectionsToNewEditor",
 				"category": "Text Power Tools",
 				"title": "Copy content of selections to a new editor"
+			},
+			{
+				"command": "textPowerTools.convertHexadecimalNumbersToDecimal",
+				"category": "Text Power Tools",
+				"title": "Convert selected hexadecimal numbers to decimal"
+			},
+			{
+				"command": "textPowerTools.convertDecimalNumbersToHexadecimal",
+				"category": "Text Power Tools",
+				"title": "Convert selected decimal numbers to hexadecimal"
 			}
 		],
 		"configuration": {
@@ -355,7 +369,7 @@
 				"textPowerTools.insertUppercaseHexNumbers": {
 					"type": "boolean",
 					"default": true,
-					"description": "Insert uppercase hex numbers when using the 'Insert hex number' function."
+					"description": "Insert uppercase hex numbers when using the 'Insert hex number' and other numeric functions."
 				},
 				"textPowerTools.insertUppercaseGuids": {
 					"type": "boolean",
