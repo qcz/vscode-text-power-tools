@@ -1,5 +1,8 @@
 # Changelog
 
+## **1.11.1** (2019. 04. 06.)
+- Small changes to README.
+
 ## **1.11.0** (2019. 04. 06.)
 - Add _Convert selected hexadecimal numbers to decimal_ and Convert selected decimal numbers to hexadecimal_ commands.
 

@@ -13,6 +13,7 @@ Overview of features:
 * Change case of text (camelCase, PascalCase, snake_case, CONSTANT_CASE, dash-case, dot.case) and swap casing
 * Pad start and end of strings
 * Copy content of selections to a new editor
+* Converting numbers from decimal to hexadecimal and vice versa
 
 **Note:** Due to current architectural limitations of VSCode, no extension can access files larger than 50 Megabytes. Vote for [VSCode issue #31078](https://github.com/Microsoft/vscode/issues/31078), which once implemented, will allows this extension to work with these large files. In the meantime you can trick VSCode by opening a new file and copying the content of the large file there (without saving).
 
