@@ -13,6 +13,13 @@ interface IGenerateGuidOptions {
 	count: "single" | "multiple";
 }
 
+type GeneratedGuidType = "noDashes" | "dashes" | "dashesAndBraces" | "cSharpGuidConstructor";
+const KNOWN_GUID_TYPES: GeneratedGuidType[] = ["noDashes", "dashes", "dashesAndBraces", "cSharpGuidConstructor"];
+
+interface GuidTypeQuickPickItem extends vscode.QuickPickItem {
+	type: GeneratedGuidType;
+}
+
 const FORMAT_NO_DASHES = "No dashes";
 const FORMAT_DASHES = "Dashes";
 const FORMAT_DASHES_AND_BRACES = "Dashes and braces";
@@ -25,7 +32,13 @@ export async function runGenerateGuidCommand(options: IGenerateGuidOptions) {
 		return;
 	}
 
-	askForGuidFormat(editor, options);
+	const settings = getExtensionSettings();
+	const settingAsGuidType = settings.defaultGuidType as GeneratedGuidType;
+	if (KNOWN_GUID_TYPES.indexOf(settingAsGuidType) !== -1) {
+		runAskForGuidCountOrGuidGeneration(options, editor, settingAsGuidType);
+	} else {
+		askForGuidFormat(editor, options);
+	}
 }
 
 export async function askForGuidFormat(editor: vscode.TextEditor, options: IGenerateGuidOptions) {
@@ -35,12 +48,12 @@ export async function askForGuidFormat(editor: vscode.TextEditor, options: IGene
 		sampleGuid = sampleGuid.toUpperCase();
 	}
 	
-	const qp = vscode.window.createQuickPick();
+	const qp = vscode.window.createQuickPick<GuidTypeQuickPickItem>();
 	qp.items = [
-		{ label: FORMAT_NO_DASHES, description: sampleGuid.replace(/[-]/g, "") },
-		{ label: FORMAT_DASHES, description: sampleGuid },
-		{ label: FORMAT_DASHES_AND_BRACES, description: `{${sampleGuid}}` },
-		{ label: FORMAT_CSHARP, description: `new Guid("${sampleGuid}");` }
+		{ label: FORMAT_DASHES, description: sampleGuid, type: "dashes" },
+		{ label: FORMAT_NO_DASHES, description: sampleGuid.replace(/[-]/g, ""), type: "noDashes" },
+		{ label: FORMAT_DASHES_AND_BRACES, description: `{${sampleGuid}}`, type: "dashesAndBraces" },
+		{ label: FORMAT_CSHARP, description: `new Guid("${sampleGuid}");`, type: "cSharpGuidConstructor" }
 	];
 
 	qp.onDidAccept(() => {
@@ -48,13 +61,8 @@ export async function askForGuidFormat(editor: vscode.TextEditor, options: IGene
 			return;
 		}
 		
-		const selectedType = qp.activeItems[0].label;
-
-		if (options.count === "multiple") {
-			askForGuidCount(editor, selectedType);
-		} else {
-			generateGuidInternal(editor, selectedType, 1);
-		}
+		const selectedType = qp.activeItems[0].type;
+		runAskForGuidCountOrGuidGeneration(options, editor, selectedType);
 
 		qp.hide();
 		qp.dispose();
@@ -62,7 +70,15 @@ export async function askForGuidFormat(editor: vscode.TextEditor, options: IGene
 	qp.show();
 }
 
-export async function askForGuidCount(editor: vscode.TextEditor, type: string) {
+function runAskForGuidCountOrGuidGeneration(options: IGenerateGuidOptions, editor: vscode.TextEditor, selectedType: GeneratedGuidType) {
+	if (options.count === "multiple") {
+		askForGuidCount(editor, selectedType);
+	} else {
+		generateGuidInternal(editor, selectedType, 1);
+	}
+}
+
+export async function askForGuidCount(editor: vscode.TextEditor, type: GeneratedGuidType) {
 	vscode.window.showInputBox({
 		placeHolder: `Please enter how many GUIDs do you want to generate`,
 		value: "1",
@@ -88,7 +104,7 @@ export async function askForGuidCount(editor: vscode.TextEditor, type: string) {
 
 
 
-export async function generateGuidInternal(editor: vscode.TextEditor, type: string, guidCount: number) {
+export async function generateGuidInternal(editor: vscode.TextEditor, type: GeneratedGuidType, guidCount: number) {
 	const settings = getExtensionSettings();
 	const replacesBySelection: string[][] = [];
 	const selections = getPureSelections(editor);
@@ -103,11 +119,11 @@ export async function generateGuidInternal(editor: vscode.TextEditor, type: stri
 				guid = guid.toUpperCase();
 			}
 
-			if (type === FORMAT_NO_DASHES) {
+			if (type === "noDashes") {
 				guid = guid.replace(/[-]/g, "");
-			} else if (type === FORMAT_DASHES_AND_BRACES) {
+			} else if (type === "dashesAndBraces") {
 				guid = `{${guid}}`;
-			} else if (type === FORMAT_CSHARP) {
+			} else if (type === "cSharpGuidConstructor") {
 				guid = `new Guid("${guid}");`;
 			}
 

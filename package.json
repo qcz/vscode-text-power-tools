@@ -375,6 +375,12 @@
 					"type": "boolean",
 					"default": false,
 					"description": "Insert uppercase GUIDs when using the 'Generate a GUID' or 'Generate multiple GUIDs' functions."
+				},
+				"textPowerTools.defaultGuidType": {
+					"type": "string",
+					"default": "alwaysAsk",
+					"enum": ["alwaysAsk", "noDashes", "dashes", "dashesAndBraces", "cSharpGuidConstructor"],
+					"description": "Type of the GUIDs inserted when using the 'Generate a GUID' or 'Generate multiple GUIDs' functions. By default the method will ask the type of GUID you want to generate."
 				}
 			}
 		}

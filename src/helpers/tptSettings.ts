@@ -5,6 +5,7 @@ export interface ITextPowerToolsSettings {
 	defaultPadString: string | undefined;
 	insertUppercaseHexNumbers: boolean;
 	insertUppercaseGuids: boolean;
+	defaultGuidType: string;
 }
 
 export function getExtensionSettings(): ITextPowerToolsSettings {
@@ -14,6 +15,7 @@ export function getExtensionSettings(): ITextPowerToolsSettings {
 		caseSensitiveFiltering: vscConfig.get<boolean>("caseSensitiveFiltering", false),
 		defaultPadString: vscConfig.get<string>("defaultPadString"),
 		insertUppercaseHexNumbers: vscConfig.get<boolean>("insertUppercaseHexNumbers", true),
-		insertUppercaseGuids: vscConfig.get<boolean>("insertUppercaseGuids", false)
+		insertUppercaseGuids: vscConfig.get<boolean>("insertUppercaseGuids", false),
+		defaultGuidType: vscConfig.get<string>("defaultGuidType", "alwaysAsk"),
 	};
 }
