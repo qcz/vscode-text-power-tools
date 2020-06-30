@@ -3,7 +3,7 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from "vscode";
 import { NumeralSystem } from "./interfaces";
-import { ASK_SPLIT_CHARACTER_FROM_USER, changeCase, ChangeCaseType, convertNumbers, copySelectionsToNewEditor, countOccurrences, extractInfo, FilterSourceType, filterText, FilterType, formatContentAsTable, generateGuid, insertLineNumbers, insertNumbers, LineNumberType, pad, PadDirection, removeBlankLines, removeControlCharacters, removeDuplicates } from "./modules";
+import { ASK_SPLIT_CHARACTER_FROM_USER, ChangeCaseType, FilterSourceType, runFilterTextCommand, FilterType, runInsertNumbersCommand, LineNumberType, PadDirection, runRemoveControlCharactersCommand, runConvertNumberCommand, runExtractInfoCommand, runCountOccurrencesCommand, runRemoveBlankLinesCommand, runPadCommand, runFormatContentAsTableCommand, runGenerateGuidCommand, runChangeCaseCommand, runInsertLineNumbersCommand, runRemoveDuplicatesCommand, runCopySelectionsToNewEditorCommand } from "./modules";
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -13,111 +13,111 @@ export function activate(context: vscode.ExtensionContext) {
 	// The commandId parameter must match the command field in package.json
 
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.filterLinesIncludingString", () =>
-		filterText(context, { type: FilterType.Include, sourceType: FilterSourceType.String, inNewEditor: false })));
+		runFilterTextCommand(context, { type: FilterType.Include, sourceType: FilterSourceType.String, inNewEditor: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.filterLinesIncludingStringToNewEditor", () =>
-		filterText(context, { type: FilterType.Include, sourceType: FilterSourceType.String, inNewEditor: true })));
+		runFilterTextCommand(context, { type: FilterType.Include, sourceType: FilterSourceType.String, inNewEditor: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.filterLinesMatchingRegex", () =>
-		filterText(context, { type: FilterType.Include, sourceType: FilterSourceType.Regex, inNewEditor: false })));
+		runFilterTextCommand(context, { type: FilterType.Include, sourceType: FilterSourceType.Regex, inNewEditor: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.filterLinesMatchingRegexToNewEditor", () =>
-		filterText(context, { type: FilterType.Include, sourceType: FilterSourceType.Regex, inNewEditor: true })));
+		runFilterTextCommand(context, { type: FilterType.Include, sourceType: FilterSourceType.Regex, inNewEditor: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.filterLinesNotIncludingString", () =>
-		filterText(context, { type: FilterType.Exclude, sourceType: FilterSourceType.String, inNewEditor: false })));
+		runFilterTextCommand(context, { type: FilterType.Exclude, sourceType: FilterSourceType.String, inNewEditor: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.filterLinesNotIncludingStringToNewEditor", () =>
-		filterText(context, { type: FilterType.Exclude, sourceType: FilterSourceType.String, inNewEditor: true })));
+		runFilterTextCommand(context, { type: FilterType.Exclude, sourceType: FilterSourceType.String, inNewEditor: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.filterLinesNotMatchingRegex", () =>
-		filterText(context, { type: FilterType.Exclude, sourceType: FilterSourceType.Regex, inNewEditor: false })));
+		runFilterTextCommand(context, { type: FilterType.Exclude, sourceType: FilterSourceType.Regex, inNewEditor: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.filterLinesNotMatchingRegexToNewEditor", () =>
-		filterText(context, { type: FilterType.Exclude, sourceType: FilterSourceType.Regex, inNewEditor: true })));
+		runFilterTextCommand(context, { type: FilterType.Exclude, sourceType: FilterSourceType.Regex, inNewEditor: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.extractInformation", () =>
-		extractInfo(context, { inNewEditor: false })));
+		runExtractInfoCommand(context, { inNewEditor: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.extractInformationToNewEditor", () =>
-		extractInfo(context, { inNewEditor: true })));
+	runExtractInfoCommand(context, { inNewEditor: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.countOccurrences", () =>
-		countOccurrences({ inNewEditor: false })));
+		runCountOccurrencesCommand({ inNewEditor: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.countOccurrencesToNewEditor", () =>
-		countOccurrences({ inNewEditor: true })));
+		runCountOccurrencesCommand({ inNewEditor: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.removeDuplicates", () =>
-		removeDuplicates()));
+		runRemoveDuplicatesCommand()));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.removeBlankLines", () =>
-		removeBlankLines({ onlySurplus: false })));
+		runRemoveBlankLinesCommand({ onlySurplus: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.removeSurplusBlankLines", () =>
-		removeBlankLines({ onlySurplus: true })));
+		runRemoveBlankLinesCommand({ onlySurplus: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.removeControlCharacters", () =>
-		removeControlCharacters()));
+		runRemoveControlCharactersCommand()));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertDecimalNumbers", () =>
-		insertNumbers({ numberFormat: NumeralSystem.Decimal, askForIncrements: false, askForStartingNumber: false })));
+		runInsertNumbersCommand({ numberFormat: NumeralSystem.Decimal, askForIncrements: false, askForStartingNumber: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertDecimalNumbersStartingAt", () =>
-		insertNumbers({ numberFormat: NumeralSystem.Decimal, askForIncrements: false, askForStartingNumber: true })));
+		runInsertNumbersCommand({ numberFormat: NumeralSystem.Decimal, askForIncrements: false, askForStartingNumber: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertDecimalNumbersWithIncrements", () =>
-		insertNumbers({ numberFormat: NumeralSystem.Decimal, askForIncrements: true, askForStartingNumber: false })));
+		runInsertNumbersCommand({ numberFormat: NumeralSystem.Decimal, askForIncrements: true, askForStartingNumber: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertDecimalNumbersWithIncrementsStartingAt", () =>
-		insertNumbers({ numberFormat: NumeralSystem.Decimal, askForIncrements: true, askForStartingNumber: true })));
+		runInsertNumbersCommand({ numberFormat: NumeralSystem.Decimal, askForIncrements: true, askForStartingNumber: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertHexNumbers", () =>
-		insertNumbers({ numberFormat: NumeralSystem.Hexadecimal, askForIncrements: false, askForStartingNumber: false })));
+		runInsertNumbersCommand({ numberFormat: NumeralSystem.Hexadecimal, askForIncrements: false, askForStartingNumber: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertHexNumbersStartingAt", () =>
-		insertNumbers({ numberFormat: NumeralSystem.Hexadecimal, askForIncrements: false, askForStartingNumber: true })));
+		runInsertNumbersCommand({ numberFormat: NumeralSystem.Hexadecimal, askForIncrements: false, askForStartingNumber: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertHexNumbersWithIncrements", () =>
-		insertNumbers({ numberFormat: NumeralSystem.Hexadecimal, askForIncrements: true, askForStartingNumber: false })));
+		runInsertNumbersCommand({ numberFormat: NumeralSystem.Hexadecimal, askForIncrements: true, askForStartingNumber: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertHexNumbersWithIncrementsStartingAt", () =>
-		insertNumbers({ numberFormat: NumeralSystem.Hexadecimal, askForIncrements: true, askForStartingNumber: true })));
+		runInsertNumbersCommand({ numberFormat: NumeralSystem.Hexadecimal, askForIncrements: true, askForStartingNumber: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertLineNumbers", () =>
-		insertLineNumbers({ type: LineNumberType.Real, padWithZero: false })));
+		runInsertLineNumbersCommand({ type: LineNumberType.Real, padWithZero: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertLineNumbersFixedLength", () =>
-		insertLineNumbers({ type: LineNumberType.Real, padWithZero: true })));
+		runInsertLineNumbersCommand({ type: LineNumberType.Real, padWithZero: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertRelativeLineNumbers", () =>
-		insertLineNumbers({ type: LineNumberType.Relative, padWithZero: false })));
+		runInsertLineNumbersCommand({ type: LineNumberType.Relative, padWithZero: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertRelativeLineNumbersFixedLength", () =>
-		insertLineNumbers({ type: LineNumberType.Relative, padWithZero: true })));
+		runInsertLineNumbersCommand({ type: LineNumberType.Relative, padWithZero: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.padStart", () =>
-		pad({ direction: PadDirection.Start, askForPadCharacters: false })));
+		runPadCommand({ direction: PadDirection.Start, askForPadCharacters: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.padStartWithCustomString", () =>
-		pad({ direction: PadDirection.Start, askForPadCharacters: true })));
+		runPadCommand({ direction: PadDirection.Start, askForPadCharacters: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.padEnd", () =>
-		pad({ direction: PadDirection.End, askForPadCharacters: false })));
+		runPadCommand({ direction: PadDirection.End, askForPadCharacters: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.padEndWithCustomString", () =>
-		pad({ direction: PadDirection.End, askForPadCharacters: true })));
+		runPadCommand({ direction: PadDirection.End, askForPadCharacters: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.formatContentAsTableByTabulator", () =>
-		formatContentAsTable({splitChar: "\t", padAlignChar: false})));
+		runFormatContentAsTableCommand({splitChar: "\t", padAlignChar: false})));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.formatContentAsTableBySemicolon", () =>
-		formatContentAsTable({splitChar: ";", padAlignChar: false})));
+		runFormatContentAsTableCommand({splitChar: ";", padAlignChar: false})));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.formatContentAsTableByComma", () =>
-		formatContentAsTable({splitChar: ",", padAlignChar: false})));
+		runFormatContentAsTableCommand({splitChar: ",", padAlignChar: false})));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.formatContentAsTableByPipe", () =>
-		formatContentAsTable({splitChar: "|", padAlignChar: false})));
+		runFormatContentAsTableCommand({splitChar: "|", padAlignChar: false})));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.formatContentAsTableByCustomCharacter", () =>
-		formatContentAsTable({splitChar: ASK_SPLIT_CHARACTER_FROM_USER, padAlignChar: false})));
+		runFormatContentAsTableCommand({splitChar: ASK_SPLIT_CHARACTER_FROM_USER, padAlignChar: false})));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.formatContentAsTableBySemicolonWithPadding", () =>
-		formatContentAsTable({splitChar: ";", padAlignChar: true})));
+		runFormatContentAsTableCommand({splitChar: ";", padAlignChar: true})));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.formatContentAsTableByPipeWithPadding", () =>
-		formatContentAsTable({splitChar: "|", padAlignChar: true})));
+		runFormatContentAsTableCommand({splitChar: "|", padAlignChar: true})));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.formatContentAsTableByCustomCharacterWithPadding", () =>
-		formatContentAsTable({splitChar: ASK_SPLIT_CHARACTER_FROM_USER, padAlignChar: true})));
+		runFormatContentAsTableCommand({splitChar: ASK_SPLIT_CHARACTER_FROM_USER, padAlignChar: true})));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateGuid", () =>
-		generateGuid({count: "single"})));
+		runGenerateGuidCommand({count: "single"})));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateMultipleGuids", () =>
-		generateGuid({count: "multiple"})));
+		runGenerateGuidCommand({count: "multiple"})));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.changeCaseToCamelCase", () =>
-		changeCase({ type: ChangeCaseType.CamelCase })));
+		runChangeCaseCommand({ type: ChangeCaseType.CamelCase })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.changeCaseToPascalCase", () =>
-		changeCase({ type: ChangeCaseType.PascalCase })));
+		runChangeCaseCommand({ type: ChangeCaseType.PascalCase })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.changeCaseToSnakeCase", () =>
-		changeCase({ type: ChangeCaseType.SnakeCase })));
+		runChangeCaseCommand({ type: ChangeCaseType.SnakeCase })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.changeCaseToDashCase", () =>
-		changeCase({ type: ChangeCaseType.DashCase })));
+		runChangeCaseCommand({ type: ChangeCaseType.DashCase })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.changeCaseToConstantCase", () =>
-		changeCase({ type: ChangeCaseType.ConstantCase })));
+		runChangeCaseCommand({ type: ChangeCaseType.ConstantCase })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.changeCaseToDotCase", () =>
-		changeCase({ type: ChangeCaseType.DotCase })));
+		runChangeCaseCommand({ type: ChangeCaseType.DotCase })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.changeCaseToSwapCase", () =>
-		changeCase({ type: ChangeCaseType.SwapCase })));
+		runChangeCaseCommand({ type: ChangeCaseType.SwapCase })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.copySelectionsToNewEditor", () =>
-		copySelectionsToNewEditor()));
+		runCopySelectionsToNewEditorCommand()));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.convertHexadecimalNumbersToDecimal", () =>
-		convertNumbers({ target: NumeralSystem.Decimal })));
+		runConvertNumberCommand({ target: NumeralSystem.Decimal })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.convertDecimalNumbersToHexadecimal", () =>
-		convertNumbers({ target: NumeralSystem.Hexadecimal })));
+		runConvertNumberCommand({ target: NumeralSystem.Hexadecimal })));
 }
 
 // this method is called when your extension is deactivated
 export function deactivate() {
-} 
+}

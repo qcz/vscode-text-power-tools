@@ -18,7 +18,7 @@ const FORMAT_DASHES = "Dashes";
 const FORMAT_DASHES_AND_BRACES = "Dashes and braces";
 const FORMAT_CSHARP = "C# Guid constructor";
 
-export async function generateGuid(options: IGenerateGuidOptions) {
+export async function runGenerateGuidCommand(options: IGenerateGuidOptions) {
 	const editor = vscode.window.activeTextEditor;
 	if (!editor) {
 		vscode.window.showWarningMessage(NO_ACTIVE_EDITOR);

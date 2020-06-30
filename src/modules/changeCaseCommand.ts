@@ -17,7 +17,7 @@ interface IChangeCaseOptions {
 	type: ChangeCaseType;
 }
 
-export async function changeCase(options: IChangeCaseOptions) {
+export async function runChangeCaseCommand(options: IChangeCaseOptions) {
 	const editor = vscode.window.activeTextEditor;
 	if (!editor) {
 		vscode.window.showErrorMessage(NO_ACTIVE_EDITOR);

@@ -2,7 +2,7 @@ import * as vscode from "vscode";
 import { NO_ACTIVE_EDITOR } from "../consts";
 import { getPureSelections, getSelectionLines, replaceSelectionsWithLines } from "../helpers/vsCodeHelpers";
 
-export async function copySelectionsToNewEditor() {
+export async function runCopySelectionsToNewEditorCommand() {
 	const editor = vscode.window.activeTextEditor;
 	if (!editor) {
 		vscode.window.showWarningMessage(NO_ACTIVE_EDITOR);

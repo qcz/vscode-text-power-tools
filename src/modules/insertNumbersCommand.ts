@@ -10,7 +10,7 @@ interface InsertNumbersOptions {
 	askForStartingNumber: boolean;
 }
 
-export async function insertNumbers(options: InsertNumbersOptions) {
+export async function runInsertNumbersCommand(options: InsertNumbersOptions) {
 	const editor = vscode.window.activeTextEditor;
 	if (!editor) {
 		vscode.window.showWarningMessage(NO_ACTIVE_EDITOR);

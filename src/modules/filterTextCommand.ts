@@ -19,7 +19,7 @@ interface IFilterTextCommandOptions {
 	inNewEditor: boolean;
 }
 
-export async function filterText(context: vscode.ExtensionContext, options: IFilterTextCommandOptions) {
+export async function runFilterTextCommand(context: vscode.ExtensionContext, options: IFilterTextCommandOptions) {
 	const settings = getExtensionSettings();
 
 	const editor = vscode.window.activeTextEditor;

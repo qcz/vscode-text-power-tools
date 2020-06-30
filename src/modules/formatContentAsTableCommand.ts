@@ -10,7 +10,7 @@ interface IAlignByCharacterOptions {
 	padAlignChar: boolean;
 }
 
-export async function formatContentAsTable(options: IAlignByCharacterOptions) {
+export async function runFormatContentAsTableCommand(options: IAlignByCharacterOptions) {
 	const editor = vscode.window.activeTextEditor;
 	if (!editor) {
 		console.log(vscode.window.visibleTextEditors);

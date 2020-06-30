@@ -12,7 +12,7 @@ interface IInsertLineNumberCommandOptions {
 	padWithZero: boolean;
 }
 
-export async function insertLineNumbers(options: IInsertLineNumberCommandOptions) {
+export async function runInsertLineNumbersCommand(options: IInsertLineNumberCommandOptions) {
 	const editor = vscode.window.activeTextEditor;
 	if (!editor) {
 		console.log(vscode.window.visibleTextEditors);

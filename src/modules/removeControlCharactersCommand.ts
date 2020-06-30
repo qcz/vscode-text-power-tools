@@ -1,8 +1,9 @@
 import * as vscode from "vscode";
 import { NO_ACTIVE_EDITOR } from "../consts";
 import { getSelectionsOrFullDocument, replaceSelectionsWithText } from "../helpers/vsCodeHelpers";
+import { removeControlCharacters } from "../helpers/transformations";
 
-export async function removeControlCharacters() {
+export async function runRemoveControlCharactersCommand() {
 	const editor = vscode.window.activeTextEditor;
 	if (!editor) {
 		vscode.window.showWarningMessage(NO_ACTIVE_EDITOR);
@@ -13,7 +14,7 @@ export async function removeControlCharacters() {
 	const replacements: string[] = [];
 	for (const selection of selections) {
 		const text = editor.document.getText(selection);
-		replacements.push(text.replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/g, ""));
+		replacements.push(removeControlCharacters(text));
 	}
 
 	await replaceSelectionsWithText(editor, selections, replacements);

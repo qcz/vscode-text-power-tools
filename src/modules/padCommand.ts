@@ -13,7 +13,7 @@ interface PadOptions {
 	askForPadCharacters: boolean;
 }
 
-export async function pad(options: PadOptions) {
+export async function runPadCommand(options: PadOptions) {
 	const editor = vscode.window.activeTextEditor;
 	if (!editor) {
 		vscode.window.showWarningMessage(NO_ACTIVE_EDITOR);

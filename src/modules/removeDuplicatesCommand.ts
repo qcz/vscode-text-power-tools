@@ -2,11 +2,7 @@ import * as vscode from "vscode";
 import { NO_ACTIVE_EDITOR } from "../consts";
 import { getSelectionLines, getSelectionsOrFullDocument, replaceSelectionsWithLines } from "../helpers/vsCodeHelpers";
 
-interface IRemoveBlankLinesCommandOptions {
-	onlySurplus: boolean;
-}
-
-export async function removeBlankLines(options: IRemoveBlankLinesCommandOptions) {
+export async function runRemoveDuplicatesCommand() {
 	const editor = vscode.window.activeTextEditor;
 	if (!editor) {
 		vscode.window.showWarningMessage(NO_ACTIVE_EDITOR);
@@ -15,17 +11,14 @@ export async function removeBlankLines(options: IRemoveBlankLinesCommandOptions)
 
 	const matchingLinesBySelection: string[][] = [];
 	const selections = getSelectionsOrFullDocument(editor);
-
+		
 	for (const selection of selections) {
 		matchingLinesBySelection.push([]);
 
-		let previousIsBlank: boolean = false;
 		for (const lineContent of getSelectionLines(editor, selection)) {
-			if (lineContent || (!lineContent && !previousIsBlank && options.onlySurplus)) {
+			if (matchingLinesBySelection[matchingLinesBySelection.length - 1].indexOf(lineContent) === -1) {
 				matchingLinesBySelection[matchingLinesBySelection.length - 1].push(lineContent);
 			}
-
-			previousIsBlank = !lineContent;
 		}
 	}
 

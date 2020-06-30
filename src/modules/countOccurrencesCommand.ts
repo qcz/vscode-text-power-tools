@@ -6,7 +6,7 @@ interface ICountLinesCommandOptions {
 	inNewEditor: boolean;
 }
 
-export async function countOccurrences(options: ICountLinesCommandOptions) {
+export async function runCountOccurrencesCommand(options: ICountLinesCommandOptions) {
 	const editor = vscode.window.activeTextEditor;
 	if (!editor) {
 		vscode.window.showWarningMessage(NO_ACTIVE_EDITOR);

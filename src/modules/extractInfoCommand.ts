@@ -7,7 +7,7 @@ interface IExtractInfoCommandOptions {
 	inNewEditor: boolean;
 }
 
-export async function extractInfo(context: vscode.ExtensionContext, options: IExtractInfoCommandOptions) {
+export async function runExtractInfoCommand(context: vscode.ExtensionContext, options: IExtractInfoCommandOptions) {
 	const settings = getExtensionSettings();
 
 	const editor = vscode.window.activeTextEditor;

@@ -3,15 +3,13 @@ import { NO_ACTIVE_EDITOR } from "../consts";
 import { getExtensionSettings } from "../helpers/tptSettings";
 import { getSelectionLines, getSelectionsOrFullDocument, replaceSelectionsWithLines } from "../helpers/vsCodeHelpers";
 import { NumeralSystem } from "../interfaces";
+import { HEXADECIMAL_NUMBER_REGEX, DECIMAL_NUMBER_REGEX } from "../helpers/textualNumberConverter";
 
 interface IChangeNumeralSystemOptions {
 	target: NumeralSystem;
 }
 
-const DECIMAL_NUMBER_REGEX = /^\d+$/;
-const HEXADECIMAL_NUMBER_REGEX = /^[0-9A-Fa-f]+$/;
-
-export async function convertNumbers(options: IChangeNumeralSystemOptions) {
+export async function runConvertNumberCommand(options: IChangeNumeralSystemOptions) {
 	const settings = getExtensionSettings();
 	const editor = vscode.window.activeTextEditor;
 	if (!editor) {
