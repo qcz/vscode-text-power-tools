@@ -77,6 +77,10 @@
 		"onCommand:textPowerTools.formatContentAsTableByPipeWithPadding",
 		"onCommand:textPowerTools.formatContentAsTableByCustomCharacterWithPadding",
 		"onCommand:textPowerTools.generateGuid",
+		"onCommand:textPowerTools.generateLoremIpsumSentence",
+		"onCommand:textPowerTools.generateLoremIpsumFiveSentences",
+		"onCommand:textPowerTools.generateLoremIpsumParagraph",
+		"onCommand:textPowerTools.generateLoremIpsumFiveParagraphs",
 		"onCommand:textPowerTools.generateMultipleGuids",
 		"onCommand:textPowerTools.changeCaseToCamelCase",
 		"onCommand:textPowerTools.changeCaseToPascalCase",
@@ -303,6 +307,26 @@
 				"title": "Generate multiple GUIDs"
 			},
 			{
+				"command": "textPowerTools.generateLoremIpsumSentence",
+				"category": "Text Power Tools",
+				"title": "Generate a Lorem ipsum sentence"
+			},
+			{
+				"command": "textPowerTools.generateLoremIpsumFiveSentences",
+				"category": "Text Power Tools",
+				"title": "Generate five Lorem ipsum sentences"
+			},
+			{
+				"command": "textPowerTools.generateLoremIpsumParagraph",
+				"category": "Text Power Tools",
+				"title": "Generate a Lorem ipsum paragraph"
+			},
+			{
+				"command": "textPowerTools.generateLoremIpsumFiveParagraphs",
+				"category": "Text Power Tools",
+				"title": "Generate five Lorem ipsum paragraphs"
+			},
+			{
 				"command": "textPowerTools.changeCaseToCamelCase",
 				"category": "Text Power Tools",
 				"title": "Change case to camel case (camelCase)"
@@ -379,8 +403,38 @@
 				"textPowerTools.defaultGuidType": {
 					"type": "string",
 					"default": "alwaysAsk",
-					"enum": ["alwaysAsk", "noDashes", "dashes", "dashesAndBraces", "cSharpGuidConstructor"],
+					"enum": [
+						"alwaysAsk",
+						"noDashes",
+						"dashes",
+						"dashesAndBraces",
+						"cSharpGuidConstructor"
+					],
 					"description": "Type of the GUIDs inserted when using the 'Generate a GUID' or 'Generate multiple GUIDs' functions. By default the method will ask the type of GUID you want to generate."
+				},
+				"textPowerTools.loremIpsum.wordsPerSentence.min": {
+					"type": "number",
+					"minimum": 1,
+					"default": 4,
+					"description": "Minimum number of words in a sentence in generated Lorem ipsum texts."
+				},
+				"textPowerTools.loremIpsum.wordsPerSentence.max": {
+					"type": "number",
+					"minimum": 1,
+					"default": 16,
+					"description": "Maximum number of words in a sentence in generated Lorem ipsum texts."
+				},
+				"textPowerTools.loremIpsum.sentencesPerParagraph.min": {
+					"type": "number",
+					"minimum": 1,
+					"default": 4,
+					"description": "Minimum number of sentences in a paragraph in generated Lorem ipsum texts."
+				},
+				"textPowerTools.loremIpsum.sentencesPerParagraph.max": {
+					"type": "number",
+					"minimum": 1,
+					"default": 8,
+					"description": "Maximum number of sentences in a paragraph in generated Lorem ipsum texts."
 				}
 			}
 		}
@@ -403,6 +457,7 @@
 	"dependencies": {
 		"@types/vscode": "^1.26.0",
 		"change-case": "^3.0.2",
+		"lorem-ipsum": "^2.0.3",
 		"node-uuid": "^1.4.8",
 		"vscode-test": "^1.4.0"
 	}

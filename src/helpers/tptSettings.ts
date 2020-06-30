@@ -6,6 +6,10 @@ export interface ITextPowerToolsSettings {
 	insertUppercaseHexNumbers: boolean;
 	insertUppercaseGuids: boolean;
 	defaultGuidType: string;
+	loremIpsumMinWordsPerSentence: number;
+	loremIpsumMaxWordsPerSentence: number;
+	loremIpsumMinSentencesPerParagraph: number;
+	loremIpsumMaxSentencesPerParagraph: number;
 }
 
 export function getExtensionSettings(): ITextPowerToolsSettings {
@@ -17,5 +21,9 @@ export function getExtensionSettings(): ITextPowerToolsSettings {
 		insertUppercaseHexNumbers: vscConfig.get<boolean>("insertUppercaseHexNumbers", true),
 		insertUppercaseGuids: vscConfig.get<boolean>("insertUppercaseGuids", false),
 		defaultGuidType: vscConfig.get<string>("defaultGuidType", "alwaysAsk"),
+		loremIpsumMinWordsPerSentence: vscConfig.get<number>("loremIpsum.wordsPerSentence.min", 4),
+		loremIpsumMaxWordsPerSentence: vscConfig.get<number>("loremIpsum.wordsPerSentence.max", 16),
+		loremIpsumMinSentencesPerParagraph: vscConfig.get<number>("loremIpsum.sentencesPerParagraph.min", 4),
+		loremIpsumMaxSentencesPerParagraph: vscConfig.get<number>("loremIpsum.sentencesPerParagraph.max", 8),
 	};
 }

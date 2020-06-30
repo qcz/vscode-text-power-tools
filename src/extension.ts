@@ -3,7 +3,7 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from "vscode";
 import { NumeralSystem } from "./interfaces";
-import { ASK_SPLIT_CHARACTER_FROM_USER, ChangeCaseType, FilterSourceType, runFilterTextCommand, FilterType, runInsertNumbersCommand, LineNumberType, PadDirection, runRemoveControlCharactersCommand, runConvertNumberCommand, runExtractInfoCommand, runCountOccurrencesCommand, runRemoveBlankLinesCommand, runPadCommand, runFormatContentAsTableCommand, runGenerateGuidCommand, runChangeCaseCommand, runInsertLineNumbersCommand, runRemoveDuplicatesCommand, runCopySelectionsToNewEditorCommand } from "./modules";
+import { ASK_SPLIT_CHARACTER_FROM_USER, ChangeCaseType, FilterSourceType, runFilterTextCommand, FilterType, runInsertNumbersCommand, LineNumberType, PadDirection, runRemoveControlCharactersCommand, runConvertNumberCommand, runExtractInfoCommand, runCountOccurrencesCommand, runRemoveBlankLinesCommand, runPadCommand, runFormatContentAsTableCommand, runGenerateGuidCommand, runChangeCaseCommand, runInsertLineNumbersCommand, runRemoveDuplicatesCommand, runCopySelectionsToNewEditorCommand, runGenerateLoremIpsumCommand } from "./modules";
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -96,6 +96,14 @@ export function activate(context: vscode.ExtensionContext) {
 		runGenerateGuidCommand({count: "single"})));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateMultipleGuids", () =>
 		runGenerateGuidCommand({count: "multiple"})));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateLoremIpsumSentence", () =>
+		runGenerateLoremIpsumCommand({type: "sentence"})));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateLoremIpsumFiveSentences", () =>
+		runGenerateLoremIpsumCommand({type: "fiveSentences"})));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateLoremIpsumParagraph", () =>
+		runGenerateLoremIpsumCommand({type: "paragraph"})));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateLoremIpsumFiveParagraphs", () =>
+		runGenerateLoremIpsumCommand({type: "fiveParagraphs"})));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.changeCaseToCamelCase", () =>
 		runChangeCaseCommand({ type: ChangeCaseType.CamelCase })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.changeCaseToPascalCase", () =>

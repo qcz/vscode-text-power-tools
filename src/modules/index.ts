@@ -6,6 +6,7 @@ export { runExtractInfoCommand } from "./extractInfoCommand";
 export { FilterSourceType, runFilterTextCommand, FilterType } from "./filterTextCommand";
 export { ASK_SPLIT_CHARACTER_FROM_USER, runFormatContentAsTableCommand } from "./formatContentAsTableCommand";
 export { runGenerateGuidCommand } from "./generateGuidCommand";
+export { runGenerateLoremIpsumCommand } from "./generateLoremIpsumCommand";
 export { runInsertLineNumbersCommand, LineNumberType } from "./insertLineNumbersCommand";
 export { runInsertNumbersCommand } from "./insertNumbersCommand";
 export { runPadCommand, PadDirection } from "./padCommand";
