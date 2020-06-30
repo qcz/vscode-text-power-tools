@@ -390,18 +390,20 @@
 		"compile": "tsc -p ./",
 		"watch": "tsc -watch -p ./",
 		"postinstall": "node ./node_modules/vscode/bin/install",
-		"test": "npm run compile && node ./node_modules/vscode/bin/test"
+		"pretest": "npm run compile",
+		"test": "node ./out/test/runTest.js"
 	},
 	"devDependencies": {
 		"@types/mocha": "^2.2.42",
 		"@types/node": "^7.0.43",
 		"@types/node-uuid": "0.0.28",
-		"tslint": "^5.8.0",
-		"typescript": "^2.6.1",
-		"vscode": "^1.1.24"
+		"tslint": "^5.20.1",
+		"typescript": "^2.6.1"
 	},
 	"dependencies": {
+		"@types/vscode": "^1.26.0",
 		"change-case": "^3.0.2",
-		"node-uuid": "^1.4.8"
+		"node-uuid": "^1.4.8",
+		"vscode-test": "^1.4.0"
 	}
 }
