@@ -1,13 +1,15 @@
 {
 	"name": "text-power-tools",
 	"displayName": "Text Power Tools",
-	"description": "Text manipulation tools: filtering (grep), remove lines, insert number sequences and GUIDs, format content as table, change case, converting numbers and more. Great for finding information in logs and manipulating text.",
+	"description": "All-in-one solution for text manipulation: filter lines (grep), remove lines, insert number sequences and GUIDs, format content as table, change case, converting numbers and more. Great for finding information in logs and manipulating text.",
 	"keywords": [
 		"text",
 		"tools",
 		"logs",
 		"grep",
 		"utilities",
+		"filter text",
+		"filter lines",
 		"case",
 		"TextFX",
 		"converter",
