@@ -17,7 +17,7 @@
 		"lorem",
 		"ipsum"
 	],
-	"version": "1.12.0",
+	"version": "1.13.0",
 	"publisher": "qcz",
 	"private": true,
 	"engines": {
@@ -103,12 +103,12 @@
 			{
 				"command": "textPowerTools.filterLinesIncludingString",
 				"category": "Text Power Tools",
-				"title": "Filter lines including string"
+				"title": "Filter lines including a string"
 			},
 			{
 				"command": "textPowerTools.filterLinesIncludingStringToNewEditor",
 				"category": "Text Power Tools",
-				"title": "Filter lines including string into a new editor"
+				"title": "Filter lines including a string into a new editor"
 			},
 			{
 				"command": "textPowerTools.filterLinesMatchingRegex",
@@ -123,12 +123,12 @@
 			{
 				"command": "textPowerTools.filterLinesNotIncludingString",
 				"category": "Text Power Tools",
-				"title": "Filter lines not including string"
+				"title": "Filter lines not including a string"
 			},
 			{
 				"command": "textPowerTools.filterLinesNotIncludingStringToNewEditor",
 				"category": "Text Power Tools",
-				"title": "Filter lines not including string into a new editor"
+				"title": "Filter lines not including a string into a new editor"
 			},
 			{
 				"command": "textPowerTools.filterLinesNotMatchingRegex",
@@ -381,6 +381,35 @@
 				"title": "Convert selected decimal numbers to hexadecimal"
 			}
 		],
+		"menus": {
+			"editor/context": [
+				{
+					"command": "textPowerTools.filterLinesIncludingString",
+					"group": "t_textPowerTools@1"
+				},
+				{
+					"command": "textPowerTools.filterLinesIncludingStringToNewEditor",
+					"group": "t_textPowerTools@2"
+				},
+				{
+					"command": "textPowerTools.filterLinesMatchingRegex",
+					"group": "t_textPowerTools@3"
+				},
+				{
+					"command": "textPowerTools.filterLinesMatchingRegexToNewEditor",
+					"group": "t_textPowerTools@4"
+				},
+				{
+					"command": "textPowerTools.extractInformationToNewEditor",
+					"group": "t_textPowerTools@5"
+				},
+				{
+					"command": "textPowerTools.copySelectionsToNewEditor",
+					"group": "t_textPowerTools@100",
+					"when": "editorHasSelection"
+				}
+			]
+		},
 		"configuration": {
 			"type": "object",
 			"title": "Text Power Tools",
