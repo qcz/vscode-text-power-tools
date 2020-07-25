@@ -2,8 +2,8 @@
 	"compilerOptions": {
 		"module": "commonjs",
 		"outDir": "out",
-		"target": "es2019",
-		"lib": ["ES2019"],
+		"target": "es2018",
+		"lib": ["ES2018"],
 		"sourceMap": true,
 		"rootDir": "src",
 		/* Strict Type-Checking Option */
