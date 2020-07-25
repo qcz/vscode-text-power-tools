@@ -21,7 +21,7 @@
 	"publisher": "qcz",
 	"private": true,
 	"engines": {
-		"vscode": "^1.26.0"
+		"vscode": "^1.32.0"
 	},
 	"license": "SEE LICENSE IN LICENSE.md",
 	"icon": "images/icon.png",
@@ -483,7 +483,7 @@
 				"key": "ctrl+t g",
 				"mac": "ctrl+t g",
 				"when": "editorTextFocus"
-		}
+			}
 		]
 	},
 	"scripts": {
@@ -500,7 +500,7 @@
 		"@types/mocha": "^2.2.42",
 		"@types/node": "^12.12.0",
 		"@types/node-uuid": "0.0.28",
-		"@types/vscode": "^1.26.0",
+		"@types/vscode": "^1.32.0",
 		"ts-loader": "^8.0.1",
 		"tslint": "^5.20.1",
 		"typescript": "^3.9.7",
