@@ -1,5 +1,9 @@
 # Changelog
 
+## **1.14.0** (2020. 07. 25.)
+- Add keybinding for _Filter lines using string_ and _Generate GUID_ commands as an experiment
+- Reduce package size by 60% by bundling the source with webpack and optimizing GIFs used in Readme
+
 ## **1.13.0** (2020. 07. 12.)
 - Most important commands (filter lines, extract information and copy selection to new editor) are now available in the editor context menu.
 
