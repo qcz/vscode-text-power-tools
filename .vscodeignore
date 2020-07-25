@@ -1,12 +1,14 @@
 .vscode/**
 .vscode-test/**
+images/*.svg
+node_modules/**
 out/test/**
-out/**/*.map
+out/**
 src/**
 .gitignore
+package-lock.json
 tsconfig.json
-vsc-extension-quickstart.md
 tslint.json
-images/*.svg
+webpack.config.js
 **/*.vsix
 **/*.zip

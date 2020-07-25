@@ -81,11 +81,11 @@
 		"onCommand:textPowerTools.formatContentAsTableByPipeWithPadding",
 		"onCommand:textPowerTools.formatContentAsTableByCustomCharacterWithPadding",
 		"onCommand:textPowerTools.generateGuid",
+		"onCommand:textPowerTools.generateMultipleGuids",
 		"onCommand:textPowerTools.generateLoremIpsumSentence",
 		"onCommand:textPowerTools.generateLoremIpsumFiveSentences",
 		"onCommand:textPowerTools.generateLoremIpsumParagraph",
 		"onCommand:textPowerTools.generateLoremIpsumFiveParagraphs",
-		"onCommand:textPowerTools.generateMultipleGuids",
 		"onCommand:textPowerTools.changeCaseToCamelCase",
 		"onCommand:textPowerTools.changeCaseToPascalCase",
 		"onCommand:textPowerTools.changeCaseToSnakeCase",
@@ -97,7 +97,7 @@
 		"onCommand:textPowerTools.convertDecimalNumbersToHexadecimal",
 		"onCommand:textPowerTools.convertHexadecimalNumbersToDecimal"
 	],
-	"main": "./out/extension",
+	"main": "./dist/extension",
 	"contributes": {
 		"commands": [
 			{
@@ -473,20 +473,25 @@
 		}
 	},
 	"scripts": {
-		"vscode:prepublish": "npm run compile",
+		"vscode:prepublish": "webpack --mode production",
+		"webpack": "webpack --mode development",
+		"webpack-dev": "webpack --mode development --watch",
 		"compile": "tsc -p ./",
 		"watch": "tsc -watch -p ./",
-		"postinstall": "node ./node_modules/vscode/bin/install",
 		"pretest": "npm run compile",
-		"test": "node ./out/test/runTest.js"
+		"test": "node ./out/test/runTest.js",
+		"test-compile": "tsc -p ./"
 	},
 	"devDependencies": {
 		"@types/mocha": "^2.2.42",
-		"@types/node": "^7.0.43",
+		"@types/node": "^12.12.0",
 		"@types/node-uuid": "0.0.28",
 		"@types/vscode": "^1.26.0",
+		"ts-loader": "^8.0.1",
 		"tslint": "^5.20.1",
-		"typescript": "^2.6.1"
+		"typescript": "^3.9.7",
+		"webpack": "^4.44.0",
+		"webpack-cli": "^3.3.12"
 	},
 	"dependencies": {
 		"change-case": "^3.0.2",
