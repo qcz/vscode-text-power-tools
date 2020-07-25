@@ -470,7 +470,21 @@
 					"description": "Maximum number of sentences in a paragraph in generated Lorem ipsum texts."
 				}
 			}
+		},
+		"keybindings": [
+			{
+				"command": "textPowerTools.filterLinesIncludingString",
+				"key": "ctrl+t f",
+				"mac": "ctrl+t f",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "textPowerTools.generateGuid",
+				"key": "ctrl+t g",
+				"mac": "ctrl+t g",
+				"when": "editorTextFocus"
 		}
+		]
 	},
 	"scripts": {
 		"vscode:prepublish": "webpack --mode production",
