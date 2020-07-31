@@ -454,32 +454,382 @@
 		"menus": {
 			"editor/context": [
 				{
-					"command": "textPowerTools.filterLinesIncludingString",
-					"group": "t_textPowerTools@1"
+					"submenu": "textPowerTools.editorContextMain",
+					"group": "t_textPowerTools"
+				}
+			],
+			"textPowerTools.editorContextMain": [
+				{
+					"submenu": "textPowerTools.filterLines",
+					"group": "tpt_01_filterAndExtract@1"
 				},
 				{
-					"command": "textPowerTools.filterLinesIncludingStringToNewEditor",
-					"group": "t_textPowerTools@2"
+					"submenu": "textPowerTools.extraction",
+					"group": "tpt_01_filterAndExtract@2"
 				},
 				{
-					"command": "textPowerTools.filterLinesMatchingRegex",
-					"group": "t_textPowerTools@3"
+					"submenu": "textPowerTools.formatContent",
+					"group": "tpt_02_formatting@1"
 				},
 				{
-					"command": "textPowerTools.filterLinesMatchingRegexToNewEditor",
-					"group": "t_textPowerTools@4"
+					"submenu": "textPowerTools.changeCase",
+					"group": "tpt_02_formatting@2"
 				},
 				{
-					"command": "textPowerTools.extractInformationToNewEditor",
-					"group": "t_textPowerTools@5"
+					"submenu": "textPowerTools.generateContent",
+					"group": "tpt_10_generate@1"
+				},
+				{
+					"submenu": "textPowerTools.insert",
+					"group": "tpt_10_generate@2"
+				},
+				{
+					"submenu": "textPowerTools.convert",
+					"group": "tpt_14_conversion@1"
+				},
+				{
+					"submenu": "textPowerTools.encodeDecode",
+					"group": "tpt_14_conversion@2"
+				},
+				{
+					"submenu": "textPowerTools.remove",
+					"group": "tpt_20_remove"
 				},
 				{
 					"command": "textPowerTools.copySelectionsToNewEditor",
-					"group": "t_textPowerTools@100",
+					"group": "tpt_100_copy",
 					"when": "editorHasSelection"
+				}
+			],
+			"textPowerTools.filterLines": [
+				{
+					"command": "textPowerTools.filterLinesIncludingString",
+					"group": "tpt_filterLines_including@1"
+				},
+				{
+					"command": "textPowerTools.filterLinesIncludingStringToNewEditor",
+					"group": "tpt_filterLines_including@2"
+				},
+				{
+					"command": "textPowerTools.filterLinesMatchingRegex",
+					"group": "tpt_filterLines_including@3"
+				},
+				{
+					"command": "textPowerTools.filterLinesMatchingRegexToNewEditor",
+					"group": "tpt_filterLines_including@4"
+				},
+				{
+					"command": "textPowerTools.filterLinesNotIncludingString",
+					"group": "tpt_filterLines_notIncluding@1"
+				},
+				{
+					"command": "textPowerTools.filterLinesNotIncludingStringToNewEditor",
+					"group": "tpt_filterLines_notIncluding@2"
+				},
+				{
+					"command": "textPowerTools.filterLinesNotMatchingRegex",
+					"group": "tpt_filterLines_notIncluding@3"
+				},
+				{
+					"command": "textPowerTools.filterLinesNotMatchingRegexToNewEditor",
+					"group": "tpt_filterLines_notIncluding@4"
+				}
+			],
+			"textPowerTools.extraction": [
+				{
+					"command": "textPowerTools.extractInformation",
+					"group": "tpt_1_extractInfo@1"
+				},
+				{
+					"command": "textPowerTools.extractInformationToNewEditor",
+					"group": "tpt_1_extractInfo@2"
+				},
+				{
+					"command": "textPowerTools.countOccurrences",
+					"group": "tpt_2_countOccurrences@1"
+				},
+				{
+					"command": "textPowerTools.countOccurrencesToNewEditor",
+					"group": "tpt_2_countOccurrences@2"
+				}
+			],
+			"textPowerTools.formatContent": [
+				{
+					"command": "textPowerTools.padStart",
+					"group": "tpt_1_pad@1"
+				},
+				{
+					"command": "textPowerTools.padStartWithCustomString",
+					"group": "tpt_1_pad@2"
+				},
+				{
+					"command": "textPowerTools.padEnd",
+					"group": "tpt_1_pad@3"
+				},
+				{
+					"command": "textPowerTools.padEndWithCustomString",
+					"group": "tpt_1_pad@4"
+				},
+				{
+					"command": "textPowerTools.formatContentAsTableByTabulator",
+					"group": "tpt_2_formatContentAsTable@1"
+				},
+				{
+					"command": "textPowerTools.formatContentAsTableBySemicolon",
+					"group": "tpt_2_formatContentAsTable@2"
+				},
+				{
+					"command": "textPowerTools.formatContentAsTableByComma",
+					"group": "tpt_2_formatContentAsTable@3"
+				},
+				{
+					"command": "textPowerTools.formatContentAsTableByPipe",
+					"group": "tpt_2_formatContentAsTable@4"
+				},
+				{
+					"command": "textPowerTools.formatContentAsTableByCustomCharacter",
+					"group": "tpt_2_formatContentAsTable@5"
+				},
+				{
+					"command": "textPowerTools.formatContentAsTableBySemicolonWithPadding",
+					"group": "tpt_2_formatContentAsTable@6"
+				},
+				{
+					"command": "textPowerTools.formatContentAsTableByPipeWithPadding",
+					"group": "tpt_2_formatContentAsTable@7"
+				},
+				{
+					"command": "textPowerTools.formatContentAsTableByCustomCharacterWithPadding",
+					"group": "tpt_2_formatContentAsTable@8"
+				}
+			],
+			"textPowerTools.changeCase": [
+				{
+					"command": "textPowerTools.changeCaseToCamelCase",
+					"group": "tpt_changeCase@1"
+				},
+				{
+					"command": "textPowerTools.changeCaseToPascalCase",
+					"group": "tpt_changeCase@2"
+				},
+				{
+					"command": "textPowerTools.changeCaseToSnakeCase",
+					"group": "tpt_changeCase@3"
+				},
+				{
+					"command": "textPowerTools.changeCaseToDashCase",
+					"group": "tpt_changeCase@4"
+				},
+				{
+					"command": "textPowerTools.changeCaseToConstantCase",
+					"group": "tpt_changeCase@5"
+				},
+				{
+					"command": "textPowerTools.changeCaseToDotCase",
+					"group": "tpt_changeCase@6"
+				},
+				{
+					"command": "textPowerTools.changeCaseToSwapCase",
+					"group": "tpt_changeCase@7"
+				}
+			],
+			"textPowerTools.insert": [
+				{
+					"command": "textPowerTools.insertDecimalNumbers",
+					"group": "tpt_1_insertDecimalNumbers@1"
+				},
+				{
+					"command": "textPowerTools.insertDecimalNumbersStartingAt",
+					"group": "tpt_1_insertDecimalNumbers@2"
+				},
+				{
+					"command": "textPowerTools.insertDecimalNumbersWithIncrements",
+					"group": "tpt_1_insertDecimalNumbers@3"
+				},
+				{
+					"command": "textPowerTools.insertDecimalNumbersWithIncrementsStartingAt",
+					"group": "tpt_1_insertDecimalNumbers@4"
+				},
+				{
+					"command": "textPowerTools.insertHexNumbers",
+					"group": "tpt_1_insertHexNumbers@1"
+				},
+				{
+					"command": "textPowerTools.insertHexNumbersStartingAt",
+					"group": "tpt_1_insertHexNumbers@2"
+				},
+				{
+					"command": "textPowerTools.insertHexNumbersWithIncrements",
+					"group": "tpt_1_insertHexNumbers@3"
+				},
+				{
+					"command": "textPowerTools.insertHexNumbersWithIncrementsStartingAt",
+					"group": "tpt_1_insertHexNumbers@4"
+				},
+				{
+					"command": "textPowerTools.insertLineNumbers",
+					"group": "tpt_2_insertLineNumbers@1"
+				},
+				{
+					"command": "textPowerTools.insertLineNumbersFixedLength",
+					"group": "tpt_2_insertLineNumbers@2"
+				},
+				{
+					"command": "textPowerTools.insertRelativeLineNumbers",
+					"group": "tpt_2_insertLineNumbers@3"
+				},
+				{
+					"command": "textPowerTools.insertRelativeLineNumbersFixedLength",
+					"group": "tpt_2_insertLineNumbers@4"
+				}
+			],
+			"textPowerTools.generateContent": [
+				{
+					"command": "textPowerTools.generateGuid",
+					"group": "tpt_1_generateGuid@1"
+				},
+				{
+					"command": "textPowerTools.generateMultipleGuids",
+					"group": "tpt_1_generateGuid@2"
+				},
+				{
+					"command": "textPowerTools.generateLoremIpsumSentence",
+					"group": "tpt_2_generateLoremIpsum@1"
+				},
+				{
+					"command": "textPowerTools.generateLoremIpsumFiveSentences",
+					"group": "tpt_2_generateLoremIpsum@2"
+				},
+				{
+					"command": "textPowerTools.generateLoremIpsumParagraph",
+					"group": "tpt_2_generateLoremIpsum@3"
+				},
+				{
+					"command": "textPowerTools.generateLoremIpsumFiveParagraphs",
+					"group": "tpt_2_generateLoremIpsum@4"
+				}
+			],
+			"textPowerTools.convert": [
+				{
+					"command": "textPowerTools.convertDecimalNumbersToHexadecimal",
+					"group": "tpt_1_convertNumbers@1"
+				},
+				{
+					"command": "textPowerTools.convertHexadecimalNumbersToDecimal",
+					"group": "tpt_1_convertNumbers@2"
+				}
+			],
+			"textPowerTools.encodeDecode": [
+				{
+					"command": "textPowerTools.urlEncodeText",
+					"group": "tpt_1_urlEncode@1"
+				},
+				{
+					"command": "textPowerTools.urlDecodeText",
+					"group": "tpt_1_urlEncode@2"
+				},
+				{
+					"command": "textPowerTools.encodeHtmlEntities",
+					"group": "tpt_2_htmlXml@1"
+				},
+				{
+					"command": "textPowerTools.encodeHtmlEntitiesWithNonAscii",
+					"group": "tpt_2_htmlXml@2"
+				},
+				{
+					"command": "textPowerTools.decodeHtmlEntities",
+					"group": "tpt_2_htmlXml@3"
+				},
+				{
+					"command": "textPowerTools.encodeXmlEntities",
+					"group": "tpt_2_htmlXml@4"
+				},
+				{
+					"command": "textPowerTools.decodeXmlEntities",
+					"group": "tpt_2_htmlXml@4"
+				},
+				{
+					"command": "textPowerTools.base64EncodeText",
+					"group": "tpt_3_base64@1"
+				},
+				{
+					"command": "textPowerTools.base64EncodeTextOnEachLine",
+					"group": "tpt_3_base64@2"
+				},
+				{
+					"command": "textPowerTools.base64DecodeText",
+					"group": "tpt_3_base64@3"
+				},
+				{
+					"command": "textPowerTools.base64DecodeTextOnEachLine",
+					"group": "tpt_3_base64@4"
+				}
+			],
+			"textPowerTools.remove": [
+				{
+					"command": "textPowerTools.removeDuplicates",
+					"group": "tpt_remove@1"
+				},
+				{
+					"command": "textPowerTools.removeBlankLines",
+					"group": "tpt_remove@2"
+				},
+				{
+					"command": "textPowerTools.removeSurplusBlankLines",
+					"group": "tpt_remove@3"
+				},
+				{
+					"command": "textPowerTools.removeControlCharacters",
+					"group": "tpt_remove@4"
 				}
 			]
 		},
+		"submenus": [
+			{
+				"id": "textPowerTools.editorContextMain",
+				"label": "Text Power Tools"
+			},
+			{
+				"id": "textPowerTools.filterLines",
+				"label": "Filter lines (like grep)",
+				"icon": "$(filter)"
+			},
+			{
+				"id": "textPowerTools.extraction",
+				"label": "Extract info",
+				"icon": "$(text-size)"
+			},
+			{
+				"id": "textPowerTools.formatContent",
+				"label": "Format content",
+				"icon": "$(filter)"
+			},
+			{
+				"id": "textPowerTools.changeCase",
+				"label": "Change letter case",
+				"icon": "$(text-size)"
+			},
+			{
+				"id": "textPowerTools.insert",
+				"label": "Insert numbers"
+			},
+			{
+				"id": "textPowerTools.convert",
+				"label": "Convert"
+			},
+			{
+				"id": "textPowerTools.encodeDecode",
+				"label": "Encode/decode"
+			},
+			{
+				"id": "textPowerTools.generateContent",
+				"label": "Generate content"
+			},
+			{
+				"id": "textPowerTools.remove",
+				"label": "Remove content"
+			}
+		],
 		"configuration": {
 			"type": "object",
 			"title": "Text Power Tools",
