@@ -1,5 +1,12 @@
 # Changelog
 
+## **1.15.0** (2020. 08. 22.)
+- Add support for encoding and decoding various text encodings:
+  - URL encoding
+  - XML entities
+  - HTML entities
+  - Base64 (full selection or by each line in selection)
+
 ## **1.14.0** (2020. 07. 25.)
 - Add keybinding for _Filter lines using string_ and _Generate GUID_ commands as an experiment
 - Reduce package size by 60% by bundling the source with webpack and optimizing GIFs used in Readme

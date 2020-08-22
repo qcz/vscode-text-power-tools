@@ -1,15 +1,18 @@
-export { runChangeCaseCommand, ChangeCaseType } from "./changeCaseCommand";
+export { Base4EncodingDirection, runBase64EncodingCommand } from "./base64EncoderCommand";
+export { ChangeCaseType, runChangeCaseCommand } from "./changeCaseCommand";
 export { runConvertNumberCommand } from "./convertNumberCommand";
 export { runCopySelectionsToNewEditorCommand } from "./copySelectionsToNewEditorCommand";
 export { runCountOccurrencesCommand } from "./countOccurrencesCommand";
 export { runExtractInfoCommand } from "./extractInfoCommand";
-export { FilterSourceType, runFilterTextCommand, FilterType } from "./filterTextCommand";
+export { FilterSourceType, FilterType, runFilterTextCommand } from "./filterTextCommand";
 export { ASK_SPLIT_CHARACTER_FROM_USER, runFormatContentAsTableCommand } from "./formatContentAsTableCommand";
 export { runGenerateGuidCommand } from "./generateGuidCommand";
 export { runGenerateLoremIpsumCommand } from "./generateLoremIpsumCommand";
-export { runInsertLineNumbersCommand, LineNumberType } from "./insertLineNumbersCommand";
+export { LineNumberType, runInsertLineNumbersCommand } from "./insertLineNumbersCommand";
 export { runInsertNumbersCommand } from "./insertNumbersCommand";
-export { runPadCommand, PadDirection } from "./padCommand";
+export { runModifyTextEncodingCommand, TextEncodingDirection, TextEncodingType } from "./modifyTextEncodingCommand";
+export { PadDirection, runPadCommand } from "./padCommand";
 export { runRemoveBlankLinesCommand } from "./removeBlankLinesCommand";
 export { runRemoveControlCharactersCommand } from "./removeControlCharactersCommand";
 export { runRemoveDuplicatesCommand } from "./removeDuplicatesCommand";
+

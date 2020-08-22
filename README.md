@@ -31,6 +31,7 @@ All features are available from the *Command Palette* of VS Code. Use `Ctrl+Shif
 
   Text can be splitted by tabulators, semicolons, commas, pipes or any custom character sequences.
 * **Generate Lorep impsum texts**
+* **Encode and decode various encoding formats**: URL encode, HTML entities, XML entities and Base64
 
 ## Showcase
 

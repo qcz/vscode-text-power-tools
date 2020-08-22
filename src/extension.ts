@@ -3,7 +3,7 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from "vscode";
 import { NumeralSystem } from "./interfaces";
-import { ASK_SPLIT_CHARACTER_FROM_USER, ChangeCaseType, FilterSourceType, runFilterTextCommand, FilterType, runInsertNumbersCommand, LineNumberType, PadDirection, runRemoveControlCharactersCommand, runConvertNumberCommand, runExtractInfoCommand, runCountOccurrencesCommand, runRemoveBlankLinesCommand, runPadCommand, runFormatContentAsTableCommand, runGenerateGuidCommand, runChangeCaseCommand, runInsertLineNumbersCommand, runRemoveDuplicatesCommand, runCopySelectionsToNewEditorCommand, runGenerateLoremIpsumCommand } from "./modules";
+import { ASK_SPLIT_CHARACTER_FROM_USER, Base4EncodingDirection, ChangeCaseType, FilterSourceType, FilterType, LineNumberType, PadDirection, runBase64EncodingCommand, runChangeCaseCommand, runConvertNumberCommand, runCopySelectionsToNewEditorCommand, runCountOccurrencesCommand, runExtractInfoCommand, runFilterTextCommand, runFormatContentAsTableCommand, runGenerateGuidCommand, runGenerateLoremIpsumCommand, runInsertLineNumbersCommand, runInsertNumbersCommand, runModifyTextEncodingCommand, runPadCommand, runRemoveBlankLinesCommand, runRemoveControlCharactersCommand, runRemoveDuplicatesCommand, TextEncodingDirection, TextEncodingType } from "./modules";
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -124,6 +124,28 @@ export function activate(context: vscode.ExtensionContext) {
 		runConvertNumberCommand({ target: NumeralSystem.Decimal })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.convertDecimalNumbersToHexadecimal", () =>
 		runConvertNumberCommand({ target: NumeralSystem.Hexadecimal })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.urlEncodeText", () =>
+		runModifyTextEncodingCommand({ type: TextEncodingType.UrlEncoding, direction: TextEncodingDirection.Encode })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.urlDecodeText", () =>
+		runModifyTextEncodingCommand({ type: TextEncodingType.UrlEncoding, direction: TextEncodingDirection.Decode })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.encodeHtmlEntities", () =>
+		runModifyTextEncodingCommand({ type: TextEncodingType.HtmlEntityEncoding, direction: TextEncodingDirection.Encode })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.encodeHtmlEntitiesWithNonAscii", () =>
+		runModifyTextEncodingCommand({ type: TextEncodingType.HtmlEntityEncodingWithNonAscii, direction: TextEncodingDirection.Encode })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.decodeHtmlEntities", () =>
+		runModifyTextEncodingCommand({ type: TextEncodingType.HtmlEntityEncoding, direction: TextEncodingDirection.Decode })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.encodeXmlEntities", () =>
+		runModifyTextEncodingCommand({ type: TextEncodingType.XmlEntityEncoding, direction: TextEncodingDirection.Encode })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.decodeXmlEntities", () =>
+		runModifyTextEncodingCommand({ type: TextEncodingType.XmlEntityEncoding, direction: TextEncodingDirection.Decode })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.base64EncodeText", () =>
+		runBase64EncodingCommand({ direction: Base4EncodingDirection.Encode, onEachLine: false })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.base64EncodeTextOnEachLine", () =>
+		runBase64EncodingCommand({ direction: Base4EncodingDirection.Encode, onEachLine: true })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.base64DecodeText", () =>
+		runBase64EncodingCommand({ direction: Base4EncodingDirection.Decode, onEachLine: false })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.base64DecodeTextOnEachLine", () =>
+		runBase64EncodingCommand({ direction: Base4EncodingDirection.Decode, onEachLine: true })));
 }
 
 // this method is called when your extension is deactivated

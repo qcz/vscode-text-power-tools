@@ -48,6 +48,18 @@ export function * getSelectionLines(editor: vscode.TextEditor, selection: vscode
 export function getSelectionContent(editor: vscode.TextEditor, selection: vscode.Selection) {
 	let fullContent = "";
 	for (const line of getSelectionLines(editor, selection)) {
+		if (fullContent.length !== 0) {
+			fullContent += "\n";
+		}
+
+		fullContent += line;
+	}
+	return fullContent;
+}
+
+export function getSelectionContentWithoutNewlines(editor: vscode.TextEditor, selection: vscode.Selection) {
+	let fullContent = "";
+	for (const line of getSelectionLines(editor, selection)) {
 		fullContent += line;
 	}
 	return fullContent;
