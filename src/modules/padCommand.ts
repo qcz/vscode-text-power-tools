@@ -1,7 +1,7 @@
 import * as vscode from "vscode";
 import { NO_ACTIVE_EDITOR } from "../consts";
 import { getExtensionSettings } from "../helpers/tptSettings";
-import { getPureSelections, getSelectionContentWithoutNewlines, replaceSelectionsWithLines, sortSelectionsByPosition } from "../helpers/vsCodeHelpers";
+import { getPureSelections, getSelectionLines, replaceSelectionsWithLines, sortSelectionsByPosition } from "../helpers/vsCodeHelpers";
 
 export enum  PadDirection {
 	Start,
@@ -69,20 +69,24 @@ export async function askForPadCharacter(editor: vscode.TextEditor, options: Pad
 
 export async function padInternal(editor: vscode.TextEditor, direction: PadDirection, padLength: number, padString?: string) {
 	const settings = getExtensionSettings();
-	const replacesBySelection: string[][] = [];
 	const selections = getPureSelections(editor);
 	sortSelectionsByPosition(selections);
 
 	const fillString = padString || settings.defaultPadString || " ";
-	
-	for (let i = 0, len = selections.length; i < len; i++) {
-		const selectionContent = getSelectionContentWithoutNewlines(editor, selections[i]);
-		if (direction === PadDirection.Start) {
-			replacesBySelection.push([selectionContent.padStart(padLength, fillString)]);
-		} else {
-			replacesBySelection.push([selectionContent.padEnd(padLength, fillString)]);
+	const linesBySelection: string[][] = [];
+
+	for (const selection of selections) {
+		linesBySelection.push([]);
+		const currentSelectionLines = linesBySelection[linesBySelection.length - 1];
+
+		for (const lineContent of getSelectionLines(editor, selection)) {
+			if (direction === PadDirection.Start) {
+				currentSelectionLines.push(lineContent.padStart(padLength, fillString));
+			} else {
+				currentSelectionLines.push(lineContent.padEnd(padLength, fillString));
+			}
 		}
 	}
-
-	await replaceSelectionsWithLines(editor, selections, replacesBySelection, false);
+	
+	await replaceSelectionsWithLines(editor, selections, linesBySelection, /* openNewDocument: */false);
 }

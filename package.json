@@ -258,22 +258,22 @@
 			{
 				"command": "textPowerTools.padStart",
 				"category": "Text Power Tools",
-				"title": "Pad start with default string"
+				"title": "Pad start (left) with default string"
 			},
 			{
 				"command": "textPowerTools.padStartWithCustomString",
 				"category": "Text Power Tools",
-				"title": "Pad start with custom string"
+				"title": "Pad start (left) with custom string"
 			},
 			{
 				"command": "textPowerTools.padEnd",
 				"category": "Text Power Tools",
-				"title": "Pad end with default string"
+				"title": "Pad end (right) with default string"
 			},
 			{
 				"command": "textPowerTools.padEndWithCustomString",
 				"category": "Text Power Tools",
-				"title": "Pad end with custom string"
+				"title": "Pad end (right) with custom string"
 			},
 			{
 				"command": "textPowerTools.formatContentAsTableByTabulator",
@@ -841,7 +841,7 @@
 				},
 				"textPowerTools.defaultPadString": {
 					"type": "string",
-					"description": "Default pad string for the 'Pad start' and 'Pad end' functions."
+					"description": "Default pad string for the 'Pad start (left)' and 'Pad end (right)' functions."
 				},
 				"textPowerTools.insertUppercaseHexNumbers": {
 					"type": "boolean",
