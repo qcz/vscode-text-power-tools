@@ -1,5 +1,9 @@
 # Changelog
 
+## **1.16.0** (2020. 10. 03.)
+- Add *Text Power Tools* editor submenu with all available commands.
+- Modify pad commands to work on each line instead the content of the selection merged to a single line.
+
 ## **1.15.0** (2020. 08. 22.)
 - Add support for encoding and decoding various text encodings:
   - URL encoding
