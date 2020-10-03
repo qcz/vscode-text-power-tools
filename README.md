@@ -7,7 +7,7 @@ All features are available from either the *Command Palette* or the editor conte
 **Note:** Due to current architectural limitations of VSCode, no extension can access files larger than 50 Megabytes. Vote for [VSCode issue #31078](https://github.com/Microsoft/vscode/issues/31078), which once implemented, will allows this extension to work with these large files. In the meantime you can trick VSCode by opening a new file and copying the content of the large file there (without saving).
 
 ## Features
-* **Filtering lines using strings or regular expressions (grep like experience), even into new editors:** Filter line commands take an input (a raw text or a regular expression) and filter the selected lines based on whether the user wants to include or exclude lines containing that string or matching that regex. It works just like like `grep` but inside VS Code.
+* **Filter lines using strings or regular expressions (grep like experience), even into new editors (without modifying the original source):** Filter line commands take an input (a raw text or a regular expression) and filter the selected lines based on whether the user wants to include or exclude lines containing that string or matching that regex. It works just like like `grep` but inside VS Code.
 
   All filtering commands can target new editors, so the original content won't be changed. Search commands with `into a new editor` end to use this feature.
 
@@ -23,15 +23,18 @@ All features are available from either the *Command Palette* or the editor conte
 * **Insert decimal and hex number sequences:** Inserts sequence o decimal or hex numbers to every selection. When inserting hex numbers, by default they will be uppercase. To insert lowercase hex numbers, set the value of the `textPowerTools.insertUppercaseHexNumbers` setting to `false`.
 * **Insert line numbers:** Inserts line numbers to the start of each line in every selection. Line numbers can be real line numbers in the file or can start with 1.
 * **Generate GUIDs**: Inserts GUIDs (globally unique identifiers or universally unique identifier) to the text in the selected format. Mutiple GUIDs can be inserted at once. To insert GUIDs with uppercase hex characters, set the value of the `textPowerTools.insertUppercaseGuids` setting to `true`. The default GUID style can be set using the `textPowerTools.defaultGuidType` setting.
-* **Change case of text (camelCase, PascalCase, snake_case, CONSTANT_CASE, dash-case, dot.case) and swap casing**
+* **Change case of text (camelCase, PascalCase, snake_case, CONSTANT_CASE, dash-case, dot.case) and swap casing**.
+
+  Note: *Title Case*, *UPPER CASE* and *lower case* is not implemented in this extension as it is available in VS Code by default via the *Transform to Title Case*, Transform to Uppercase* and *Transform to Lower Case* commands respecively.
 * **Pad start and end of strings:** Pad the start or the end of selections to the desired length with default or custom character sequences. The default pad string can be customized with the `textPowerTools.defaultPadString` setting.
 * **Copy content of selections to a new editor**
-* **Converting numbers from decimal to hexadecimal and vice versa**
+* **Convert numbers from decimal to hexadecimal and vice versa**
 * **Format content as table** by splitting text to pieces by predefined or custom characters or strings and formatting them as a table with equal length columns using space characters.
 
   Text can be splitted by tabulators, semicolons, commas, pipes or any custom character sequences.
-* **Generate Lorep impsum texts**
 * **Encode and decode various encoding formats**: URL encode, HTML entities, XML entities and Base64
+* **Generate Lorem impsum texts**
+* **Convert to Zalgo text**
 
 ## Showcase
 

@@ -19,7 +19,8 @@
 		"base64",
 		"urlencode",
 		"html entities",
-		"xml entities"
+		"xml entities",
+		"zalgo"
 	],
 	"version": "1.16.0",
 	"publisher": "qcz",
