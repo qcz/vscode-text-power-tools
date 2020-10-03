@@ -21,11 +21,11 @@
 		"html entities",
 		"xml entities"
 	],
-	"version": "1.15.0",
+	"version": "1.16.0",
 	"publisher": "qcz",
 	"private": true,
 	"engines": {
-		"vscode": "^1.32.0"
+		"vscode": "^1.50.0"
 	},
 	"license": "SEE LICENSE IN LICENSE.md",
 	"icon": "images/icon.png",
@@ -248,12 +248,12 @@
 			{
 				"command": "textPowerTools.insertRelativeLineNumbers",
 				"category": "Text Power Tools",
-				"title": "Insert line numbers starting with 1"
+				"title": "Insert line numbers starting with 1 at the first selected line"
 			},
 			{
 				"command": "textPowerTools.insertRelativeLineNumbersFixedLength",
 				"category": "Text Power Tools",
-				"title": "Insert fixed line numbers starting with 1"
+				"title": "Insert fixed line numbers starting with 1 at the first selected line"
 			},
 			{
 				"command": "textPowerTools.padStart",
@@ -368,12 +368,12 @@
 			{
 				"command": "textPowerTools.changeCaseToConstantCase",
 				"category": "Text Power Tools",
-				"title": "Change case to to constant case (CONSTANT_CASE)"
+				"title": "Change case to constant case (CONSTANT_CASE)"
 			},
 			{
 				"command": "textPowerTools.changeCaseToDotCase",
 				"category": "Text Power Tools",
-				"title": "Change text case to dot case (dot.case)"
+				"title": "Change case to dot case (dot.case)"
 			},
 			{
 				"command": "textPowerTools.changeCaseToSwapCase",
