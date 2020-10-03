@@ -1,5 +1,8 @@
 # Changelog
 
+## NEXT (TBA)
+- Add _Convert to zalgo text_ commands with 4 levels of intensity
+
 ## **1.16.0** (2020. 10. 03.)
 - Add *Text Power Tools* editor submenu with all available commands.
 - Modify pad commands to work on each line instead the content of the selection merged to a single line.

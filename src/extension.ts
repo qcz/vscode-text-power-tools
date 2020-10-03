@@ -3,7 +3,7 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from "vscode";
 import { NumeralSystem } from "./interfaces";
-import { ASK_SPLIT_CHARACTER_FROM_USER, Base4EncodingDirection, ChangeCaseType, FilterSourceType, FilterType, LineNumberType, PadDirection, runBase64EncodingCommand, runChangeCaseCommand, runConvertNumberCommand, runCopySelectionsToNewEditorCommand, runCountOccurrencesCommand, runExtractInfoCommand, runFilterTextCommand, runFormatContentAsTableCommand, runGenerateGuidCommand, runGenerateLoremIpsumCommand, runInsertLineNumbersCommand, runInsertNumbersCommand, runModifyTextEncodingCommand, runPadCommand, runRemoveBlankLinesCommand, runRemoveControlCharactersCommand, runRemoveDuplicatesCommand, TextEncodingDirection, TextEncodingType } from "./modules";
+import { ASK_SPLIT_CHARACTER_FROM_USER, Base4EncodingDirection, ChangeCaseType, FilterSourceType, FilterType, LineNumberType, PadDirection, runBase64EncodingCommand, runChangeCaseCommand, runConvertNumberCommand, runConvertToZalgoCommand, runCopySelectionsToNewEditorCommand, runCountOccurrencesCommand, runExtractInfoCommand, runFilterTextCommand, runFormatContentAsTableCommand, runGenerateGuidCommand, runGenerateLoremIpsumCommand, runInsertLineNumbersCommand, runInsertNumbersCommand, runModifyTextEncodingCommand, runPadCommand, runRemoveBlankLinesCommand, runRemoveControlCharactersCommand, runRemoveDuplicatesCommand, TextEncodingDirection, TextEncodingType, ZalgificationIntensity } from "./modules";
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -124,6 +124,14 @@ export function activate(context: vscode.ExtensionContext) {
 		runConvertNumberCommand({ target: NumeralSystem.Decimal })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.convertDecimalNumbersToHexadecimal", () =>
 		runConvertNumberCommand({ target: NumeralSystem.Hexadecimal })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.convertToZalgoUltraLight", () =>
+		runConvertToZalgoCommand({ intensity: ZalgificationIntensity.UltraLight })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.convertToZalgoLight", () =>
+		runConvertToZalgoCommand({ intensity: ZalgificationIntensity.Light })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.convertToZalgoMedium", () =>
+		runConvertToZalgoCommand({ intensity: ZalgificationIntensity.Medium })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.convertToZalgoHeavy", () =>
+		runConvertToZalgoCommand({ intensity: ZalgificationIntensity.Heavy })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.urlEncodeText", () =>
 		runModifyTextEncodingCommand({ type: TextEncodingType.UrlEncoding, direction: TextEncodingDirection.Encode })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.urlDecodeText", () =>

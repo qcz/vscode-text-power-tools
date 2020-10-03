@@ -100,6 +100,10 @@
 		"onCommand:textPowerTools.copySelectionsToNewEditor",
 		"onCommand:textPowerTools.convertDecimalNumbersToHexadecimal",
 		"onCommand:textPowerTools.convertHexadecimalNumbersToDecimal",
+		"onCommand:textPowerTools.convertToZalgoUltraLight",
+		"onCommand:textPowerTools.convertToZalgoLight",
+		"onCommand:textPowerTools.convertToZalgoMedium",
+		"onCommand:textPowerTools.convertToZalgoHeavy",
 		"onCommand:textPowerTools.urlEncodeText",
 		"onCommand:textPowerTools.urlDecodeText",
 		"onCommand:textPowerTools.encodeHtmlEntities",
@@ -394,6 +398,26 @@
 				"command": "textPowerTools.convertDecimalNumbersToHexadecimal",
 				"category": "Text Power Tools",
 				"title": "Convert selected decimal numbers to hexadecimal"
+			},
+			{
+				"command": "textPowerTools.convertToZalgoUltraLight",
+				"category": "Text Power Tools",
+				"title": "Convert selection to ultra light zalgo text"
+			},
+			{
+				"command": "textPowerTools.convertToZalgoLight",
+				"category": "Text Power Tools",
+				"title": "Convert selection to light zalgo text"
+			},
+			{
+				"command": "textPowerTools.convertToZalgoMedium",
+				"category": "Text Power Tools",
+				"title": "Convert selection to medium zalgo text"
+			},
+			{
+				"command": "textPowerTools.convertToZalgoHeavy",
+				"category": "Text Power Tools",
+				"title": "Convert selection to heavy zalgo text"
 			},
 			{
 				"command": "textPowerTools.urlEncodeText",
@@ -717,6 +741,22 @@
 				{
 					"command": "textPowerTools.convertHexadecimalNumbersToDecimal",
 					"group": "tpt_1_convertNumbers@2"
+				},
+				{
+					"command": "textPowerTools.convertToZalgoUltraLight",
+					"group": "tpt_2_zalgo@1"
+				},
+				{
+					"command": "textPowerTools.convertToZalgoLight",
+					"group": "tpt_2_zalgo@2"
+				},
+				{
+					"command": "textPowerTools.convertToZalgoMedium",
+					"group": "tpt_2_zalgo@3"
+				},
+				{
+					"command": "textPowerTools.convertToZalgoHeavy",
+					"group": "tpt_2_zalgo@4"
 				}
 			],
 			"textPowerTools.encodeDecode": [
@@ -929,6 +969,7 @@
 		"js-base64": "^3.4.5",
 		"lorem-ipsum": "^2.0.3",
 		"node-uuid": "^1.4.8",
-		"vscode-test": "^1.4.0"
+		"vscode-test": "^1.4.0",
+		"zalgo-js": "^1.0.0"
 	}
 }
