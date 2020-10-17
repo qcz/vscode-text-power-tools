@@ -22,7 +22,7 @@
 		"xml entities",
 		"zalgo"
 	],
-	"version": "1.16.0",
+	"version": "1.17.0",
 	"publisher": "qcz",
 	"private": true,
 	"engines": {
