@@ -3,7 +3,7 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from "vscode";
 import { NumeralSystem } from "./interfaces";
-import { ASK_SPLIT_CHARACTER_FROM_USER, Base4EncodingDirection, ChangeCaseType, FilterSourceType, FilterType, LineNumberType, PadDirection, runBase64EncodingCommand, runChangeCaseCommand, runConvertNumberCommand, runConvertToZalgoCommand, runCopySelectionsToNewEditorCommand, runCountOccurrencesCommand, runExtractInfoCommand, runFilterTextCommand, runFormatContentAsTableCommand, runGenerateGuidCommand, runGenerateLoremIpsumCommand, runInsertLineNumbersCommand, runInsertNumbersCommand, runModifyTextEncodingCommand, runPadCommand, runRemoveBlankLinesCommand, runRemoveControlCharactersCommand, runRemoveDuplicatesCommand, TextEncodingDirection, TextEncodingType, ZalgificationIntensity } from "./modules";
+import { ASK_SPLIT_CHARACTER_FROM_USER, Base4EncodingDirection, ChangeCaseType, FilterSourceType, FilterType, InsertableStuff, LineNumberType, PadDirection, runBase64EncodingCommand, runChangeCaseCommand, runConvertNumberCommand, runConvertToZalgoCommand, runCopySelectionsToNewEditorCommand, runCountOccurrencesCommand, runExtractInfoCommand, runFilterTextCommand, runFormatContentAsTableCommand, runGenerateGuidCommand, runGenerateLoremIpsumCommand, runInsertLineNumbersCommand, runInsertNumbersCommand, runInsertStuffCommand, runModifyTextEncodingCommand, runPadCommand, runRemoveBlankLinesCommand, runRemoveControlCharactersCommand, runRemoveDuplicatesCommand, TextEncodingDirection, TextEncodingType, ZalgificationIntensity } from "./modules";
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -68,6 +68,12 @@ export function activate(context: vscode.ExtensionContext) {
 		runInsertLineNumbersCommand({ type: LineNumberType.Relative, padWithZero: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertRelativeLineNumbersFixedLength", () =>
 		runInsertLineNumbersCommand({ type: LineNumberType.Relative, padWithZero: true })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertFullFilePath", () =>
+		runInsertStuffCommand({ what: InsertableStuff.FullFilePath })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertDirectoryPath", () =>
+		runInsertStuffCommand({ what: InsertableStuff.DirectoryPath })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertFileName", () =>
+		runInsertStuffCommand({ what: InsertableStuff.FileName })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.padStart", () =>
 		runPadCommand({ direction: PadDirection.Start, askForPadCharacters: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.padStartWithCustomString", () =>

@@ -73,6 +73,9 @@
 		"onCommand:textPowerTools.insertLineNumbersFixedLength",
 		"onCommand:textPowerTools.insertRelativeLineNumbers",
 		"onCommand:textPowerTools.insertRelativeLineNumbersFixedLength",
+		"onCommand:textPowerTools.insertFullFilePath",
+		"onCommand:textPowerTools.insertDirectoryPath",
+		"onCommand:textPowerTools.insertFileName",
 		"onCommand:textPowerTools.padStart",
 		"onCommand:textPowerTools.padStartWithCustomString",
 		"onCommand:textPowerTools.padEnd",
@@ -259,6 +262,21 @@
 				"command": "textPowerTools.insertRelativeLineNumbersFixedLength",
 				"category": "Text Power Tools",
 				"title": "Insert fixed line numbers starting with 1 at the first selected line"
+			},
+			{
+				"command": "textPowerTools.insertFullFilePath",
+				"category": "Text Power Tools",
+				"title": "Insert full path of the opened file"
+			},
+			{
+				"command": "textPowerTools.insertDirectoryPath",
+				"category": "Text Power Tools",
+				"title": "Insert directory path of the opened file"
+			},
+			{
+				"command": "textPowerTools.insertFileName",
+				"category": "Text Power Tools",
+				"title": "Insert file name of the opened file"
 			},
 			{
 				"command": "textPowerTools.padStart",
@@ -505,8 +523,12 @@
 					"group": "tpt_10_generate@1"
 				},
 				{
-					"submenu": "textPowerTools.insert",
+					"submenu": "textPowerTools.insertFacts",
 					"group": "tpt_10_generate@2"
+				},
+				{
+					"submenu": "textPowerTools.insertNumbers",
+					"group": "tpt_10_generate@3"
 				},
 				{
 					"submenu": "textPowerTools.convert",
@@ -658,7 +680,21 @@
 					"group": "tpt_changeCase@7"
 				}
 			],
-			"textPowerTools.insert": [
+			"textPowerTools.insertFacts": [
+				{
+					"command": "textPowerTools.insertFullFilePath",
+					"group": "tpt_1_insertFileSystemStuff@1"
+				},
+				{
+					"command": "textPowerTools.insertDirectoryPath",
+					"group": "tpt_1_insertFileSystemStuff@2"
+				},
+				{
+					"command": "textPowerTools.insertFileName",
+					"group": "tpt_1_insertFileSystemStuff@3"
+				}
+			],
+			"textPowerTools.insertNumbers": [
 				{
 					"command": "textPowerTools.insertDecimalNumbers",
 					"group": "tpt_1_insertDecimalNumbers@1"
@@ -851,7 +887,11 @@
 				"icon": "$(text-size)"
 			},
 			{
-				"id": "textPowerTools.insert",
+				"id": "textPowerTools.insertFacts",
+				"label": "Insert facts"
+			},
+			{
+				"id": "textPowerTools.insertNumbers",
 				"label": "Insert numbers"
 			},
 			{

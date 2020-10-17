@@ -22,6 +22,7 @@ All features are available from either the *Command Palette* or the editor conte
 * **Count occurrences of lines:** This command will counts how many times a line appears in the selected text and generates an output with the number of occurrences and the lines themselves
 * **Insert decimal and hex number sequences:** Inserts sequence o decimal or hex numbers to every selection. When inserting hex numbers, by default they will be uppercase. To insert lowercase hex numbers, set the value of the `textPowerTools.insertUppercaseHexNumbers` setting to `false`.
 * **Insert line numbers:** Inserts line numbers to the start of each line in every selection. Line numbers can be real line numbers in the file or can start with 1.
+* **Insert full file path, directory path and file name of the opened file**.
 * **Generate GUIDs**: Inserts GUIDs (globally unique identifiers or universally unique identifier) to the text in the selected format. Mutiple GUIDs can be inserted at once. To insert GUIDs with uppercase hex characters, set the value of the `textPowerTools.insertUppercaseGuids` setting to `true`. The default GUID style can be set using the `textPowerTools.defaultGuidType` setting.
 * **Change case of text (camelCase, PascalCase, snake_case, CONSTANT_CASE, dash-case, dot.case) and swap casing**.
 
