@@ -60,7 +60,8 @@ Description:
 
 ## Requirements
 
-This extension requires at least Visual Studio Code 1.26.
+Before 1.16.0, the extension required at least Visual Studio Code 1.26.
+After 1.16.0, the extension requires at least Visual Studio Code 1.50.
 
 ## License
 
