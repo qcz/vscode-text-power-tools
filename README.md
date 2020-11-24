@@ -33,6 +33,7 @@ All features are available from either the *Command Palette* or the editor conte
 * **Format content as table** by splitting text to pieces by predefined or custom characters or strings and formatting them as a table with equal length columns using space characters.
 
   Text can be splitted by tabulators, semicolons, commas, pipes or any custom character sequences.
+* **Text slots**, which are like permanent clipboard entries in your VS Code. Recommended to bind the most frequently used slot commands to a key combo.
 * **Encode and decode various encoding formats**: URL encode, HTML entities, XML entities and Base64
 * **Generate Lorem impsum texts**
 * **Convert to Zalgo text**

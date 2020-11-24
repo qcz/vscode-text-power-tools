@@ -3,7 +3,7 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from "vscode";
 import { NumeralSystem } from "./interfaces";
-import { ASK_SPLIT_CHARACTER_FROM_USER, Base4EncodingDirection, ChangeCaseType, FilterSourceType, FilterType, InsertableStuff, LineNumberType, PadDirection, runBase64EncodingCommand, runChangeCaseCommand, runConvertNumberCommand, runConvertToZalgoCommand, runCopySelectionsToNewEditorCommand, runCountOccurrencesCommand, runExtractInfoCommand, runFilterTextCommand, runFormatContentAsTableCommand, runGenerateGuidCommand, runGenerateLoremIpsumCommand, runInsertLineNumbersCommand, runInsertNumbersCommand, runInsertStuffCommand, runModifyTextEncodingCommand, runPadCommand, runRemoveBlankLinesCommand, runRemoveControlCharactersCommand, runRemoveDuplicatesCommand, TextEncodingDirection, TextEncodingType, ZalgificationIntensity } from "./modules";
+import { ASK_SPLIT_CHARACTER_FROM_USER, Base4EncodingDirection, ChangeCaseType, FilterSourceType, FilterType, InsertableStuff, LineNumberType, PadDirection, runBase64EncodingCommand, runChangeCaseCommand, runConvertNumberCommand, runConvertToZalgoCommand, runCopySelectionsToNewEditorCommand, runCountOccurrencesCommand, runExtractInfoCommand, runFilterTextCommand, runFormatContentAsTableCommand, runGenerateGuidCommand, runGenerateLoremIpsumCommand, runInsertLineNumbersCommand, runInsertNumbersCommand, runInsertStuffCommand, runModifyTextEncodingCommand, runPadCommand, runRemoveBlankLinesCommand, runRemoveControlCharactersCommand, runRemoveDuplicatesCommand, runSetTextSlotContentCommand, runpasteTextSlotCommand, TextEncodingDirection, TextEncodingType, ZalgificationIntensity } from "./modules";
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -160,6 +160,26 @@ export function activate(context: vscode.ExtensionContext) {
 		runBase64EncodingCommand({ direction: Base4EncodingDirection.Decode, onEachLine: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.base64DecodeTextOnEachLine", () =>
 		runBase64EncodingCommand({ direction: Base4EncodingDirection.Decode, onEachLine: true })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.pasteTextSlot1Content", () =>
+		runpasteTextSlotCommand(context, { slotId: 1 })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.pasteTextSlot2Content", () =>
+		runpasteTextSlotCommand(context, { slotId: 2 })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.pasteTextSlot3Content", () =>
+		runpasteTextSlotCommand(context, { slotId: 3 })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.pasteTextSlot4Content", () =>
+		runpasteTextSlotCommand(context, { slotId: 4 })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.pasteTextSlot5Content", () =>
+		runpasteTextSlotCommand(context, { slotId: 5 })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.setTextSlot1Content", () =>
+		runSetTextSlotContentCommand(context, { slotId: 1 })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.setTextSlot2Content", () =>
+		runSetTextSlotContentCommand(context, { slotId: 2 })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.setTextSlot3Content", () =>
+		runSetTextSlotContentCommand(context, { slotId: 3 })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.setTextSlot4Content", () =>
+		runSetTextSlotContentCommand(context, { slotId: 4 })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.setTextSlot5Content", () =>
+		runSetTextSlotContentCommand(context, { slotId: 5 })));
 }
 
 // this method is called when your extension is deactivated

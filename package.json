@@ -23,9 +23,10 @@
 		"urlencode",
 		"html entities",
 		"xml entities",
-		"zalgo"
+		"zalgo",
+		"clipboard"
 	],
-	"version": "1.17.1",
+	"version": "1.18.0",
 	"publisher": "qcz",
 	"private": true,
 	"engines": {
@@ -121,7 +122,17 @@
 		"onCommand:textPowerTools.base64EncodeText",
 		"onCommand:textPowerTools.base64EncodeTextOnEachLine",
 		"onCommand:textPowerTools.base64DecodeText",
-		"onCommand:textPowerTools.base64DecodeTextOnEachLine"
+		"onCommand:textPowerTools.base64DecodeTextOnEachLine",
+		"onCommand:textPowerTools.pasteTextSlot1Content",
+		"onCommand:textPowerTools.pasteTextSlot2Content",
+		"onCommand:textPowerTools.pasteTextSlot3Content",
+		"onCommand:textPowerTools.pasteTextSlot4Content",
+		"onCommand:textPowerTools.pasteTextSlot5Content",
+		"onCommand:textPowerTools.setTextSlot1Content",
+		"onCommand:textPowerTools.setTextSlot2Content",
+		"onCommand:textPowerTools.setTextSlot3Content",
+		"onCommand:textPowerTools.setTextSlot4Content",
+		"onCommand:textPowerTools.setTextSlot5Content"
 	],
 	"main": "./dist/extension",
 	"contributes": {
@@ -495,6 +506,56 @@
 				"command": "textPowerTools.base64DecodeTextOnEachLine",
 				"category": "Text Power Tools",
 				"title": "Decode base64 text on each line"
+			},
+			{
+				"command": "textPowerTools.pasteTextSlot1Content",
+				"category": "Text Power Tools",
+				"title": "Paste text slot 1 content"
+			},
+			{
+				"command": "textPowerTools.pasteTextSlot2Content",
+				"category": "Text Power Tools",
+				"title": "Paste text slot 2 content"
+			},
+			{
+				"command": "textPowerTools.pasteTextSlot3Content",
+				"category": "Text Power Tools",
+				"title": "Paste text slot 3 content"
+			},
+			{
+				"command": "textPowerTools.pasteTextSlot4Content",
+				"category": "Text Power Tools",
+				"title": "Paste text slot 4 content"
+			},
+			{
+				"command": "textPowerTools.pasteTextSlot5Content",
+				"category": "Text Power Tools",
+				"title": "Paste text slot 5 content"
+			},
+			{
+				"command": "textPowerTools.setTextSlot1Content",
+				"category": "Text Power Tools",
+				"title": "Set text slot 1 content"
+			},
+			{
+				"command": "textPowerTools.setTextSlot2Content",
+				"category": "Text Power Tools",
+				"title": "Set text slot 2 content"
+			},
+			{
+				"command": "textPowerTools.setTextSlot3Content",
+				"category": "Text Power Tools",
+				"title": "Set text slot 3 content"
+			},
+			{
+				"command": "textPowerTools.setTextSlot4Content",
+				"category": "Text Power Tools",
+				"title": "Set text slot 4 content"
+			},
+			{
+				"command": "textPowerTools.setTextSlot5Content",
+				"category": "Text Power Tools",
+				"title": "Set text slot 5 content"
 			}
 		],
 		"menus": {
@@ -532,6 +593,10 @@
 				{
 					"submenu": "textPowerTools.insertNumbers",
 					"group": "tpt_10_generate@3"
+				},
+				{
+					"submenu": "textPowerTools.textSlots",
+					"group": "tpt_12_clipboardLike@1"
 				},
 				{
 					"submenu": "textPowerTools.convert",
@@ -747,6 +812,48 @@
 					"group": "tpt_2_insertLineNumbers@4"
 				}
 			],
+			"textPowerTools.textSlots": [
+				{
+					"command": "textPowerTools.pasteTextSlot1Content",
+					"group": "tpt_1_pasteTextSlot@1"
+				},
+				{
+					"command": "textPowerTools.pasteTextSlot2Content",
+					"group": "tpt_1_pasteTextSlot@2"
+				},
+				{
+					"command": "textPowerTools.pasteTextSlot3Content",
+					"group": "tpt_1_pasteTextSlot@3"
+				},
+				{
+					"command": "textPowerTools.pasteTextSlot4Content",
+					"group": "tpt_1_pasteTextSlot@4"
+				},
+				{
+					"command": "textPowerTools.pasteTextSlot5Content",
+					"group": "tpt_1_pasteTextSlot@5"
+				},
+				{
+					"command": "textPowerTools.setTextSlot1Content",
+					"group": "tpt_2_setTextSlot@1"
+				},
+				{
+					"command": "textPowerTools.setTextSlot2Content",
+					"group": "tpt_2_setTextSlot@2"
+				},
+				{
+					"command": "textPowerTools.setTextSlot3Content",
+					"group": "tpt_2_setTextSlot@3"
+				},
+				{
+					"command": "textPowerTools.setTextSlot4Content",
+					"group": "tpt_2_setTextSlot@4"
+				},
+				{
+					"command": "textPowerTools.setTextSlot5Content",
+					"group": "tpt_2_setTextSlot@5"
+				}
+			],
 			"textPowerTools.generateContent": [
 				{
 					"command": "textPowerTools.generateGuid",
@@ -896,6 +1003,10 @@
 			{
 				"id": "textPowerTools.insertNumbers",
 				"label": "Insert numbers"
+			},
+			{
+				"id": "textPowerTools.textSlots",
+				"label": "Text slots (clipboard-like)"
 			},
 			{
 				"id": "textPowerTools.convert",

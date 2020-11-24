@@ -1,5 +1,8 @@
 # Changelog
 
+## **1.18.0** (2020. 11. 24.)
+- Add support for text slots, which are like permanent clipboard entries in your VS Code.
+
 ## **1.17.0** (2020. 10. 17.)
 - Add _Convert to zalgo text_ commands with 4 levels of intensity.
 - Add _Insert full file path_, _Insert directory path_ and _Insert file name_ of the opened file commands.

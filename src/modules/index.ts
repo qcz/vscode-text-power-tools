@@ -17,3 +17,4 @@ export { PadDirection, runPadCommand } from "./padCommand";
 export { runRemoveBlankLinesCommand } from "./removeBlankLinesCommand";
 export { runRemoveControlCharactersCommand } from "./removeControlCharactersCommand";
 export { runRemoveDuplicatesCommand } from "./removeDuplicatesCommand";
+export { runSetTextSlotContentCommand, runpasteTextSlotCommand } from "./textSlotCommands";
