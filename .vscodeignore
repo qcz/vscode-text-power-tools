@@ -12,3 +12,4 @@ tslint.json
 webpack.config.js
 **/*.vsix
 **/*.zip
+TODO.md

@@ -4,3 +4,4 @@ node_modules
 dist/
 *.vsix
 *.zip
+TODO.md
