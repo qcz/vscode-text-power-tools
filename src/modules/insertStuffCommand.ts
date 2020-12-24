@@ -7,6 +7,7 @@ export const enum InsertableStuff {
 	FullFilePath,
 	DirectoryPath,
 	FileName,
+	UnixTimestamp
 }
 
 interface InsertStuffOptions {
@@ -30,6 +31,9 @@ export async function runInsertStuffCommand(options: InsertStuffOptions) {
 			break;
 		case InsertableStuff.FileName:
 			inserted = path.basename(editor.document.fileName);
+			break;
+		case InsertableStuff.UnixTimestamp:
+			inserted = Math.floor((+Date.now()) / 1000).toString();
 			break;
 	}
 

@@ -108,6 +108,8 @@ export function activate(context: vscode.ExtensionContext) {
 		runInsertStuffCommand({ what: InsertableStuff.DirectoryPath })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertFileName", () =>
 		runInsertStuffCommand({ what: InsertableStuff.FileName })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertUnixTimestamp", () =>
+		runInsertStuffCommand({ what: InsertableStuff.UnixTimestamp })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.padStart", () =>
 		runPadCommand({ direction: PadDirection.Start, askForPadCharacters: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.padStartWithCustomString", () =>

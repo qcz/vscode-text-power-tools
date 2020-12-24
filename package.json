@@ -97,6 +97,7 @@
 		"onCommand:textPowerTools.insertFullFilePath",
 		"onCommand:textPowerTools.insertDirectoryPath",
 		"onCommand:textPowerTools.insertFileName",
+		"onCommand:textPowerTools.insertUnixTimestamp",
 		"onCommand:textPowerTools.padStart",
 		"onCommand:textPowerTools.padStartWithCustomString",
 		"onCommand:textPowerTools.padEnd",
@@ -393,6 +394,11 @@
 				"command": "textPowerTools.insertFileName",
 				"category": "Text Power Tools",
 				"title": "Insert file name of the opened file"
+			},
+			{
+				"command": "textPowerTools.insertUnixTimestamp",
+				"category": "Text Power Tools",
+				"title": "Insert Unix timestamp"
 			},
 			{
 				"command": "textPowerTools.padStart",
@@ -866,6 +872,10 @@
 				{
 					"command": "textPowerTools.insertFileName",
 					"group": "tpt_1_insertFileSystemStuff@3"
+				},
+				{
+					"command": "textPowerTools.insertUnixTimestamp",
+					"group": "tpt_1_insertTimeStuff@1"
 				}
 			],
 			"textPowerTools.insertNumbers": [
