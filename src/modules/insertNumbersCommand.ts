@@ -1,7 +1,7 @@
 import * as vscode from "vscode";
 import { NO_ACTIVE_EDITOR } from "../consts";
+import { insertSequenceInternal } from "../helpers/sequenceInserter";
 import { getExtensionSettings } from "../helpers/tptSettings";
-import { getPureSelections, replaceSelectionsWithLines, sortSelectionsByPosition } from "../helpers/vsCodeHelpers";
 import { NumeralSystem } from "../interfaces";
 
 interface InsertNumbersOptions {
@@ -22,7 +22,10 @@ export async function runInsertNumbersCommand(options: InsertNumbersOptions) {
 	} else if (options.askForIncrements) {
 		askForIncrements(editor, options.numberFormat, 1);
 	} else {
-		insertNumbersInternal(editor, options.numberFormat, 1, 1);
+		insertSequenceInternal(
+			editor,
+			createNumbersGenerator(options.numberFormat, 1, 1)
+		);
 	}
 }
 
@@ -51,7 +54,10 @@ export async function askForStartingNumber(editor: vscode.TextEditor, options: I
 		if (options.askForIncrements) {
 			askForIncrements(editor, options.numberFormat, startingNumber);
 		} else {
-			insertNumbersInternal(editor, options.numberFormat, 1, startingNumber);
+			insertSequenceInternal(
+				editor,
+				createNumbersGenerator(options.numberFormat, 1, startingNumber)
+			);
 		}
 	});
 }
@@ -78,32 +84,32 @@ export async function askForIncrements(editor: vscode.TextEditor, numberFormat: 
 			return;
 		}
 
-		insertNumbersInternal(editor, numberFormat, increments, startingNumber);
+		insertSequenceInternal(
+			editor,
+			createNumbersGenerator(numberFormat, increments, startingNumber)
+		);
 	});
 }
 
-
-export async function insertNumbersInternal(editor: vscode.TextEditor, numberFormat: NumeralSystem, increments: number, startingNumber: number) {
-	const settings = getExtensionSettings();
-	const replacesBySelection: string[][] = [];
-	const selections = getPureSelections(editor);
-	sortSelectionsByPosition(selections);
+function createNumbersGenerator(numberFormat: NumeralSystem, increments: number, startingNumber: number): () => IterableIterator<string> {
+	const fun = function* () {
+		const settings = getExtensionSettings();
+		let insertedNumber: number = startingNumber;
+		while (true) {
+			if (numberFormat === NumeralSystem.Hexadecimal) {
+				let insertedString = insertedNumber.toString(16);
+				if (settings.insertUppercaseHexNumbers) {
+					insertedString = insertedString.toLocaleUpperCase();
+				}
 	
-	let insertedNumber: number = startingNumber;
-	for (let i = 0, len = selections.length; i < len; i++) {
-		if (numberFormat === NumeralSystem.Hexadecimal) {
-			let insertedString = insertedNumber.toString(16);
-			if (settings.insertUppercaseHexNumbers) {
-				insertedString = insertedString.toLocaleUpperCase();
+				yield insertedString;
+			} else {
+				yield insertedNumber.toString();
 			}
-
-			replacesBySelection.push([insertedString]);
-		} else {
-			replacesBySelection.push([insertedNumber.toString()]);
+	
+			insertedNumber += increments;
 		}
+	};
 
-		insertedNumber += increments;
-	}
-
-	await replaceSelectionsWithLines(editor, selections, replacesBySelection, false);
+	return fun;
 }
