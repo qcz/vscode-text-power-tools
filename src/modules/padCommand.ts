@@ -25,7 +25,7 @@ export async function runPadCommand(options: PadOptions) {
 
 export async function askForPadLength(editor: vscode.TextEditor, options: PadOptions) {
 	vscode.window.showInputBox({
-		placeHolder: `Please enter the length of the padded string`,
+		prompt: `Please enter the length of the padded string`,
 	}).then(async (rawPadLength: string | undefined) => {
 		if (typeof rawPadLength === "undefined") {
 			return;
@@ -52,7 +52,7 @@ export async function askForPadLength(editor: vscode.TextEditor, options: PadOpt
 
 export async function askForPadCharacter(editor: vscode.TextEditor, options: PadOptions, padLength: number) {
 	vscode.window.showInputBox({
-		placeHolder: `Please enter the string used for padding`,
+		prompt: `Please enter the string used for padding`,
 	}).then(async (padString: string | undefined) => {
 		if (typeof padString === "undefined") {
 			return;

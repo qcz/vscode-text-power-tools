@@ -26,7 +26,7 @@ async function askForNumberOfSequenceEntriesToInsert(
 	generator: () => IterableIterator<string>)
 {
 	vscode.window.showInputBox({
-		placeHolder: `Please specify the number of items to insert.`,
+		prompt: `Please specify the number of items to insert.`,
 		value: "1",
 	}).then(async (rawNumberOfItemsToInsert: string | undefined) => {
 		if (typeof rawNumberOfItemsToInsert === "undefined") {

@@ -27,7 +27,7 @@ export async function runFormatContentAsTableCommand(options: IAlignByCharacterO
 
 async function askForSplitCharacter(editor: vscode.TextEditor, options: IAlignByCharacterOptions) {
 	vscode.window.showInputBox({
-		placeHolder: `Please enter the character to split by`,
+		prompt: `Please enter the character to split by`,
 		value: "1",
 	}).then(async (splitChar: string | undefined) => {
 		if (typeof splitChar === "undefined") {

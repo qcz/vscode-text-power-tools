@@ -31,7 +31,7 @@ export async function runFilterTextCommand(context: vscode.ExtensionContext, opt
 
 	showHistoryQuickPick({
 		context: context,
-		placeholder: options.sourceType === FilterSourceType.String
+		title: options.sourceType === FilterSourceType.String
 			? "Please enter the filter text"
 			: "Please enter the filter regular expression",
 		historyStateKey: "filterText-" + options.sourceType.toString(),

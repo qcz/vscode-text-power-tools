@@ -80,7 +80,7 @@ function runAskForGuidCountOrGuidGeneration(options: IGenerateGuidOptions, edito
 
 export async function askForGuidCount(editor: vscode.TextEditor, type: GeneratedGuidType) {
 	vscode.window.showInputBox({
-		placeHolder: `Please enter how many GUIDs do you want to generate`,
+		prompt: `Please enter how many GUIDs do you want to generate`,
 		value: "1",
 	}).then(async (rawGuidCount: string | undefined) => {
 		if (typeof rawGuidCount === "undefined") {

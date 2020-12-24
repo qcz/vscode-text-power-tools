@@ -130,7 +130,7 @@ export function createNewEditor(): PromiseLike<vscode.TextEditor> {
 
 interface HistoryQuickPickOptions {
 	context: vscode.ExtensionContext;
-	placeholder: string;
+	title: string;
 	historyStateKey: string;
 	onDidAccept: (value: string) => void | Promise<void>;
 }
@@ -142,7 +142,7 @@ export function showHistoryQuickPick(
 	let historyItems = options.context.globalState.get<string[]>(fullHistoryStateKey, []);
 
 	const qp = vscode.window.createQuickPick();
-	qp.placeholder = options.placeholder;
+	qp.title = options.title;
 	qp.items = historyItems.map(x => {
 		return {
 			label: x

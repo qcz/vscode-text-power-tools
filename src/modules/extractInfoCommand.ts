@@ -18,7 +18,7 @@ export async function runExtractInfoCommand(context: vscode.ExtensionContext, op
 
 	showHistoryQuickPick({
 		context: context,
-		placeholder: "Please enter the filter text",
+		title: "Please enter the filter text",
 		historyStateKey: "extractInfo-filter",
 		onDidAccept: async (filter: string) => {
 			if (!filter) {
@@ -33,7 +33,7 @@ export async function runExtractInfoCommand(context: vscode.ExtensionContext, op
 
 			showHistoryQuickPick({
 				context: context,
-				placeholder: "Please enter the replacement rule",
+				title: "Please enter the replacement rule",
 				historyStateKey: "extractInfo-replacement",
 				onDidAccept: async (replacement: string) => {
 					if (typeof replacement === "undefined") {

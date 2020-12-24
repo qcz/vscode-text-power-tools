@@ -34,7 +34,7 @@ export async function askForStartingNumber(editor: vscode.TextEditor, options: I
 	const numberType = options.numberFormat === NumeralSystem.Hexadecimal ? "hex" : "decimal";
 
 	vscode.window.showInputBox({
-		placeHolder: `Please enter the starting number in ${numberType} format`,
+		prompt: `Please enter the starting number in ${numberType} format`,
 		value: "1",
 	}).then(async (filter: string | undefined) => {
 		if (typeof filter === "undefined") {
@@ -69,7 +69,7 @@ export async function askForIncrements(editor: vscode.TextEditor, numberFormat: 
 	const numberType = numberFormat === NumeralSystem.Hexadecimal ? "hex" : "decimal";
 
 	vscode.window.showInputBox({
-		placeHolder: `Please enter the number to increment by in ${numberType} format`,
+		prompt: `Please enter the number to increment by in ${numberType} format`,
 		value: "1",
 	}).then(async (filter: string | undefined) => {
 		if (typeof filter === "undefined") {
