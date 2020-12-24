@@ -20,9 +20,25 @@ All features are available from either the *Command Palette* or the editor conte
   The last 10 filter strings and replacement expressions are presented and can be used quickly when executing these commands.
 * **Remove duplicated, empty, surplus empty lines and control characters**
 * **Count occurrences of lines:** This command will counts how many times a line appears in the selected text and generates an output with the number of occurrences and the lines themselves
-* **Insert decimal and hex number sequences:** Inserts sequence o decimal or hex numbers to every selection. When inserting hex numbers, by default they will be uppercase. To insert lowercase hex numbers, set the value of the `textPowerTools.insertUppercaseHexNumbers` setting to `false`.
+* **Insert decimal, hex and Roman numeral sequences:** Inserts sequence of decimal, hex or Roman numbers to every selection. If there is only one selection, it will prompt for how many elements to insert. When inserting hex numbers, by default they will be uppercase. To insert lowercase hex numbers, set the value of the `textPowerTools.insertUppercaseHexNumbers` setting to `false`.
+* **Insert items from predefined sequences**: Inserts sequence of items from a predefined set to every selection. If there is only one selection, it will prompt for how many elements to insert. Currently the following predefined sequences are supported:
+    * _Uppercase letters_
+    * _Lowercase letters_
+    * _Uppercase Greek letters_
+    * _Lowercase Greek letters_
+    * _Long english month names_
+    * _Short english month names_
+    * _Long english day names_
+    * _Short english day names_
+    * _Long current/custom locale month names_
+    * _Short current/custom locale month names_
+    * _Long current/custom locale day names_
+    * _Short current/custom locale day names_
+    
+    (Note: current/custom locale means OS locale or the locale specified in the `textPowerTools.customLocale` setting)
 * **Insert line numbers:** Inserts line numbers to the start of each line in every selection. Line numbers can be real line numbers in the file or can start with 1.
 * **Insert full file path, directory path and file name of the opened file**.
+* **Insert Unix timestamp**
 * **Generate GUIDs**: Inserts GUIDs (globally unique identifiers or universally unique identifier) to the text in the selected format. Mutiple GUIDs can be inserted at once. To insert GUIDs with uppercase hex characters, set the value of the `textPowerTools.insertUppercaseGuids` setting to `true`. The default GUID style can be set using the `textPowerTools.defaultGuidType` setting.
 * **Change case of text (camelCase, PascalCase, snake_case, CONSTANT_CASE, dash-case, dot.case) and swap casing**.
 

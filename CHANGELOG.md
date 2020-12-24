@@ -1,5 +1,12 @@
 # Changelog
 
+## **1.19.0** (???) [_Insert All The Things Edition_]
+- Move to use title/prompt instead of placeholders when showing input boxes to the user so instructions are always visible
+- Modify insert number sequence commands to ask for number of items to insert when there is only one selection
+- Add support for inserting Roman numeral sequences
+- Add support for inserting predefined sequences (uppercase letters, lowercase letters, uppercase Greek letters, lowercase Greek letters, NATO phonetic alphabet, English or current/custom locale month names, English or current/custom locale day names)
+- Add support for inserting Unix timestamps
+
 ## **1.18.0** (2020. 11. 24.)
 - Add support for text slots, which are like permanent clipboard entries in your VS Code.
 
