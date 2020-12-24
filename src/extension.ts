@@ -60,6 +60,14 @@ export function activate(context: vscode.ExtensionContext) {
 		runInsertNumbersCommand({ numberFormat: NumeralSystem.Hexadecimal, askForIncrements: true, askForStartingNumber: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertHexNumbersWithIncrementsStartingAt", () =>
 		runInsertNumbersCommand({ numberFormat: NumeralSystem.Hexadecimal, askForIncrements: true, askForStartingNumber: true })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertRomanNumerals", () =>
+		runInsertNumbersCommand({ numberFormat: NumeralSystem.Roman, askForIncrements: false, askForStartingNumber: false })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertRomanNumeralsStartingAt", () =>
+		runInsertNumbersCommand({ numberFormat: NumeralSystem.Roman, askForIncrements: false, askForStartingNumber: true })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertRomanNumeralsWithIncrements", () =>
+		runInsertNumbersCommand({ numberFormat: NumeralSystem.Roman, askForIncrements: true, askForStartingNumber: false })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertRomanNumeralsWithIncrementsStartingAt", () =>
+		runInsertNumbersCommand({ numberFormat: NumeralSystem.Roman, askForIncrements: true, askForStartingNumber: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertLineNumbers", () =>
 		runInsertLineNumbersCommand({ type: LineNumberType.Real, padWithZero: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertLineNumbersFixedLength", () =>

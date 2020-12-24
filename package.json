@@ -73,6 +73,10 @@
 		"onCommand:textPowerTools.insertHexNumbersStartingAt",
 		"onCommand:textPowerTools.insertHexNumbersWithIncrements",
 		"onCommand:textPowerTools.insertHexNumbersWithIncrementsStartingAt",
+		"onCommand:textPowerTools.insertRomanNumerals",
+		"onCommand:textPowerTools.insertRomanNumeralsStartingAt",
+		"onCommand:textPowerTools.insertRomanNumeralsWithIncrements",
+		"onCommand:textPowerTools.insertRomanNumeralsWithIncrementsStartingAt",
 		"onCommand:textPowerTools.insertLineNumbers",
 		"onCommand:textPowerTools.insertLineNumbersFixedLength",
 		"onCommand:textPowerTools.insertRelativeLineNumbers",
@@ -256,6 +260,26 @@
 				"command": "textPowerTools.insertHexNumbersWithIncrementsStartingAt",
 				"category": "Text Power Tools",
 				"title": "Insert hex number sequence with custom increments starting at..."
+			},
+			{
+				"command": "textPowerTools.insertRomanNumerals",
+				"category": "Text Power Tools",
+				"title": "Insert Roman numeral sequence"
+			},
+			{
+				"command": "textPowerTools.insertRomanNumeralsStartingAt",
+				"category": "Text Power Tools",
+				"title": "Insert Roman numeral sequence starting at..."
+			},
+			{
+				"command": "textPowerTools.insertRomanNumeralsWithIncrements",
+				"category": "Text Power Tools",
+				"title": "Insert Roman numeral sequence with custom increments"
+			},
+			{
+				"command": "textPowerTools.insertRomanNumeralsWithIncrementsStartingAt",
+				"category": "Text Power Tools",
+				"title": "Insert Roman numeral sequence with custom increments starting at..."
 			},
 			{
 				"command": "textPowerTools.insertLineNumbers",
@@ -777,39 +801,55 @@
 				},
 				{
 					"command": "textPowerTools.insertDecimalNumbersWithIncrementsStartingAt",
-					"group": "tpt_1_insertDecimalNumbers@4"
+					"group": "tpt_2_insertDecimalNumbers@4"
 				},
 				{
 					"command": "textPowerTools.insertHexNumbers",
-					"group": "tpt_1_insertHexNumbers@1"
+					"group": "tpt_2_insertHexNumbers@1"
 				},
 				{
 					"command": "textPowerTools.insertHexNumbersStartingAt",
-					"group": "tpt_1_insertHexNumbers@2"
+					"group": "tpt_2_insertHexNumbers@2"
 				},
 				{
 					"command": "textPowerTools.insertHexNumbersWithIncrements",
-					"group": "tpt_1_insertHexNumbers@3"
+					"group": "tpt_2_insertHexNumbers@3"
 				},
 				{
 					"command": "textPowerTools.insertHexNumbersWithIncrementsStartingAt",
-					"group": "tpt_1_insertHexNumbers@4"
+					"group": "tpt_2_insertHexNumbers@4"
+				},
+				{
+					"command": "textPowerTools.insertRomanNumerals",
+					"group": "tpt_2_insertRomanNumerals@1"
+				},
+				{
+					"command": "textPowerTools.insertRomanNumeralsStartingAt",
+					"group": "tpt_2_insertRomanNumerals@2"
+				},
+				{
+					"command": "textPowerTools.insertRomanNumeralsWithIncrements",
+					"group": "tpt_2_insertRomanNumerals@3"
+				},
+				{
+					"command": "textPowerTools.insertRomanNumeralsWithIncrementsStartingAt",
+					"group": "tpt_2_insertRomanNumerals@4"
 				},
 				{
 					"command": "textPowerTools.insertLineNumbers",
-					"group": "tpt_2_insertLineNumbers@1"
+					"group": "tpt_3_insertLineNumbers@1"
 				},
 				{
 					"command": "textPowerTools.insertLineNumbersFixedLength",
-					"group": "tpt_2_insertLineNumbers@2"
+					"group": "tpt_3_insertLineNumbers@2"
 				},
 				{
 					"command": "textPowerTools.insertRelativeLineNumbers",
-					"group": "tpt_2_insertLineNumbers@3"
+					"group": "tpt_3_insertLineNumbers@3"
 				},
 				{
 					"command": "textPowerTools.insertRelativeLineNumbersFixedLength",
-					"group": "tpt_2_insertLineNumbers@4"
+					"group": "tpt_3_insertLineNumbers@4"
 				}
 			],
 			"textPowerTools.textSlots": [
@@ -1108,6 +1148,7 @@
 		"test-compile": "tsc -p ./"
 	},
 	"devDependencies": {
+		"@types/js-roman-numerals": "^1.1.0",
 		"@types/mocha": "^2.2.42",
 		"@types/node": "^12.12.0",
 		"@types/node-uuid": "0.0.28",
@@ -1122,6 +1163,7 @@
 		"change-case": "^3.0.2",
 		"html-entities": "^1.3.1",
 		"js-base64": "^3.4.5",
+		"js-roman-numerals": "^1.1.0",
 		"lorem-ipsum": "^2.0.3",
 		"node-uuid": "^1.4.8",
 		"vscode-test": "^1.4.0",

@@ -3,6 +3,7 @@ import { NO_ACTIVE_EDITOR } from "../consts";
 import { insertSequenceInternal } from "../helpers/sequenceInserter";
 import { getExtensionSettings } from "../helpers/tptSettings";
 import { NumeralSystem } from "../interfaces";
+import RomanNumeral  from "js-roman-numerals";
 
 interface InsertNumbersOptions {
 	numberFormat: NumeralSystem;
@@ -30,7 +31,7 @@ export async function runInsertNumbersCommand(options: InsertNumbersOptions) {
 }
 
 export async function askForStartingNumber(editor: vscode.TextEditor, options: InsertNumbersOptions) {
-	const numberType = options.numberFormat === NumeralSystem.Decimal ? "decimal" : "hex";
+	const numberType = options.numberFormat === NumeralSystem.Hexadecimal ? "hex" : "decimal";
 
 	vscode.window.showInputBox({
 		placeHolder: `Please enter the starting number in ${numberType} format`,
@@ -45,11 +46,13 @@ export async function askForStartingNumber(editor: vscode.TextEditor, options: I
 			return;
 		}
 
-		const startingNumber = Number.parseInt(filter, options.numberFormat === NumeralSystem.Decimal ? 10 : 16);
+		const startingNumber = Number.parseInt(filter, options.numberFormat === NumeralSystem.Hexadecimal ? 16 : 10);
 		if (isNaN(startingNumber)) {
 			vscode.window.showErrorMessage(`The entered starting number is not a valid ${numberType} number.`);
 			return;
 		}
+
+		// TODO: warn for too big roman number
 
 		if (options.askForIncrements) {
 			askForIncrements(editor, options.numberFormat, startingNumber);
@@ -63,7 +66,7 @@ export async function askForStartingNumber(editor: vscode.TextEditor, options: I
 }
 
 export async function askForIncrements(editor: vscode.TextEditor, numberFormat: NumeralSystem, startingNumber: number) {
-	const numberType = numberFormat === NumeralSystem.Decimal ? "decimal" : "hex";
+	const numberType = numberFormat === NumeralSystem.Hexadecimal ? "hex" : "decimal";
 
 	vscode.window.showInputBox({
 		placeHolder: `Please enter the number to increment by in ${numberType} format`,
@@ -78,7 +81,7 @@ export async function askForIncrements(editor: vscode.TextEditor, numberFormat: 
 			return;
 		}
 
-		const increments = Number.parseInt(filter, numberFormat === NumeralSystem.Decimal ? 10 : 16);
+		const increments = Number.parseInt(filter, numberFormat === NumeralSystem.Hexadecimal ? 16 : 10);
 		if (isNaN(increments)) {
 			vscode.window.showErrorMessage(`The entered number to increment by is not a valid ${numberType} number.`);
 			return;
@@ -96,7 +99,13 @@ function createNumbersGenerator(numberFormat: NumeralSystem, increments: number,
 		const settings = getExtensionSettings();
 		let insertedNumber: number = startingNumber;
 		while (true) {
-			if (numberFormat === NumeralSystem.Hexadecimal) {
+			if (numberFormat === NumeralSystem.Roman) {
+				if (insertedNumber > 3999) {
+					break;
+				}
+
+				yield new RomanNumeral(insertedNumber).toString();
+			} else if (numberFormat === NumeralSystem.Hexadecimal) {
 				let insertedString = insertedNumber.toString(16);
 				if (settings.insertUppercaseHexNumbers) {
 					insertedString = insertedString.toLocaleUpperCase();
