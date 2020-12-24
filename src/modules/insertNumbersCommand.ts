@@ -100,8 +100,8 @@ function createNumbersGenerator(numberFormat: NumeralSystem, increments: number,
 		let insertedNumber: number = startingNumber;
 		while (true) {
 			if (numberFormat === NumeralSystem.Roman) {
-				if (insertedNumber > 3999) {
-					break;
+				if (insertedNumber > 3999 || insertedNumber < 1) {
+					yield insertedNumber.toString();
 				}
 
 				yield new RomanNumeral(insertedNumber).toString();

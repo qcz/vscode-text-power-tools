@@ -11,6 +11,7 @@ export { runGenerateGuidCommand } from "./generateGuidCommand";
 export { runGenerateLoremIpsumCommand } from "./generateLoremIpsumCommand";
 export { LineNumberType, runInsertLineNumbersCommand } from "./insertLineNumbersCommand";
 export { runInsertNumbersCommand } from "./insertNumbersCommand";
+export { InsertableSeries, runInsertPredefinedSeriesCommand } from "./insertPredefinedSeriesCommands";
 export { InsertableStuff, runInsertStuffCommand } from "./insertStuffCommand";
 export { runModifyTextEncodingCommand, TextEncodingDirection, TextEncodingType } from "./modifyTextEncodingCommand";
 export { PadDirection, runPadCommand } from "./padCommand";

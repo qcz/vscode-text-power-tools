@@ -75,8 +75,7 @@ async function insertSequenceForRealThisTime(
 			}
 
 			if (typeof iteratorValue.value !== "string") {
-				vscode.window.showErrorMessage("Error while running sequence generator. "
-					+ "Please contact extension maintainer on GitHub.");
+				vscode.window.showErrorMessage("Error while generating the sequence to insert.");
 				return;
 			}
 
@@ -87,4 +86,14 @@ async function insertSequenceForRealThisTime(
 	}
 
 	await replaceSelectionsWithLines(editor, selections, replacesBySelection, false);
+}
+
+export function createGeneratorFromArray(strArr: string[]) {
+	const fun = function* (): IterableIterator<string> {
+		for (const ele of strArr) {
+			yield ele;
+		}
+	};
+
+	return fun;
 }

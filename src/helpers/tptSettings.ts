@@ -10,6 +10,7 @@ export interface ITextPowerToolsSettings {
 	loremIpsumMaxWordsPerSentence: number;
 	loremIpsumMinSentencesPerParagraph: number;
 	loremIpsumMaxSentencesPerParagraph: number;
+	customLocale: string;
 }
 
 export function getExtensionSettings(): ITextPowerToolsSettings {
@@ -25,5 +26,6 @@ export function getExtensionSettings(): ITextPowerToolsSettings {
 		loremIpsumMaxWordsPerSentence: vscConfig.get<number>("loremIpsum.wordsPerSentence.max", 16),
 		loremIpsumMinSentencesPerParagraph: vscConfig.get<number>("loremIpsum.sentencesPerParagraph.min", 4),
 		loremIpsumMaxSentencesPerParagraph: vscConfig.get<number>("loremIpsum.sentencesPerParagraph.max", 8),
+		customLocale: vscConfig.get<string>("customLocale", ""),
 	};
 }
