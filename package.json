@@ -318,67 +318,67 @@
 			{
 				"command": "textPowerTools.insertLowercaseLetterSequence",
 				"category": "Text Power Tools",
-				"title": "Insert lowercase letter sequence"
+				"title": "Insert series of lowercase letters"
 			},
 			{
 				"command": "textPowerTools.insertUppercaseLetterSequence",
 				"category": "Text Power Tools",
-				"title": "Insert uppercase letter sequence"
+				"title": "Insert series of uppercase letters"
 			},
 			{
 				"command": "textPowerTools.insertLowercaseGreekLetterSequence",
 				"category": "Text Power Tools",
-				"title": "Insert lowercase Greek letter sequence"
+				"title": "Insert series of lowercase Greek letters"
 			},
 			{
 				"command": "textPowerTools.insertUppercaseGreekLetterSequence",
 				"category": "Text Power Tools",
-				"title": "Insert uppercase Greek letter sequence"
+				"title": "Insert series of uppercase Greek letters"
 			},
 			{
 				"command": "textPowerTools.insertNatoPhoneticAlphabetSequence",
 				"category": "Text Power Tools",
-				"title": "Insert NATO phonetic alphabet sequence"
+				"title": "Insert series of NATO phonetic alphabet items"
 			},
 			{
 				"command": "textPowerTools.insertLongEnglishMonthNamesSequence",
 				"category": "Text Power Tools",
-				"title": "Insert long English month names sequence"
+				"title": "Insert series of long English month names"
 			},
 			{
 				"command": "textPowerTools.insertShortEnglishMonthNamesSequence",
 				"category": "Text Power Tools",
-				"title": "Insert short English month names sequence"
+				"title": "Insert series of short English month names"
 			},
 			{
 				"command": "textPowerTools.insertLongLocaleMonthNamesSequence",
 				"category": "Text Power Tools",
-				"title": "Insert long current/custom locale month names sequence"
+				"title": "Insert series of long current/custom locale month names"
 			},
 			{
 				"command": "textPowerTools.insertShortLocaleMonthNamesSequence",
 				"category": "Text Power Tools",
-				"title": "Insert short current/custom locale month names sequence"
+				"title": "Insert series of short current/custom locale month names"
 			},
 			{
 				"command": "textPowerTools.insertLongEnglishDayNamesSequence",
 				"category": "Text Power Tools",
-				"title": "Insert long English day names sequence"
+				"title": "Insert series of long English day names"
 			},
 			{
 				"command": "textPowerTools.insertShortEnglishDayNamesSequence",
 				"category": "Text Power Tools",
-				"title": "Insert short English day names sequence"
+				"title": "Insert series of short English day names"
 			},
 			{
 				"command": "textPowerTools.insertLongLocaleDayNamesSequence",
 				"category": "Text Power Tools",
-				"title": "Insert long current/custom locale day names sequence"
+				"title": "Insert series of long current/custom locale day names"
 			},
 			{
 				"command": "textPowerTools.insertShortLocaleDayNamesSequence",
 				"category": "Text Power Tools",
-				"title": "Insert short current/custom locale day names sequence"
+				"title": "Insert series of short current/custom locale day names"
 			},
 			{
 				"command": "textPowerTools.insertFullFilePath",
@@ -947,55 +947,55 @@
 			"textPowerTools.insertSequences": [
 				{
 					"command": "textPowerTools.insertLowercaseLetterSequence",
-					"group": "tpt_1_letters@1"
+					"group": "tpt_2_letters@1"
 				},
 				{
 					"command": "textPowerTools.insertUppercaseLetterSequence",
-					"group": "tpt_1_letters@2"
+					"group": "tpt_2_letters@2"
 				},
 				{
 					"command": "textPowerTools.insertLowercaseGreekLetterSequence",
-					"group": "tpt_1_letters@3"
+					"group": "tpt_2_letters@3"
 				},
 				{
 					"command": "textPowerTools.insertUppercaseGreekLetterSequence",
-					"group": "tpt_1_letters@4"
+					"group": "tpt_2_letters@4"
 				},
 				{
 					"command": "textPowerTools.insertNatoPhoneticAlphabetSequence",
-					"group": "tpt_2_words@1"
+					"group": "tpt_3_words@1"
 				},
 				{
 					"command": "textPowerTools.insertLongEnglishMonthNamesSequence",
-					"group": "tpt_3_englishDateRelated@1"
+					"group": "tpt_4_englishDateRelated@1"
 				},
 				{
 					"command": "textPowerTools.insertShortEnglishMonthNamesSequence",
-					"group": "tpt_3_englishDateRelated@2"
+					"group": "tpt_4_englishDateRelated@2"
 				},
 				{
 					"command": "textPowerTools.insertLongEnglishDayNamesSequence",
-					"group": "tpt_3_englishDateRelated@3"
+					"group": "tpt_4_englishDateRelated@3"
 				},
 				{
 					"command": "textPowerTools.insertShortEnglishDayNamesSequence",
-					"group": "tpt_3_englishDateRelated@4"
+					"group": "tpt_4_englishDateRelated@4"
 				},
 				{
 					"command": "textPowerTools.insertLongLocaleMonthNamesSequence",
-					"group": "tpt_4_localeDateRelated@1"
+					"group": "tpt_5_localeDateRelated@1"
 				},
 				{
 					"command": "textPowerTools.insertShortLocaleMonthNamesSequence",
-					"group": "tpt_4_localeDateRelated@2"
+					"group": "tpt_5_localeDateRelated@2"
 				},
 				{
 					"command": "textPowerTools.insertLongLocaleDayNamesSequence",
-					"group": "tpt_4_localeDateRelated@3"
+					"group": "tpt_5_localeDateRelated@3"
 				},
 				{
 					"command": "textPowerTools.insertShortLocaleDayNamesSequence",
-					"group": "tpt_4_localeDateRelated@4"
+					"group": "tpt_5_localeDateRelated@4"
 				}
 			],
 			"textPowerTools.textSlots": [
@@ -1192,7 +1192,7 @@
 			},
 			{
 				"id": "textPowerTools.insertSequences",
-				"label": "Insert sequences"
+				"label": "Insert series of items"
 			},
 			{
 				"id": "textPowerTools.textSlots",
