@@ -16,7 +16,7 @@ export class MonthNamesSequence extends ASequenceBase {
 			: `${this.type} ${this.locale} month names`;
 	}
 
-	public createGenerator(): () => IterableIterator<string> {
+	public async createGenerator(forSample: boolean): Promise<() => IterableIterator<string>> {
 		const settings = getExtensionSettings();
 		let locale = this.locale;
 		if (locale === "" || typeof locale === "undefined") {

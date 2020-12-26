@@ -1,9 +1,10 @@
 export abstract class ASequenceBase {
 	public abstract get name(): string;
-	public abstract createGenerator(): () => IterableIterator<string>;
+	public abstract createGenerator(forSample: boolean): Promise<() => IterableIterator<string>>;
+	public async ensureAllParametersAreSet(): Promise<void> {};
 
-	public get sample(): string {
-		const generator = this.createGenerator();
+	public async getSample(): Promise<string> {
+		const generator = await this.createGenerator(true);
 		const iterator = generator();
 
 		const sampleItems: string[] = [];

@@ -9,7 +9,7 @@ import { NatoPhoneticAlphabetSequence } from "../sequences/implementations/natoP
 import { MonthNamesSequence } from "../sequences/implementations/monthNamesSequence";
 import { DayNamesSequence } from "../sequences/implementations/dayNameSequence";
 import { ASequenceBase } from "../sequences/sequenceBase";
-import { knownSequences } from "../sequences/implementations";
+import { getKnownSequences } from "../sequences/implementations";
 import { QuickPickItem } from "vscode";
 
 export const enum InsertableSeries {
@@ -88,7 +88,7 @@ export async function runInsertPredefinedSeriesCommand(options: IInsertPredefine
 	}
 
 	if (seqClass !== null) {
-		insertSequenceInternal(editor, seqClass.createGenerator());
+		insertSequenceInternal(editor, await seqClass.createGenerator(false));
 	}
 }
 
@@ -96,16 +96,20 @@ interface SequenceQuickPickItem extends QuickPickItem {
 	sequenceInstance: ASequenceBase;
 }
 
-const showPredefinedSeriesPicker = (editor: vscode.TextEditor) => {
+const showPredefinedSeriesPicker = async (editor: vscode.TextEditor) => {
 	const qp = vscode.window.createQuickPick<SequenceQuickPickItem>();
 	qp.title = "Select a predefined series";
-	qp.items = knownSequences.map(x => {
-		return {
-			label: x.name,
-			detail: x.sample,
-			sequenceInstance: x
-		};
-	});
+
+	const quickPickItems: SequenceQuickPickItem[] = [];
+	for (const seq of getKnownSequences()) {
+		quickPickItems.push({
+			label: seq.name,
+			detail: await seq.getSample(),
+			sequenceInstance: seq
+		});
+	}
+	qp.items = quickPickItems;
+
 	qp.onDidChangeValue(() => {
 		if (qp.activeItems.length > 0) {
 			if (qp.activeItems[0].label !== qp.value) {
@@ -113,7 +117,7 @@ const showPredefinedSeriesPicker = (editor: vscode.TextEditor) => {
 			}
 		}
 	});
-	qp.onDidAccept(() => {
+	qp.onDidAccept(async () => {
 		let selectedValue: SequenceQuickPickItem | null = null;
 		if (qp.activeItems.length) {
 			selectedValue = qp.activeItems[0];
@@ -126,7 +130,7 @@ const showPredefinedSeriesPicker = (editor: vscode.TextEditor) => {
 		qp.hide();
 		qp.dispose();
 
-		insertSequenceInternal(editor, selectedValue.sequenceInstance.createGenerator());
+		insertSequenceInternal(editor, await selectedValue.sequenceInstance.createGenerator(false));
 	});
 	qp.activeItems = [];
 	qp.show();
