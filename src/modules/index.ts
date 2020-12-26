@@ -10,8 +10,8 @@ export { ASK_SPLIT_CHARACTER_FROM_USER, runFormatContentAsTableCommand } from ".
 export { runGenerateGuidCommand } from "./generateGuidCommand";
 export { runGenerateLoremIpsumCommand } from "./generateLoremIpsumCommand";
 export { LineNumberType, runInsertLineNumbersCommand } from "./insertLineNumbersCommand";
-export { runInsertNumbersCommand } from "./insertNumbersCommand";
-export { InsertableSeries, runInsertPredefinedSeriesCommand } from "./insertPredefinedSeriesCommands";
+export { runInsertNumberSequenceCommand as runInsertNumbersCommand } from "./insertNumberSequenceCommand";
+export { InsertableSeries, runInsertPredefinedSeriesCommand } from "./insertPredefinedSequenceCommands";
 export { InsertableStuff, runInsertStuffCommand } from "./insertStuffCommand";
 export { runModifyTextEncodingCommand, TextEncodingDirection, TextEncodingType } from "./modifyTextEncodingCommand";
 export { PadDirection, runPadCommand } from "./padCommand";
