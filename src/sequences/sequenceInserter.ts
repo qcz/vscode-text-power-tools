@@ -1,5 +1,5 @@
 import * as vscode from "vscode";
-import { getPureSelections, replaceSelectionsWithLines, sortSelectionsByPosition } from "./vsCodeHelpers";
+import { getPureSelections, replaceSelectionsWithLines, sortSelectionsByPosition } from "../helpers/vsCodeHelpers";
 
 export async function insertSequenceInternal(
 	editor: vscode.TextEditor,
@@ -86,14 +86,4 @@ async function insertSequenceForRealThisTime(
 	}
 
 	await replaceSelectionsWithLines(editor, selections, replacesBySelection, false);
-}
-
-export function createGeneratorFromArray(strArr: string[]) {
-	const fun = function* (): IterableIterator<string> {
-		for (const ele of strArr) {
-			yield ele;
-		}
-	};
-
-	return fun;
 }

@@ -1,6 +1,6 @@
 import * as vscode from "vscode";
 import { NO_ACTIVE_EDITOR } from "../consts";
-import { insertSequenceInternal } from "../helpers/sequenceInserter";
+import { insertSequenceInternal } from "../sequences/sequenceInserter";
 import { getExtensionSettings } from "../helpers/tptSettings";
 import { NumeralSystem } from "../interfaces";
 import RomanNumeral  from "js-roman-numerals";

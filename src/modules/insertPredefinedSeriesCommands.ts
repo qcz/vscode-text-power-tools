@@ -1,9 +1,20 @@
 import * as vscode from "vscode";
 import { NO_ACTIVE_EDITOR } from "../consts";
-import { createGeneratorFromArray, insertSequenceInternal } from "../helpers/sequenceInserter";
-import { getExtensionSettings } from "../helpers/tptSettings";
+import { insertSequenceInternal } from "../sequences/sequenceInserter";
+import { LowercaseLettersSequence } from "../sequences/implementations/lowercaseLettersSequence";
+import { UppercaseGreekLettersSequence } from "../sequences/implementations/uppercaseGreekLettersSequence";
+import { UppercaseLettersSequence } from "../sequences/implementations/uppercaseLettersSequence";
+import { LowercaseGreekLettersSequence } from "../sequences/implementations/lowercaseGreekLettersSequence";
+import { NatoPhoneticAlphabetSequence } from "../sequences/implementations/natoPhoneticAlphabetSequence";
+import { MonthNamesSequence } from "../sequences/implementations/monthNamesSequence";
+import { DayNamesSequence } from "../sequences/implementations/dayNameSequence";
+import { ASequenceBase } from "../sequences/sequenceBase";
+import { knownSequences } from "../sequences/implementations";
+import { QuickPickItem } from "vscode";
 
 export const enum InsertableSeries {
+	UserSelection,
+
 	LowercaseLetters,
 	UppercaseLetters,
 	LowercaseGreekLetters,
@@ -30,215 +41,93 @@ export async function runInsertPredefinedSeriesCommand(options: IInsertPredefine
 		return;
 	}
 
+	let seqClass: ASequenceBase | null = null;
 	switch (options.series) {
 		case InsertableSeries.LowercaseLetters:
-			insertLowercaseLetterSequence(editor);
+			seqClass = new LowercaseLettersSequence();
 			break;
-		case InsertableSeries.LowercaseLetters:
-			insertUppercaseLetterSequence(editor);
+		case InsertableSeries.UppercaseLetters:
+			seqClass = new UppercaseLettersSequence();
 			break;
 		case InsertableSeries.LowercaseGreekLetters:
-			insertLowercaseGreekLetterSequence(editor);
+			seqClass = new LowercaseGreekLettersSequence();
 			break;
 		case InsertableSeries.UppercaseGreekLetters:
-			insertUppercaseGreekLetterSequence(editor);
+			seqClass = new UppercaseGreekLettersSequence();
 			break;
 		case InsertableSeries.NatoPhoneticAlphabet:
-			insertNatoPhoneticAlphabetSequence(editor);
+			seqClass = new NatoPhoneticAlphabetSequence();
 			break;
 		case InsertableSeries.LongEnglishMonthNames:
-			insertLongEnglishMonthNamesSequence(editor);
+			seqClass = new MonthNamesSequence("en-US", "long");
 			break;
 		case InsertableSeries.ShortEnglishMonthNames:
-			insertShortEnglishMonthNamesSequence(editor);
+			seqClass = new MonthNamesSequence("en-US", "short");
 			break;
 		case InsertableSeries.LongLocaleMonthNames:
-			insertLongLocaleMonthNamesSequence(editor);
+			seqClass = new MonthNamesSequence(undefined, "long");
 			break;
 		case InsertableSeries.ShortLocaleMonthNames:
-			insertShortLocaleMonthNamesSequence(editor);
+			seqClass = new MonthNamesSequence(undefined, "short");
 			break;
 		case InsertableSeries.LongEnglishDayNames:
-			insertLongEnglishDayNamesSequence(editor);
+			seqClass = new DayNamesSequence("en-US", "long");
 			break;
 		case InsertableSeries.ShortEnglishDayNames:
-			insertShortEnglishDayNamesSequence(editor);
+			seqClass = new DayNamesSequence("en-US", "short");
 			break;
 		case InsertableSeries.LongLocaleDayNames:
-			insertLongLocaleDayNamesSequence(editor);
+			seqClass = new DayNamesSequence(undefined, "long");
 			break;
 		case InsertableSeries.ShortLocaleDayNames:
-			insertShortLocaleDayNamesSequence(editor);
+			seqClass = new DayNamesSequence(undefined, "short");
+			break;
+		default:
+			showPredefinedSeriesPicker(editor);
 			break;
 	}
+
+	if (seqClass !== null) {
+		insertSequenceInternal(editor, seqClass.createGenerator());
+	}
 }
 
-function insertLowercaseLetterSequence(editor: vscode.TextEditor) {
-	insertSequenceInternal(
-		editor,
-		createGeneratorFromArray([
-			"a", "b", "c", "d", "e", "f", "g", "h", "i",
-			"j", "k", "l", "m", "n", "o", "p", "q", "r",
-			"s", "t", "u", "v", "w", "x", "y", "z",
-		])
-	);
+interface SequenceQuickPickItem extends QuickPickItem {
+	sequenceInstance: ASequenceBase;
 }
 
-function insertUppercaseLetterSequence(editor: vscode.TextEditor) {
-	insertSequenceInternal(
-		editor,
-		createGeneratorFromArray([
-			"A", "B", "C", "D", "E", "F", "G", "H", "I",
-			"J", "K", "L", "M", "N", "O", "P", "Q", "R",
-			"S", "T", "U", "V", "W", "X", "Y", "Z",
-		])
-	);
-}
-
-function insertLowercaseGreekLetterSequence(editor: vscode.TextEditor) {
-	insertSequenceInternal(
-		editor,
-		createGeneratorFromArray([
-			"α", "β", "γ", "δ", "ε", "ζ", "η", "θ",
-			"ι", "κ", "λ", "μ", "ν", "ξ", "ο", "π",
-			"ρ", "σ", "τ", "υ", "φ", "χ", "ψ", "q"
-		])
-	);
-}
-
-function insertUppercaseGreekLetterSequence(editor: vscode.TextEditor) {
-	insertSequenceInternal(
-		editor,
-		createGeneratorFromArray([
-			"Α", "Β", "Γ", "Δ", "Ε", "Ζ", "Η", "Θ",
-			"Ι", "Κ", "Λ", "Μ", "Ν", "Ξ", "Ο", "Π",
-			"Ρ", "Σ", "Τ", "Υ", "Φ", "Χ", "Ψ", "Ω"
-		])
-	);
-}
-
-function insertNatoPhoneticAlphabetSequence(editor: vscode.TextEditor) {
-	insertSequenceInternal(
-		editor, 
-		createGeneratorFromArray([
-			"Alfa", "Bravo", "Charlie", "Delta", "Echo", "Foxtrot", "Golf", "Hotel",
-			"India", "Juliett", "Kilo", "Lima", "Mike", "November", "Oscar", "Papa",
-			"Quebec", "Romeo", "Sierra", "Tango", "Uniform", "Victor", "Whiskey",
-			"X-ray", "Yankee", "Zulu"
-		])
-	);
-}
-
-const createMonthNamesGenerator = (locale: string | undefined, type: "long" | "short") => {
-	const fun = function* () {
-		try {
-			const formatter = new Intl.DateTimeFormat(locale, { month: type });
-			for (let i = 0; i < 12; i++) {
-				yield formatter.format(
-					new Date(2020, i, 1)
-				);
+const showPredefinedSeriesPicker = (editor: vscode.TextEditor) => {
+	const qp = vscode.window.createQuickPick<SequenceQuickPickItem>();
+	qp.title = "Select a predefined series";
+	qp.items = knownSequences.map(x => {
+		return {
+			label: x.name,
+			detail: x.sample,
+			sequenceInstance: x
+		};
+	});
+	qp.onDidChangeValue(() => {
+		if (qp.activeItems.length > 0) {
+			if (qp.activeItems[0].label !== qp.value) {
+				qp.activeItems = [];
 			}
-		} catch (err) {
-			vscode.window.showErrorMessage(`Unknown locale provided for generator: '${locale}'`);
 		}
-	};
-
-	return fun;
-};
-
-function insertLongEnglishMonthNamesSequence(editor: vscode.TextEditor) {
-	insertSequenceInternal(
-		editor, 
-		createMonthNamesGenerator("en-US", "long")
-	);
-}
-
-function insertShortEnglishMonthNamesSequence(editor: vscode.TextEditor) {
-	insertSequenceInternal(
-		editor, 
-		createMonthNamesGenerator("en-US", "short")
-	);
-}
-
-function insertLongLocaleMonthNamesSequence(editor: vscode.TextEditor) {
-	const settings = getExtensionSettings();
-	let locale: string | undefined = settings.customLocale;
-	if (locale === "") {
-		locale = undefined;
-	}
-
-	insertSequenceInternal(
-		editor, 
-		createMonthNamesGenerator(locale, "long")
-	);
-}
-
-function insertShortLocaleMonthNamesSequence(editor: vscode.TextEditor) {
-	const settings = getExtensionSettings();
-	let locale: string | undefined = settings.customLocale;
-	if (locale === "") {
-		locale = undefined;
-	}
-
-	insertSequenceInternal(
-		editor, 
-		createMonthNamesGenerator(locale, "short")
-	);
-}
-
-const createDayNamesGenerator = (locale: string | undefined, type: "long" | "short") => {
-	const fun = function* () {
-		try {
-			const formatter = new Intl.DateTimeFormat(locale, { weekday: type });
-			for (let i = 1; i <= 7; i++) {
-				yield formatter.format(
-					new Date(2020, 5, i)
-				);
-			}
-		} catch (err) {
-			vscode.window.showErrorMessage(`Unknown locale provided for generator: '${locale}'`);
+	});
+	qp.onDidAccept(() => {
+		let selectedValue: SequenceQuickPickItem | null = null;
+		if (qp.activeItems.length) {
+			selectedValue = qp.activeItems[0];
 		}
-	};
 
-	return fun;
+		if (!selectedValue) {
+			return;
+		}
+
+		qp.hide();
+		qp.dispose();
+
+		insertSequenceInternal(editor, selectedValue.sequenceInstance.createGenerator());
+	});
+	qp.activeItems = [];
+	qp.show();
 };
-
-function insertLongEnglishDayNamesSequence(editor: vscode.TextEditor) {
-	insertSequenceInternal(
-		editor,
-		createDayNamesGenerator("en-US", "long")
-	);
-}
-
-function insertShortEnglishDayNamesSequence(editor: vscode.TextEditor) {
-	insertSequenceInternal(
-		editor, 
-		createDayNamesGenerator("en-US", "short")
-	);
-}
-
-function insertLongLocaleDayNamesSequence(editor: vscode.TextEditor) {
-	const settings = getExtensionSettings();
-	let locale: string | undefined = settings.customLocale;
-	if (locale === "") {
-		locale = undefined;
-	}
-
-	insertSequenceInternal(
-		editor,
-		createDayNamesGenerator(locale, "long")
-	);
-}
-
-function insertShortLocaleDayNamesSequence(editor: vscode.TextEditor) {
-	const settings = getExtensionSettings();
-	let locale: string | undefined = settings.customLocale;
-	if (locale === "") {
-		locale = undefined;
-	}
-
-	insertSequenceInternal(
-		editor, 
-		createDayNamesGenerator(locale, "short")
-	);
-}
