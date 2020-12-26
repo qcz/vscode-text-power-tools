@@ -76,6 +76,8 @@ export function activate(context: vscode.ExtensionContext) {
 		runInsertLineNumbersCommand({ type: LineNumberType.Relative, padWithZero: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertRelativeLineNumbersFixedLength", () =>
 		runInsertLineNumbersCommand({ type: LineNumberType.Relative, padWithZero: true })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertSequence", () =>
+		runInsertPredefinedSequenceCommand({ series: InsertableSeries.UserSelection })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertLowercaseLetterSequence", () =>
 		runInsertPredefinedSequenceCommand({ series: InsertableSeries.LowercaseLetters })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertUppercaseLetterSequence", () =>

@@ -81,6 +81,7 @@
 		"onCommand:textPowerTools.insertLineNumbersFixedLength",
 		"onCommand:textPowerTools.insertRelativeLineNumbers",
 		"onCommand:textPowerTools.insertRelativeLineNumbersFixedLength",
+		"onCommand:textPowerTools.insertSequence",
 		"onCommand:textPowerTools.insertLowercaseLetterSequence",
 		"onCommand:textPowerTools.insertUppercaseLetterSequence",
 		"onCommand:textPowerTools.insertLowercaseGreekLetterSequence",
@@ -314,6 +315,11 @@
 				"command": "textPowerTools.insertRelativeLineNumbersFixedLength",
 				"category": "Text Power Tools",
 				"title": "Insert fixed line numbers starting with 1 at the first selected line"
+			},
+			{
+				"command": "textPowerTools.insertSequence",
+				"category": "Text Power Tools",
+				"title": "Insert series of items..."
 			},
 			{
 				"command": "textPowerTools.insertLowercaseLetterSequence",
@@ -945,6 +951,10 @@
 				}
 			],
 			"textPowerTools.insertSequences": [
+				{
+					"command": "textPowerTools.insertSequence",
+					"group": "tpt_1_sequence@1"
+				},
 				{
 					"command": "textPowerTools.insertLowercaseLetterSequence",
 					"group": "tpt_2_letters@1"
