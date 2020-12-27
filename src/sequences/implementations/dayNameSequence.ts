@@ -1,6 +1,7 @@
 import * as vscode from "vscode";
 import { getExtensionSettings } from "../../helpers/tptSettings";
 import { ASequenceBase } from "../sequenceBase";
+import { StringIteratorGeneratorFunction } from "../sequenceTypes";
 
 export class DayNamesSequence extends ASequenceBase {
 	constructor(private locale: string | undefined, private type: "long" | "short" | "narrow") {
@@ -16,7 +17,7 @@ export class DayNamesSequence extends ASequenceBase {
 			: `${this.type} ${this.locale} day names`;
 	}
 
-	public async createGenerator(forSample: boolean): Promise<() => IterableIterator<string>> {
+	public async createGeneratorInternal(): Promise<StringIteratorGeneratorFunction> {
 		const settings = getExtensionSettings();
 		let locale = this.locale;
 		if (locale === "" || typeof locale === "undefined") {

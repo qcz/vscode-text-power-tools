@@ -3,6 +3,7 @@ import { NumeralSystem } from "../../interfaces";
 import { ASequenceBase } from "../sequenceBase";
 import RomanNumeral  from "js-roman-numerals";
 import * as vscode from "vscode";
+import {  CreateSampleGeneratorResult, EnsureAllParametersAreSetResult, isSequenceErrorMessage } from "../sequenceTypes";
 
 export class NumberSequece extends ASequenceBase {
 	constructor(
@@ -30,27 +31,52 @@ export class NumberSequece extends ASequenceBase {
 		return ret;
 	}
 
-	public async createGenerator(forSample: boolean): Promise<() => IterableIterator<string>> {
+	public async createGeneratorInternal(): Promise<() => IterableIterator<string>> {
 		const settings = getExtensionSettings();
-		const numeralSystem = this.numeralSystem;
-
-		if (forSample === false) {
-			await this.ensureAllParametersAreSet();
-		}
 
 		let startingNumber = this.startingNumber || 1;
 		let increment = this.increment || 1;
-		
-		if (forSample === true) {
-			if (typeof this.startingNumber === "undefined") {
-				startingNumber = 42;
-			}
 
-			if (typeof this.increment === "undefined") {
-				increment = 5;
-			}
+		return this.createGeneratorFunctionInternal(
+			this.numeralSystem,
+			startingNumber,
+			increment,
+			settings.insertUppercaseHexNumbers
+		);
+	}
+
+	public async createGeneratorError(): Promise<CreateSampleGeneratorResult> {
+		const settings = getExtensionSettings();
+
+		let startingNumber: number;
+		let increment: number;
+		
+		if (typeof this.startingNumber === "undefined") {
+			startingNumber = 42;
+		} else {
+			startingNumber = this.startingNumber;
 		}
 
+		if (typeof this.increment === "undefined") {
+			increment = 5;
+		} else {
+			increment = this.increment;
+		}
+
+		return this.createGeneratorFunctionInternal(
+			this.numeralSystem,
+			startingNumber,
+			increment,
+			settings.insertUppercaseHexNumbers
+		)
+	}
+
+	private createGeneratorFunctionInternal(
+		numeralSystem: NumeralSystem,
+		startingNumber: number,
+		increment: number,
+		insertUppercaseHexNumbers: boolean
+	): () => IterableIterator<string> {
 		const fun = function* (): IterableIterator<string> {
 			let insertedNumber: number = startingNumber;
 			while (true) {
@@ -62,7 +88,7 @@ export class NumberSequece extends ASequenceBase {
 					yield new RomanNumeral(insertedNumber).toString();
 				} else if (numeralSystem === NumeralSystem.Hexadecimal) {
 					let insertedString = insertedNumber.toString(16);
-					if (settings.insertUppercaseHexNumbers) {
+					if (insertUppercaseHexNumbers) {
 						insertedString = insertedString.toLocaleUpperCase();
 					}
 		
@@ -74,22 +100,30 @@ export class NumberSequece extends ASequenceBase {
 				insertedNumber += increment;
 			}
 		};
-	
+
 		return fun;
 	}
 
-	public async ensureAllParametersAreSet(): Promise<void> {
+	public async ensureAllParametersAreSet(): Promise<EnsureAllParametersAreSetResult> {
 		if (typeof this.startingNumber === "undefined") {
-			await this.askForStartingNumber();
+			const res = await this.askForStartingNumber();
+			if (isSequenceErrorMessage(res)) {
+				return res;
+			}
 		}
 
 		if (typeof this.increment === "undefined") {
-			await this.askForIncrement();
+			const res = await this.askForIncrement();
+			if (isSequenceErrorMessage(res)) {
+				return res;
+			};
 		}
+
+		return true;
 	}
 
-	private askForStartingNumber(): Promise<void> {
-		return new Promise<void>((resolve, reject) => {
+	private askForStartingNumber(): Promise<EnsureAllParametersAreSetResult> {
+		return new Promise<EnsureAllParametersAreSetResult>((resolve) => {
 			const numberType = this.numeralSystem === NumeralSystem.Hexadecimal ? "hex" : "decimal";
 
 			vscode.window.showInputBox({
@@ -97,33 +131,31 @@ export class NumberSequece extends ASequenceBase {
 				value: "1",
 			}).then(async (filter: string | undefined) => {
 				if (typeof filter === "undefined") {
-					reject();
+					resolve({ errorMessage: "No starting number entered." });
 					return;
 				}
 		
 				if (!filter) {
-					vscode.window.showErrorMessage("No starting number entered.");
-					reject();
+					resolve({ errorMessage: "No starting number entered." });
 					return;
 				}
 		
 				const startingNumber = Number.parseInt(filter, this.numeralSystem === NumeralSystem.Hexadecimal ? 16 : 10);
 				if (isNaN(startingNumber)) {
-					vscode.window.showErrorMessage(`The entered starting number is not a valid ${numberType} number.`);
-					reject();
+					resolve({ errorMessage: `The entered starting number is not a valid ${numberType} number.` });
 					return;
 				}
 		
 				// TODO: warn for too big roman number
 
 				this.startingNumber = startingNumber;
-				resolve();
+				resolve(true);
 			});
 		});
 	}
 
-	private askForIncrement(): Promise<void> {
-		return new Promise<void>((resolve, reject) => {
+	private askForIncrement(): Promise<EnsureAllParametersAreSetResult> {
+		return new Promise<EnsureAllParametersAreSetResult>((resolve) => {
 			const numberType = this.numeralSystem === NumeralSystem.Hexadecimal ? "hex" : "decimal";
 
 			vscode.window.showInputBox({
@@ -131,25 +163,23 @@ export class NumberSequece extends ASequenceBase {
 				value: "1",
 			}).then(async (filter: string | undefined) => {
 				if (typeof filter === "undefined") {
-					reject();
+					resolve({ errorMessage: "No increment entered." });
 					return;
 				}
 		
 				if (!filter) {
-					vscode.window.showErrorMessage("No increment entered.");
-					reject();
+					resolve({ errorMessage: "No increment entered." });
 					return;
 				}
 		
 				const increment = Number.parseInt(filter, this.numeralSystem === NumeralSystem.Hexadecimal ? 16 : 10);
 				if (isNaN(increment)) {
-					vscode.window.showErrorMessage(`The entered number to increment by is not a valid ${numberType} number.`);
-					reject();
+					resolve({ errorMessage: `The entered number to increment by is not a valid ${numberType} number.` });
 					return;
 				}
 
 				this.increment = increment;
-				resolve();
+				resolve(true);
 			});
 		});
 	}

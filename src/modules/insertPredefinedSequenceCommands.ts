@@ -11,6 +11,7 @@ import { DayNamesSequence } from "../sequences/implementations/dayNameSequence";
 import { ASequenceBase } from "../sequences/sequenceBase";
 import { getKnownSequences } from "../sequences/implementations";
 import { QuickPickItem } from "vscode";
+import { isSequenceErrorMessage as isGeneratorCreationError, isSequenceErrorMessage } from "../sequences/sequenceTypes";
 
 export const enum InsertableSeries {
 	UserSelection,
@@ -88,7 +89,13 @@ export async function runInsertPredefinedSeriesCommand(options: IInsertPredefine
 	}
 
 	if (seqClass !== null) {
-		insertSequenceInternal(editor, await seqClass.createGenerator(false));
+		const generator = await seqClass.createGenerator();
+		if (isGeneratorCreationError(generator)) {
+			vscode.window.showErrorMessage(`Failed to generate items: ${generator.errorMessage}`);
+			return;
+		}
+		
+		insertSequenceInternal(editor, generator);
 	}
 }
 
@@ -130,7 +137,13 @@ const showPredefinedSeriesPicker = async (editor: vscode.TextEditor) => {
 		qp.hide();
 		qp.dispose();
 
-		insertSequenceInternal(editor, await selectedValue.sequenceInstance.createGenerator(false));
+		const generatorResult = await selectedValue.sequenceInstance.createGenerator();
+		if (isSequenceErrorMessage(generatorResult)) {
+			vscode.window.showErrorMessage(generatorResult.errorMessage);
+			return;
+		}
+
+		insertSequenceInternal(editor, generatorResult);
 	});
 	qp.activeItems = [];
 	qp.show();
