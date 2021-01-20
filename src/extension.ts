@@ -3,7 +3,7 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from "vscode";
 import { NumeralSystem } from "./interfaces";
-import { ASK_SPLIT_CHARACTER_FROM_USER, Base4EncodingDirection, ChangeCaseType, FilterSourceType, FilterType, InsertableStuff, LineNumberType, PadDirection, runBase64EncodingCommand, runChangeCaseCommand, runConvertNumberCommand, runConvertToZalgoCommand, runCopySelectionsToNewEditorCommand, runCountOccurrencesCommand, runExtractInfoCommand, runFilterTextCommand, runFormatContentAsTableCommand, runGenerateGuidCommand, runGenerateLoremIpsumCommand, runInsertLineNumbersCommand, runInsertNumbersCommand, runInsertStuffCommand, runModifyTextEncodingCommand, runPadCommand, runRemoveBlankLinesCommand, runRemoveControlCharactersCommand, runRemoveDuplicatesCommand, runSetTextSlotContentCommand, runpasteTextSlotCommand, TextEncodingDirection, TextEncodingType, ZalgificationIntensity, runInsertPredefinedSeriesCommand as runInsertPredefinedSequenceCommand, InsertableSeries } from "./modules";
+import { ASK_SPLIT_CHARACTER_FROM_USER, Base4EncodingDirection, ChangeCaseType, FilterSourceType, FilterType, InsertableStuff, LineNumberType, PadDirection, runBase64EncodingCommand, runChangeCaseCommand, runConvertNumberCommand, runConvertToZalgoCommand, runCopySelectionsToNewEditorCommand, runCountOccurrencesCommand, runExtractInfoCommand, runFilterTextCommand, runFormatContentAsTableCommand, runInsertLineNumbersCommand, runInsertNumbersCommand, runInsertStuffCommand, runModifyTextEncodingCommand, runPadCommand, runRemoveBlankLinesCommand, runRemoveControlCharactersCommand, runRemoveDuplicatesCommand, runSetTextSlotContentCommand, runpasteTextSlotCommand, TextEncodingDirection, TextEncodingType, ZalgificationIntensity, runInsertPredefinedSeriesCommand as runInsertPredefinedSequenceCommand, InsertableSeries } from "./modules";
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -77,7 +77,9 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertRelativeLineNumbersFixedLength", () =>
 		runInsertLineNumbersCommand({ type: LineNumberType.Relative, padWithZero: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertSequence", () =>
-		runInsertPredefinedSequenceCommand({ series: InsertableSeries.UserSelection })));
+		runInsertPredefinedSequenceCommand({ series: InsertableSeries.UserSelectionOfStandardSeries })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateFakeData", () =>
+		runInsertPredefinedSequenceCommand({ series: InsertableSeries.UserSelectionOfFakeSeries })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertLowercaseLetterSequence", () =>
 		runInsertPredefinedSequenceCommand({ series: InsertableSeries.LowercaseLetters })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertUppercaseLetterSequence", () =>
@@ -136,18 +138,12 @@ export function activate(context: vscode.ExtensionContext) {
 		runFormatContentAsTableCommand({splitChar: "|", padAlignChar: true})));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.formatContentAsTableByCustomCharacterWithPadding", () =>
 		runFormatContentAsTableCommand({splitChar: ASK_SPLIT_CHARACTER_FROM_USER, padAlignChar: true})));
-	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateGuid", () =>
-		runGenerateGuidCommand({count: "single"})));
-	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateMultipleGuids", () =>
-		runGenerateGuidCommand({count: "multiple"})));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateRandomGuids", () =>
+		runInsertPredefinedSequenceCommand({ series: InsertableSeries.RandomGuids })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateLoremIpsumSentence", () =>
-		runGenerateLoremIpsumCommand({type: "sentence"})));
-	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateLoremIpsumFiveSentences", () =>
-		runGenerateLoremIpsumCommand({type: "fiveSentences"})));
+		runInsertPredefinedSequenceCommand({ series: InsertableSeries.LoremIpsumSentences })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateLoremIpsumParagraph", () =>
-		runGenerateLoremIpsumCommand({type: "paragraph"})));
-	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateLoremIpsumFiveParagraphs", () =>
-		runGenerateLoremIpsumCommand({type: "fiveParagraphs"})));
+		runInsertPredefinedSequenceCommand({ series: InsertableSeries.LoremIpsumParagraphs })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.changeCaseToCamelCase", () =>
 		runChangeCaseCommand({ type: ChangeCaseType.CamelCase })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.changeCaseToPascalCase", () =>

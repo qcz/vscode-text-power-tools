@@ -31,7 +31,7 @@ export class NumberSequece extends ASequenceBase {
 		return ret;
 	}
 
-	public async createGeneratorInternal(): Promise<() => IterableIterator<string>> {
+	public async createStandardGenerator(): Promise<() => IterableIterator<string>> {
 		const settings = getExtensionSettings();
 
 		let startingNumber = this.startingNumber || 1;
@@ -45,7 +45,7 @@ export class NumberSequece extends ASequenceBase {
 		);
 	}
 
-	public async createGeneratorError(): Promise<CreateSampleGeneratorResult> {
+	public async createSampleGenerator(): Promise<CreateSampleGeneratorResult> {
 		const settings = getExtensionSettings();
 
 		let startingNumber: number;
@@ -68,7 +68,7 @@ export class NumberSequece extends ASequenceBase {
 			startingNumber,
 			increment,
 			settings.insertUppercaseHexNumbers
-		)
+		);
 	}
 
 	private createGeneratorFunctionInternal(
@@ -116,7 +116,7 @@ export class NumberSequece extends ASequenceBase {
 			const res = await this.askForIncrement();
 			if (isSequenceErrorMessage(res)) {
 				return res;
-			};
+			}
 		}
 
 		return true;
@@ -146,7 +146,7 @@ export class NumberSequece extends ASequenceBase {
 					return;
 				}
 		
-				// TODO: warn for too big roman number
+				// TODO: warn for too big Roman number
 
 				this.startingNumber = startingNumber;
 				resolve(true);

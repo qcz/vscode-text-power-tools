@@ -34,6 +34,10 @@ const config = {
             loader: 'ts-loader'
           }
         ]
+      },
+      {
+        test: /\.js/,
+        exclude: /node_modules/
       }
     ]
   }

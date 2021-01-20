@@ -2,6 +2,12 @@ import { CreateGeneratorResult, CreateSampleGeneratorResult, EnsureAllParameters
 
 export abstract class ASequenceBase {
 	public abstract get name(): string;
+	public get order(): number {
+		return 1000;
+	}
+	public get sampleSize(): number {
+		return 5;
+	}
 
 	public async ensureAllParametersAreSet(): Promise<EnsureAllParametersAreSetResult> {
 		return true;
@@ -13,9 +19,9 @@ export abstract class ASequenceBase {
 			return ensureResult;
 		}
 
-		return await this.createGeneratorInternal();
+		return await this.createStandardGenerator();
 	}
-	public abstract createGeneratorInternal(): Promise<CreateGeneratorResult>;
+	public abstract createStandardGenerator(): Promise<CreateGeneratorResult>;
 
 	public async createSampleGenerator(): Promise<CreateSampleGeneratorResult> {
 		return null;
@@ -37,7 +43,7 @@ export abstract class ASequenceBase {
 
 		let i = 0;
 		let hasMoreItems = true;
-		while (i < 5) {
+		while (i < this.sampleSize) {
 			const nextItem = iterator.next();
 			if (nextItem.done) {
 				hasMoreItems = false;
@@ -53,6 +59,6 @@ export abstract class ASequenceBase {
 		}
 
 		const moreItemsAvailable = hasMoreItems ? "…" : "";
-		return `Sample: ${sampleItems.join(", ")}${moreItemsAvailable}`;
+		return `Sample: '${sampleItems.join("', '")}'${moreItemsAvailable}`;
 	}
 }

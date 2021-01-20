@@ -21,11 +21,12 @@ All features are available from either the *Command Palette* or the editor conte
 * **Remove duplicated, empty, surplus empty lines and control characters**
 * **Count occurrences of lines:** This command will counts how many times a line appears in the selected text and generates an output with the number of occurrences and the lines themselves
 * **Insert decimal, hex and Roman numeral sequences:** Inserts sequence of decimal, hex or Roman numbers to every selection. If there is only one selection, it will prompt for how many elements to insert. When inserting hex numbers, by default they will be uppercase. To insert lowercase hex numbers, set the value of the `textPowerTools.insertUppercaseHexNumbers` setting to `false`.
-* **Insert items from predefined sequences**: Inserts sequence of items from a predefined set to every selection. If there is only one selection, it will prompt for how many elements to insert. Currently the following predefined sequences are supported:
+* **Insert series of items from predefined list of items**: Inserts sequence of items from a predefined set to every selection. If there is only one selection, it will prompt for how many elements to insert. Currently the following predefined sequences are supported:
     * _Uppercase letters_
     * _Lowercase letters_
     * _Uppercase Greek letters_
     * _Lowercase Greek letters_
+    * _NATO phonetic alphabet_
     * _Long english month names_
     * _Short english month names_
     * _Long english day names_
@@ -39,7 +40,12 @@ All features are available from either the *Command Palette* or the editor conte
 * **Insert line numbers:** Inserts line numbers to the start of each line in every selection. Line numbers can be real line numbers in the file or can start with 1.
 * **Insert full file path, directory path and file name of the opened file**.
 * **Insert Unix timestamp**
-* **Generate GUIDs**: Inserts GUIDs (globally unique identifiers or universally unique identifier) to the text in the selected format. Mutiple GUIDs can be inserted at once. To insert GUIDs with uppercase hex characters, set the value of the `textPowerTools.insertUppercaseGuids` setting to `true`. The default GUID style can be set using the `textPowerTools.defaultGuidType` setting.
+* **Generate fake/random data**:
+    * _Random hex/decimal character sequences_
+    * _Fake first names, last names and full names_ in the following languages: English, German, Hungarian.
+    * _GUIDs/UUIDs_ (globally unique identifiers or universally unique identifiers). To insert GUIDs with uppercase hex characters, set the value of the `textPowerTools.insertUppercaseGuids` setting to `true`. The default GUID style can be set using the `textPowerTools.defaultGuidType` setting.
+    * _Lorem ipsum sentences_
+    * _Lorem ipsum paragraphs_
 * **Change case of text (camelCase, PascalCase, snake_case, CONSTANT_CASE, dash-case, dot.case) and swap casing**.
 
   Note: *Title Case*, *UPPER CASE* and *lower case* is not implemented in this extension as it is available in VS Code by default via the *Transform to Title Case*, Transform to Uppercase* and *Transform to Lower Case* commands respecively.

@@ -1,11 +1,13 @@
 # Changelog
 
 ## **1.19.0** (???) [_Insert All The Things Edition_]
-- Move to use title/prompt instead of placeholders when showing input boxes to the user so instructions are always visible
-- Modify insert number sequence commands to ask for number of items to insert when there is only one selection
-- Add support for inserting Roman numeral sequences
-- Add support for inserting predefined sequences (uppercase letters, lowercase letters, uppercase Greek letters, lowercase Greek letters, NATO phonetic alphabet, English or current/custom locale month names, English or current/custom locale day names)
-- Add support for inserting Unix timestamps
+- Move to use title/prompt instead of placeholders when showing input boxes to the user so instructions are always visible.
+- Modify insert number sequence commands to ask for number of items to insert when there is only one selection.
+- Add support for inserting Roman numeral sequences.
+- Add support for inserting predefined sequences (uppercase letters, lowercase letters, uppercase Greek letters, lowercase Greek letters, NATO phonetic alphabet, English or current/custom locale month names, English or current/custom locale day names).
+- Add support for generating fake data (first name, last name and full name in English, German and Hungarian; random hex and decimal character sequences).
+- Removed standalone command for generating multiple GUIDs, five lorem ipsum sentences and five lorem ipsum paragraphs. Random GUID/UUID and lorem ipsum sentence/paragraph generation logics were folded into the new sequence generation system, which asks how many items you want to generate if there is only one selection in the active text editor.
+- Add support for inserting Unix timestamps.
 
 ## **1.18.0** (2020. 11. 24.)
 - Add support for text slots, which are like permanent clipboard entries in your VS Code.

@@ -2,7 +2,7 @@ import * as vscode from "vscode";
 import { NO_ACTIVE_EDITOR } from "../consts";
 import { insertSequenceInternal } from "../sequences/sequenceInserter";
 import { NumeralSystem } from "../interfaces";
-import { NumberSequece } from "../sequences/implementations/numberSequence";
+import { NumberSequece } from "../sequences/standardSequences/numberSequence";
 import { isSequenceErrorMessage } from "../sequences/sequenceTypes";
 
 interface InsertNumberSequenceOptions {

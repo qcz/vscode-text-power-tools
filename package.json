@@ -82,6 +82,7 @@
 		"onCommand:textPowerTools.insertRelativeLineNumbers",
 		"onCommand:textPowerTools.insertRelativeLineNumbersFixedLength",
 		"onCommand:textPowerTools.insertSequence",
+		"onCommand:textPowerTools.generateFakeData",
 		"onCommand:textPowerTools.insertLowercaseLetterSequence",
 		"onCommand:textPowerTools.insertUppercaseLetterSequence",
 		"onCommand:textPowerTools.insertLowercaseGreekLetterSequence",
@@ -111,12 +112,9 @@
 		"onCommand:textPowerTools.formatContentAsTableBySemicolonWithPadding",
 		"onCommand:textPowerTools.formatContentAsTableByPipeWithPadding",
 		"onCommand:textPowerTools.formatContentAsTableByCustomCharacterWithPadding",
-		"onCommand:textPowerTools.generateGuid",
-		"onCommand:textPowerTools.generateMultipleGuids",
+		"onCommand:textPowerTools.generateRandomGuids",
 		"onCommand:textPowerTools.generateLoremIpsumSentence",
-		"onCommand:textPowerTools.generateLoremIpsumFiveSentences",
 		"onCommand:textPowerTools.generateLoremIpsumParagraph",
-		"onCommand:textPowerTools.generateLoremIpsumFiveParagraphs",
 		"onCommand:textPowerTools.changeCaseToCamelCase",
 		"onCommand:textPowerTools.changeCaseToPascalCase",
 		"onCommand:textPowerTools.changeCaseToSnakeCase",
@@ -322,6 +320,11 @@
 				"title": "Insert series of items..."
 			},
 			{
+				"command": "textPowerTools.generateFakeData",
+				"category": "Text Power Tools",
+				"title": "Generate fake/random data..."
+			},
+			{
 				"command": "textPowerTools.insertLowercaseLetterSequence",
 				"category": "Text Power Tools",
 				"title": "Insert series of lowercase letters"
@@ -467,34 +470,19 @@
 				"title": "Format content as table using custom string as splitter (with padding)"
 			},
 			{
-				"command": "textPowerTools.generateGuid",
+				"command": "textPowerTools.generateRandomGuids",
 				"category": "Text Power Tools",
-				"title": "Generate a GUID"
-			},
-			{
-				"command": "textPowerTools.generateMultipleGuids",
-				"category": "Text Power Tools",
-				"title": "Generate multiple GUIDs"
+				"title": "Generate random GUIDs"
 			},
 			{
 				"command": "textPowerTools.generateLoremIpsumSentence",
 				"category": "Text Power Tools",
-				"title": "Generate a Lorem ipsum sentence"
-			},
-			{
-				"command": "textPowerTools.generateLoremIpsumFiveSentences",
-				"category": "Text Power Tools",
-				"title": "Generate five Lorem ipsum sentences"
+				"title": "Generate Lorem ipsum sentences"
 			},
 			{
 				"command": "textPowerTools.generateLoremIpsumParagraph",
 				"category": "Text Power Tools",
-				"title": "Generate a Lorem ipsum paragraph"
-			},
-			{
-				"command": "textPowerTools.generateLoremIpsumFiveParagraphs",
-				"category": "Text Power Tools",
-				"title": "Generate five Lorem ipsum paragraphs"
+				"title": "Generate Lorem ipsum paragraphs"
 			},
 			{
 				"command": "textPowerTools.changeCaseToCamelCase",
@@ -697,7 +685,7 @@
 					"group": "tpt_02_formatting@2"
 				},
 				{
-					"submenu": "textPowerTools.generateContent",
+					"submenu": "textPowerTools.generateFakeContent",
 					"group": "tpt_10_generate@1"
 				},
 				{
@@ -1050,30 +1038,26 @@
 					"group": "tpt_2_setTextSlot@5"
 				}
 			],
-			"textPowerTools.generateContent": [
+			"textPowerTools.generateFakeContent": [
 				{
-					"command": "textPowerTools.generateGuid",
-					"group": "tpt_1_generateGuid@1"
+					"command": "textPowerTools.generateFakeData",
+					"group": "tpt_1_sequence@2"
+				},
+				{
+					"command": "textPowerTools.generateRandomGuids",
+					"group": "tpt_2_generateGuid@1"
 				},
 				{
 					"command": "textPowerTools.generateMultipleGuids",
-					"group": "tpt_1_generateGuid@2"
+					"group": "tpt_2_generateGuid@2"
 				},
 				{
 					"command": "textPowerTools.generateLoremIpsumSentence",
-					"group": "tpt_2_generateLoremIpsum@1"
-				},
-				{
-					"command": "textPowerTools.generateLoremIpsumFiveSentences",
-					"group": "tpt_2_generateLoremIpsum@2"
+					"group": "tpt_3_generateLoremIpsum@1"
 				},
 				{
 					"command": "textPowerTools.generateLoremIpsumParagraph",
-					"group": "tpt_2_generateLoremIpsum@3"
-				},
-				{
-					"command": "textPowerTools.generateLoremIpsumFiveParagraphs",
-					"group": "tpt_2_generateLoremIpsum@4"
+					"group": "tpt_3_generateLoremIpsum@3"
 				}
 			],
 			"textPowerTools.convert": [
@@ -1217,8 +1201,8 @@
 				"label": "Encode/decode"
 			},
 			{
-				"id": "textPowerTools.generateContent",
-				"label": "Generate content"
+				"id": "textPowerTools.generateFakeContent",
+				"label": "Generate fake/random content"
 			},
 			{
 				"id": "textPowerTools.remove",
@@ -1298,7 +1282,7 @@
 				"when": "editorTextFocus"
 			},
 			{
-				"command": "textPowerTools.generateGuid",
+				"command": "textPowerTools.generateRandomGuids",
 				"key": "ctrl+t g",
 				"mac": "ctrl+t g",
 				"when": "editorTextFocus"
@@ -1312,6 +1296,7 @@
 		"test-compile": "tsc -p ./"
 	},
 	"devDependencies": {
+		"@types/faker": "^5.1.5",
 		"@types/js-roman-numerals": "^1.1.0",
 		"@types/mocha": "^2.2.42",
 		"@types/node": "^12.12.0",
@@ -1325,6 +1310,7 @@
 	},
 	"dependencies": {
 		"change-case": "^3.0.2",
+		"faker": "github:qcz/faker#v5.2.0-tpt-2",
 		"html-entities": "^1.3.1",
 		"js-base64": "^3.4.5",
 		"js-roman-numerals": "^1.1.0",

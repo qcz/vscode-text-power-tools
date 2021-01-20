@@ -1,20 +1,26 @@
 import * as vscode from "vscode";
 import { NO_ACTIVE_EDITOR } from "../consts";
 import { insertSequenceInternal } from "../sequences/sequenceInserter";
-import { LowercaseLettersSequence } from "../sequences/implementations/lowercaseLettersSequence";
-import { UppercaseGreekLettersSequence } from "../sequences/implementations/uppercaseGreekLettersSequence";
-import { UppercaseLettersSequence } from "../sequences/implementations/uppercaseLettersSequence";
-import { LowercaseGreekLettersSequence } from "../sequences/implementations/lowercaseGreekLettersSequence";
-import { NatoPhoneticAlphabetSequence } from "../sequences/implementations/natoPhoneticAlphabetSequence";
-import { MonthNamesSequence } from "../sequences/implementations/monthNamesSequence";
-import { DayNamesSequence } from "../sequences/implementations/dayNameSequence";
+import { LowercaseLettersSequence } from "../sequences/standardSequences/lowercaseLettersSequence";
+import { UppercaseGreekLettersSequence } from "../sequences/standardSequences/uppercaseGreekLettersSequence";
+import { UppercaseLettersSequence } from "../sequences/standardSequences/uppercaseLettersSequence";
+import { LowercaseGreekLettersSequence } from "../sequences/standardSequences/lowercaseGreekLettersSequence";
+import { NatoPhoneticAlphabetSequence } from "../sequences/standardSequences/natoPhoneticAlphabetSequence";
+import { MonthNamesSequence } from "../sequences/standardSequences/monthNamesSequence";
+import { DayNamesSequence } from "../sequences/standardSequences/dayNameSequence";
 import { ASequenceBase } from "../sequences/sequenceBase";
-import { getKnownSequences } from "../sequences/implementations";
+import { getKnownStandardSequences } from "../sequences/standardSequences";
 import { QuickPickItem } from "vscode";
 import { isSequenceErrorMessage as isGeneratorCreationError, isSequenceErrorMessage } from "../sequences/sequenceTypes";
+import { getKnownFakeSequences } from "../sequences/fakeSequences";
+import { GeneratedGuidType, KNOWN_GUID_TYPES, RandomGuidsSequence } from "../sequences/fakeSequences/randomGuidsSequence";
+import { LoremIpsumSentencesSequence } from "../sequences/fakeSequences/loremIpsumSentencesSequence";
+import { LoremIpsumParagraphsSequence } from "../sequences/fakeSequences/loremIpsumParagraphsSequence";
+import { getExtensionSettings } from "../helpers/tptSettings";
 
 export const enum InsertableSeries {
-	UserSelection,
+	UserSelectionOfStandardSeries,
+	UserSelectionOfFakeSeries,
 
 	LowercaseLetters,
 	UppercaseLetters,
@@ -29,6 +35,9 @@ export const enum InsertableSeries {
 	ShortEnglishDayNames,
 	LongLocaleDayNames,
 	ShortLocaleDayNames,
+	RandomGuids,
+	LoremIpsumSentences,
+	LoremIpsumParagraphs
 }
 
 interface IInsertPredefinedSeriesOptions {
@@ -41,6 +50,8 @@ export async function runInsertPredefinedSeriesCommand(options: IInsertPredefine
 		vscode.window.showWarningMessage(NO_ACTIVE_EDITOR);
 		return;
 	}
+
+	const settings = getExtensionSettings();
 
 	let seqClass: ASequenceBase | null = null;
 	switch (options.series) {
@@ -83,8 +94,24 @@ export async function runInsertPredefinedSeriesCommand(options: IInsertPredefine
 		case InsertableSeries.ShortLocaleDayNames:
 			seqClass = new DayNamesSequence(undefined, "short");
 			break;
+		case InsertableSeries.RandomGuids:
+			const settingAsGuidType = settings.defaultGuidType as GeneratedGuidType;
+			seqClass = new RandomGuidsSequence(KNOWN_GUID_TYPES.indexOf(settingAsGuidType) !== -1
+				? settingAsGuidType
+				: undefined);
+			break;
+		case InsertableSeries.LoremIpsumSentences:
+			seqClass = new LoremIpsumSentencesSequence();
+			break;
+		case InsertableSeries.LoremIpsumParagraphs:
+			seqClass = new LoremIpsumParagraphsSequence();
+			break;
+		case InsertableSeries.UserSelectionOfFakeSeries:
+			showPredefinedSeriesPicker(editor, await getFakeSeriesQuickPickItems());
+			break;
+		case InsertableSeries.UserSelectionOfStandardSeries:
 		default:
-			showPredefinedSeriesPicker(editor);
+			showPredefinedSeriesPicker(editor, await getStandardSeriesQuickPickItems());
 			break;
 	}
 
@@ -103,19 +130,10 @@ interface SequenceQuickPickItem extends QuickPickItem {
 	sequenceInstance: ASequenceBase;
 }
 
-const showPredefinedSeriesPicker = async (editor: vscode.TextEditor) => {
+const showPredefinedSeriesPicker = (editor: vscode.TextEditor, qpItems: SequenceQuickPickItem[]) => {
 	const qp = vscode.window.createQuickPick<SequenceQuickPickItem>();
 	qp.title = "Select a predefined series";
-
-	const quickPickItems: SequenceQuickPickItem[] = [];
-	for (const seq of getKnownSequences()) {
-		quickPickItems.push({
-			label: seq.name,
-			detail: await seq.getSample(),
-			sequenceInstance: seq
-		});
-	}
-	qp.items = quickPickItems;
+	qp.items = qpItems;
 
 	qp.onDidChangeValue(() => {
 		if (qp.activeItems.length > 0) {
@@ -148,3 +166,28 @@ const showPredefinedSeriesPicker = async (editor: vscode.TextEditor) => {
 	qp.activeItems = [];
 	qp.show();
 };
+
+async function getStandardSeriesQuickPickItems(): Promise<SequenceQuickPickItem[]> {
+	const quickPickItems: SequenceQuickPickItem[] = [];
+	for (const seq of getKnownStandardSequences()) {
+		quickPickItems.push({
+			label: seq.name,
+			detail: await seq.getSample(),
+			sequenceInstance: seq
+		});
+	}
+	return quickPickItems;
+}
+
+async function getFakeSeriesQuickPickItems(): Promise<SequenceQuickPickItem[]> {
+	const quickPickItems: SequenceQuickPickItem[] = [];
+	for (const seq of getKnownFakeSequences()) {
+		quickPickItems.push({
+			label: seq.name,
+			detail: await seq.getSample(),
+			sequenceInstance: seq
+		});
+	}
+	return quickPickItems;
+}
+
