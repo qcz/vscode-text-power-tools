@@ -42,7 +42,7 @@ All features are available from either the *Command Palette* or the editor conte
 * **Insert Unix timestamp**
 * **Generate fake/random data**:
     * _Random hex/decimal character sequences_
-    * _Fake first names, last names and full names_ in the following languages: English, German, Hungarian.
+    * _Fake first names, last names and full names_ in the following languages: English, French, German and Hungarian.
     * _GUIDs/UUIDs_ (globally unique identifiers or universally unique identifiers). To insert GUIDs with uppercase hex characters, set the value of the `textPowerTools.insertUppercaseGuids` setting to `true`. The default GUID style can be set using the `textPowerTools.defaultGuidType` setting.
     * _Lorem ipsum sentences_
     * _Lorem ipsum paragraphs_
