@@ -26,6 +26,10 @@ export class RandomGuidsSequence extends ASequenceBase {
 		return `Random UUIDs/GUIDs${type}`;
 	}
 
+	public get icon(): string {
+		return "symbol-module";
+	}
+
 	public get order(): number {
 		return 10000;
 	}

@@ -11,6 +11,10 @@ export class RandomHexCharactersSequence extends ASequenceBase {
 		return `Random hex characters`;
 	}
 
+	public get icon(): string {
+		return "symbol-number";
+	}
+
 	public get order(): number {
 		return 0;
 	}

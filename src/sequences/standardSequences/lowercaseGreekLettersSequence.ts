@@ -5,6 +5,10 @@ export class LowercaseGreekLettersSequence extends AArraySequenceBase {
 		return "Lowercase greek letters";
 	}
 
+	public get icon(): string {
+		return "symbol-key";
+	}
+
 	public get array(): string[] {
 		return [
 			"α", "β", "γ", "δ", "ε", "ζ", "η", "θ",

@@ -17,6 +17,10 @@ export class MonthNamesSequence extends ASequenceBase {
 			: `${this.type} ${this.locale} month names`;
 	}
 
+	public get icon(): string {
+		return "calendar";
+	}
+
 	public async createStandardGenerator(): Promise<StringIteratorGeneratorFunction> {
 		const settings = getExtensionSettings();
 		let locale = this.locale;

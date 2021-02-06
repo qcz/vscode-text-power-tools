@@ -8,6 +8,10 @@ export class LoremIpsumSentencesSequence extends ASequenceBase {
 		return `Lorem ipsum paragraphs`;
 	}
 
+	public get icon(): string {
+		return "selection";
+	}
+
 	public get order(): number {
 		return 9000;
 	}

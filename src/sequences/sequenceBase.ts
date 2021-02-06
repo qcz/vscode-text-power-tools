@@ -2,6 +2,11 @@ import { CreateGeneratorResult, CreateSampleGeneratorResult, EnsureAllParameters
 
 export abstract class ASequenceBase {
 	public abstract get name(): string;
+
+	public get icon(): string {
+		return "play";
+	}
+
 	public get order(): number {
 		return 1000;
 	}

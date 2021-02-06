@@ -6,6 +6,10 @@ export class FakeFullNamesSequence extends AFakerSequenceBase {
 		return `${this.humanizedLanguageName} full names`;
 	}
 
+	public get icon(): string {
+		return "account";
+	}
+
 	public get sampleSize(): number {
 		return 3;
 	}

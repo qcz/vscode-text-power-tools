@@ -145,7 +145,7 @@ export function showHistoryQuickPick(
 	qp.title = options.title;
 	qp.items = historyItems.map(x => {
 		return {
-			label: x
+			label: `$(history) ${x}`,
 		};
 	});
 	qp.onDidChangeValue(() => {

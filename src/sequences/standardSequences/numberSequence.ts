@@ -31,6 +31,10 @@ export class NumberSequece extends ASequenceBase {
 		return ret;
 	}
 
+	public get icon(): string {
+		return "symbol-number";
+	}
+
 	public async createStandardGenerator(): Promise<() => IterableIterator<string>> {
 		const settings = getExtensionSettings();
 

@@ -5,6 +5,10 @@ export class UppercaseLettersSequence extends AArraySequenceBase {
 		return "Uppercase letters";
 	}
 
+	public get icon(): string {
+		return "preserve-case";
+	}
+
 	public get array(): string[] {
 		return [
 			"A", "B", "C", "D", "E", "F", "G", "H", "I",

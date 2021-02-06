@@ -5,6 +5,10 @@ export class LowercaseLettersSequence extends AArraySequenceBase {
 		return "Lowercase letters";
 	}
 
+	public get icon(): string {
+		return "symbol-key";
+	}
+
 	public get array(): string[] {
 		return [
 			"a", "b", "c", "d", "e", "f", "g", "h", "i",

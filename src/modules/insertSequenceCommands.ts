@@ -171,8 +171,8 @@ async function getStandardSeriesQuickPickItems(): Promise<SequenceQuickPickItem[
 	const quickPickItems: SequenceQuickPickItem[] = [];
 	for (const seq of getKnownStandardSequences()) {
 		quickPickItems.push({
-			label: seq.name,
-			detail: await seq.getSample(),
+			label: `$(${seq.icon}) ${seq.name}`,
+			detail: `$(blank) $(blank) $(blank) $(blank) $(blank) ${await seq.getSample()}`,
 			sequenceInstance: seq
 		});
 	}
@@ -183,8 +183,8 @@ async function getFakeSeriesQuickPickItems(): Promise<SequenceQuickPickItem[]> {
 	const quickPickItems: SequenceQuickPickItem[] = [];
 	for (const seq of getKnownFakeSequences()) {
 		quickPickItems.push({
-			label: seq.name,
-			detail: await seq.getSample(),
+			label: `$(${seq.icon}) ${seq.name}`,
+			detail: `$(blank) $(blank) $(blank) $(blank) $(blank) ${await seq.getSample()}`,
 			sequenceInstance: seq
 		});
 	}

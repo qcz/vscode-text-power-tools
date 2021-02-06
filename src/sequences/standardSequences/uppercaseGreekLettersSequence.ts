@@ -5,6 +5,10 @@ export class UppercaseGreekLettersSequence extends AArraySequenceBase {
 		return "Uppercase greek letters";
 	}
 
+	public get icon(): string {
+		return "preserve-case";
+	}
+
 	public get array(): string[] {
 		return [
 			"Α", "Β", "Γ", "Δ", "Ε", "Ζ", "Η", "Θ",

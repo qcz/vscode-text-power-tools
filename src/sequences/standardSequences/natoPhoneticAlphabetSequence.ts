@@ -5,6 +5,10 @@ export class NatoPhoneticAlphabetSequence extends AArraySequenceBase {
 		return "NATO phonetic alphabet sequence items";
 	}
 
+	public get icon(): string {
+		return "megaphone";
+	}
+
 	public get array(): string[] {
 		return [
 			"Alfa", "Bravo", "Charlie", "Delta", "Echo", "Foxtrot", "Golf", "Hotel",

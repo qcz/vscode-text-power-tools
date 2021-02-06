@@ -6,6 +6,10 @@ export class FakeFirstNamesSequence extends AFakerSequenceBase {
 		return `${this.humanizedLanguageName} first names`;
 	}
 
+	public get icon(): string {
+		return "account";
+	}
+
 	public generateFakerItem(): string {
 		return faker.name.firstName();
 	}

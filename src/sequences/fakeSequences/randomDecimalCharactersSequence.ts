@@ -11,6 +11,10 @@ export class RandomDecimalCharactersSequence extends ASequenceBase {
 		super();
 	}
 
+	public get icon(): string {
+		return "symbol-number";
+	}
+
 	public get order(): number {
 		return 0;
 	}

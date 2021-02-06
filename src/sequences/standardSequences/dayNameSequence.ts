@@ -17,6 +17,10 @@ export class DayNamesSequence extends ASequenceBase {
 			: `${this.type} ${this.locale} day names`;
 	}
 
+	public get icon(): string {
+		return "calendar";
+	}
+
 	public async createStandardGenerator(): Promise<StringIteratorGeneratorFunction> {
 		const settings = getExtensionSettings();
 		let locale = this.locale;
