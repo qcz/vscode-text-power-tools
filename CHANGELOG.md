@@ -1,5 +1,9 @@
 # Changelog
 
+## **1.20.0** (2020. 02. 06.)
+- Add icons to `Insert series of items...`, `Generate fake/random data...` selectors
+- Fix name of lowercase/uppercase Greek letters and NATO phonetic alphabet items in `Insert series of items...` selector
+
 ## **1.19.1** (2020. 01. 30.)
 - Fix missing import in custom version of faker dependency
 - Remove missing (removed) command from submenu definition

@@ -43,7 +43,7 @@ All features are available from either the *Command Palette* or the editor conte
 * **Generate fake/random data**:
     * _Random hex/decimal character sequences_
     * _Fake first names, last names and full names_ in the following languages: English, French, German and Hungarian.
-    * _GUIDs/UUIDs_ (globally unique identifiers or universally unique identifiers). To insert GUIDs with uppercase hex characters, set the value of the `textPowerTools.insertUppercaseGuids` setting to `true`. The default GUID style can be set using the `textPowerTools.defaultGuidType` setting.
+    * _GUIDs/UUIDs_ (globally unique identifiers or universally unique identifiers) using multiple predefined formats (no dashes, dashes, dashes and braces, C# Guid constructor). To insert GUIDs with uppercase hex characters, set the value of the `textPowerTools.insertUppercaseGuids` setting to `true`. The default GUID style can be set using the `textPowerTools.defaultGuidType` setting.
     * _Lorem ipsum sentences_
     * _Lorem ipsum paragraphs_
 * **Change case of text (camelCase, PascalCase, snake_case, CONSTANT_CASE, dash-case, dot.case) and swap casing**.
@@ -55,7 +55,7 @@ All features are available from either the *Command Palette* or the editor conte
 * **Format content as table** by splitting text to pieces by predefined or custom characters or strings and formatting them as a table with equal length columns using space characters.
 
   Text can be splitted by tabulators, semicolons, commas, pipes or any custom character sequences.
-* **Text slots**, which are like permanent clipboard entries in your VS Code. Recommended to bind the most frequently used slot commands to a key combo.
+* **Text slots**, which are like permanent clipboard entries in your VS Code. Recommended to bind the most frequently used slot commands to a key combo of your choice.
 * **Encode and decode various encoding formats**: URL encode, HTML entities, XML entities and Base64
 * **Generate Lorem impsum texts**
 * **Convert to Zalgo text**
