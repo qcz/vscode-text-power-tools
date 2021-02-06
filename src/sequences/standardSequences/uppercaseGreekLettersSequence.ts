@@ -2,7 +2,7 @@ import { AArraySequenceBase } from "../arraySeqenceBase";
 
 export class UppercaseGreekLettersSequence extends AArraySequenceBase {
 	public get name(): string {
-		return "Uppercase letters";
+		return "Uppercase greek letters";
 	}
 
 	public get array(): string[] {

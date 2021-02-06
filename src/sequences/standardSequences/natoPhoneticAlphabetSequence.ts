@@ -2,7 +2,7 @@ import { AArraySequenceBase } from "../arraySeqenceBase";
 
 export class NatoPhoneticAlphabetSequence extends AArraySequenceBase {
 	public get name(): string {
-		return "Lowercase letters";
+		return "NATO phonetic alphabet sequence items";
 	}
 
 	public get array(): string[] {
