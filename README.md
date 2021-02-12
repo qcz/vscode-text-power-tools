@@ -4,7 +4,12 @@ Text Power Tools is an all-in-one text manipulation extension for VS Code inspir
 
 All features are available from either the *Command Palette* or the editor context menu. To access the commands from the Command Palette use `Ctrl+Shift+P`, and enter `tpt` or part of your favourite Text Power Tool command name (e.g. `filter`, `guid` etc.) to quickly access the list of available commands. Almost all commands are available from the editor context menu, which is accessible from the *Text Power Tools* submenu after right clicking in the editor area.
 
+Availability:
+* **VS Code Marketplace:** https://marketplace.visualstudio.com/items?itemName=qcz.text-power-tools
+* **OpenVSX:** https://open-vsx.org/extension/qcz/text-power-tools
+
 **Note:** Due to current architectural limitations of VSCode, no extension can access files larger than 50 Megabytes. Vote for [VSCode issue #31078](https://github.com/Microsoft/vscode/issues/31078), which once implemented, will allows this extension to work with these large files. In the meantime you can trick VSCode by opening a new file and copying the content of the large file there (without saving).
+
 
 ## Features
 * **Filter lines using strings or regular expressions (grep like experience), even into new editors (without modifying the original source):** Filter line commands take an input (a raw text or a regular expression) and filter the selected lines based on whether the user wants to include or exclude lines containing that string or matching that regex. It works just like like `grep` but inside VS Code.
