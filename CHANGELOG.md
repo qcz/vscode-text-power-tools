@@ -1,5 +1,8 @@
 # Changelog
 
+## **1.21.0** (2020. 02. 14.)
+- Add _Sort lines ascending/descending using semver rules_ and _Sort IP addresses ascending/descending_ commands.
+
 ## **1.20.0** (2020. 02. 06.)
 - Add icons to `Insert series of items...`, `Generate fake/random data...` selectors
 - Fix name of lowercase/uppercase Greek letters and NATO phonetic alphabet items in `Insert series of items...` selector

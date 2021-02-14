@@ -31,7 +31,7 @@
 		"sort",
 		"sorting"
 	],
-	"version": "1.20.0",
+	"version": "1.21.0",
 	"publisher": "qcz",
 	"private": true,
 	"engines": {
@@ -714,6 +714,10 @@
 					"group": "tpt_02_formatting@2"
 				},
 				{
+					"submenu": "textPowerTools.sortLines",
+					"group": "tpt_02_formatting@3"
+				},
+				{
 					"submenu": "textPowerTools.generateFakeContent",
 					"group": "tpt_10_generate@1"
 				},
@@ -1157,6 +1161,24 @@
 					"group": "tpt_3_base64@4"
 				}
 			],
+			"textPowerTools.sortLines": [
+				{
+					"command": "textPowerTools.semverSortAscending",
+					"group": "tpt_semver@1"
+				},
+				{
+					"command": "textPowerTools.semverSortDescending",
+					"group": "tpt_semver@2"
+				},
+				{
+					"command": "textPowerTools.ipAddressSortAscending",
+					"group": "tpt_ipAddress@1"
+				},
+				{
+					"command": "textPowerTools.ipAddressSortDescending",
+					"group": "tpt_ipAddress@2"
+				}
+			],
 			"textPowerTools.remove": [
 				{
 					"command": "textPowerTools.removeDuplicates",
@@ -1224,6 +1246,10 @@
 			{
 				"id": "textPowerTools.encodeDecode",
 				"label": "Encode/decode"
+			},
+			{
+				"id": "textPowerTools.sortLines",
+				"label": "Sort lines"
 			},
 			{
 				"id": "textPowerTools.generateFakeContent",
