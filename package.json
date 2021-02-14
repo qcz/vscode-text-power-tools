@@ -27,7 +27,9 @@
 		"clipboard",
 		"faker",
 		"fake data",
-		"test data"
+		"test data",
+		"sort",
+		"sorting"
 	],
 	"version": "1.20.0",
 	"publisher": "qcz",
@@ -152,7 +154,11 @@
 		"onCommand:textPowerTools.setTextSlot2Content",
 		"onCommand:textPowerTools.setTextSlot3Content",
 		"onCommand:textPowerTools.setTextSlot4Content",
-		"onCommand:textPowerTools.setTextSlot5Content"
+		"onCommand:textPowerTools.setTextSlot5Content",
+		"onCommand:textPowerTools.semverSortAscending",
+		"onCommand:textPowerTools.semverSortDescending",
+		"onCommand:textPowerTools.ipAddressSortAscending",
+		"onCommand:textPowerTools.ipAddressSortDescending"
 	],
 	"main": "./dist/extension",
 	"contributes": {
@@ -661,6 +667,26 @@
 				"command": "textPowerTools.setTextSlot5Content",
 				"category": "Text Power Tools",
 				"title": "Set text slot 5 content"
+			},
+			{
+				"command": "textPowerTools.semverSortAscending",
+				"category": "Text Power Tools",
+				"title": "Sort lines ascending using semver rules"
+			},
+			{
+				"command": "textPowerTools.semverSortDescending",
+				"category": "Text Power Tools",
+				"title": "Sort lines descending using semver rules"
+			},
+			{
+				"command": "textPowerTools.ipAddressSortAscending",
+				"category": "Text Power Tools",
+				"title": "Sort IP addresses ascending"
+			},
+			{
+				"command": "textPowerTools.ipAddressSortDescending",
+				"category": "Text Power Tools",
+				"title": "Sort IP addresses descending"
 			}
 		],
 		"menus": {
@@ -1296,10 +1322,12 @@
 	},
 	"devDependencies": {
 		"@types/faker": "^5.1.5",
+		"@types/ip6addr": "^0.2.1",
 		"@types/js-roman-numerals": "^1.1.0",
 		"@types/mocha": "^2.2.42",
 		"@types/node": "^12.12.0",
 		"@types/node-uuid": "0.0.28",
+		"@types/semver-sort": "^0.0.0",
 		"@types/vscode": "^1.32.0",
 		"ts-loader": "^8.0.1",
 		"tslint": "^5.20.1",
@@ -1311,10 +1339,12 @@
 		"change-case": "^3.0.2",
 		"faker": "github:qcz/faker#v5.2.0-tpt-3",
 		"html-entities": "^1.3.1",
+		"ip6addr": "^0.2.3",
 		"js-base64": "^3.4.5",
 		"js-roman-numerals": "^1.1.0",
 		"lorem-ipsum": "^2.0.3",
 		"node-uuid": "^1.4.8",
+		"semver-sort": "^0.0.4",
 		"vscode-test": "^1.4.0",
 		"zalgo-js": "^1.0.0"
 	}
