@@ -55,9 +55,11 @@ Availability:
 
   Note: *Title Case*, *UPPER CASE* and *lower case* is not implemented in this extension as it is available in VS Code by default via the *Transform to Title Case*, Transform to Uppercase* and *Transform to Lower Case* commands respecively.
 * **Pad start and end of strings:** Pad the start or the end of selections to the desired length with default or custom character sequences. The default pad string can be customized with the `textPowerTools.defaultPadString` setting.
-* **Sort lines by semver rules and sort lines containing IP addresses** 
+* **Case sensitive sort lines, sort lines by semver rules and sort lines containing IP addresses** 
+* **Shuffle lines**
 * **Copy content of selections to a new editor**
 * **Convert numbers from decimal to hexadecimal and vice versa**
+    * There are additional commands to convert between them using 8, 16, 32 and 64 bit arithmetic
 * **Format content as table** by splitting text to pieces by predefined or custom characters or strings and formatting them as a table with equal length columns using space characters.
 
   Text can be splitted by tabulators, semicolons, commas, pipes or any custom character sequences.

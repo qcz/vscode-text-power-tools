@@ -5,8 +5,10 @@ import semverSort from "semver-sort";
 import ip6addr from "ip6addr";
 
 export const enum SortMethod {
+	CaseSensitive,
 	Semver,
-	IpAddress
+	IpAddress,
+	Shuffle
 }
 
 interface ISortOptions {
@@ -28,6 +30,18 @@ export async function runSortCommand(options: ISortOptions) {
 		let lines = Array.from(getSelectionLines(editor, selection));
 		
 		switch (options.sortMethod) {
+			case SortMethod.CaseSensitive:
+				lines.sort((a, b) => {
+					let compareResult = a.localeCompare(b, undefined, {
+						sensitivity: "variant",
+						caseFirst: "upper"
+					});
+					if (options.sortDirection === "descending")
+						compareResult = compareResult * -1;
+
+					return compareResult;
+				});
+				break;
 			case SortMethod.Semver:
 				if (options.sortDirection === "ascending")
 					lines = semverSort.asc(lines);
@@ -45,10 +59,35 @@ export async function runSortCommand(options: ISortOptions) {
 				}
 
 				break;
+			case SortMethod.Shuffle:
+				shuffleArray(lines);
+				break;
 		}
 
 		linesBySelection.push(lines);
 	}
 
 	await replaceSelectionsWithLines(editor, selections, linesBySelection, /* openNewDocument: */false);
+}
+
+/**
+ * Shuffles the element of an array.
+ * From: https://stackoverflow.com/a/2450976/336119
+ * @param array The array to shuffle
+ */
+function shuffleArray(array: string[]): void {
+	let currentIndex: number = array.length, temporaryValue: string, randomIndex: number;
+
+	// While there remain elements to shuffle...
+	while (0 !== currentIndex) {
+
+		// Pick a remaining element...
+		randomIndex = Math.floor(Math.random() * currentIndex);
+		currentIndex -= 1;
+  
+		// And swap it with the current element.
+		temporaryValue = array[currentIndex];
+		array[currentIndex] = array[randomIndex];
+		array[randomIndex] = temporaryValue;
+	}
 }

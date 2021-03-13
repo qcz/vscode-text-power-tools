@@ -163,10 +163,13 @@
 		"onCommand:textPowerTools.setTextSlot3Content",
 		"onCommand:textPowerTools.setTextSlot4Content",
 		"onCommand:textPowerTools.setTextSlot5Content",
+		"onCommand:textPowerTools.caseSensitiveSortAscending",
+		"onCommand:textPowerTools.caseSensitiveSortDescending",
 		"onCommand:textPowerTools.semverSortAscending",
 		"onCommand:textPowerTools.semverSortDescending",
 		"onCommand:textPowerTools.ipAddressSortAscending",
-		"onCommand:textPowerTools.ipAddressSortDescending"
+		"onCommand:textPowerTools.ipAddressSortDescending",
+		"onCommand:textPowerTools.shuffleLines"
 	],
 	"main": "./dist/extension",
 	"contributes": {
@@ -717,6 +720,16 @@
 				"title": "Set text slot 5 content"
 			},
 			{
+				"command": "textPowerTools.caseSensitiveSortAscending",
+				"category": "Text Power Tools",
+				"title": "Sort lines ascending (case sensitive)"
+			},
+			{
+				"command": "textPowerTools.caseSensitiveSortDescending",
+				"category": "Text Power Tools",
+				"title": "Sort lines descending (case sensitive)"
+			},
+			{
 				"command": "textPowerTools.semverSortAscending",
 				"category": "Text Power Tools",
 				"title": "Sort lines ascending using semver rules"
@@ -735,6 +748,11 @@
 				"command": "textPowerTools.ipAddressSortDescending",
 				"category": "Text Power Tools",
 				"title": "Sort IP addresses descending"
+			},
+			{
+				"command": "textPowerTools.shuffleLines",
+				"category": "Text Power Tools",
+				"title": "Shuffle lines (sort by random order)"
 			}
 		],
 		"menus": {
@@ -1243,20 +1261,32 @@
 			],
 			"textPowerTools.sortLines": [
 				{
+					"command": "textPowerTools.caseSensitiveSortAscending",
+					"group": "tpt_1_caseSensitive@1"
+				},
+				{
+					"command": "textPowerTools.caseSensitiveSortDescending",
+					"group": "tpt_1_caseSensitive@1"
+				},
+				{
 					"command": "textPowerTools.semverSortAscending",
-					"group": "tpt_semver@1"
+					"group": "tpt_2_semver@1"
 				},
 				{
 					"command": "textPowerTools.semverSortDescending",
-					"group": "tpt_semver@2"
+					"group": "tpt_2_semver@2"
 				},
 				{
 					"command": "textPowerTools.ipAddressSortAscending",
-					"group": "tpt_ipAddress@1"
+					"group": "tpt_3_ipAddress@1"
 				},
 				{
 					"command": "textPowerTools.ipAddressSortDescending",
-					"group": "tpt_ipAddress@2"
+					"group": "tpt_3_ipAddress@2"
+				},
+				{
+					"command": "textPowerTools.shuffleLines",
+					"group": "tpt_9_shuffle@2"
 				}
 			],
 			"textPowerTools.remove": [

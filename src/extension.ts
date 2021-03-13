@@ -230,6 +230,10 @@ export function activate(context: vscode.ExtensionContext) {
 		runSetTextSlotContentCommand(context, { slotId: 4 })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.setTextSlot5Content", () =>
 		runSetTextSlotContentCommand(context, { slotId: 5 })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.caseSensitiveSortAscending", () =>
+		runSortCommand({ sortMethod: SortMethod.CaseSensitive, sortDirection: "ascending" })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.caseSensitiveSortDescending", () =>
+		runSortCommand({ sortMethod: SortMethod.CaseSensitive, sortDirection: "descending" })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.semverSortAscending", () =>
 		runSortCommand({ sortMethod: SortMethod.Semver, sortDirection: "ascending" })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.semverSortDescending", () =>
@@ -238,6 +242,8 @@ export function activate(context: vscode.ExtensionContext) {
 		runSortCommand({ sortMethod: SortMethod.IpAddress, sortDirection: "ascending" })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.ipAddressSortDescending", () =>
 		runSortCommand({ sortMethod: SortMethod.IpAddress, sortDirection: "descending" })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.shuffleLines", () =>
+		runSortCommand({ sortMethod: SortMethod.Shuffle, sortDirection: "ascending" })));
 }
 
 // this method is called when your extension is deactivated
