@@ -3,6 +3,8 @@
 ## **1.22.0** (???)
 - Add commands to convert between decimal and hexadecimal numbers using 8, 16, 32 and 64 bit arithmetic.
 - Ignore empty and whitespace only lines when converting between decimal and hexadecimal numbers.
+- Add _Sort lines ascending/descending (case sensitive)_ commands
+- Add _Shuffle lines_ command
 
 ## **1.21.0** (2020. 02. 14.)
 - Add _Sort lines ascending/descending using semver rules_ and _Sort IP addresses ascending/descending_ commands.
