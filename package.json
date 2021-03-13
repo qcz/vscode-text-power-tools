@@ -169,6 +169,10 @@
 		"onCommand:textPowerTools.caseSensitiveSortDescendingAtColumn",
 		"onCommand:textPowerTools.caseInsensitiveSortAscendingAtColumn",
 		"onCommand:textPowerTools.caseInsensitiveSortDescendingAtColumn",
+		"onCommand:textPowerTools.sortByLengthCaseSensitiveAscending",
+		"onCommand:textPowerTools.sortByLengthCaseSensitiveDescending",
+		"onCommand:textPowerTools.sortByLengthCaseInsensitiveAscending",
+		"onCommand:textPowerTools.sortByLengthCaseInsensitiveDescending",
 		"onCommand:textPowerTools.semverSortAscending",
 		"onCommand:textPowerTools.semverSortDescending",
 		"onCommand:textPowerTools.ipAddressSortAscending",
@@ -754,6 +758,26 @@
 				"title": "Sort lines descending (case insensitive at column of selection start)"
 			},
 			{
+				"command": "textPowerTools.sortByLengthCaseSensitiveAscending",
+				"category": "Text Power Tools",
+				"title": "Sort lines by length (and then case sensitive) ascending"
+			},
+			{
+				"command": "textPowerTools.sortByLengthCaseSensitiveDescending",
+				"category": "Text Power Tools",
+				"title": "Sort lines by length (and then case sensitive) descending "
+			},
+			{
+				"command": "textPowerTools.sortByLengthCaseInsensitiveAscending",
+				"category": "Text Power Tools",
+				"title": "Sort lines by length (and then case insensitive) ascending"
+			},
+			{
+				"command": "textPowerTools.sortByLengthCaseInsensitiveDescending",
+				"category": "Text Power Tools",
+				"title": "Sort lines by length (and then case insensitive) descending"
+			},
+			{
 				"command": "textPowerTools.semverSortAscending",
 				"category": "Text Power Tools",
 				"title": "Sort lines ascending using semver rules"
@@ -1309,20 +1333,36 @@
 					"group": "tpt_2_caseInsensitive@2"
 				},
 				{
+					"command": "textPowerTools.sortByLengthCaseSensitiveAscending",
+					"group": "tpt_3_length@1"
+				},
+				{
+					"command": "textPowerTools.sortByLengthCaseSensitiveDescending",
+					"group": "tpt_3_length@2"
+				},
+				{
+					"command": "textPowerTools.sortByLengthCaseInsensitiveAscending",
+					"group": "tpt_3_length@3"
+				},
+				{
+					"command": "textPowerTools.sortByLengthCaseInsensitiveDescending",
+					"group": "tpt_3_length@4"
+				},
+				{
 					"command": "textPowerTools.semverSortAscending",
-					"group": "tpt_3_semver@1"
+					"group": "tpt_4_semver@1"
 				},
 				{
 					"command": "textPowerTools.semverSortDescending",
-					"group": "tpt_3_semver@2"
+					"group": "tpt_4_semver@2"
 				},
 				{
 					"command": "textPowerTools.ipAddressSortAscending",
-					"group": "tpt_4_ipAddress@1"
+					"group": "tpt_5_ipAddress@1"
 				},
 				{
 					"command": "textPowerTools.ipAddressSortDescending",
-					"group": "tpt_4_ipAddress@2"
+					"group": "tpt_5_ipAddress@2"
 				},
 				{
 					"command": "textPowerTools.shuffleLines",

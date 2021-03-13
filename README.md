@@ -55,10 +55,12 @@ Availability:
 
   Note: *Title Case*, *UPPER CASE* and *lower case* is not implemented in this extension as it is available in VS Code by default via the *Transform to Title Case*, Transform to Uppercase* and *Transform to Lower Case* commands respecively.
 * **Pad start and end of strings:** Pad the start or the end of selections to the desired length with default or custom character sequences. The default pad string can be customized with the `textPowerTools.defaultPadString` setting.
-* **Various sorting methods**
+* **Various sorting methods which all supports ascending and descending orders**
     * _Case sensitive sort lines_
     * _Case sensitive sort lines starting at column_
     * _Case insensitive sort lines starting at column_
+    * _Sort lines by length (and then case sensitive)_ 
+    * _Sort lines by length (and then case insensitive)_ 
     * _Sort lines by semver rules_
     * _Sort lines containing IP addresses_
 * **Shuffle lines**

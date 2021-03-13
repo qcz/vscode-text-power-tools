@@ -3,6 +3,7 @@ import { NO_ACTIVE_EDITOR } from "../consts";
 import { expandSelectionToFullLine, getSelectionLines, getSelectionsOrFullDocument, replaceSelectionsWithLines } from "../helpers/vsCodeHelpers";
 import semverSort from "semver-sort";
 import ip6addr from "ip6addr";
+import { compareNumbers } from "../helpers/utils";
 
 export const enum SortMethod {
 	CaseSensitive,
@@ -10,6 +11,8 @@ export const enum SortMethod {
 	CaseInsensitiveAtColumn,
 	Semver,
 	IpAddress,
+	LengthCaseSensitive,
+	LengthCaseInsensitive,
 	Shuffle
 }
 
@@ -93,6 +96,39 @@ export async function runSortCommand(options: ISortOptions) {
 							return compareResult;
 						});
 						break;
+			case SortMethod.LengthCaseSensitive:
+				lines.sort((a, b) => {
+					let compareResult = compareNumbers(a.length, b.length);
+
+					if (compareResult === 0) {
+						compareResult = a.localeCompare(b, undefined, {
+							sensitivity: "variant",
+							caseFirst: "upper"
+						});
+					}
+
+					if (options.sortDirection === "descending")
+						compareResult = compareResult * -1;
+
+					return compareResult;
+				});
+				break;
+			case SortMethod.LengthCaseInsensitive:
+				lines.sort((a, b) => {
+					let compareResult = compareNumbers(a.length, b.length);
+
+					if (compareResult === 0) {
+						compareResult = a.localeCompare(b, undefined, {
+							sensitivity: "base"
+						});
+					}
+
+					if (options.sortDirection === "descending")
+						compareResult = compareResult * -1;
+
+					return compareResult;
+				});
+				break;
 			case SortMethod.Semver:
 				if (options.sortDirection === "ascending")
 					lines = semverSort.asc(lines);
