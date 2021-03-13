@@ -1,23 +1,24 @@
 # Changelog
 
-## **1.22.0** (???)
+## **1.22.0** (2021. 03. 13.)
 - Add commands to convert between decimal and hexadecimal numbers using 8, 16, 32 and 64 bit arithmetic.
 - Ignore empty and whitespace only lines when converting between decimal and hexadecimal numbers.
 - Add _Sort lines ascending/descending (case sensitive)_ commands
+- Add _Sort lines ascending/descending (case sensitive/insensitive at column of selection start)_ commands
 - Add _Shuffle lines_ command
 
-## **1.21.0** (2020. 02. 14.)
+## **1.21.0** (2021. 02. 14.)
 - Add _Sort lines ascending/descending using semver rules_ and _Sort IP addresses ascending/descending_ commands.
 
-## **1.20.0** (2020. 02. 06.)
+## **1.20.0** (2021. 02. 06.)
 - Add icons to `Insert series of items...`, `Generate fake/random data...` selectors
 - Fix name of lowercase/uppercase Greek letters and NATO phonetic alphabet items in `Insert series of items...` selector
 
-## **1.19.1** (2020. 01. 30.)
+## **1.19.1** (2021. 01. 30.)
 - Fix missing import in custom version of faker dependency
 - Remove missing (removed) command from submenu definition
 
-## **1.19.0** (2020. 01. 30.) [_Insert All The Things Edition_]
+## **1.19.0** (2021. 01. 30.) [_Insert All The Things Edition_]
 - Move to use title/prompt instead of placeholders when showing input boxes to the user so instructions are always visible.
 - Modify insert number sequence commands to ask for number of items to insert when there is only one selection.
 - Add support for inserting Roman numeral sequences.

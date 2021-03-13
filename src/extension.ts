@@ -234,6 +234,14 @@ export function activate(context: vscode.ExtensionContext) {
 		runSortCommand({ sortMethod: SortMethod.CaseSensitive, sortDirection: "ascending" })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.caseSensitiveSortDescending", () =>
 		runSortCommand({ sortMethod: SortMethod.CaseSensitive, sortDirection: "descending" })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.caseSensitiveSortAscendingAtColumn", () =>
+		runSortCommand({ sortMethod: SortMethod.CaseSensitiveAtColumn, sortDirection: "ascending" })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.caseSensitiveSortDescendingAtColumn", () =>
+		runSortCommand({ sortMethod: SortMethod.CaseSensitiveAtColumn, sortDirection: "descending" })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.caseInsensitiveSortAscendingAtColumn", () =>
+		runSortCommand({ sortMethod: SortMethod.CaseInsensitiveAtColumn, sortDirection: "ascending" })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.caseInsensitiveSortDescendingAtColumn", () =>
+		runSortCommand({ sortMethod: SortMethod.CaseInsensitiveAtColumn, sortDirection: "descending" })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.semverSortAscending", () =>
 		runSortCommand({ sortMethod: SortMethod.Semver, sortDirection: "ascending" })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.semverSortDescending", () =>

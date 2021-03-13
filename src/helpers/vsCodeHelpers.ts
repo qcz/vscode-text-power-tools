@@ -29,6 +29,15 @@ export function getSelectionsOrFullDocument(editor: vscode.TextEditor): vscode.S
 	return selections;
 }
 
+export function expandSelectionToFullLine(editor: vscode.TextEditor, selection: vscode.Selection): vscode.Selection {
+	return new vscode.Selection(
+		selection.start.line,
+		0,
+		selection.end.line,
+		editor.document.lineAt(selection.end.line).text.length
+	);
+}
+
 export function * getSelectionLines(editor: vscode.TextEditor, selection: vscode.Selection) {
 	for (let i = selection.start.line; i <= selection.end.line && i < editor.document.lineCount; i++) {
 		const currentLine = editor.document.lineAt(i);

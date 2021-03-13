@@ -165,6 +165,10 @@
 		"onCommand:textPowerTools.setTextSlot5Content",
 		"onCommand:textPowerTools.caseSensitiveSortAscending",
 		"onCommand:textPowerTools.caseSensitiveSortDescending",
+		"onCommand:textPowerTools.caseSensitiveSortAscendingAtColumn",
+		"onCommand:textPowerTools.caseSensitiveSortDescendingAtColumn",
+		"onCommand:textPowerTools.caseInsensitiveSortAscendingAtColumn",
+		"onCommand:textPowerTools.caseInsensitiveSortDescendingAtColumn",
 		"onCommand:textPowerTools.semverSortAscending",
 		"onCommand:textPowerTools.semverSortDescending",
 		"onCommand:textPowerTools.ipAddressSortAscending",
@@ -730,6 +734,26 @@
 				"title": "Sort lines descending (case sensitive)"
 			},
 			{
+				"command": "textPowerTools.caseSensitiveSortAscendingAtColumn",
+				"category": "Text Power Tools",
+				"title": "Sort lines ascending (case sensitive at column of selection start)"
+			},
+			{
+				"command": "textPowerTools.caseSensitiveSortDescendingAtColumn",
+				"category": "Text Power Tools",
+				"title": "Sort lines descending (case sensitive at column of selection start)"
+			},
+			{
+				"command": "textPowerTools.caseInsensitiveSortAscendingAtColumn",
+				"category": "Text Power Tools",
+				"title": "Sort lines ascending (case insensitive at column of selection start)"
+			},
+			{
+				"command": "textPowerTools.caseInsensitiveSortDescendingAtColumn",
+				"category": "Text Power Tools",
+				"title": "Sort lines descending (case insensitive at column of selection start)"
+			},
+			{
 				"command": "textPowerTools.semverSortAscending",
 				"category": "Text Power Tools",
 				"title": "Sort lines ascending using semver rules"
@@ -1266,23 +1290,39 @@
 				},
 				{
 					"command": "textPowerTools.caseSensitiveSortDescending",
-					"group": "tpt_1_caseSensitive@1"
+					"group": "tpt_1_caseSensitive@2"
+				},
+				{
+					"command": "textPowerTools.caseSensitiveSortAscendingAtColumn",
+					"group": "tpt_1_caseSensitive@3"
+				},
+				{
+					"command": "textPowerTools.caseSensitiveSortDescendingAtColumn",
+					"group": "tpt_1_caseSensitive@4"
+				},
+				{
+					"command": "textPowerTools.caseInsensitiveSortAscendingAtColumn",
+					"group": "tpt_2_caseInsensitive@1"
+				},
+				{
+					"command": "textPowerTools.caseInsensitiveSortDescendingAtColumn",
+					"group": "tpt_2_caseInsensitive@2"
 				},
 				{
 					"command": "textPowerTools.semverSortAscending",
-					"group": "tpt_2_semver@1"
+					"group": "tpt_3_semver@1"
 				},
 				{
 					"command": "textPowerTools.semverSortDescending",
-					"group": "tpt_2_semver@2"
+					"group": "tpt_3_semver@2"
 				},
 				{
 					"command": "textPowerTools.ipAddressSortAscending",
-					"group": "tpt_3_ipAddress@1"
+					"group": "tpt_4_ipAddress@1"
 				},
 				{
 					"command": "textPowerTools.ipAddressSortDescending",
-					"group": "tpt_3_ipAddress@2"
+					"group": "tpt_4_ipAddress@2"
 				},
 				{
 					"command": "textPowerTools.shuffleLines",
