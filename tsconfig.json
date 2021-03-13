@@ -2,8 +2,8 @@
 	"compilerOptions": {
 		"module": "commonjs",
 		"outDir": "out",
-		"target": "es2018",
-		"lib": ["ES2018"],
+		"target": "es2020",
+		"lib": ["ES2020"],
 		"sourceMap": true,
 		"rootDir": "src",
 		"esModuleInterop": true,

@@ -129,7 +129,15 @@
 		"onCommand:textPowerTools.changeCaseToSwapCase",
 		"onCommand:textPowerTools.copySelectionsToNewEditor",
 		"onCommand:textPowerTools.convertDecimalNumbersToHexadecimal",
+		"onCommand:textPowerTools.convertDecimalNumbersToHexadecimal8bit",
+		"onCommand:textPowerTools.convertDecimalNumbersToHexadecimal16bit",
+		"onCommand:textPowerTools.convertDecimalNumbersToHexadecimal32bit",
+		"onCommand:textPowerTools.convertDecimalNumbersToHexadecimal64bit",
 		"onCommand:textPowerTools.convertHexadecimalNumbersToDecimal",
+		"onCommand:textPowerTools.convertHexadecimalNumbersToDecimal8bit",
+		"onCommand:textPowerTools.convertHexadecimalNumbersToDecimal16bit",
+		"onCommand:textPowerTools.convertHexadecimalNumbersToDecimal32bit",
+		"onCommand:textPowerTools.convertHexadecimalNumbersToDecimal64bit",
 		"onCommand:textPowerTools.convertToZalgoUltraLight",
 		"onCommand:textPowerTools.convertToZalgoLight",
 		"onCommand:textPowerTools.convertToZalgoMedium",
@@ -539,9 +547,49 @@
 				"title": "Convert selected hexadecimal numbers to decimal"
 			},
 			{
+				"command": "textPowerTools.convertHexadecimalNumbersToDecimal8bit",
+				"category": "Text Power Tools",
+				"title": "Convert selected hexadecimal numbers to decimal (using 8 bit arithmetic)"
+			},
+			{
+				"command": "textPowerTools.convertHexadecimalNumbersToDecimal16bit",
+				"category": "Text Power Tools",
+				"title": "Convert selected hexadecimal numbers to decimal (using 16 bit arithmetic)"
+			},
+			{
+				"command": "textPowerTools.convertHexadecimalNumbersToDecimal32bit",
+				"category": "Text Power Tools",
+				"title": "Convert selected hexadecimal numbers to decimal (using 32 bit arithmetic)"
+			},
+			{
+				"command": "textPowerTools.convertHexadecimalNumbersToDecimal64bit",
+				"category": "Text Power Tools",
+				"title": "Convert selected hexadecimal numbers to decimal (using 64 bit arithmetic)"
+			},
+			{
 				"command": "textPowerTools.convertDecimalNumbersToHexadecimal",
 				"category": "Text Power Tools",
 				"title": "Convert selected decimal numbers to hexadecimal"
+			},
+			{
+				"command": "textPowerTools.convertDecimalNumbersToHexadecimal8bit",
+				"category": "Text Power Tools",
+				"title": "Convert selected decimal numbers to hexadecimal (using 8 bit arithmetic)"
+			},
+			{
+				"command": "textPowerTools.convertDecimalNumbersToHexadecimal16bit",
+				"category": "Text Power Tools",
+				"title": "Convert selected decimal numbers to hexadecimal (using 16 bit arithmetic)"
+			},
+			{
+				"command": "textPowerTools.convertDecimalNumbersToHexadecimal32bit",
+				"category": "Text Power Tools",
+				"title": "Convert selected decimal numbers to hexadecimal (using 32 bit arithmetic)"
+			},
+			{
+				"command": "textPowerTools.convertDecimalNumbersToHexadecimal64bit",
+				"category": "Text Power Tools",
+				"title": "Convert selected decimal numbers to hexadecimal (using 64 bit arithmetic)"
 			},
 			{
 				"command": "textPowerTools.convertToZalgoUltraLight",
@@ -1092,27 +1140,59 @@
 			"textPowerTools.convert": [
 				{
 					"command": "textPowerTools.convertDecimalNumbersToHexadecimal",
-					"group": "tpt_1_convertNumbers@1"
+					"group": "tpt_1_convertDecToHex@1"
+				},
+				{
+					"command": "textPowerTools.convertDecimalNumbersToHexadecimal8bit",
+					"group": "tpt_1_convertDecToHex@2"
+				},
+				{
+					"command": "textPowerTools.convertDecimalNumbersToHexadecimal16bit",
+					"group": "tpt_1_convertDecToHex@3"
+				},
+				{
+					"command": "textPowerTools.convertDecimalNumbersToHexadecimal32bit",
+					"group": "tpt_1_convertDecToHex@4"
+				},
+				{
+					"command": "textPowerTools.convertDecimalNumbersToHexadecimal64bit",
+					"group": "tpt_1_convertDecToHex@5"
+				},
+				{
+					"command": "textPowerTools.convertHexadecimalNumbersToDecimal8bit",
+					"group": "tpt_2_convertHexToDec@1"
+				},
+				{
+					"command": "textPowerTools.convertHexadecimalNumbersToDecimal16bit",
+					"group": "tpt_2_convertHexToDec@2"
+				},
+				{
+					"command": "textPowerTools.convertHexadecimalNumbersToDecimal32bit",
+					"group": "tpt_2_convertHexToDec@3"
+				},
+				{
+					"command": "textPowerTools.convertHexadecimalNumbersToDecimal64bit",
+					"group": "tpt_2_convertHexToDec@4"
 				},
 				{
 					"command": "textPowerTools.convertHexadecimalNumbersToDecimal",
-					"group": "tpt_1_convertNumbers@2"
+					"group": "tpt_2_convertHexToDec@5"
 				},
 				{
 					"command": "textPowerTools.convertToZalgoUltraLight",
-					"group": "tpt_2_zalgo@1"
+					"group": "tpt_3_zalgo@1"
 				},
 				{
 					"command": "textPowerTools.convertToZalgoLight",
-					"group": "tpt_2_zalgo@2"
+					"group": "tpt_3_zalgo@2"
 				},
 				{
 					"command": "textPowerTools.convertToZalgoMedium",
-					"group": "tpt_2_zalgo@3"
+					"group": "tpt_3_zalgo@3"
 				},
 				{
 					"command": "textPowerTools.convertToZalgoHeavy",
-					"group": "tpt_2_zalgo@4"
+					"group": "tpt_3_zalgo@4"
 				}
 			],
 			"textPowerTools.encodeDecode": [

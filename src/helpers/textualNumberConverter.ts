@@ -1,8 +1,9 @@
 import { NumeralSystem } from "../interfaces";
 import { ITextPowerToolsSettings } from "./tptSettings";
 
-export const DECIMAL_NUMBER_REGEX = /^\d+$/;
-export const HEXADECIMAL_NUMBER_REGEX = /^[0-9A-Fa-f]+$/;
+export const DECIMAL_NUMBER_REGEX = /^-?\d+$/;
+export const SIGNED_HEXADECIMAL_NUMBER_REGEX = /^-?[0-9A-Fa-f]+$/;
+export const UNSIGNED_HEXADECIMAL_NUMBER_REGEX = /^[0-9A-Fa-f]+$/;
 
 export interface ConvertNumberResult {
 	successful: boolean;
@@ -16,7 +17,7 @@ export function convertTextualNumber(
 ): ConvertNumberResult {
 	let num;
 	if (target === NumeralSystem.Decimal
-		&& HEXADECIMAL_NUMBER_REGEX.test(lineContent)) {
+		&& UNSIGNED_HEXADECIMAL_NUMBER_REGEX.test(lineContent)) {
 
 		num = parseInt(lineContent, 16);
 	} else if (target === NumeralSystem.Hexadecimal
