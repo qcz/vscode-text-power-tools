@@ -1,6 +1,6 @@
 # Changelog
 
-**1.22.1** (2021. 03. 16.)
+## **1.22.1** (2021. 03. 16.)
 - Fix insert number sequence when starting number is 0.
 
 ## **1.22.0** (2021. 03. 13.)  [_Sort All The Things Edition_]
