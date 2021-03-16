@@ -38,7 +38,9 @@ export class NumberSequece extends ASequenceBase {
 	public async createStandardGenerator(): Promise<() => IterableIterator<string>> {
 		const settings = getExtensionSettings();
 
-		let startingNumber = this.startingNumber || 1;
+		let startingNumber = typeof this.startingNumber === "number"
+			? this.startingNumber
+			: 1;
 		let increment = this.increment || 1;
 
 		return this.createGeneratorFunctionInternal(
@@ -133,18 +135,14 @@ export class NumberSequece extends ASequenceBase {
 			vscode.window.showInputBox({
 				prompt: `Please enter the starting number in ${numberType} format`,
 				value: "1",
-			}).then(async (filter: string | undefined) => {
-				if (typeof filter === "undefined") {
+			}).then(async (rawStartingNumber: string | undefined) => {
+				if (typeof rawStartingNumber === "undefined"
+					|| rawStartingNumber === "") {
 					resolve({ errorMessage: "No starting number entered." });
 					return;
 				}
 		
-				if (!filter) {
-					resolve({ errorMessage: "No starting number entered." });
-					return;
-				}
-		
-				const startingNumber = Number.parseInt(filter, this.numeralSystem === NumeralSystem.Hexadecimal ? 16 : 10);
+				const startingNumber = Number.parseInt(rawStartingNumber, this.numeralSystem === NumeralSystem.Hexadecimal ? 16 : 10);
 				if (isNaN(startingNumber)) {
 					resolve({ errorMessage: `The entered starting number is not a valid ${numberType} number.` });
 					return;
@@ -165,20 +163,21 @@ export class NumberSequece extends ASequenceBase {
 			vscode.window.showInputBox({
 				prompt: `Please enter the number to increment by in ${numberType} format`,
 				value: "1",
-			}).then(async (filter: string | undefined) => {
-				if (typeof filter === "undefined") {
+			}).then(async (rawIncrement: string | undefined) => {
+				if (typeof rawIncrement === "undefined"
+					|| rawIncrement === "") {
 					resolve({ errorMessage: "No increment entered." });
 					return;
 				}
 		
-				if (!filter) {
-					resolve({ errorMessage: "No increment entered." });
-					return;
-				}
-		
-				const increment = Number.parseInt(filter, this.numeralSystem === NumeralSystem.Hexadecimal ? 16 : 10);
+				const increment = Number.parseInt(rawIncrement, this.numeralSystem === NumeralSystem.Hexadecimal ? 16 : 10);
 				if (isNaN(increment)) {
 					resolve({ errorMessage: `The entered number to increment by is not a valid ${numberType} number.` });
+					return;
+				}
+
+				if (increment === 0) {
+					resolve({ errorMessage: `Increment cannot be 0.` });
 					return;
 				}
 

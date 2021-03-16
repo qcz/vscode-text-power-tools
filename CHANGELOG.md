@@ -1,5 +1,8 @@
 # Changelog
 
+**1.22.1** (2021. 03. 16.)
+- Fix insert number sequence when starting number is 0.
+
 ## **1.22.0** (2021. 03. 13.)  [_Sort All The Things Edition_]
 - Add commands to convert between decimal and hexadecimal numbers using 8, 16, 32 and 64 bit arithmetic.
 - Ignore empty and whitespace only lines when converting between decimal and hexadecimal numbers.
