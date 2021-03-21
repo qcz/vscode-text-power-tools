@@ -24,6 +24,7 @@ export function activate(context: vscode.ExtensionContext) {
 	registerTextSlotCommands(context);
 
 	registerConverterCommands(context);
+	registerIncreaseDecreaseCommands(context);
 	registerEncoderCommands(context);
 
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.copySelectionsToNewEditor", () =>
@@ -285,6 +286,45 @@ function registerConverterCommands(context: vscode.ExtensionContext) {
 		runConvertToZalgoCommand({ intensity: ZalgificationIntensity.Medium })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.convertToZalgoHeavy", () =>
 		runConvertToZalgoCommand({ intensity: ZalgificationIntensity.Heavy })));
+}
+
+function registerIncreaseDecreaseCommands(context: vscode.ExtensionContext) {
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.increaseDecimalNumbersWithOne", () =>
+		runConvertNumberCommand({ source: NumeralSystem.Decimal, target: NumeralSystem.Decimal, increment: 1n })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.increaseHexNumbersWithOne", () =>
+		runConvertNumberCommand({ source: NumeralSystem.Hexadecimal, target: NumeralSystem.Hexadecimal, increment: 1n })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.increaseHexNumbersWithOne8bit", () =>
+		runConvertNumberCommand({ source: NumeralSystem.Hexadecimal, target: NumeralSystem.Hexadecimal, arithmetic: NumberArithmetic.EightBit, increment: 1n })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.increaseHexNumbersWithOne16bit", () =>
+		runConvertNumberCommand({ source: NumeralSystem.Hexadecimal, target: NumeralSystem.Hexadecimal, arithmetic: NumberArithmetic.SixteenBit, increment: 1n })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.increaseHexNumbersWithOne32bit", () =>
+		runConvertNumberCommand({ source: NumeralSystem.Hexadecimal, target: NumeralSystem.Hexadecimal, arithmetic: NumberArithmetic.ThirtyTwoBit, increment: 1n })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.increaseHexNumbersWithOne64bit", () =>
+		runConvertNumberCommand({ source: NumeralSystem.Hexadecimal, target: NumeralSystem.Hexadecimal, arithmetic: NumberArithmetic.SixtyFourBit, increment: 1n })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.decreaseDecimalNumbersWithOne", () =>
+		runConvertNumberCommand({ source: NumeralSystem.Decimal, target: NumeralSystem.Decimal, increment: -1n })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.decreaseHexNumbersWithOne", () =>
+		runConvertNumberCommand({ source: NumeralSystem.Hexadecimal, target: NumeralSystem.Hexadecimal, increment: -1n })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.decreaseHexNumbersWithOne8bit", () =>
+		runConvertNumberCommand({ source: NumeralSystem.Hexadecimal, target: NumeralSystem.Hexadecimal, arithmetic: NumberArithmetic.EightBit, increment: -1n })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.decreaseHexNumbersWithOne16bit", () =>
+		runConvertNumberCommand({ source: NumeralSystem.Hexadecimal, target: NumeralSystem.Hexadecimal, arithmetic: NumberArithmetic.SixteenBit, increment: -1n })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.decreaseHexNumbersWithOne32bit", () =>
+		runConvertNumberCommand({ source: NumeralSystem.Hexadecimal, target: NumeralSystem.Hexadecimal, arithmetic: NumberArithmetic.ThirtyTwoBit, increment: -1n })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.decreaseHexNumbersWithOne64bit", () =>
+		runConvertNumberCommand({ source: NumeralSystem.Hexadecimal, target: NumeralSystem.Hexadecimal, arithmetic: NumberArithmetic.SixtyFourBit, increment: -1n })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.changeDecimalNumbersWithIncrement", () =>
+		runConvertNumberCommand({ source: NumeralSystem.Decimal, target: NumeralSystem.Decimal, increment: "ask" })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.changeHexNumbersWithIncrement", () =>
+		runConvertNumberCommand({ source: NumeralSystem.Hexadecimal, target: NumeralSystem.Hexadecimal, increment: "ask" })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.changeHexNumbersWithIncrement8bit", () =>
+		runConvertNumberCommand({ source: NumeralSystem.Hexadecimal, target: NumeralSystem.Hexadecimal, arithmetic: NumberArithmetic.EightBit, increment: "ask" })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.changeHexNumbersWithIncrement16bit", () =>
+		runConvertNumberCommand({ source: NumeralSystem.Hexadecimal, target: NumeralSystem.Hexadecimal, arithmetic: NumberArithmetic.SixteenBit, increment: "ask" })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.changeHexNumbersWithIncrement32bit", () =>
+		runConvertNumberCommand({ source: NumeralSystem.Hexadecimal, target: NumeralSystem.Hexadecimal, arithmetic: NumberArithmetic.ThirtyTwoBit, increment: "ask" })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.changeHexNumbersWithIncrement64bit", () =>
+		runConvertNumberCommand({ source: NumeralSystem.Hexadecimal, target: NumeralSystem.Hexadecimal, arithmetic: NumberArithmetic.SixtyFourBit, increment: "ask" })));
 }
 
 function registerEncoderCommands(context: vscode.ExtensionContext) {

@@ -25,6 +25,7 @@ interface IChangeNumeralSystemOptions {
 	source: NumeralSystem;
 	target: NumeralSystem;
 	arithmetic?: NumberArithmetic;
+	increment?: bigint | "ask";
 }
 
 export async function runConvertNumberCommand(options: IChangeNumeralSystemOptions) {
@@ -35,8 +36,19 @@ export async function runConvertNumberCommand(options: IChangeNumeralSystemOptio
 		return;
 	}
 
-	const selections = getSelectionsOrFullDocument(editor);
 	const { source: sourceNumeralSystem, target: targetNumeralSystem, arithmetic } = options;
+	let increment = options.increment;
+	if (increment === "ask") {
+		try {
+			increment = await askForIncrement();
+		}
+		catch (err) {
+			vscode.window.showErrorMessage(err);
+			return;
+		}
+	}
+
+	const selections = getSelectionsOrFullDocument(editor);
 	const linesBySelection: string[][] = [];
 
 	let hasInvalidNumbers = false;
@@ -90,6 +102,13 @@ export async function runConvertNumberCommand(options: IChangeNumeralSystemOptio
 				continue;
 			}
 
+			if (typeof increment === "bigint") {
+				num += increment;
+				if (targetNumeralSystem === NumeralSystem.Hexadecimal && typeof arithmetic !== "undefined") {
+					num = handleOverflow(num, arithmetic);
+				}
+			}
+
 			let replacedContent = "";
 			if (targetNumeralSystem === NumeralSystem.Decimal) {
 				if (typeof arithmetic !== "undefined") {
@@ -138,6 +157,36 @@ export async function runConvertNumberCommand(options: IChangeNumeralSystemOptio
 type NumberParseResult =
 	{ isValid: false }
 	| { isValid: true, number: bigint };
+
+async function askForIncrement(): Promise<bigint> {
+	return new Promise<bigint>((resolve, reject) => {
+		vscode.window.showInputBox({
+			prompt: `Please enter the number to increment by in decimal format`,
+			value: "1",
+		}).then(async (rawIncrement: string | undefined) => {
+			if (typeof rawIncrement === "undefined"
+				|| rawIncrement === "") {
+				reject("No increment entered.");
+				return;
+			}
+
+			let increment: bigint;
+			try {
+				increment = BigInt(rawIncrement);
+			} catch (err) {
+				reject(`The entered number to increment by is not a valid number.`);
+				return;
+			}
+
+			if (increment === 0n) {
+				reject("Increment cannot be 0.");
+				return;
+			}
+
+			resolve(increment);
+		});
+	});
+}
 
 function tryParseHexNumber(rawNumber: string, options: IChangeNumeralSystemOptions): NumberParseResult {
 	const { arithmetic } = options;
@@ -206,5 +255,22 @@ function transformHexadecimalNumberToDecimalWithArithmetic(num: bigint, arithmet
 	}
 
 	return num;
+}
+
+function handleOverflow(num: bigint, arithmetic: NumberArithmetic): bigint {
+	let ret = num;
+
+	while (ret > SIGNED_ARITHMETIC_RANGES[arithmetic].max
+		|| ret < SIGNED_ARITHMETIC_RANGES[arithmetic].min) {
+		if (ret > SIGNED_ARITHMETIC_RANGES[arithmetic].max) {
+			ret = SIGNED_ARITHMETIC_RANGES[arithmetic].min + (ret - SIGNED_ARITHMETIC_RANGES[arithmetic].max - 1n);
+		}
+
+		if (ret < SIGNED_ARITHMETIC_RANGES[arithmetic].min) {
+			ret = SIGNED_ARITHMETIC_RANGES[arithmetic].max - ((-ret) - 1n);
+		}
+	}
+
+	return ret;
 }
 

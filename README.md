@@ -67,6 +67,9 @@ Availability:
 * **Copy content of selections to a new editor**
 * **Convert numbers from decimal to hexadecimal and vice versa**
     * There are additional commands to convert between them using 8, 16, 32 and 64 bit arithmetic
+* **Increase/decrease decimal and hexadecimal numbers**
+    * There are commands to increase and decrease with 1 and with a custom increment.
+    * There are additional commands to increase/decrease hexadecimal numbers using 8, 16, 32 and 64 bit arithmetic.
 * **Format content as table** by splitting text to pieces by predefined or custom characters or strings and formatting them as a table with equal length columns using space characters.
 
   Text can be splitted by tabulators, semicolons, commas, pipes or any custom character sequences.

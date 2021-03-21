@@ -1,5 +1,8 @@
 # Changelog
 
+## **1.23.0** (2021. 03. 21.)
+- Add commands to increase/decrease decimal and hexadecimal numbers. Increasing hexadecimal numbers can also be made using 8, 16, 32 and 64 bit arithmetic. 
+
 ## **1.22.1** (2021. 03. 16.)
 - Fix insert number sequence when starting number is 0.
 

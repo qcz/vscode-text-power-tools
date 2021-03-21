@@ -31,7 +31,7 @@
 		"sort",
 		"sorting"
 	],
-	"version": "1.22.1",
+	"version": "1.23.0",
 	"publisher": "qcz",
 	"private": true,
 	"engines": {
@@ -173,6 +173,25 @@
 		"onCommand:textPowerTools.convertToZalgoLight",
 		"onCommand:textPowerTools.convertToZalgoMedium",
 		"onCommand:textPowerTools.convertToZalgoHeavy",
+
+		"onCommand:textPowerTools.increaseDecimalNumbersWithOne",
+		"onCommand:textPowerTools.increaseHexNumbersWithOne",
+		"onCommand:textPowerTools.increaseHexNumbersWithOne8bit",
+		"onCommand:textPowerTools.increaseHexNumbersWithOne16bit",
+		"onCommand:textPowerTools.increaseHexNumbersWithOne32bit",
+		"onCommand:textPowerTools.increaseHexNumbersWithOne64bit",
+		"onCommand:textPowerTools.decreaseDecimalNumbersWithOne",
+		"onCommand:textPowerTools.decreaseHexNumbersWithOne",
+		"onCommand:textPowerTools.decreaseHexNumbersWithOne8bit",
+		"onCommand:textPowerTools.decreaseHexNumbersWithOne16bit",
+		"onCommand:textPowerTools.decreaseHexNumbersWithOne32bit",
+		"onCommand:textPowerTools.decreaseHexNumbersWithOne64bit",
+		"onCommand:textPowerTools.changeDecimalNumbersWithIncrement",
+		"onCommand:textPowerTools.changeHexNumbersWithIncrement",
+		"onCommand:textPowerTools.changeHexNumbersWithIncrement8bit",
+		"onCommand:textPowerTools.changeHexNumbersWithIncrement16bit",
+		"onCommand:textPowerTools.changeHexNumbersWithIncrement32bit",
+		"onCommand:textPowerTools.changeHexNumbersWithIncrement64bit",
 
 		"onCommand:textPowerTools.urlEncodeText",
 		"onCommand:textPowerTools.urlDecodeText",
@@ -763,6 +782,98 @@
 
 
 			{
+				"command": "textPowerTools.increaseDecimalNumbersWithOne",
+				"category": "Text Power Tools",
+				"title": "Increase decimal numbers with 1"
+			},
+			{
+				"command": "textPowerTools.increaseHexNumbersWithOne",
+				"category": "Text Power Tools",
+				"title": "Increase hexadecimal numbers with 1"
+			},
+			{
+				"command": "textPowerTools.increaseHexNumbersWithOne8bit",
+				"category": "Text Power Tools",
+				"title": "Increase hexadecimal numbers with 1 (using 8 bit arithmetic)"
+			},
+			{
+				"command": "textPowerTools.increaseHexNumbersWithOne16bit",
+				"category": "Text Power Tools",
+				"title": "Increase hexadecimal numbers with 1 (using 16 bit arithmetic)"
+			},
+			{
+				"command": "textPowerTools.increaseHexNumbersWithOne32bit",
+				"category": "Text Power Tools",
+				"title": "Increase hexadecimal numbers with 1 (using 32 bit arithmetic)"
+			},
+			{
+				"command": "textPowerTools.increaseHexNumbersWithOne64bit",
+				"category": "Text Power Tools",
+				"title": "Increase hexadecimal numbers with 1 (using 64 bit arithmetic)"
+			},
+			{
+				"command": "textPowerTools.decreaseDecimalNumbersWithOne",
+				"category": "Text Power Tools",
+				"title": "Decrease decimal numbers with 1"
+			},
+			{
+				"command": "textPowerTools.decreaseHexNumbersWithOne",
+				"category": "Text Power Tools",
+				"title": "Decrease hexadecimal numbers with 1"
+			},
+			{
+				"command": "textPowerTools.decreaseHexNumbersWithOne8bit",
+				"category": "Text Power Tools",
+				"title": "Decrease hexadecimal numbers with 1 (using 8 bit arithmetic)"
+			},
+			{
+				"command": "textPowerTools.decreaseHexNumbersWithOne16bit",
+				"category": "Text Power Tools",
+				"title": "Decrease hexadecimal numbers with 1 (using 16 bit arithmetic)"
+			},
+			{
+				"command": "textPowerTools.decreaseHexNumbersWithOne32bit",
+				"category": "Text Power Tools",
+				"title": "Decrease hexadecimal numbers with 1 (using 32 bit arithmetic)"
+			},
+			{
+				"command": "textPowerTools.decreaseHexNumbersWithOne64bit",
+				"category": "Text Power Tools",
+				"title": "Decrease hexadecimal numbers with 1 (using 64 bit arithmetic)"
+			},
+			{
+				"command": "textPowerTools.changeDecimalNumbersWithIncrement",
+				"category": "Text Power Tools",
+				"title": "Increase/decrease decimal numbers with a custom value"
+			},
+			{
+				"command": "textPowerTools.changeHexNumbersWithIncrement",
+				"category": "Text Power Tools",
+				"title": "Increase/decrease hexadecimal numbers with a custom value"
+			},
+			{
+				"command": "textPowerTools.changeHexNumbersWithIncrement8bit",
+				"category": "Text Power Tools",
+				"title": "Increase/decrease hexadecimal numbers with a custom value (using 8 bit arithmetic)"
+			},
+			{
+				"command": "textPowerTools.changeHexNumbersWithIncrement16bit",
+				"category": "Text Power Tools",
+				"title": "Increase/decrease hexadecimal numbers with a custom value (using 16 bit arithmetic)"
+			},
+			{
+				"command": "textPowerTools.changeHexNumbersWithIncrement32bit",
+				"category": "Text Power Tools",
+				"title": "Increase/decrease hexadecimal numbers with a custom value (using 32 bit arithmetic)"
+			},
+			{
+				"command": "textPowerTools.changeHexNumbersWithIncrement64bit",
+				"category": "Text Power Tools",
+				"title": "Increase/decrease hexadecimal numbers with a custom value (using 64 bit arithmetic)"
+			},
+
+
+			{
 				"command": "textPowerTools.urlEncodeText",
 				"category": "Text Power Tools",
 				"title": "URL encode text"
@@ -899,8 +1010,12 @@
 					"group": "tpt_14_conversion@1"
 				},
 				{
-					"submenu": "textPowerTools.encodeDecode",
+					"submenu": "textPowerTools.increaseDecrease",
 					"group": "tpt_14_conversion@2"
+				},
+				{
+					"submenu": "textPowerTools.encodeDecode",
+					"group": "tpt_14_conversion@3"
 				},
 				{
 					"submenu": "textPowerTools.remove",
@@ -1304,6 +1419,80 @@
 					"group": "tpt_3_zalgo@4"
 				}
 			],
+			"textPowerTools.increaseDecrease": [
+				{
+					"command": "textPowerTools.increaseDecimalNumbersWithOne",
+					"group": "tpt_1_increaseOne@1"
+				},
+				{
+					"command": "textPowerTools.increaseHexNumbersWithOne",
+					"group": "tpt_1_increaseOne@2"
+				},
+				{
+					"command": "textPowerTools.increaseHexNumbersWithOne8bit",
+					"group": "tpt_1_increaseOne@3"
+				},
+				{
+					"command": "textPowerTools.increaseHexNumbersWithOne16bit",
+					"group": "tpt_1_increaseOne@4"
+				},
+				{
+					"command": "textPowerTools.increaseHexNumbersWithOne32bit",
+					"group": "tpt_1_increaseOne@5"
+				},
+				{
+					"command": "textPowerTools.increaseHexNumbersWithOne64bit",
+					"group": "tpt_1_increaseOne@6"
+				},
+				{
+					"command": "textPowerTools.decreaseDecimalNumbersWithOne",
+					"group": "tpt_2_decreaseOne@1"
+				},
+				{
+					"command": "textPowerTools.decreaseHexNumbersWithOne",
+					"group": "tpt_2_decreaseOne@2"
+				},
+				{
+					"command": "textPowerTools.decreaseHexNumbersWithOne8bit",
+					"group": "tpt_2_decreaseOne@3"
+				},
+				{
+					"command": "textPowerTools.decreaseHexNumbersWithOne16bit",
+					"group": "tpt_2_decreaseOne@4"
+				},
+				{
+					"command": "textPowerTools.decreaseHexNumbersWithOne32bit",
+					"group": "tpt_2_decreaseOne@5"
+				},
+				{
+					"command": "textPowerTools.decreaseHexNumbersWithOne64bit",
+					"group": "tpt_2_decreaseOne@6"
+				},
+				{
+					"command": "textPowerTools.changeDecimalNumbersWithIncrement",
+					"group": "tpt_3_change@1"
+				},
+				{
+					"command": "textPowerTools.changeHexNumbersWithIncrement",
+					"group": "tpt_3_change@2"
+				},
+				{
+					"command": "textPowerTools.changeHexNumbersWithIncrement8bit",
+					"group": "tpt_3_change@3"
+				},
+				{
+					"command": "textPowerTools.changeHexNumbersWithIncrement16bit",
+					"group": "tpt_3_change@4"
+				},
+				{
+					"command": "textPowerTools.changeHexNumbersWithIncrement32bit",
+					"group": "tpt_3_change@5"
+				},
+				{
+					"command": "textPowerTools.changeHexNumbersWithIncrement64bit",
+					"group": "tpt_3_change@6"
+				}
+			],
 			"textPowerTools.encodeDecode": [
 				{
 					"command": "textPowerTools.urlEncodeText",
@@ -1475,6 +1664,10 @@
 			{
 				"id": "textPowerTools.convert",
 				"label": "Convert"
+			},
+			{
+				"id": "textPowerTools.increaseDecrease",
+				"label": "Increase/decrease numbers"
 			},
 			{
 				"id": "textPowerTools.encodeDecode",
