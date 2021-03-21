@@ -62,49 +62,12 @@
 		"onCommand:textPowerTools.filterLinesNotIncludingStringToNewEditor",
 		"onCommand:textPowerTools.filterLinesNotMatchingRegex",
 		"onCommand:textPowerTools.filterLinesNotMatchingRegexToNewEditor",
+
 		"onCommand:textPowerTools.extractInformation",
 		"onCommand:textPowerTools.extractInformationToNewEditor",
 		"onCommand:textPowerTools.countOccurrences",
 		"onCommand:textPowerTools.countOccurrencesToNewEditor",
-		"onCommand:textPowerTools.removeDuplicates",
-		"onCommand:textPowerTools.removeBlankLines",
-		"onCommand:textPowerTools.removeSurplusBlankLines",
-		"onCommand:textPowerTools.removeControlCharacters",
-		"onCommand:textPowerTools.insertDecimalNumbers",
-		"onCommand:textPowerTools.insertDecimalNumbersStartingAt",
-		"onCommand:textPowerTools.insertDecimalNumbersWithIncrements",
-		"onCommand:textPowerTools.insertDecimalNumbersWithIncrementsStartingAt",
-		"onCommand:textPowerTools.insertHexNumbers",
-		"onCommand:textPowerTools.insertHexNumbersStartingAt",
-		"onCommand:textPowerTools.insertHexNumbersWithIncrements",
-		"onCommand:textPowerTools.insertHexNumbersWithIncrementsStartingAt",
-		"onCommand:textPowerTools.insertRomanNumerals",
-		"onCommand:textPowerTools.insertRomanNumeralsStartingAt",
-		"onCommand:textPowerTools.insertRomanNumeralsWithIncrements",
-		"onCommand:textPowerTools.insertRomanNumeralsWithIncrementsStartingAt",
-		"onCommand:textPowerTools.insertLineNumbers",
-		"onCommand:textPowerTools.insertLineNumbersFixedLength",
-		"onCommand:textPowerTools.insertRelativeLineNumbers",
-		"onCommand:textPowerTools.insertRelativeLineNumbersFixedLength",
-		"onCommand:textPowerTools.insertSequence",
-		"onCommand:textPowerTools.generateFakeData",
-		"onCommand:textPowerTools.insertLowercaseLetterSequence",
-		"onCommand:textPowerTools.insertUppercaseLetterSequence",
-		"onCommand:textPowerTools.insertLowercaseGreekLetterSequence",
-		"onCommand:textPowerTools.insertUppercaseGreekLetterSequence",
-		"onCommand:textPowerTools.insertNatoPhoneticAlphabetSequence",
-		"onCommand:textPowerTools.insertLongEnglishMonthNamesSequence",
-		"onCommand:textPowerTools.insertShortEnglishMonthNamesSequence",
-		"onCommand:textPowerTools.insertLongLocaleMonthNamesSequence",
-		"onCommand:textPowerTools.insertShortLocaleMonthNamesSequence",
-		"onCommand:textPowerTools.insertLongEnglishDayNamesSequence",
-		"onCommand:textPowerTools.insertShortEnglishDayNamesSequence",
-		"onCommand:textPowerTools.insertLongLocaleDayNamesSequence",
-		"onCommand:textPowerTools.insertShortLocaleDayNamesSequence",
-		"onCommand:textPowerTools.insertFullFilePath",
-		"onCommand:textPowerTools.insertDirectoryPath",
-		"onCommand:textPowerTools.insertFileName",
-		"onCommand:textPowerTools.insertUnixTimestamp",
+		
 		"onCommand:textPowerTools.padStart",
 		"onCommand:textPowerTools.padStartWithCustomString",
 		"onCommand:textPowerTools.padEnd",
@@ -117,9 +80,7 @@
 		"onCommand:textPowerTools.formatContentAsTableBySemicolonWithPadding",
 		"onCommand:textPowerTools.formatContentAsTableByPipeWithPadding",
 		"onCommand:textPowerTools.formatContentAsTableByCustomCharacterWithPadding",
-		"onCommand:textPowerTools.generateRandomGuids",
-		"onCommand:textPowerTools.generateLoremIpsumSentence",
-		"onCommand:textPowerTools.generateLoremIpsumParagraph",
+
 		"onCommand:textPowerTools.changeCaseToCamelCase",
 		"onCommand:textPowerTools.changeCaseToPascalCase",
 		"onCommand:textPowerTools.changeCaseToSnakeCase",
@@ -127,42 +88,7 @@
 		"onCommand:textPowerTools.changeCaseToConstantCase",
 		"onCommand:textPowerTools.changeCaseToDotCase",
 		"onCommand:textPowerTools.changeCaseToSwapCase",
-		"onCommand:textPowerTools.copySelectionsToNewEditor",
-		"onCommand:textPowerTools.convertDecimalNumbersToHexadecimal",
-		"onCommand:textPowerTools.convertDecimalNumbersToHexadecimal8bit",
-		"onCommand:textPowerTools.convertDecimalNumbersToHexadecimal16bit",
-		"onCommand:textPowerTools.convertDecimalNumbersToHexadecimal32bit",
-		"onCommand:textPowerTools.convertDecimalNumbersToHexadecimal64bit",
-		"onCommand:textPowerTools.convertHexadecimalNumbersToDecimal",
-		"onCommand:textPowerTools.convertHexadecimalNumbersToDecimal8bit",
-		"onCommand:textPowerTools.convertHexadecimalNumbersToDecimal16bit",
-		"onCommand:textPowerTools.convertHexadecimalNumbersToDecimal32bit",
-		"onCommand:textPowerTools.convertHexadecimalNumbersToDecimal64bit",
-		"onCommand:textPowerTools.convertToZalgoUltraLight",
-		"onCommand:textPowerTools.convertToZalgoLight",
-		"onCommand:textPowerTools.convertToZalgoMedium",
-		"onCommand:textPowerTools.convertToZalgoHeavy",
-		"onCommand:textPowerTools.urlEncodeText",
-		"onCommand:textPowerTools.urlDecodeText",
-		"onCommand:textPowerTools.encodeHtmlEntities",
-		"onCommand:textPowerTools.encodeHtmlEntitiesWithNonAscii",
-		"onCommand:textPowerTools.decodeHtmlEntities",
-		"onCommand:textPowerTools.encodeXmlEntities",
-		"onCommand:textPowerTools.decodeXmlEntities",
-		"onCommand:textPowerTools.base64EncodeText",
-		"onCommand:textPowerTools.base64EncodeTextOnEachLine",
-		"onCommand:textPowerTools.base64DecodeText",
-		"onCommand:textPowerTools.base64DecodeTextOnEachLine",
-		"onCommand:textPowerTools.pasteTextSlot1Content",
-		"onCommand:textPowerTools.pasteTextSlot2Content",
-		"onCommand:textPowerTools.pasteTextSlot3Content",
-		"onCommand:textPowerTools.pasteTextSlot4Content",
-		"onCommand:textPowerTools.pasteTextSlot5Content",
-		"onCommand:textPowerTools.setTextSlot1Content",
-		"onCommand:textPowerTools.setTextSlot2Content",
-		"onCommand:textPowerTools.setTextSlot3Content",
-		"onCommand:textPowerTools.setTextSlot4Content",
-		"onCommand:textPowerTools.setTextSlot5Content",
+
 		"onCommand:textPowerTools.caseSensitiveSortAscending",
 		"onCommand:textPowerTools.caseSensitiveSortDescending",
 		"onCommand:textPowerTools.caseSensitiveSortAscendingAtColumn",
@@ -177,7 +103,95 @@
 		"onCommand:textPowerTools.semverSortDescending",
 		"onCommand:textPowerTools.ipAddressSortAscending",
 		"onCommand:textPowerTools.ipAddressSortDescending",
-		"onCommand:textPowerTools.shuffleLines"
+		"onCommand:textPowerTools.shuffleLines",
+
+		"onCommand:textPowerTools.generateFakeData",
+		"onCommand:textPowerTools.generateRandomGuids",
+		"onCommand:textPowerTools.generateLoremIpsumSentence",
+		"onCommand:textPowerTools.generateLoremIpsumParagraph",
+
+		"onCommand:textPowerTools.insertFullFilePath",
+		"onCommand:textPowerTools.insertDirectoryPath",
+		"onCommand:textPowerTools.insertFileName",
+		"onCommand:textPowerTools.insertUnixTimestamp",
+
+		"onCommand:textPowerTools.insertDecimalNumbers",
+		"onCommand:textPowerTools.insertDecimalNumbersStartingAt",
+		"onCommand:textPowerTools.insertDecimalNumbersWithIncrements",
+		"onCommand:textPowerTools.insertDecimalNumbersWithIncrementsStartingAt",
+		"onCommand:textPowerTools.insertHexNumbers",
+		"onCommand:textPowerTools.insertHexNumbersStartingAt",
+		"onCommand:textPowerTools.insertHexNumbersWithIncrements",
+		"onCommand:textPowerTools.insertHexNumbersWithIncrementsStartingAt",
+		"onCommand:textPowerTools.insertRomanNumerals",
+		"onCommand:textPowerTools.insertRomanNumeralsStartingAt",
+		"onCommand:textPowerTools.insertRomanNumeralsWithIncrements",
+		"onCommand:textPowerTools.insertRomanNumeralsWithIncrementsStartingAt",
+
+		"onCommand:textPowerTools.insertLineNumbers",
+		"onCommand:textPowerTools.insertLineNumbersFixedLength",
+		"onCommand:textPowerTools.insertRelativeLineNumbers",
+		"onCommand:textPowerTools.insertRelativeLineNumbersFixedLength",
+
+		"onCommand:textPowerTools.insertSequence",
+		"onCommand:textPowerTools.insertLowercaseLetterSequence",
+		"onCommand:textPowerTools.insertUppercaseLetterSequence",
+		"onCommand:textPowerTools.insertLowercaseGreekLetterSequence",
+		"onCommand:textPowerTools.insertUppercaseGreekLetterSequence",
+		"onCommand:textPowerTools.insertNatoPhoneticAlphabetSequence",
+		"onCommand:textPowerTools.insertLongEnglishMonthNamesSequence",
+		"onCommand:textPowerTools.insertShortEnglishMonthNamesSequence",
+		"onCommand:textPowerTools.insertLongLocaleMonthNamesSequence",
+		"onCommand:textPowerTools.insertShortLocaleMonthNamesSequence",
+		"onCommand:textPowerTools.insertLongEnglishDayNamesSequence",
+		"onCommand:textPowerTools.insertShortEnglishDayNamesSequence",
+		"onCommand:textPowerTools.insertLongLocaleDayNamesSequence",
+		"onCommand:textPowerTools.insertShortLocaleDayNamesSequence",
+
+		"onCommand:textPowerTools.pasteTextSlot1Content",
+		"onCommand:textPowerTools.pasteTextSlot2Content",
+		"onCommand:textPowerTools.pasteTextSlot3Content",
+		"onCommand:textPowerTools.pasteTextSlot4Content",
+		"onCommand:textPowerTools.pasteTextSlot5Content",
+		"onCommand:textPowerTools.setTextSlot1Content",
+		"onCommand:textPowerTools.setTextSlot2Content",
+		"onCommand:textPowerTools.setTextSlot3Content",
+		"onCommand:textPowerTools.setTextSlot4Content",
+		"onCommand:textPowerTools.setTextSlot5Content",
+
+		"onCommand:textPowerTools.convertHexadecimalNumbersToDecimal",
+		"onCommand:textPowerTools.convertHexadecimalNumbersToDecimal8bit",
+		"onCommand:textPowerTools.convertHexadecimalNumbersToDecimal16bit",
+		"onCommand:textPowerTools.convertHexadecimalNumbersToDecimal32bit",
+		"onCommand:textPowerTools.convertHexadecimalNumbersToDecimal64bit",
+		"onCommand:textPowerTools.convertDecimalNumbersToHexadecimal",
+		"onCommand:textPowerTools.convertDecimalNumbersToHexadecimal8bit",
+		"onCommand:textPowerTools.convertDecimalNumbersToHexadecimal16bit",
+		"onCommand:textPowerTools.convertDecimalNumbersToHexadecimal32bit",
+		"onCommand:textPowerTools.convertDecimalNumbersToHexadecimal64bit",
+		"onCommand:textPowerTools.convertToZalgoUltraLight",
+		"onCommand:textPowerTools.convertToZalgoLight",
+		"onCommand:textPowerTools.convertToZalgoMedium",
+		"onCommand:textPowerTools.convertToZalgoHeavy",
+
+		"onCommand:textPowerTools.urlEncodeText",
+		"onCommand:textPowerTools.urlDecodeText",
+		"onCommand:textPowerTools.encodeHtmlEntities",
+		"onCommand:textPowerTools.encodeHtmlEntitiesWithNonAscii",
+		"onCommand:textPowerTools.decodeHtmlEntities",
+		"onCommand:textPowerTools.encodeXmlEntities",
+		"onCommand:textPowerTools.decodeXmlEntities",
+		"onCommand:textPowerTools.base64EncodeText",
+		"onCommand:textPowerTools.base64EncodeTextOnEachLine",
+		"onCommand:textPowerTools.base64DecodeText",
+		"onCommand:textPowerTools.base64DecodeTextOnEachLine",
+
+		"onCommand:textPowerTools.removeDuplicates",
+		"onCommand:textPowerTools.removeBlankLines",
+		"onCommand:textPowerTools.removeSurplusBlankLines",
+		"onCommand:textPowerTools.removeControlCharacters",
+
+		"onCommand:textPowerTools.copySelectionsToNewEditor"
 	],
 	"main": "./dist/extension",
 	"contributes": {
@@ -222,6 +236,8 @@
 				"category": "Text Power Tools",
 				"title": "Filter lines not matching a regex (grep) into a new editor"
 			},
+
+
 			{
 				"command": "textPowerTools.extractInformation",
 				"category": "Text Power Tools",
@@ -242,201 +258,8 @@
 				"category": "Text Power Tools",
 				"title": "Count line occurrences into a new editor"
 			},
-			{
-				"command": "textPowerTools.removeDuplicates",
-				"category": "Text Power Tools",
-				"title": "Remove duplicated lines"
-			},
-			{
-				"command": "textPowerTools.removeBlankLines",
-				"category": "Text Power Tools",
-				"title": "Remove blank lines"
-			},
-			{
-				"command": "textPowerTools.removeSurplusBlankLines",
-				"category": "Text Power Tools",
-				"title": "Remove surplus blank lines"
-			},
-			{
-				"command": "textPowerTools.removeControlCharacters",
-				"category": "Text Power Tools",
-				"title": "Remove control characters"
-			},
-			{
-				"command": "textPowerTools.insertDecimalNumbers",
-				"category": "Text Power Tools",
-				"title": "Insert decimal number sequence"
-			},
-			{
-				"command": "textPowerTools.insertDecimalNumbersStartingAt",
-				"category": "Text Power Tools",
-				"title": "Insert decimal number sequence starting at..."
-			},
-			{
-				"command": "textPowerTools.insertDecimalNumbersWithIncrements",
-				"category": "Text Power Tools",
-				"title": "Insert decimal number sequence with custom increments"
-			},
-			{
-				"command": "textPowerTools.insertDecimalNumbersWithIncrementsStartingAt",
-				"category": "Text Power Tools",
-				"title": "Insert decimal number sequence with custom increments starting at..."
-			},
-			{
-				"command": "textPowerTools.insertHexNumbers",
-				"category": "Text Power Tools",
-				"title": "Insert hex number sequence"
-			},
-			{
-				"command": "textPowerTools.insertHexNumbersStartingAt",
-				"category": "Text Power Tools",
-				"title": "Insert hex number sequence starting at..."
-			},
-			{
-				"command": "textPowerTools.insertHexNumbersWithIncrements",
-				"category": "Text Power Tools",
-				"title": "Insert hex number sequence with custom increments"
-			},
-			{
-				"command": "textPowerTools.insertHexNumbersWithIncrementsStartingAt",
-				"category": "Text Power Tools",
-				"title": "Insert hex number sequence with custom increments starting at..."
-			},
-			{
-				"command": "textPowerTools.insertRomanNumerals",
-				"category": "Text Power Tools",
-				"title": "Insert Roman numeral sequence"
-			},
-			{
-				"command": "textPowerTools.insertRomanNumeralsStartingAt",
-				"category": "Text Power Tools",
-				"title": "Insert Roman numeral sequence starting at..."
-			},
-			{
-				"command": "textPowerTools.insertRomanNumeralsWithIncrements",
-				"category": "Text Power Tools",
-				"title": "Insert Roman numeral sequence with custom increments"
-			},
-			{
-				"command": "textPowerTools.insertRomanNumeralsWithIncrementsStartingAt",
-				"category": "Text Power Tools",
-				"title": "Insert Roman numeral sequence with custom increments starting at..."
-			},
-			{
-				"command": "textPowerTools.insertLineNumbers",
-				"category": "Text Power Tools",
-				"title": "Insert line numbers"
-			},
-			{
-				"command": "textPowerTools.insertLineNumbersFixedLength",
-				"category": "Text Power Tools",
-				"title": "Insert fixed length line numbers"
-			},
-			{
-				"command": "textPowerTools.insertRelativeLineNumbers",
-				"category": "Text Power Tools",
-				"title": "Insert line numbers starting with 1 at the first selected line"
-			},
-			{
-				"command": "textPowerTools.insertRelativeLineNumbersFixedLength",
-				"category": "Text Power Tools",
-				"title": "Insert fixed line numbers starting with 1 at the first selected line"
-			},
-			{
-				"command": "textPowerTools.insertSequence",
-				"category": "Text Power Tools",
-				"title": "Insert series of items..."
-			},
-			{
-				"command": "textPowerTools.generateFakeData",
-				"category": "Text Power Tools",
-				"title": "Generate fake/random data..."
-			},
-			{
-				"command": "textPowerTools.insertLowercaseLetterSequence",
-				"category": "Text Power Tools",
-				"title": "Insert series of lowercase letters"
-			},
-			{
-				"command": "textPowerTools.insertUppercaseLetterSequence",
-				"category": "Text Power Tools",
-				"title": "Insert series of uppercase letters"
-			},
-			{
-				"command": "textPowerTools.insertLowercaseGreekLetterSequence",
-				"category": "Text Power Tools",
-				"title": "Insert series of lowercase Greek letters"
-			},
-			{
-				"command": "textPowerTools.insertUppercaseGreekLetterSequence",
-				"category": "Text Power Tools",
-				"title": "Insert series of uppercase Greek letters"
-			},
-			{
-				"command": "textPowerTools.insertNatoPhoneticAlphabetSequence",
-				"category": "Text Power Tools",
-				"title": "Insert series of NATO phonetic alphabet items"
-			},
-			{
-				"command": "textPowerTools.insertLongEnglishMonthNamesSequence",
-				"category": "Text Power Tools",
-				"title": "Insert series of long English month names"
-			},
-			{
-				"command": "textPowerTools.insertShortEnglishMonthNamesSequence",
-				"category": "Text Power Tools",
-				"title": "Insert series of short English month names"
-			},
-			{
-				"command": "textPowerTools.insertLongLocaleMonthNamesSequence",
-				"category": "Text Power Tools",
-				"title": "Insert series of long current/custom locale month names"
-			},
-			{
-				"command": "textPowerTools.insertShortLocaleMonthNamesSequence",
-				"category": "Text Power Tools",
-				"title": "Insert series of short current/custom locale month names"
-			},
-			{
-				"command": "textPowerTools.insertLongEnglishDayNamesSequence",
-				"category": "Text Power Tools",
-				"title": "Insert series of long English day names"
-			},
-			{
-				"command": "textPowerTools.insertShortEnglishDayNamesSequence",
-				"category": "Text Power Tools",
-				"title": "Insert series of short English day names"
-			},
-			{
-				"command": "textPowerTools.insertLongLocaleDayNamesSequence",
-				"category": "Text Power Tools",
-				"title": "Insert series of long current/custom locale day names"
-			},
-			{
-				"command": "textPowerTools.insertShortLocaleDayNamesSequence",
-				"category": "Text Power Tools",
-				"title": "Insert series of short current/custom locale day names"
-			},
-			{
-				"command": "textPowerTools.insertFullFilePath",
-				"category": "Text Power Tools",
-				"title": "Insert full path of the opened file"
-			},
-			{
-				"command": "textPowerTools.insertDirectoryPath",
-				"category": "Text Power Tools",
-				"title": "Insert directory path of the opened file"
-			},
-			{
-				"command": "textPowerTools.insertFileName",
-				"category": "Text Power Tools",
-				"title": "Insert file name of the opened file"
-			},
-			{
-				"command": "textPowerTools.insertUnixTimestamp",
-				"category": "Text Power Tools",
-				"title": "Insert Unix timestamp"
-			},
+
+
 			{
 				"command": "textPowerTools.padStart",
 				"category": "Text Power Tools",
@@ -457,6 +280,8 @@
 				"category": "Text Power Tools",
 				"title": "Pad end (right) with custom string"
 			},
+
+
 			{
 				"command": "textPowerTools.formatContentAsTableByTabulator",
 				"category": "Text Power Tools",
@@ -497,21 +322,8 @@
 				"category": "Text Power Tools",
 				"title": "Format content as table using custom string as splitter (with padding)"
 			},
-			{
-				"command": "textPowerTools.generateRandomGuids",
-				"category": "Text Power Tools",
-				"title": "Generate random GUIDs"
-			},
-			{
-				"command": "textPowerTools.generateLoremIpsumSentence",
-				"category": "Text Power Tools",
-				"title": "Generate Lorem ipsum sentences"
-			},
-			{
-				"command": "textPowerTools.generateLoremIpsumParagraph",
-				"category": "Text Power Tools",
-				"title": "Generate Lorem ipsum paragraphs"
-			},
+
+
 			{
 				"command": "textPowerTools.changeCaseToCamelCase",
 				"category": "Text Power Tools",
@@ -547,186 +359,8 @@
 				"category": "Text Power Tools",
 				"title": "Swap text case"
 			},
-			{
-				"command": "textPowerTools.copySelectionsToNewEditor",
-				"category": "Text Power Tools",
-				"title": "Copy content of selections to a new editor"
-			},
-			{
-				"command": "textPowerTools.convertHexadecimalNumbersToDecimal",
-				"category": "Text Power Tools",
-				"title": "Convert selected hexadecimal numbers to decimal"
-			},
-			{
-				"command": "textPowerTools.convertHexadecimalNumbersToDecimal8bit",
-				"category": "Text Power Tools",
-				"title": "Convert selected hexadecimal numbers to decimal (using 8 bit arithmetic)"
-			},
-			{
-				"command": "textPowerTools.convertHexadecimalNumbersToDecimal16bit",
-				"category": "Text Power Tools",
-				"title": "Convert selected hexadecimal numbers to decimal (using 16 bit arithmetic)"
-			},
-			{
-				"command": "textPowerTools.convertHexadecimalNumbersToDecimal32bit",
-				"category": "Text Power Tools",
-				"title": "Convert selected hexadecimal numbers to decimal (using 32 bit arithmetic)"
-			},
-			{
-				"command": "textPowerTools.convertHexadecimalNumbersToDecimal64bit",
-				"category": "Text Power Tools",
-				"title": "Convert selected hexadecimal numbers to decimal (using 64 bit arithmetic)"
-			},
-			{
-				"command": "textPowerTools.convertDecimalNumbersToHexadecimal",
-				"category": "Text Power Tools",
-				"title": "Convert selected decimal numbers to hexadecimal"
-			},
-			{
-				"command": "textPowerTools.convertDecimalNumbersToHexadecimal8bit",
-				"category": "Text Power Tools",
-				"title": "Convert selected decimal numbers to hexadecimal (using 8 bit arithmetic)"
-			},
-			{
-				"command": "textPowerTools.convertDecimalNumbersToHexadecimal16bit",
-				"category": "Text Power Tools",
-				"title": "Convert selected decimal numbers to hexadecimal (using 16 bit arithmetic)"
-			},
-			{
-				"command": "textPowerTools.convertDecimalNumbersToHexadecimal32bit",
-				"category": "Text Power Tools",
-				"title": "Convert selected decimal numbers to hexadecimal (using 32 bit arithmetic)"
-			},
-			{
-				"command": "textPowerTools.convertDecimalNumbersToHexadecimal64bit",
-				"category": "Text Power Tools",
-				"title": "Convert selected decimal numbers to hexadecimal (using 64 bit arithmetic)"
-			},
-			{
-				"command": "textPowerTools.convertToZalgoUltraLight",
-				"category": "Text Power Tools",
-				"title": "Convert selection to ultra light zalgo text"
-			},
-			{
-				"command": "textPowerTools.convertToZalgoLight",
-				"category": "Text Power Tools",
-				"title": "Convert selection to light zalgo text"
-			},
-			{
-				"command": "textPowerTools.convertToZalgoMedium",
-				"category": "Text Power Tools",
-				"title": "Convert selection to medium zalgo text"
-			},
-			{
-				"command": "textPowerTools.convertToZalgoHeavy",
-				"category": "Text Power Tools",
-				"title": "Convert selection to heavy zalgo text"
-			},
-			{
-				"command": "textPowerTools.urlEncodeText",
-				"category": "Text Power Tools",
-				"title": "URL encode text"
-			},
-			{
-				"command": "textPowerTools.urlDecodeText",
-				"category": "Text Power Tools",
-				"title": "Decode URL encoded text"
-			},
-			{
-				"command": "textPowerTools.encodeHtmlEntities",
-				"category": "Text Power Tools",
-				"title": "Encode HTML entities"
-			},
-			{
-				"command": "textPowerTools.encodeHtmlEntitiesWithNonAscii",
-				"category": "Text Power Tools",
-				"title": "Encode HTML entities including non ASCII characters"
-			},
-			{
-				"command": "textPowerTools.decodeHtmlEntities",
-				"category": "Text Power Tools",
-				"title": "Decode HTML entities"
-			},
-			{
-				"command": "textPowerTools.encodeXmlEntities",
-				"category": "Text Power Tools",
-				"title": "Encode XML entities"
-			},
-			{
-				"command": "textPowerTools.decodeXmlEntities",
-				"category": "Text Power Tools",
-				"title": "Decode XML entities"
-			},
-			{
-				"command": "textPowerTools.base64EncodeText",
-				"category": "Text Power Tools",
-				"title": "Encode text with base64"
-			},
-			{
-				"command": "textPowerTools.base64EncodeTextOnEachLine",
-				"category": "Text Power Tools",
-				"title": "Encode text with base64 on each line"
-			},
-			{
-				"command": "textPowerTools.base64DecodeText",
-				"category": "Text Power Tools",
-				"title": "Decode base64 text"
-			},
-			{
-				"command": "textPowerTools.base64DecodeTextOnEachLine",
-				"category": "Text Power Tools",
-				"title": "Decode base64 text on each line"
-			},
-			{
-				"command": "textPowerTools.pasteTextSlot1Content",
-				"category": "Text Power Tools",
-				"title": "Paste text slot 1 content"
-			},
-			{
-				"command": "textPowerTools.pasteTextSlot2Content",
-				"category": "Text Power Tools",
-				"title": "Paste text slot 2 content"
-			},
-			{
-				"command": "textPowerTools.pasteTextSlot3Content",
-				"category": "Text Power Tools",
-				"title": "Paste text slot 3 content"
-			},
-			{
-				"command": "textPowerTools.pasteTextSlot4Content",
-				"category": "Text Power Tools",
-				"title": "Paste text slot 4 content"
-			},
-			{
-				"command": "textPowerTools.pasteTextSlot5Content",
-				"category": "Text Power Tools",
-				"title": "Paste text slot 5 content"
-			},
-			{
-				"command": "textPowerTools.setTextSlot1Content",
-				"category": "Text Power Tools",
-				"title": "Set text slot 1 content"
-			},
-			{
-				"command": "textPowerTools.setTextSlot2Content",
-				"category": "Text Power Tools",
-				"title": "Set text slot 2 content"
-			},
-			{
-				"command": "textPowerTools.setTextSlot3Content",
-				"category": "Text Power Tools",
-				"title": "Set text slot 3 content"
-			},
-			{
-				"command": "textPowerTools.setTextSlot4Content",
-				"category": "Text Power Tools",
-				"title": "Set text slot 4 content"
-			},
-			{
-				"command": "textPowerTools.setTextSlot5Content",
-				"category": "Text Power Tools",
-				"title": "Set text slot 5 content"
-			},
+
+
 			{
 				"command": "textPowerTools.caseSensitiveSortAscending",
 				"category": "Text Power Tools",
@@ -801,6 +435,415 @@
 				"command": "textPowerTools.shuffleLines",
 				"category": "Text Power Tools",
 				"title": "Shuffle lines (sort by random order)"
+			},
+
+
+			{
+				"command": "textPowerTools.generateFakeData",
+				"category": "Text Power Tools",
+				"title": "Generate fake/random data..."
+			},
+			{
+				"command": "textPowerTools.generateRandomGuids",
+				"category": "Text Power Tools",
+				"title": "Generate random GUIDs"
+			},
+			{
+				"command": "textPowerTools.generateLoremIpsumSentence",
+				"category": "Text Power Tools",
+				"title": "Generate Lorem ipsum sentences"
+			},
+			{
+				"command": "textPowerTools.generateLoremIpsumParagraph",
+				"category": "Text Power Tools",
+				"title": "Generate Lorem ipsum paragraphs"
+			},
+
+
+			{
+				"command": "textPowerTools.insertFullFilePath",
+				"category": "Text Power Tools",
+				"title": "Insert full path of the opened file"
+			},
+			{
+				"command": "textPowerTools.insertDirectoryPath",
+				"category": "Text Power Tools",
+				"title": "Insert directory path of the opened file"
+			},
+			{
+				"command": "textPowerTools.insertFileName",
+				"category": "Text Power Tools",
+				"title": "Insert file name of the opened file"
+			},
+			{
+				"command": "textPowerTools.insertUnixTimestamp",
+				"category": "Text Power Tools",
+				"title": "Insert Unix timestamp"
+			},
+
+
+			{
+				"command": "textPowerTools.insertDecimalNumbers",
+				"category": "Text Power Tools",
+				"title": "Insert decimal number sequence"
+			},
+			{
+				"command": "textPowerTools.insertDecimalNumbersStartingAt",
+				"category": "Text Power Tools",
+				"title": "Insert decimal number sequence starting at..."
+			},
+			{
+				"command": "textPowerTools.insertDecimalNumbersWithIncrements",
+				"category": "Text Power Tools",
+				"title": "Insert decimal number sequence with custom increments"
+			},
+			{
+				"command": "textPowerTools.insertDecimalNumbersWithIncrementsStartingAt",
+				"category": "Text Power Tools",
+				"title": "Insert decimal number sequence with custom increments starting at..."
+			},
+			{
+				"command": "textPowerTools.insertHexNumbers",
+				"category": "Text Power Tools",
+				"title": "Insert hex number sequence"
+			},
+			{
+				"command": "textPowerTools.insertHexNumbersStartingAt",
+				"category": "Text Power Tools",
+				"title": "Insert hex number sequence starting at..."
+			},
+			{
+				"command": "textPowerTools.insertHexNumbersWithIncrements",
+				"category": "Text Power Tools",
+				"title": "Insert hex number sequence with custom increments"
+			},
+			{
+				"command": "textPowerTools.insertHexNumbersWithIncrementsStartingAt",
+				"category": "Text Power Tools",
+				"title": "Insert hex number sequence with custom increments starting at..."
+			},
+			{
+				"command": "textPowerTools.insertRomanNumerals",
+				"category": "Text Power Tools",
+				"title": "Insert Roman numeral sequence"
+			},
+			{
+				"command": "textPowerTools.insertRomanNumeralsStartingAt",
+				"category": "Text Power Tools",
+				"title": "Insert Roman numeral sequence starting at..."
+			},
+			{
+				"command": "textPowerTools.insertRomanNumeralsWithIncrements",
+				"category": "Text Power Tools",
+				"title": "Insert Roman numeral sequence with custom increments"
+			},
+			{
+				"command": "textPowerTools.insertRomanNumeralsWithIncrementsStartingAt",
+				"category": "Text Power Tools",
+				"title": "Insert Roman numeral sequence with custom increments starting at..."
+			},
+
+
+			{
+				"command": "textPowerTools.insertLineNumbers",
+				"category": "Text Power Tools",
+				"title": "Insert line numbers"
+			},
+			{
+				"command": "textPowerTools.insertLineNumbersFixedLength",
+				"category": "Text Power Tools",
+				"title": "Insert fixed length line numbers"
+			},
+			{
+				"command": "textPowerTools.insertRelativeLineNumbers",
+				"category": "Text Power Tools",
+				"title": "Insert line numbers starting with 1 at the first selected line"
+			},
+			{
+				"command": "textPowerTools.insertRelativeLineNumbersFixedLength",
+				"category": "Text Power Tools",
+				"title": "Insert fixed line numbers starting with 1 at the first selected line"
+			},
+
+
+			{
+				"command": "textPowerTools.insertSequence",
+				"category": "Text Power Tools",
+				"title": "Insert series of items..."
+			},
+			{
+				"command": "textPowerTools.insertLowercaseLetterSequence",
+				"category": "Text Power Tools",
+				"title": "Insert series of lowercase letters"
+			},
+			{
+				"command": "textPowerTools.insertUppercaseLetterSequence",
+				"category": "Text Power Tools",
+				"title": "Insert series of uppercase letters"
+			},
+			{
+				"command": "textPowerTools.insertLowercaseGreekLetterSequence",
+				"category": "Text Power Tools",
+				"title": "Insert series of lowercase Greek letters"
+			},
+			{
+				"command": "textPowerTools.insertUppercaseGreekLetterSequence",
+				"category": "Text Power Tools",
+				"title": "Insert series of uppercase Greek letters"
+			},
+			{
+				"command": "textPowerTools.insertNatoPhoneticAlphabetSequence",
+				"category": "Text Power Tools",
+				"title": "Insert series of NATO phonetic alphabet items"
+			},
+			{
+				"command": "textPowerTools.insertLongEnglishMonthNamesSequence",
+				"category": "Text Power Tools",
+				"title": "Insert series of long English month names"
+			},
+			{
+				"command": "textPowerTools.insertShortEnglishMonthNamesSequence",
+				"category": "Text Power Tools",
+				"title": "Insert series of short English month names"
+			},
+			{
+				"command": "textPowerTools.insertLongLocaleMonthNamesSequence",
+				"category": "Text Power Tools",
+				"title": "Insert series of long current/custom locale month names"
+			},
+			{
+				"command": "textPowerTools.insertShortLocaleMonthNamesSequence",
+				"category": "Text Power Tools",
+				"title": "Insert series of short current/custom locale month names"
+			},
+			{
+				"command": "textPowerTools.insertLongEnglishDayNamesSequence",
+				"category": "Text Power Tools",
+				"title": "Insert series of long English day names"
+			},
+			{
+				"command": "textPowerTools.insertShortEnglishDayNamesSequence",
+				"category": "Text Power Tools",
+				"title": "Insert series of short English day names"
+			},
+			{
+				"command": "textPowerTools.insertLongLocaleDayNamesSequence",
+				"category": "Text Power Tools",
+				"title": "Insert series of long current/custom locale day names"
+			},
+			{
+				"command": "textPowerTools.insertShortLocaleDayNamesSequence",
+				"category": "Text Power Tools",
+				"title": "Insert series of short current/custom locale day names"
+			},
+
+
+			{
+				"command": "textPowerTools.pasteTextSlot1Content",
+				"category": "Text Power Tools",
+				"title": "Paste text slot 1 content"
+			},
+			{
+				"command": "textPowerTools.pasteTextSlot2Content",
+				"category": "Text Power Tools",
+				"title": "Paste text slot 2 content"
+			},
+			{
+				"command": "textPowerTools.pasteTextSlot3Content",
+				"category": "Text Power Tools",
+				"title": "Paste text slot 3 content"
+			},
+			{
+				"command": "textPowerTools.pasteTextSlot4Content",
+				"category": "Text Power Tools",
+				"title": "Paste text slot 4 content"
+			},
+			{
+				"command": "textPowerTools.pasteTextSlot5Content",
+				"category": "Text Power Tools",
+				"title": "Paste text slot 5 content"
+			},
+			{
+				"command": "textPowerTools.setTextSlot1Content",
+				"category": "Text Power Tools",
+				"title": "Set text slot 1 content"
+			},
+			{
+				"command": "textPowerTools.setTextSlot2Content",
+				"category": "Text Power Tools",
+				"title": "Set text slot 2 content"
+			},
+			{
+				"command": "textPowerTools.setTextSlot3Content",
+				"category": "Text Power Tools",
+				"title": "Set text slot 3 content"
+			},
+			{
+				"command": "textPowerTools.setTextSlot4Content",
+				"category": "Text Power Tools",
+				"title": "Set text slot 4 content"
+			},
+			{
+				"command": "textPowerTools.setTextSlot5Content",
+				"category": "Text Power Tools",
+				"title": "Set text slot 5 content"
+			},
+
+
+			{
+				"command": "textPowerTools.convertHexadecimalNumbersToDecimal",
+				"category": "Text Power Tools",
+				"title": "Convert selected hexadecimal numbers to decimal"
+			},
+			{
+				"command": "textPowerTools.convertHexadecimalNumbersToDecimal8bit",
+				"category": "Text Power Tools",
+				"title": "Convert selected hexadecimal numbers to decimal (using 8 bit arithmetic)"
+			},
+			{
+				"command": "textPowerTools.convertHexadecimalNumbersToDecimal16bit",
+				"category": "Text Power Tools",
+				"title": "Convert selected hexadecimal numbers to decimal (using 16 bit arithmetic)"
+			},
+			{
+				"command": "textPowerTools.convertHexadecimalNumbersToDecimal32bit",
+				"category": "Text Power Tools",
+				"title": "Convert selected hexadecimal numbers to decimal (using 32 bit arithmetic)"
+			},
+			{
+				"command": "textPowerTools.convertHexadecimalNumbersToDecimal64bit",
+				"category": "Text Power Tools",
+				"title": "Convert selected hexadecimal numbers to decimal (using 64 bit arithmetic)"
+			},
+			{
+				"command": "textPowerTools.convertDecimalNumbersToHexadecimal",
+				"category": "Text Power Tools",
+				"title": "Convert selected decimal numbers to hexadecimal"
+			},
+			{
+				"command": "textPowerTools.convertDecimalNumbersToHexadecimal8bit",
+				"category": "Text Power Tools",
+				"title": "Convert selected decimal numbers to hexadecimal (using 8 bit arithmetic)"
+			},
+			{
+				"command": "textPowerTools.convertDecimalNumbersToHexadecimal16bit",
+				"category": "Text Power Tools",
+				"title": "Convert selected decimal numbers to hexadecimal (using 16 bit arithmetic)"
+			},
+			{
+				"command": "textPowerTools.convertDecimalNumbersToHexadecimal32bit",
+				"category": "Text Power Tools",
+				"title": "Convert selected decimal numbers to hexadecimal (using 32 bit arithmetic)"
+			},
+			{
+				"command": "textPowerTools.convertDecimalNumbersToHexadecimal64bit",
+				"category": "Text Power Tools",
+				"title": "Convert selected decimal numbers to hexadecimal (using 64 bit arithmetic)"
+			},
+			{
+				"command": "textPowerTools.convertToZalgoUltraLight",
+				"category": "Text Power Tools",
+				"title": "Convert selection to ultra light zalgo text"
+			},
+			{
+				"command": "textPowerTools.convertToZalgoLight",
+				"category": "Text Power Tools",
+				"title": "Convert selection to light zalgo text"
+			},
+			{
+				"command": "textPowerTools.convertToZalgoMedium",
+				"category": "Text Power Tools",
+				"title": "Convert selection to medium zalgo text"
+			},
+			{
+				"command": "textPowerTools.convertToZalgoHeavy",
+				"category": "Text Power Tools",
+				"title": "Convert selection to heavy zalgo text"
+			},
+
+
+			{
+				"command": "textPowerTools.urlEncodeText",
+				"category": "Text Power Tools",
+				"title": "URL encode text"
+			},
+			{
+				"command": "textPowerTools.urlDecodeText",
+				"category": "Text Power Tools",
+				"title": "Decode URL encoded text"
+			},
+			{
+				"command": "textPowerTools.encodeHtmlEntities",
+				"category": "Text Power Tools",
+				"title": "Encode HTML entities"
+			},
+			{
+				"command": "textPowerTools.encodeHtmlEntitiesWithNonAscii",
+				"category": "Text Power Tools",
+				"title": "Encode HTML entities including non ASCII characters"
+			},
+			{
+				"command": "textPowerTools.decodeHtmlEntities",
+				"category": "Text Power Tools",
+				"title": "Decode HTML entities"
+			},
+			{
+				"command": "textPowerTools.encodeXmlEntities",
+				"category": "Text Power Tools",
+				"title": "Encode XML entities"
+			},
+			{
+				"command": "textPowerTools.decodeXmlEntities",
+				"category": "Text Power Tools",
+				"title": "Decode XML entities"
+			},
+			{
+				"command": "textPowerTools.base64EncodeText",
+				"category": "Text Power Tools",
+				"title": "Encode text with base64"
+			},
+			{
+				"command": "textPowerTools.base64EncodeTextOnEachLine",
+				"category": "Text Power Tools",
+				"title": "Encode text with base64 on each line"
+			},
+			{
+				"command": "textPowerTools.base64DecodeText",
+				"category": "Text Power Tools",
+				"title": "Decode base64 text"
+			},
+			{
+				"command": "textPowerTools.base64DecodeTextOnEachLine",
+				"category": "Text Power Tools",
+				"title": "Decode base64 text on each line"
+			},
+
+
+			{
+				"command": "textPowerTools.removeDuplicates",
+				"category": "Text Power Tools",
+				"title": "Remove duplicated lines"
+			},
+			{
+				"command": "textPowerTools.removeBlankLines",
+				"category": "Text Power Tools",
+				"title": "Remove blank lines"
+			},
+			{
+				"command": "textPowerTools.removeSurplusBlankLines",
+				"category": "Text Power Tools",
+				"title": "Remove surplus blank lines"
+			},
+			{
+				"command": "textPowerTools.removeControlCharacters",
+				"category": "Text Power Tools",
+				"title": "Remove control characters"
+			},
+
+			{
+				"command": "textPowerTools.copySelectionsToNewEditor",
+				"category": "Text Power Tools",
+				"title": "Copy content of selections to a new editor"
 			}
 		],
 		"menus": {
