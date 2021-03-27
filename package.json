@@ -1,7 +1,7 @@
 {
 	"name": "text-power-tools",
 	"displayName": "Text Power Tools",
-	"description": "All-in-one solution with 130+ commands for text manipulation: filter lines (grep), remove lines, insert number sequences and GUIDs, sorting, change case, converting numbers, generating fake data and more. Great for finding information in logs.",
+	"description": "All-in-one solution with 140+ commands for text manipulation: filter lines (grep), remove lines, insert number sequences and GUIDs, sorting, change case, converting numbers, generating fake data and more. Great for finding information in logs.",
 	"keywords": [
 		"text",
 		"tools",
@@ -31,7 +31,7 @@
 		"sort",
 		"sorting"
 	],
-	"version": "1.23.0",
+	"version": "1.24.0",
 	"publisher": "qcz",
 	"private": true,
 	"engines": {
@@ -72,6 +72,11 @@
 		"onCommand:textPowerTools.padStartWithCustomString",
 		"onCommand:textPowerTools.padEnd",
 		"onCommand:textPowerTools.padEndWithCustomString",
+		"onCommand:textPowerTools.appendPrefixToAllLines",
+		"onCommand:textPowerTools.appendSuffixToAllLines",
+		"onCommand:textPowerTools.wrapAllLinesWithTextSame",
+		"onCommand:textPowerTools.wrapAllLinesWithTextDifferent",
+
 		"onCommand:textPowerTools.formatContentAsTableByTabulator",
 		"onCommand:textPowerTools.formatContentAsTableBySemicolon",
 		"onCommand:textPowerTools.formatContentAsTableByComma",
@@ -298,6 +303,26 @@
 				"command": "textPowerTools.padEndWithCustomString",
 				"category": "Text Power Tools",
 				"title": "Pad end (right) with custom string"
+			},
+			{
+				"command": "textPowerTools.appendPrefixToAllLines",
+				"category": "Text Power Tools",
+				"title": "Append prefix to all lines"
+			},
+			{
+				"command": "textPowerTools.appendSuffixToAllLines",
+				"category": "Text Power Tools",
+				"title": "Append suffix to all lines"
+			},
+			{
+				"command": "textPowerTools.wrapAllLinesWithTextSame",
+				"category": "Text Power Tools",
+				"title": "Wrap all lines with text (same prefix and suffix)"
+			},
+			{
+				"command": "textPowerTools.wrapAllLinesWithTextDifferent",
+				"category": "Text Power Tools",
+				"title": "Wrap all lines with text (different prefix and suffix)"
 			},
 
 
@@ -1097,36 +1122,53 @@
 					"group": "tpt_1_pad@4"
 				},
 				{
+					"command": "textPowerTools.appendPrefixToAllLines",
+					"group": "tpt_2_affix@1"
+				},
+				{
+					"command": "textPowerTools.appendSuffixToAllLines",
+					"group": "tpt_2_affix@2"
+				},
+				{
+					"command": "textPowerTools.wrapAllLinesWithTextSame",
+					"group": "tpt_2_affix@3"
+				},
+				{
+					"command": "textPowerTools.wrapAllLinesWithTextDifferent",
+					"group": "tpt_2_affix@4"
+				},
+
+				{
 					"command": "textPowerTools.formatContentAsTableByTabulator",
-					"group": "tpt_2_formatContentAsTable@1"
+					"group": "tpt_3_formatContentAsTable@1"
 				},
 				{
 					"command": "textPowerTools.formatContentAsTableBySemicolon",
-					"group": "tpt_2_formatContentAsTable@2"
+					"group": "tpt_3_formatContentAsTable@2"
 				},
 				{
 					"command": "textPowerTools.formatContentAsTableByComma",
-					"group": "tpt_2_formatContentAsTable@3"
+					"group": "tpt_3_formatContentAsTable@3"
 				},
 				{
 					"command": "textPowerTools.formatContentAsTableByPipe",
-					"group": "tpt_2_formatContentAsTable@4"
+					"group": "tpt_3_formatContentAsTable@4"
 				},
 				{
 					"command": "textPowerTools.formatContentAsTableByCustomCharacter",
-					"group": "tpt_2_formatContentAsTable@5"
+					"group": "tpt_3_formatContentAsTable@5"
 				},
 				{
 					"command": "textPowerTools.formatContentAsTableBySemicolonWithPadding",
-					"group": "tpt_2_formatContentAsTable@6"
+					"group": "tpt_3_formatContentAsTable@6"
 				},
 				{
 					"command": "textPowerTools.formatContentAsTableByPipeWithPadding",
-					"group": "tpt_2_formatContentAsTable@7"
+					"group": "tpt_3_formatContentAsTable@7"
 				},
 				{
 					"command": "textPowerTools.formatContentAsTableByCustomCharacterWithPadding",
-					"group": "tpt_2_formatContentAsTable@8"
+					"group": "tpt_3_formatContentAsTable@8"
 				}
 			],
 			"textPowerTools.changeCase": [

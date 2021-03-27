@@ -1,3 +1,4 @@
+export { runAffixCommand, AffixTarget } from "./affixCommand";
 export { Base4EncodingDirection, runBase64EncodingCommand } from "./base64EncoderCommand";
 export { ChangeCaseType, runChangeCaseCommand } from "./changeCaseCommand";
 export { runConvertNumberCommand } from "./convertNumberCommand";

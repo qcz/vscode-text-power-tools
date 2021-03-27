@@ -1,5 +1,8 @@
 # Changelog
 
+## **1.24.0** (2021. 03. 27.)
+- Add commands to _prefix_, _suffix_ and _wrap_ (with same or different prefix and suffix) lines.
+
 ## **1.23.0** (2021. 03. 21.)
 - Add commands to increase/decrease decimal and hexadecimal numbers. Increasing hexadecimal numbers can also be made using 8, 16, 32 and 64 bit arithmetic. 
 

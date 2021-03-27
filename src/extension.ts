@@ -1,7 +1,7 @@
 "use strict";
 import * as vscode from "vscode";
 import { NumberArithmetic, NumeralSystem } from "./interfaces";
-import { ASK_SPLIT_CHARACTER_FROM_USER, Base4EncodingDirection, ChangeCaseType, FilterSourceType, FilterType, InsertableStuff, LineNumberType, PadDirection, runBase64EncodingCommand, runChangeCaseCommand, runConvertNumberCommand, runConvertToZalgoCommand, runCopySelectionsToNewEditorCommand, runCountOccurrencesCommand, runExtractInfoCommand, runFilterTextCommand, runFormatContentAsTableCommand, runInsertLineNumbersCommand, runInsertNumbersCommand, runInsertStuffCommand, runModifyTextEncodingCommand, runPadCommand, runRemoveBlankLinesCommand, runRemoveControlCharactersCommand, runRemoveDuplicatesCommand, runSetTextSlotContentCommand, runpasteTextSlotCommand, TextEncodingDirection, TextEncodingType, ZalgificationIntensity, runInsertPredefinedSeriesCommand as runInsertPredefinedSequenceCommand, InsertableSeries, runSortCommand, SortMethod } from "./modules";
+import { ASK_SPLIT_CHARACTER_FROM_USER, Base4EncodingDirection, ChangeCaseType, FilterSourceType, FilterType, InsertableStuff, LineNumberType, PadDirection, runBase64EncodingCommand, runChangeCaseCommand, runConvertNumberCommand, runConvertToZalgoCommand, runCopySelectionsToNewEditorCommand, runCountOccurrencesCommand, runExtractInfoCommand, runFilterTextCommand, runFormatContentAsTableCommand, runInsertLineNumbersCommand, runInsertNumbersCommand, runInsertStuffCommand, runModifyTextEncodingCommand, runPadCommand, runRemoveBlankLinesCommand, runRemoveControlCharactersCommand, runRemoveDuplicatesCommand, runSetTextSlotContentCommand, runpasteTextSlotCommand, TextEncodingDirection, TextEncodingType, ZalgificationIntensity, runInsertPredefinedSeriesCommand as runInsertPredefinedSequenceCommand, InsertableSeries, runSortCommand, SortMethod, runAffixCommand, AffixTarget } from "./modules";
 
 export function activate(context: vscode.ExtensionContext) {
 	// Filter lines/extract info commands
@@ -56,7 +56,7 @@ function registerExtractInfoCommands(context: vscode.ExtensionContext) {
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.extractInformation", () =>
 		runExtractInfoCommand(context, { inNewEditor: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.extractInformationToNewEditor", () =>
-	runExtractInfoCommand(context, { inNewEditor: true })));
+		runExtractInfoCommand(context, { inNewEditor: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.countOccurrences", () =>
 		runCountOccurrencesCommand({ inNewEditor: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.countOccurrencesToNewEditor", () =>
@@ -72,6 +72,16 @@ function registerPadCommands(context: vscode.ExtensionContext) {
 		runPadCommand({ direction: PadDirection.End, askForPadCharacters: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.padEndWithCustomString", () =>
 		runPadCommand({ direction: PadDirection.End, askForPadCharacters: true })));
+
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.appendPrefixToAllLines", () =>
+		runAffixCommand({ target: AffixTarget.Prefix })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.appendSuffixToAllLines", () =>
+		runAffixCommand({ target: AffixTarget.Suffix })));
+	
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.wrapAllLinesWithTextSame", () =>
+		runAffixCommand({ target: AffixTarget.Both })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.wrapAllLinesWithTextDifferent", () =>
+		runAffixCommand({ target: AffixTarget.Wrap })));
 }
 
 function registerFormatContentAsTableCommands(context: vscode.ExtensionContext) {
