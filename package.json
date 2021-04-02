@@ -31,7 +31,7 @@
 		"sort",
 		"sorting"
 	],
-	"version": "1.24.0",
+	"version": "1.25.0",
 	"publisher": "qcz",
 	"private": true,
 	"engines": {
@@ -211,6 +211,8 @@
 		"onCommand:textPowerTools.base64DecodeTextOnEachLine",
 
 		"onCommand:textPowerTools.removeDuplicates",
+		"onCommand:textPowerTools.removeEmptyLines",
+		"onCommand:textPowerTools.removeSurplusEmptyLines",
 		"onCommand:textPowerTools.removeBlankLines",
 		"onCommand:textPowerTools.removeSurplusBlankLines",
 		"onCommand:textPowerTools.removeControlCharacters",
@@ -961,6 +963,16 @@
 				"title": "Remove duplicated lines"
 			},
 			{
+				"command": "textPowerTools.removeEmptyLines",
+				"category": "Text Power Tools",
+				"title": "Remove empty lines"
+			},
+			{
+				"command": "textPowerTools.removeSurplusEmptyLines",
+				"category": "Text Power Tools",
+				"title": "Remove surplus empty lines"
+			},
+			{
 				"command": "textPowerTools.removeBlankLines",
 				"category": "Text Power Tools",
 				"title": "Remove blank lines"
@@ -1646,19 +1658,27 @@
 			"textPowerTools.remove": [
 				{
 					"command": "textPowerTools.removeDuplicates",
-					"group": "tpt_remove@1"
+					"group": "tpt_1_removeDupe@1"
+				},
+				{
+					"command": "textPowerTools.removeEmptyLines",
+					"group": "tpt_2_removeLines@1"
+				},
+				{
+					"command": "textPowerTools.removeSurplusEmptyLines",
+					"group": "tpt_2_removeLines@2"
 				},
 				{
 					"command": "textPowerTools.removeBlankLines",
-					"group": "tpt_remove@2"
+					"group": "tpt_2_removeLines@3"
 				},
 				{
 					"command": "textPowerTools.removeSurplusBlankLines",
-					"group": "tpt_remove@3"
+					"group": "tpt_2_removeLines@4"
 				},
 				{
 					"command": "textPowerTools.removeControlCharacters",
-					"group": "tpt_remove@4"
+					"group": "tpt_3_removeControlCharacters@1"
 				}
 			]
 		},

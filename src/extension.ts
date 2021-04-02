@@ -1,7 +1,7 @@
 "use strict";
 import * as vscode from "vscode";
 import { NumberArithmetic, NumeralSystem } from "./interfaces";
-import { ASK_SPLIT_CHARACTER_FROM_USER, Base4EncodingDirection, ChangeCaseType, FilterSourceType, FilterType, InsertableStuff, LineNumberType, PadDirection, runBase64EncodingCommand, runChangeCaseCommand, runConvertNumberCommand, runConvertToZalgoCommand, runCopySelectionsToNewEditorCommand, runCountOccurrencesCommand, runExtractInfoCommand, runFilterTextCommand, runFormatContentAsTableCommand, runInsertLineNumbersCommand, runInsertNumbersCommand, runInsertStuffCommand, runModifyTextEncodingCommand, runPadCommand, runRemoveBlankLinesCommand, runRemoveControlCharactersCommand, runRemoveDuplicatesCommand, runSetTextSlotContentCommand, runpasteTextSlotCommand, TextEncodingDirection, TextEncodingType, ZalgificationIntensity, runInsertPredefinedSeriesCommand as runInsertPredefinedSequenceCommand, InsertableSeries, runSortCommand, SortMethod, runAffixCommand, AffixTarget } from "./modules";
+import { ASK_SPLIT_CHARACTER_FROM_USER, Base4EncodingDirection, ChangeCaseType, FilterSourceType, FilterType, InsertableStuff, LineNumberType, PadDirection, runBase64EncodingCommand, runChangeCaseCommand, runConvertNumberCommand, runConvertToZalgoCommand, runCopySelectionsToNewEditorCommand, runCountOccurrencesCommand, runExtractInfoCommand, runFilterTextCommand, runFormatContentAsTableCommand, runInsertLineNumbersCommand, runInsertNumbersCommand, runInsertStuffCommand, runModifyTextEncodingCommand, runPadCommand, runRemoveControlCharactersCommand, runRemoveDuplicatesCommand, runSetTextSlotContentCommand, runpasteTextSlotCommand, TextEncodingDirection, TextEncodingType, ZalgificationIntensity, runInsertPredefinedSeriesCommand as runInsertPredefinedSequenceCommand, InsertableSeries, runSortCommand, SortMethod, runAffixCommand, AffixTarget, runRemoveLinesCommand, RemovedLineType } from "./modules";
 
 export function activate(context: vscode.ExtensionContext) {
 	// Filter lines/extract info commands
@@ -365,10 +365,14 @@ function registerEncoderCommands(context: vscode.ExtensionContext) {
 function registerRemoveCommands(context: vscode.ExtensionContext) {
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.removeDuplicates", () =>
 		runRemoveDuplicatesCommand()));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.removeEmptyLines", () =>
+		runRemoveLinesCommand({ type: RemovedLineType.Empty, onlySurplus: false })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.removeSurplusEmptyLines", () =>
+		runRemoveLinesCommand({ type: RemovedLineType.Empty, onlySurplus: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.removeBlankLines", () =>
-		runRemoveBlankLinesCommand({ onlySurplus: false })));
+		runRemoveLinesCommand({ type: RemovedLineType.Blank, onlySurplus: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.removeSurplusBlankLines", () =>
-		runRemoveBlankLinesCommand({ onlySurplus: true })));
+		runRemoveLinesCommand({ type: RemovedLineType.Blank, onlySurplus: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.removeControlCharacters", () =>
 		runRemoveControlCharactersCommand()));
 }

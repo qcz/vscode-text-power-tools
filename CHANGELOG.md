@@ -1,5 +1,9 @@
 # Changelog
 
+## **1.25.0** (2021. 04. 02.)
+- _Remove blank lines_ and _Remove surplus blank lines_ commands renamed to _Remove empty lines_ and _Remove surplus empty lines_.
+- Added _Remove blank lines_ and _Remove surplus blank lines_ commands to remove lines contaning no text or only whitespace characters.
+
 ## **1.24.0** (2021. 03. 27.)
 - Add commands to _prefix_, _suffix_ and _wrap_ (with same or different prefix and suffix) lines.
 

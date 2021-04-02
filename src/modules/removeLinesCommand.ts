@@ -2,11 +2,19 @@ import * as vscode from "vscode";
 import { NO_ACTIVE_EDITOR } from "../consts";
 import { getSelectionLines, getSelectionsOrFullDocument, replaceSelectionsWithLines } from "../helpers/vsCodeHelpers";
 
-interface IRemoveBlankLinesCommandOptions {
+export const WHITESPACE_REGEXP: RegExp = /^\s+$/;
+
+export enum RemovedLineType {
+	Empty,
+	Blank
+}
+
+interface IRemoveLinesCommandOptions {
+	type: RemovedLineType;
 	onlySurplus: boolean;
 }
 
-export async function runRemoveBlankLinesCommand(options: IRemoveBlankLinesCommandOptions) {
+export async function runRemoveLinesCommand(options: IRemoveLinesCommandOptions) {
 	const editor = vscode.window.activeTextEditor;
 	if (!editor) {
 		vscode.window.showWarningMessage(NO_ACTIVE_EDITOR);
@@ -21,11 +29,17 @@ export async function runRemoveBlankLinesCommand(options: IRemoveBlankLinesComma
 
 		let previousIsBlank: boolean = false;
 		for (const lineContent of getSelectionLines(editor, selection)) {
-			if (lineContent || (!lineContent && !previousIsBlank && options.onlySurplus)) {
+			const lineShouldBeRemoved = options.type === RemovedLineType.Blank
+				? (!lineContent || WHITESPACE_REGEXP.test(lineContent))
+				: !lineContent;
+
+			if (lineShouldBeRemoved === false
+				|| (lineShouldBeRemoved && !previousIsBlank && options.onlySurplus)
+			) {
 				matchingLinesBySelection[matchingLinesBySelection.length - 1].push(lineContent);
 			}
 
-			previousIsBlank = !lineContent;
+			previousIsBlank = lineShouldBeRemoved;
 		}
 	}
 
