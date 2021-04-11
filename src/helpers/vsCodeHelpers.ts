@@ -169,6 +169,11 @@ export function showHistoryQuickPick(
 		
 		if (qp.activeItems.length) {
 			selectedValue = qp.activeItems[0].label;
+			const history = selectedValue.match(/^(?:\$\(history\) )+(.*)$/);
+
+			if (history) {
+				selectedValue = history[1];
+			}
 		} else {
 			selectedValue = qp.value;
 		}

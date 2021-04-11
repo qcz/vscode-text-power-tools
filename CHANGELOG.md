@@ -1,5 +1,9 @@
 # Changelog
 
+
+## **1.25.1** (2021. 04. 02.)
+- Fix history logo pollution in commands using the quick pick which supports history (for example the _Filter lines_ commands).
+
 ## **1.25.0** (2021. 04. 02.)
 - _Remove blank lines_ and _Remove surplus blank lines_ commands renamed to _Remove empty lines_ and _Remove surplus empty lines_.
 - Added _Remove blank lines_ and _Remove surplus blank lines_ commands to remove lines contaning no text or only whitespace characters.
