@@ -1,6 +1,6 @@
 # Text Power Tools
 
-Text Power Tools is an all-in-one text manipulation extension for VS Code inspired by _TextFX_ for Notepad++ and _Filter Lines_ for Sublime Text. All commands supports multiple selections where it is applicable, and many of them can target new documents, so the original source remains unchanged.
+Text Power Tools is an all-in-one text manipulation extension for VS Code inspired by _TextFX_ for Notepad++ and _Filter Lines_ and _Text Pastry_ for Sublime Text. All commands supports multiple selections where it is applicable, and many of them can target new documents, so the original source remains unchanged.
 
 All features are available from either the *Command Palette* or the editor context menu. To access the commands from the Command Palette use `Ctrl+Shift+P`, and enter `tpt` or part of your favourite Text Power Tool command name (e.g. `filter`, `guid` etc.) to quickly access the list of available commands. Almost all commands are available from the editor context menu, which is accessible from the *Text Power Tools* submenu after right clicking in the editor area.
 
@@ -12,21 +12,16 @@ Availability:
 
 
 ## Features
-* **Filter lines using strings or regular expressions (grep like experience), even into new editors (without modifying the original source):** Filter line commands take an input (a raw text or a regular expression) and filter the selected lines based on whether the user wants to include or exclude lines containing that string or matching that regex. It works just like like `grep` but inside VS Code.
-
-  All filtering commands can target new editors, so the original content won't be changed. Search commands with `into a new editor` end to use this feature.
-
-  These commands search/match in a case insensitive manner. To use case sensitive search/match, set the value of the `textPowerTools.caseSensitiveFiltering` setting to `true`.
-
-  The last 10 filter strings and regular expressions are presented and can be used quickly when executing these commands.
-
-* **Extract information from the source lines using regular expressions:** First input is the regular expression which should be matched with capture groups to find the desired parts of the lines (e.g.: `(\d.\d) dogs`). The second input is the replacement rule, which should contain capture group references (e.g. `$1 cats`). With these commands you can transform matching lines to the desired format in seconds.
-
-  The last 10 filter strings and replacement expressions are presented and can be used quickly when executing these commands.
-* **Remove duplicated, blank, surplus blank, empty, surplus empty lines and control characters**
-* **Count occurrences of lines:** This command will counts how many times a line appears in the selected text and generates an output with the number of occurrences and the lines themselves
-* **Insert decimal, hex and Roman numeral sequences:** Inserts sequence of decimal, hex or Roman numbers to every selection. If there is only one selection, it will prompt for how many elements to insert. When inserting hex numbers, by default they will be uppercase. To insert lowercase hex numbers, set the value of the `textPowerTools.insertUppercaseHexNumbers` setting to `false`.
-* **Insert series of items from predefined list of items**: Inserts sequence of items from a predefined set to every selection. If there is only one selection, it will prompt for how many elements to insert. Currently the following predefined sequences are supported:
+* **Filter lines using strings or regular expressions (grep like experience):** Filter line commands take an input – a raw text or a regular expression – and filter – exclude or include – the selected lines using that input. It works like the `grep` command but inside VS Code. 
+    * *Protip:* The command provides a history feature with the last 10 filter texts available to use immediately.
+    * *Protip:* Filter comamnds can project the results to a new editor, so the original content is not modified. This way you can create multiple projections from your content without reloading the file or reverting the changes made by the filter command. Search for commands with `into a new editor` at the end to use this feature.
+    * *Protip:* These commands search/match in a case insensitive manner. To use case sensitive search/match, set the value of the `textPowerTools.caseSensitiveFiltering` setting to `true`.
+* **Change case of text (camelCase, PascalCase, snake_case, CONSTANT_CASE, dash-case, dot.case) and swap casing**.
+    * *Note:* *Title Case*, *UPPER CASE* and *lower case* is not implemented in this extension as it is available in VS Code by default via the *Transform to Title Case*, *Transform to Uppercase* and *Transform to Lower Case* commands.
+* **Insert decimal, hexadecimal and Roman numbers:** Inserts increasing/decreasing decimal, hex or Roman numbers. You can even specify the starting number and the step size for them. You can use one selection and it will prompt for how many elements to insert, or you can use multiple selections and it will insert the a number from the sequence into every selection.
+    * *Protip:* When inserting hex numbers, by default they will be uppercase. To insert lowercase hex numbers, set the value of the `textPowerTools.insertUppercaseHexNumbers` setting to `false`.
+* **Convert numbers from decimal to hexadecimal and vice versa**
+* **Insert series of items from predefined list of items**: Inserts sequence of items from a predefined set. You can use one selection and it will prompt for how many elements to insert, or you can use multiple selections and it will insert the a number from the sequence into every selection. Currently the following predefined sequences are supported:
     * _Uppercase letters_
     * _Lowercase letters_
     * _Uppercase Greek letters_
@@ -42,20 +37,23 @@ Availability:
     * _Short current/custom locale day names_
     
     (Note: current/custom locale means OS locale or the locale specified in the `textPowerTools.customLocale` setting)
-* **Insert line numbers:** Inserts line numbers to the start of each line in every selection. Line numbers can be real line numbers in the file or can start with 1.
-* **Insert full file path, directory path and file name of the opened file**.
-* **Insert Unix timestamp**
 * **Generate fake/random data**:
     * _Random hex/decimal character sequences_
     * _Fake first names, last names and full names_ in the following languages: English, French, German and Hungarian.
-    * _GUIDs/UUIDs_ (globally unique identifiers or universally unique identifiers) using multiple predefined formats (no dashes, dashes, dashes and braces, C# Guid constructor). To insert GUIDs with uppercase hex characters, set the value of the `textPowerTools.insertUppercaseGuids` setting to `true`. The default GUID style can be set using the `textPowerTools.defaultGuidType` setting.
+    * _GUIDs/UUIDs_ (globally unique identifiers or universally unique identifiers) using multiple predefined formats (no dashes, dashes, dashes and braces, C# Guid constructor).
+        * To insert GUIDs with uppercase hex characters, set the value of the `textPowerTools.insertUppercaseGuids` setting to `true`. The default GUID style can be set using the `textPowerTools.defaultGuidType` setting.
     * _Lorem ipsum sentences_
     * _Lorem ipsum paragraphs_
-* **Change case of text (camelCase, PascalCase, snake_case, CONSTANT_CASE, dash-case, dot.case) and swap casing**.
-
-  Note: *Title Case*, *UPPER CASE* and *lower case* is not implemented in this extension as it is available in VS Code by default via the *Transform to Title Case*, Transform to Uppercase* and *Transform to Lower Case* commands respecively.
 * **Pad start and end of strings:** Pad the start or the end of selections to the desired length with default or custom character sequences. The default pad string can be customized with the `textPowerTools.defaultPadString` setting.
+* **Insert line numbers:** Inserts line numbers to the start of each line in every selection. Line numbers can be real line numbers in the file or can start with 1.
+* **Remove duplicated, blank, surplus blank, empty, surplus empty lines and control characters**
 * **Prefix, suffix and wrap lines:** Prefix, suffix and wrap lines. Wrap uses either the same prefix/suffix or different ones.
+* **Insert full file path, directory path and file name of the opened file**.
+* **Insert Unix timestamp**
+* **Extract information from the source lines using regular expressions:** First input is the regular expression which should be matched with capture groups to find the desired parts of the lines (e.g.: `(\d.\d) dogs`). The second input is the replacement rule, which should contain capture group references (e.g. `$1 cats`). With these commands you can transform matching lines to the desired format in seconds.
+
+  The last 10 filter strings and replacement expressions are presented and can be used quickly when executing these commands.
+* **Count occurrences of lines:** This command will counts how many times a line appears in the selected text and generates an output with the number of occurrences and the lines themselves.
 * **Various sorting methods which all supports ascending and descending orders**
     * _Case sensitive sort lines_
     * _Case sensitive sort lines starting at column_
@@ -65,8 +63,6 @@ Availability:
     * _Sort lines by semver rules_
     * _Sort lines containing IP addresses_
 * **Shuffle lines**
-* **Copy content of selections to a new editor**
-* **Convert numbers from decimal to hexadecimal and vice versa**
     * There are additional commands to convert between them using 8, 16, 32 and 64 bit arithmetic
 * **Increase/decrease decimal and hexadecimal numbers**
     * There are commands to increase and decrease with 1 and with a custom increment.
@@ -74,11 +70,10 @@ Availability:
 * **Format content as table** by splitting text to pieces by predefined or custom characters or strings and formatting them as a table with equal length columns using space characters.
 
   Text can be splitted by tabulators, semicolons, commas, pipes or any custom character sequences.
-* **Text slots**, which are like permanent clipboard entries in your VS Code. Recommended to bind the most frequently used slot commands to a key combo of your choice.
+* **Text slots**, which are permanent clipboard entries in your VS Code. There are 5 of them. You can store a text in one of these slots with a command, for example *Set text slot 1 content*, and paste it with *Paste text slot 1 content* later. Recommended to bind the paste commands you use to a key combo of your choice for the quick usage.
 * **Encode and decode various encoding formats**: URL encode, HTML entities, XML entities and Base64
-* **Generate Lorem impsum texts**
 * **Convert to Zalgo text**
-
+* **Copy content of selections to a new editor**
 ## Showcase
 
 ### Filtering in action
