@@ -1,7 +1,9 @@
 # Changelog
 
+## **1.26.0** (2021. 04. 12.)
+- Add _Escape text for JSON_ and _Convert text to JSON string_ commands.
 
-## **1.25.1** (2021. 04. 02.)
+## **1.25.1** (2021. 04. 11.)
 - Fix history logo pollution in commands using the quick pick which supports history (for example the _Filter lines_ commands).
 
 ## **1.25.0** (2021. 04. 02.)

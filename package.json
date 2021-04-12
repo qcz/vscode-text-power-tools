@@ -31,9 +31,10 @@
 		"fake data",
 		"test data",
 		"sort",
-		"sorting"
+		"sorting",
+		"json"
 	],
-	"version": "1.25.1",
+	"version": "1.26.0",
 	"publisher": "qcz",
 	"private": true,
 	"engines": {
@@ -207,6 +208,8 @@
 		"onCommand:textPowerTools.decodeHtmlEntities",
 		"onCommand:textPowerTools.encodeXmlEntities",
 		"onCommand:textPowerTools.decodeXmlEntities",
+		"onCommand:textPowerTools.escapeTextForJson",
+		"onCommand:textPowerTools.convertToJsonString",
 		"onCommand:textPowerTools.base64EncodeText",
 		"onCommand:textPowerTools.base64EncodeTextOnEachLine",
 		"onCommand:textPowerTools.base64DecodeText",
@@ -938,6 +941,16 @@
 				"title": "Decode XML entities"
 			},
 			{
+				"command": "textPowerTools.escapeTextForJson",
+				"category": "Text Power Tools",
+				"title": "Escape text for JSON"
+			},
+			{
+				"command": "textPowerTools.convertToJsonString",
+				"category": "Text Power Tools",
+				"title": "Convert text to JSON string"
+			},
+			{
 				"command": "textPowerTools.base64EncodeText",
 				"category": "Text Power Tools",
 				"title": "Encode text with base64"
@@ -1579,20 +1592,28 @@
 					"group": "tpt_2_htmlXml@4"
 				},
 				{
+					"command": "textPowerTools.escapeTextForJson",
+					"group": "tpt_3_json@1"
+				},
+				{
+					"command": "textPowerTools.convertToJsonString",
+					"group": "tpt_3_json@2"
+				},
+				{
 					"command": "textPowerTools.base64EncodeText",
-					"group": "tpt_3_base64@1"
+					"group": "tpt_4_base64@1"
 				},
 				{
 					"command": "textPowerTools.base64EncodeTextOnEachLine",
-					"group": "tpt_3_base64@2"
+					"group": "tpt_4_base64@2"
 				},
 				{
 					"command": "textPowerTools.base64DecodeText",
-					"group": "tpt_3_base64@3"
+					"group": "tpt_4_base64@3"
 				},
 				{
 					"command": "textPowerTools.base64DecodeTextOnEachLine",
-					"group": "tpt_3_base64@4"
+					"group": "tpt_4_base64@4"
 				}
 			],
 			"textPowerTools.sortLines": [
