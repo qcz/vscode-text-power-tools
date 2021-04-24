@@ -4,6 +4,7 @@ import { expandSelectionToFullLine, getSelectionLines, getSelectionsOrFullDocume
 import semverSort from "semver-sort";
 import ip6addr from "ip6addr";
 import { compareNumbers } from "../helpers/utils";
+import * as voca from "voca";
 
 export const enum SortMethod {
 	CaseSensitive,
@@ -13,6 +14,8 @@ export const enum SortMethod {
 	IpAddress,
 	LengthCaseSensitive,
 	LengthCaseInsensitive,
+	WordCount,
+	GraphemeCount,
 	Shuffle
 }
 
@@ -116,6 +119,38 @@ export async function runSortCommand(options: ISortOptions) {
 			case SortMethod.LengthCaseInsensitive:
 				lines.sort((a, b) => {
 					let compareResult = compareNumbers(a.length, b.length);
+
+					if (compareResult === 0) {
+						compareResult = a.localeCompare(b, undefined, {
+							sensitivity: "base"
+						});
+					}
+
+					if (options.sortDirection === "descending")
+						compareResult = compareResult * -1;
+
+					return compareResult;
+				});
+				break;
+			case SortMethod.WordCount:
+				lines.sort((a, b) => {
+					let compareResult = compareNumbers(voca.countWords(a), voca.countWords(b));
+
+					if (compareResult === 0) {
+						compareResult = a.localeCompare(b, undefined, {
+							sensitivity: "base"
+						});
+					}
+
+					if (options.sortDirection === "descending")
+						compareResult = compareResult * -1;
+
+					return compareResult;
+				});
+				break;
+			case SortMethod.GraphemeCount:
+				lines.sort((a, b) => {
+					let compareResult = compareNumbers(voca.countGraphemes(a), voca.countGraphemes(b));
 
 					if (compareResult === 0) {
 						compareResult = a.localeCompare(b, undefined, {

@@ -1,7 +1,7 @@
 "use strict";
 import * as vscode from "vscode";
 import { NumberArithmetic, NumeralSystem } from "./interfaces";
-import { ASK_SPLIT_CHARACTER_FROM_USER, Base4EncodingDirection, ChangeCaseType, FilterSourceType, FilterType, InsertableStuff, LineNumberType, PadDirection, runBase64EncodingCommand, runChangeCaseCommand, runConvertNumberCommand, runConvertToZalgoCommand, runCopySelectionsToNewEditorCommand, runCountOccurrencesCommand, runExtractInfoCommand, runFilterTextCommand, runFormatContentAsTableCommand, runInsertLineNumbersCommand, runInsertNumbersCommand, runInsertStuffCommand, runModifyTextEncodingCommand, runPadCommand, runRemoveControlCharactersCommand, runRemoveDuplicatesCommand, runSetTextSlotContentCommand, runpasteTextSlotCommand, TextEncodingDirection, TextEncodingType, ZalgificationIntensity, runInsertPredefinedSeriesCommand as runInsertPredefinedSequenceCommand, InsertableSeries, runSortCommand, SortMethod, runAffixCommand, AffixTarget, runRemoveLinesCommand, RemovedLineType } from "./modules";
+import { ASK_SPLIT_CHARACTER_FROM_USER, Base4EncodingDirection, ChangeCaseType, FilterSourceType, FilterType, InsertableStuff, LineNumberType, PadDirection, runBase64EncodingCommand, runChangeCaseCommand, runConvertNumberCommand, runConvertToZalgoCommand, runCopySelectionsToNewEditorCommand, runCountOccurrencesCommand, runExtractInfoCommand, runFilterTextCommand, runFormatContentAsTableCommand, runInsertLineNumbersCommand, runInsertNumbersCommand, runInsertStuffCommand, runModifyTextEncodingCommand, runPadCommand, runRemoveControlCharactersCommand, runRemoveDuplicatesCommand, runSetTextSlotContentCommand, runpasteTextSlotCommand, TextEncodingDirection, TextEncodingType, ZalgificationIntensity, runInsertPredefinedSeriesCommand as runInsertPredefinedSequenceCommand, InsertableSeries, runSortCommand, SortMethod, runAffixCommand, AffixTarget, runRemoveLinesCommand, RemovedLineType, runTextTransformationCommand, TextTransformationType } from "./modules";
 
 export function activate(context: vscode.ExtensionContext) {
 	// Filter lines/extract info commands
@@ -11,7 +11,7 @@ export function activate(context: vscode.ExtensionContext) {
 	// Formatting, sorting commands
 	registerPadCommands(context);
 	registerFormatContentAsTableCommands(context);
-	registerChangeCaseCommands(context);
+	registerChangeLettersCommands(context);
 	registerSortCommands(context);
 
 	// Insert data
@@ -103,7 +103,7 @@ function registerFormatContentAsTableCommands(context: vscode.ExtensionContext) 
 		runFormatContentAsTableCommand({splitChar: ASK_SPLIT_CHARACTER_FROM_USER, padAlignChar: true})));
 }
 
-function registerChangeCaseCommands(context: vscode.ExtensionContext) {
+function registerChangeLettersCommands(context: vscode.ExtensionContext) {
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.changeCaseToCamelCase", () =>
 		runChangeCaseCommand({ type: ChangeCaseType.CamelCase })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.changeCaseToPascalCase", () =>
@@ -118,6 +118,11 @@ function registerChangeCaseCommands(context: vscode.ExtensionContext) {
 		runChangeCaseCommand({ type: ChangeCaseType.DotCase })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.changeCaseToSwapCase", () =>
 		runChangeCaseCommand({ type: ChangeCaseType.SwapCase })));
+
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.latinize", () =>
+		runTextTransformationCommand({ type: TextTransformationType.Latinize })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.slugify", () =>
+		runTextTransformationCommand({ type: TextTransformationType.Slugify })));
 }
 
 function registerSortCommands(context: vscode.ExtensionContext) {
@@ -141,6 +146,14 @@ function registerSortCommands(context: vscode.ExtensionContext) {
 		runSortCommand({ sortMethod: SortMethod.LengthCaseInsensitive, sortDirection: "ascending" })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.sortByLengthCaseInsensitiveDescending", () =>
 		runSortCommand({ sortMethod: SortMethod.LengthCaseInsensitive, sortDirection: "descending" })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.sortByWordCountAscending", () =>
+		runSortCommand({ sortMethod: SortMethod.WordCount, sortDirection: "ascending" })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.sortByWordCountDescending", () =>
+		runSortCommand({ sortMethod: SortMethod.WordCount, sortDirection: "descending" })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.sortByGraphemeCountAscending", () =>
+		runSortCommand({ sortMethod: SortMethod.GraphemeCount, sortDirection: "ascending" })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.sortByGraphemeCountDescending", () =>
+		runSortCommand({ sortMethod: SortMethod.GraphemeCount, sortDirection: "descending" })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.semverSortAscending", () =>
 		runSortCommand({ sortMethod: SortMethod.Semver, sortDirection: "ascending" })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.semverSortDescending", () =>
@@ -353,9 +366,9 @@ function registerEncoderCommands(context: vscode.ExtensionContext) {
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.decodeXmlEntities", () =>
 		runModifyTextEncodingCommand({ type: TextEncodingType.XmlEntityEncoding, direction: TextEncodingDirection.Decode })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.escapeTextForJson", () =>
-		runModifyTextEncodingCommand({ type: TextEncodingType.Json, direction: TextEncodingDirection.Encode })));
+		runTextTransformationCommand({ type: TextTransformationType.Json })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.convertToJsonString", () =>
-		runModifyTextEncodingCommand({ type: TextEncodingType.JsonString, direction: TextEncodingDirection.Encode })));
+		runTextTransformationCommand({ type: TextTransformationType.JsonString })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.base64EncodeText", () =>
 		runBase64EncodingCommand({ direction: Base4EncodingDirection.Encode, onEachLine: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.base64EncodeTextOnEachLine", () =>

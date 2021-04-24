@@ -34,7 +34,7 @@
 		"sorting",
 		"json"
 	],
-	"version": "1.26.0",
+	"version": "1.27.0",
 	"publisher": "qcz",
 	"private": true,
 	"engines": {
@@ -96,6 +96,8 @@
 		"onCommand:textPowerTools.changeCaseToConstantCase",
 		"onCommand:textPowerTools.changeCaseToDotCase",
 		"onCommand:textPowerTools.changeCaseToSwapCase",
+		"onCommand:textPowerTools.latinize",
+		"onCommand:textPowerTools.slugify",
 
 		"onCommand:textPowerTools.caseSensitiveSortAscending",
 		"onCommand:textPowerTools.caseSensitiveSortDescending",
@@ -107,6 +109,10 @@
 		"onCommand:textPowerTools.sortByLengthCaseSensitiveDescending",
 		"onCommand:textPowerTools.sortByLengthCaseInsensitiveAscending",
 		"onCommand:textPowerTools.sortByLengthCaseInsensitiveDescending",
+		"onCommand:textPowerTools.sortByWordCountAscending",
+		"onCommand:textPowerTools.sortByWordCountDescending",
+		"onCommand:textPowerTools.sortByGraphemeCountAscending",
+		"onCommand:textPowerTools.sortByGraphemeCountDescending",
 		"onCommand:textPowerTools.semverSortAscending",
 		"onCommand:textPowerTools.semverSortDescending",
 		"onCommand:textPowerTools.ipAddressSortAscending",
@@ -410,6 +416,16 @@
 				"category": "Text Power Tools",
 				"title": "Swap text case"
 			},
+			{
+				"command": "textPowerTools.latinize",
+				"category": "Text Power Tools",
+				"title": "Latinize text"
+			},
+			{
+				"command": "textPowerTools.slugify",
+				"category": "Text Power Tools",
+				"title": "Slugify text"
+			},
 
 
 			{
@@ -461,6 +477,26 @@
 				"command": "textPowerTools.sortByLengthCaseInsensitiveDescending",
 				"category": "Text Power Tools",
 				"title": "Sort lines by length (and then case insensitive) descending"
+			},
+			{
+				"command": "textPowerTools.sortByWordCountAscending",
+				"category": "Text Power Tools",
+				"title": "Sort lines by word count ascending"
+			},
+			{
+				"command": "textPowerTools.sortByWordCountDescending",
+				"category": "Text Power Tools",
+				"title": "Sort lines by word count descending"
+			},
+			{
+				"command": "textPowerTools.sortByGraphemeCountAscending",
+				"category": "Text Power Tools",
+				"title": "Sort lines by grapheme count ascending"
+			},
+			{
+				"command": "textPowerTools.sortByGraphemeCountDescending",
+				"category": "Text Power Tools",
+				"title": "Sort lines by grapheme count descending"
 			},
 			{
 				"command": "textPowerTools.semverSortAscending",
@@ -1030,7 +1066,7 @@
 					"group": "tpt_02_formatting@1"
 				},
 				{
-					"submenu": "textPowerTools.changeCase",
+					"submenu": "textPowerTools.changeLetters",
 					"group": "tpt_02_formatting@2"
 				},
 				{
@@ -1198,7 +1234,7 @@
 					"group": "tpt_3_formatContentAsTable@8"
 				}
 			],
-			"textPowerTools.changeCase": [
+			"textPowerTools.changeLetters": [
 				{
 					"command": "textPowerTools.changeCaseToCamelCase",
 					"group": "tpt_changeCase@1"
@@ -1226,6 +1262,14 @@
 				{
 					"command": "textPowerTools.changeCaseToSwapCase",
 					"group": "tpt_changeCase@7"
+				},
+				{
+					"command": "textPowerTools.latinize",
+					"group": "tpt_changeLetters@1"
+				},
+				{
+					"command": "textPowerTools.slugify",
+					"group": "tpt_changeLetters@2"
 				}
 			],
 			"textPowerTools.insertFacts": [
@@ -1658,6 +1702,22 @@
 					"group": "tpt_3_length@4"
 				},
 				{
+					"command": "textPowerTools.sortByWordCountAscending",
+					"group": "tpt_3_length@5"
+				},
+				{
+					"command": "textPowerTools.sortByWordCountDescending",
+					"group": "tpt_3_length@6"
+				},
+				{
+					"command": "textPowerTools.sortByGraphemeCountDescending",
+					"group": "tpt_3_length@7"
+				},
+				{
+					"command": "textPowerTools.sortByGraphemeCountDescending",
+					"group": "tpt_3_length@8"
+				},
+				{
 					"command": "textPowerTools.semverSortAscending",
 					"group": "tpt_4_semver@1"
 				},
@@ -1726,8 +1786,8 @@
 				"icon": "$(filter)"
 			},
 			{
-				"id": "textPowerTools.changeCase",
-				"label": "Change letter case",
+				"id": "textPowerTools.changeLetters",
+				"label": "Change letters",
 				"icon": "$(text-size)"
 			},
 			{
@@ -1865,6 +1925,7 @@
 		"@types/node": "^12.12.0",
 		"@types/node-uuid": "0.0.28",
 		"@types/semver-sort": "^0.0.1",
+		"@types/voca": "^1.4.0",
 		"@types/vscode": "^1.32.0",
 		"ts-loader": "^8.0.1",
 		"tslint": "^5.20.1",
@@ -1882,6 +1943,7 @@
 		"lorem-ipsum": "^2.0.3",
 		"node-uuid": "^1.4.8",
 		"semver-sort": "^0.0.4",
+		"voca": "^1.4.0",
 		"vscode-test": "^1.4.0",
 		"zalgo-js": "^1.0.0"
 	}

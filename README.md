@@ -8,8 +8,7 @@ Availability:
 * **VS Code Marketplace:** https://marketplace.visualstudio.com/items?itemName=qcz.text-power-tools
 * **OpenVSX:** https://open-vsx.org/extension/qcz/text-power-tools
 
-**Note:** Due to current architectural limitations of VSCode, no extension can access files larger than 50 Megabytes. Vote for [VSCode issue #31078](https://github.com/Microsoft/vscode/issues/31078), which once implemented, will allows this extension to work with these large files. In the meantime you can trick VSCode by opening a new file and copying the content of the large file there (without saving).
-
+**Note:** Due to current architectural limitations of VSCode, no extension can access files larger than 50 Megabytes. Vote for [VSCode issue 31078](https://github.com/Microsoft/vscode/issues/31078), which once implemented, will allows this extension to work with these large files. In the meantime you can trick VSCode by opening a new file and copying the content of the large file there (without saving).
 
 ## Features
 * **Filter lines using strings or regular expressions (grep like experience):** Filter line commands take an input – a raw text or a regular expression – and filter – exclude or include – the selected lines using that input. It works like the `grep` command but inside VS Code. 
@@ -18,6 +17,7 @@ Availability:
     * *Protip:* These commands search/match in a case insensitive manner. To use case sensitive search/match, set the value of the `textPowerTools.caseSensitiveFiltering` setting to `true`.
 * **Change case of text (camelCase, PascalCase, snake_case, CONSTANT_CASE, dash-case, dot.case) and swap casing**.
     * *Note:* *Title Case*, *UPPER CASE* and *lower case* is not implemented in this extension as it is available in VS Code by default via the *Transform to Title Case*, *Transform to Uppercase* and *Transform to Lower Case* commands.
+* **Slugify and latizine text** (latinize removes all diacritic characters)
 * **Insert decimal, hexadecimal and Roman numbers:** Inserts increasing/decreasing decimal, hex or Roman numbers. You can even specify the starting number and the step size for them. You can use one selection and it will prompt for how many elements to insert, or you can use multiple selections and it will insert the a number from the sequence into every selection.
     * *Protip:* When inserting hex numbers, by default they will be uppercase. To insert lowercase hex numbers, set the value of the `textPowerTools.insertUppercaseHexNumbers` setting to `false`.
 * **Convert numbers from decimal to hexadecimal and vice versa**
@@ -62,6 +62,8 @@ Availability:
     * _Sort lines by length (and then case sensitive)_ 
     * _Sort lines by length (and then case insensitive)_ 
     * _Sort lines by semver rules_
+    * _Sort lines by word count_
+    * _Sort lines by grapheme count_ (taking care of surrogate pairs and combining marks thanks to Voca)
     * _Sort lines containing IP addresses_
 * **Shuffle lines**
     * There are additional commands to convert between them using 8, 16, 32 and 64 bit arithmetic
@@ -106,3 +108,6 @@ After 1.16.0, the extension requires at least Visual Studio Code 1.50.
 MIT
 
 Sample images use text files from the [Elasticsearch Examples](https://github.com/elastic/examples) and [TensorFlow Models](https://github.com/tensorflow/models) projects. Both are under the Apache 2.0 License.
+
+## My other extensions
+* **Restart TS server Status Bar button** – Convenient button on the Status Bar for restarting TS server: [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=qcz.restart-ts-server-button) / [OpenVSX](https://open-vsx.org/extension/qcz/restart-ts-server-button)

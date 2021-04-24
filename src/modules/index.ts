@@ -19,3 +19,4 @@ export { runRemoveControlCharactersCommand } from "./removeControlCharactersComm
 export { runRemoveDuplicatesCommand } from "./removeDuplicatesCommand";
 export { runSortCommand, SortMethod } from "./sortCommand";
 export { runSetTextSlotContentCommand, runpasteTextSlotCommand } from "./textSlotCommands";
+export { runTextTransformationCommand, TextTransformationType } from "./textTransformationCommand";

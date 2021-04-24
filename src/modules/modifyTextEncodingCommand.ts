@@ -8,8 +8,6 @@ export const enum TextEncodingType {
 	HtmlEntityEncoding = 2,
 	HtmlEntityEncodingWithNonAscii = 3,
 	XmlEntityEncoding = 4,
-	Json = 5,
-	JsonString = 6,
 }
 
 export const enum TextEncodingDirection {
@@ -64,20 +62,6 @@ export async function runModifyTextEncodingCommand(options: IModifyTextEncodingO
 						currentSelectionLines.push(XmlEntities.encode(lineContent));
 					} else {
 						currentSelectionLines.push(XmlEntities.decode(lineContent));
-					}
-					break;
-				case TextEncodingType.Json:
-					if (options.direction === TextEncodingDirection.Encode) {
-						currentSelectionLines.push(JSON.stringify(lineContent).substr(1, lineContent.length));
-					} else {
-						// Reverse not supported for now
-					}
-					break;
-				case TextEncodingType.JsonString:
-					if (options.direction === TextEncodingDirection.Encode) {
-						currentSelectionLines.push(JSON.stringify(lineContent));
-					} else {
-						// Reverse not supported for now
 					}
 					break;
 				default:
