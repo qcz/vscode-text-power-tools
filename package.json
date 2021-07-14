@@ -34,7 +34,7 @@
 		"sorting",
 		"json"
 	],
-	"version": "1.27.0",
+	"version": "1.28.0",
 	"publisher": "qcz",
 	"private": true,
 	"engines": {
@@ -95,6 +95,7 @@
 		"onCommand:textPowerTools.changeCaseToDashCase",
 		"onCommand:textPowerTools.changeCaseToConstantCase",
 		"onCommand:textPowerTools.changeCaseToDotCase",
+		"onCommand:textPowerTools.changeCaseToTitleCase",
 		"onCommand:textPowerTools.changeCaseToSwapCase",
 		"onCommand:textPowerTools.latinize",
 		"onCommand:textPowerTools.slugify",
@@ -410,6 +411,11 @@
 				"command": "textPowerTools.changeCaseToDotCase",
 				"category": "Text Power Tools",
 				"title": "Change case to dot case (dot.case)"
+			},
+			{
+				"command": "textPowerTools.changeCaseToTitleCase",
+				"category": "Text Power Tools",
+				"title": "Change case to title case (Title Case)"
 			},
 			{
 				"command": "textPowerTools.changeCaseToSwapCase",
@@ -1260,8 +1266,12 @@
 					"group": "tpt_changeCase@6"
 				},
 				{
-					"command": "textPowerTools.changeCaseToSwapCase",
+					"command": "textPowerTools.changeCaseToTitleCase",
 					"group": "tpt_changeCase@7"
+				},
+				{
+					"command": "textPowerTools.changeCaseToSwapCase",
+					"group": "tpt_changeCase@8"
 				},
 				{
 					"command": "textPowerTools.latinize",

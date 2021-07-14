@@ -10,6 +10,7 @@ export const enum ChangeCaseType {
 	DashCase = 4,
 	ConstantCase = 5,
 	DotCase = 6,
+	TitleCase = 7,
 	SwapCase = 100,
 }
 
@@ -53,6 +54,9 @@ export async function runChangeCaseCommand(options: IChangeCaseOptions) {
 					break;
 				case ChangeCaseType.SwapCase:
 					currentSelectionLines.push(cc.swapCase(lineContent));
+					break;
+				case ChangeCaseType.TitleCase:
+					currentSelectionLines.push(cc.titleCase(lineContent));
 					break;
 				default:
 					currentSelectionLines.push(lineContent);

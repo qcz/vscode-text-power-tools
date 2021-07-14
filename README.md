@@ -15,7 +15,7 @@ Availability:
     * *Protip:* The command provides a history feature with the last 10 filter texts available to use immediately.
     * *Protip:* Filter comamnds can project the results to a new editor, so the original content is not modified. This way you can create multiple projections from your content without reloading the file or reverting the changes made by the filter command. Search for commands with `into a new editor` at the end to use this feature.
     * *Protip:* These commands search/match in a case insensitive manner. To use case sensitive search/match, set the value of the `textPowerTools.caseSensitiveFiltering` setting to `true`.
-* **Change case of text (camelCase, PascalCase, snake_case, CONSTANT_CASE, dash-case, dot.case) and swap casing**.
+* **Change case of text (camelCase, PascalCase, snake_case, CONSTANT_CASE, dash-case, dot.case, Title Case) and swap casing**.
     * *Note:* *Title Case*, *UPPER CASE* and *lower case* is not implemented in this extension as it is available in VS Code by default via the *Transform to Title Case*, *Transform to Uppercase* and *Transform to Lower Case* commands.
 * **Slugify and latizine text** (latinize removes all diacritic characters)
 * **Insert decimal, hexadecimal and Roman numbers:** Inserts increasing/decreasing decimal, hex or Roman numbers. You can even specify the starting number and the step size for them. You can use one selection and it will prompt for how many elements to insert, or you can use multiple selections and it will insert the a number from the sequence into every selection.

@@ -1,5 +1,7 @@
 # Changelog
 
+## **1.28.0** (2021. 07. 14.)
+- Add _change case to title case_ command.
 ## **1.27.0** (2021. 04. 24.)
 - Add _Latinize text_ and _Slugify text_ functions.
 - Add _Sort lines by word count_ and _Sort lines by grapheme count_ functions.

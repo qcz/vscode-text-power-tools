@@ -116,6 +116,8 @@ function registerChangeLettersCommands(context: vscode.ExtensionContext) {
 		runChangeCaseCommand({ type: ChangeCaseType.ConstantCase })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.changeCaseToDotCase", () =>
 		runChangeCaseCommand({ type: ChangeCaseType.DotCase })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.changeCaseToTitleCase", () =>
+		runChangeCaseCommand({ type: ChangeCaseType.TitleCase })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.changeCaseToSwapCase", () =>
 		runChangeCaseCommand({ type: ChangeCaseType.SwapCase })));
 
