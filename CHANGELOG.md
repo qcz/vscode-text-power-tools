@@ -1,7 +1,9 @@
 # Changelog
 
-## **1.28.0** (2021. 07. 14.)
+## **1.28.0** (2021. 07. 17.)
 - Add _change case to title case_ command.
+- Add copy and cut lines _including a string_, _not including a string_, _matching a regex_, and _not matching a regexp_ to clipboard as an extension to the current filter functions.
+
 ## **1.27.0** (2021. 04. 24.)
 - Add _Latinize text_ and _Slugify text_ functions.
 - Add _Sort lines by word count_ and _Sort lines by grapheme count_ functions.

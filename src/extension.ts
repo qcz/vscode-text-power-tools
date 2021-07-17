@@ -1,7 +1,7 @@
 "use strict";
 import * as vscode from "vscode";
 import { NumberArithmetic, NumeralSystem } from "./interfaces";
-import { ASK_SPLIT_CHARACTER_FROM_USER, Base4EncodingDirection, ChangeCaseType, FilterSourceType, FilterType, InsertableStuff, LineNumberType, PadDirection, runBase64EncodingCommand, runChangeCaseCommand, runConvertNumberCommand, runConvertToZalgoCommand, runCopySelectionsToNewEditorCommand, runCountOccurrencesCommand, runExtractInfoCommand, runFilterTextCommand, runFormatContentAsTableCommand, runInsertLineNumbersCommand, runInsertNumbersCommand, runInsertStuffCommand, runModifyTextEncodingCommand, runPadCommand, runRemoveControlCharactersCommand, runRemoveDuplicatesCommand, runSetTextSlotContentCommand, runpasteTextSlotCommand, TextEncodingDirection, TextEncodingType, ZalgificationIntensity, runInsertPredefinedSeriesCommand as runInsertPredefinedSequenceCommand, InsertableSeries, runSortCommand, SortMethod, runAffixCommand, AffixTarget, runRemoveLinesCommand, RemovedLineType, runTextTransformationCommand, TextTransformationType } from "./modules";
+import { ASK_SPLIT_CHARACTER_FROM_USER, Base4EncodingDirection, ChangeCaseType, FilterSourceType, FilterTarget, FilterType, InsertableStuff, LineNumberType, PadDirection, runBase64EncodingCommand, runChangeCaseCommand, runConvertNumberCommand, runConvertToZalgoCommand, runCopySelectionsToNewEditorCommand, runCountOccurrencesCommand, runExtractInfoCommand, runFilterTextCommand, runFormatContentAsTableCommand, runInsertLineNumbersCommand, runInsertNumbersCommand, runInsertStuffCommand, runModifyTextEncodingCommand, runPadCommand, runRemoveControlCharactersCommand, runRemoveDuplicatesCommand, runSetTextSlotContentCommand, runpasteTextSlotCommand, TextEncodingDirection, TextEncodingType, ZalgificationIntensity, runInsertPredefinedSeriesCommand as runInsertPredefinedSequenceCommand, InsertableSeries, runSortCommand, SortMethod, runAffixCommand, AffixTarget, runRemoveLinesCommand, RemovedLineType, runTextTransformationCommand, TextTransformationType } from "./modules";
 
 export function activate(context: vscode.ExtensionContext) {
 	// Filter lines/extract info commands
@@ -35,21 +35,37 @@ export function activate(context: vscode.ExtensionContext) {
 
 function registerFilterLinesCommands(context: vscode.ExtensionContext) {
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.filterLinesIncludingString", () =>
-		runFilterTextCommand(context, { type: FilterType.Include, sourceType: FilterSourceType.String, inNewEditor: false })));
+		runFilterTextCommand(context, { filterType: FilterType.Include, sourceType: FilterSourceType.String, target: FilterTarget.CurrentEditor })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.filterLinesIncludingStringToNewEditor", () =>
-		runFilterTextCommand(context, { type: FilterType.Include, sourceType: FilterSourceType.String, inNewEditor: true })));
+		runFilterTextCommand(context, { filterType: FilterType.Include, sourceType: FilterSourceType.String, target: FilterTarget.NewEditor })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.copyLinesIncludingStringToClipboard", () =>
+		runFilterTextCommand(context, { filterType: FilterType.Include, sourceType: FilterSourceType.String, target: FilterTarget.CopyToClipboard })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.cutLinesIncludingStringToClipboard", () =>
+		runFilterTextCommand(context, { filterType: FilterType.Include, sourceType: FilterSourceType.String, target: FilterTarget.CutToClipboard })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.filterLinesMatchingRegex", () =>
-		runFilterTextCommand(context, { type: FilterType.Include, sourceType: FilterSourceType.Regex, inNewEditor: false })));
+		runFilterTextCommand(context, { filterType: FilterType.Include, sourceType: FilterSourceType.Regex, target: FilterTarget.CurrentEditor })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.filterLinesMatchingRegexToNewEditor", () =>
-		runFilterTextCommand(context, { type: FilterType.Include, sourceType: FilterSourceType.Regex, inNewEditor: true })));
+		runFilterTextCommand(context, { filterType: FilterType.Include, sourceType: FilterSourceType.Regex, target: FilterTarget.NewEditor })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.copyLinesMatchingRegexToClipboard", () =>
+		runFilterTextCommand(context, { filterType: FilterType.Include, sourceType: FilterSourceType.Regex, target: FilterTarget.CopyToClipboard })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.cutLinesMatchingRegexToClipboard", () =>
+		runFilterTextCommand(context, { filterType: FilterType.Include, sourceType: FilterSourceType.Regex, target: FilterTarget.CutToClipboard })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.filterLinesNotIncludingString", () =>
-		runFilterTextCommand(context, { type: FilterType.Exclude, sourceType: FilterSourceType.String, inNewEditor: false })));
+		runFilterTextCommand(context, { filterType: FilterType.Exclude, sourceType: FilterSourceType.String, target: FilterTarget.CurrentEditor })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.filterLinesNotIncludingStringToNewEditor", () =>
-		runFilterTextCommand(context, { type: FilterType.Exclude, sourceType: FilterSourceType.String, inNewEditor: true })));
+		runFilterTextCommand(context, { filterType: FilterType.Exclude, sourceType: FilterSourceType.String, target: FilterTarget.NewEditor })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.copyLinesNotIncludingStringToClipboard", () =>
+		runFilterTextCommand(context, { filterType: FilterType.Exclude, sourceType: FilterSourceType.String, target: FilterTarget.CopyToClipboard })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.cutLinesNotIncludingStringToClipboard", () =>
+		runFilterTextCommand(context, { filterType: FilterType.Exclude, sourceType: FilterSourceType.String, target: FilterTarget.CutToClipboard })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.filterLinesNotMatchingRegex", () =>
-		runFilterTextCommand(context, { type: FilterType.Exclude, sourceType: FilterSourceType.Regex, inNewEditor: false })));
+		runFilterTextCommand(context, { filterType: FilterType.Exclude, sourceType: FilterSourceType.Regex, target: FilterTarget.CurrentEditor })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.filterLinesNotMatchingRegexToNewEditor", () =>
-		runFilterTextCommand(context, { type: FilterType.Exclude, sourceType: FilterSourceType.Regex, inNewEditor: true })));
+		runFilterTextCommand(context, { filterType: FilterType.Exclude, sourceType: FilterSourceType.Regex, target: FilterTarget.NewEditor })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.copyLinesNotMatchingRegexToClipboard", () =>
+		runFilterTextCommand(context, { filterType: FilterType.Exclude, sourceType: FilterSourceType.Regex, target: FilterTarget.CopyToClipboard })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.cutLinesNotMatchingRegexToClipboard", () =>
+		runFilterTextCommand(context, { filterType: FilterType.Exclude, sourceType: FilterSourceType.Regex, target: FilterTarget.CutToClipboard })));
 }
 
 function registerExtractInfoCommands(context: vscode.ExtensionContext) {
