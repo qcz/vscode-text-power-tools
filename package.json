@@ -1994,14 +1994,8 @@
 		"keybindings": [
 			{
 				"command": "textPowerTools.filterLinesIncludingString",
-				"key": "ctrl+t f",
-				"mac": "ctrl+t f",
-				"when": "editorTextFocus"
-			},
-			{
-				"command": "textPowerTools.generateRandomGuids",
-				"key": "ctrl+t g",
-				"mac": "ctrl+t g",
+				"key": "ctrl+k g",
+				"mac": "ctrl+k g",
 				"when": "editorTextFocus"
 			}
 		]
