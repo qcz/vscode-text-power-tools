@@ -1,6 +1,6 @@
 # Changelog
 
-## **1.29.0** (202?. ??. ??.)
+## **1.29.0** (2021. 09. 04.)
 - Add _Trim leading whitespace_ and _Trim leading & trailing whitespace_ commands.
 - Add _Remove whitespace characters_ command.
 - Add _Remove newlines_ and _Trim whitespace and remove newlines_ commands.
