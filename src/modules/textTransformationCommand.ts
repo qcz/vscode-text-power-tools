@@ -4,10 +4,11 @@ import { NO_ACTIVE_EDITOR } from "../consts";
 import { getSelectionLines, getSelectionsOrFullDocument, replaceSelectionsWithLines } from "../helpers/vsCodeHelpers";
 
 export const enum TextTransformationType {
+	RemoveWhitespace = 1,
 	Json = 5,
 	JsonString = 6,
 	Latinize = 7,
-	Slugify = 8
+	Slugify = 8,
 }
 
 interface ITransformTextOptions {
@@ -30,6 +31,9 @@ export async function runTextTransformationCommand(options: ITransformTextOption
 
 		for (const lineContent of getSelectionLines(editor, selection)) {
 			switch (options.type) {
+				case TextTransformationType.RemoveWhitespace:
+					currentSelectionLines.push(lineContent.replace(/\s/g, ""));
+					break;
 				case TextTransformationType.Json:
 					currentSelectionLines.push(JSON.stringify(lineContent).substr(1, lineContent.length));
 					break;

@@ -1,7 +1,7 @@
 "use strict";
 import * as vscode from "vscode";
 import { NumberArithmetic, NumeralSystem } from "./interfaces";
-import { ASK_SPLIT_CHARACTER_FROM_USER, Base4EncodingDirection, ChangeCaseType, FilterSourceType, FilterTarget, FilterType, InsertableStuff, LineNumberType, PadDirection, runBase64EncodingCommand, runChangeCaseCommand, runConvertNumberCommand, runConvertToZalgoCommand, runCopySelectionsToNewEditorCommand, runCountOccurrencesCommand, runExtractInfoCommand, runFilterTextCommand, runFormatContentAsTableCommand, runInsertLineNumbersCommand, runInsertNumbersCommand, runInsertStuffCommand, runModifyTextEncodingCommand, runPadCommand, runRemoveControlCharactersCommand, runRemoveDuplicatesCommand, runSetTextSlotContentCommand, runpasteTextSlotCommand, TextEncodingDirection, TextEncodingType, ZalgificationIntensity, runInsertPredefinedSeriesCommand as runInsertPredefinedSequenceCommand, InsertableSeries, runSortCommand, SortMethod, runAffixCommand, AffixTarget, runRemoveLinesCommand, RemovedLineType, runTextTransformationCommand, TextTransformationType } from "./modules";
+import { ASK_SPLIT_CHARACTER_FROM_USER, Base4EncodingDirection, ChangeCaseType, FilterSourceType, FilterTarget, FilterType, InsertableStuff, LineNumberType, PadDirection, runBase64EncodingCommand, runChangeCaseCommand, runConvertNumberCommand, runConvertToZalgoCommand, runCopySelectionsToNewEditorCommand, runCountOccurrencesCommand, runExtractInfoCommand, runFilterTextCommand, runFormatContentAsTableCommand, runInsertLineNumbersCommand, runInsertNumbersCommand, runInsertStuffCommand, runModifyTextEncodingCommand, runPadCommand, runRemoveControlCharactersCommand, runRemoveDuplicatesCommand, runSetTextSlotContentCommand, runpasteTextSlotCommand, TextEncodingDirection, TextEncodingType, ZalgificationIntensity, runInsertPredefinedSeriesCommand as runInsertPredefinedSequenceCommand, InsertableSeries, runSortCommand, SortMethod, runAffixCommand, AffixTarget, runRemoveLinesCommand, RemovedLineType, runTextTransformationCommand, TextTransformationType, runTrimCommand, TrimDirection, runRemoveNewLinesCommand } from "./modules";
 
 export function activate(context: vscode.ExtensionContext) {
 	// Filter lines/extract info commands
@@ -10,6 +10,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 	// Formatting, sorting commands
 	registerPadCommands(context);
+	registerTrimCommands(context);
 	registerFormatContentAsTableCommands(context);
 	registerChangeLettersCommands(context);
 	registerSortCommands(context);
@@ -98,6 +99,13 @@ function registerPadCommands(context: vscode.ExtensionContext) {
 		runAffixCommand({ target: AffixTarget.Both })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.wrapAllLinesWithTextDifferent", () =>
 		runAffixCommand({ target: AffixTarget.Wrap })));
+}
+
+function registerTrimCommands(context: vscode.ExtensionContext) {
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.trimStart", () =>
+		runTrimCommand({ direction: TrimDirection.Start })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.trim", () =>
+		runTrimCommand({ direction: TrimDirection.Both })));
 }
 
 function registerFormatContentAsTableCommands(context: vscode.ExtensionContext) {
@@ -398,6 +406,13 @@ function registerEncoderCommands(context: vscode.ExtensionContext) {
 }
 
 function registerRemoveCommands(context: vscode.ExtensionContext) {
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.removeWhitespaceCharacters", () =>
+		runTextTransformationCommand({ type: TextTransformationType.RemoveWhitespace })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.removeNewLines", () =>
+		runRemoveNewLinesCommand({ trimWhitespace: false })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.trimAndRemoveNewLines", () =>
+		runRemoveNewLinesCommand({ trimWhitespace: true })));
+
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.removeDuplicates", () =>
 		runRemoveDuplicatesCommand()));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.removeEmptyLines", () =>

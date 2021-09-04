@@ -1,4 +1,4 @@
-export { runAffixCommand, AffixTarget } from "./affixCommand";
+export { AffixTarget, runAffixCommand } from "./affixCommand";
 export { Base4EncodingDirection, runBase64EncodingCommand } from "./base64EncoderCommand";
 export { ChangeCaseType, runChangeCaseCommand } from "./changeCaseCommand";
 export { runConvertNumberCommand } from "./convertNumberCommand";
@@ -6,7 +6,7 @@ export { runConvertToZalgoCommand, ZalgificationIntensity } from "./convertToZal
 export { runCopySelectionsToNewEditorCommand } from "./copySelectionsToNewEditorCommand";
 export { runCountOccurrencesCommand } from "./countOccurrencesCommand";
 export { runExtractInfoCommand } from "./extractInfoCommand";
-export { FilterSourceType, FilterType, FilterTarget, runFilterTextCommand } from "./filterTextCommand";
+export { FilterSourceType, FilterTarget, FilterType, runFilterTextCommand } from "./filterTextCommand";
 export { ASK_SPLIT_CHARACTER_FROM_USER, runFormatContentAsTableCommand } from "./formatContentAsTableCommand";
 export { LineNumberType, runInsertLineNumbersCommand } from "./insertLineNumbersCommand";
 export { runInsertNumberSequenceCommand as runInsertNumbersCommand } from "./insertNumberSequenceCommand";
@@ -14,9 +14,12 @@ export { InsertableSeries, runInsertPredefinedSeriesCommand } from "./insertSequ
 export { InsertableStuff, runInsertStuffCommand } from "./insertStuffCommand";
 export { runModifyTextEncodingCommand, TextEncodingDirection, TextEncodingType } from "./modifyTextEncodingCommand";
 export { PadDirection, runPadCommand } from "./padCommand";
-export { runRemoveLinesCommand, RemovedLineType } from "./removeLinesCommand";
 export { runRemoveControlCharactersCommand } from "./removeControlCharactersCommand";
 export { runRemoveDuplicatesCommand } from "./removeDuplicatesCommand";
+export { RemovedLineType, runRemoveLinesCommand } from "./removeLinesCommand";
+export { runRemoveNewLinesCommand } from "./removeNewLinesCommand";
 export { runSortCommand, SortMethod } from "./sortCommand";
-export { runSetTextSlotContentCommand, runpasteTextSlotCommand } from "./textSlotCommands";
+export { runpasteTextSlotCommand, runSetTextSlotContentCommand } from "./textSlotCommands";
 export { runTextTransformationCommand, TextTransformationType } from "./textTransformationCommand";
+export { runTrimCommand, TrimDirection } from "./trimCommand";
+

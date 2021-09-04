@@ -1,11 +1,14 @@
 # Changelog
 
 ## **1.29.0** (202?. ??. ??.)
+- Add _Trim leading whitespace_ and _Trim leading & trailing whitespace_ commands.
+- Add _Remove whitespace characters_ command.
+- Add _Remove newlines_ and _Trim whitespace and remove newlines_ commands.
 - Changed keybinding for _Filter lines including a string_ to `Ctrl+K G` due to a collision with a default keybinding.
 - Removed the keybinding for the _Generate random GUIDs_ command due to a collision with a default keybinding.
 
 ## **1.28.0** (2021. 07. 17.)
-- Add _change case to title case_ command.
+- Add _Change case to title case_ command.
 - Add copy and cut lines _including a string_, _not including a string_, _matching a regex_, and _not matching a regexp_ to clipboard as an extension to the current filter functions.
 
 ## **1.27.0** (2021. 04. 24.)

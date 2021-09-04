@@ -48,6 +48,7 @@ Availability:
 * **Pad start and end of strings:** Pad the start or the end of selections to the desired length with default or custom character sequences. The default pad string can be customized with the `textPowerTools.defaultPadString` setting.
 * **Insert line numbers:** Inserts line numbers to the start of each line in every selection. Line numbers can be real line numbers in the file or can start with 1.
 * **Remove duplicated, blank, surplus blank, empty, surplus empty lines and control characters**
+* **Trim leading & trailing whitespace, remove whitespace characters, remove newlines**
 * **Prefix, suffix and wrap lines:** Prefix, suffix and wrap lines. Wrap uses either the same prefix/suffix or different ones.
 * **Insert full file path, directory path and file name of the opened file**.
 * **Escape text for JSON and convert text to JSON string**

@@ -1,7 +1,7 @@
 {
 	"name": "text-power-tools",
 	"displayName": "Text Power Tools",
-	"description": "All-in-one solution with 140+ commands for text manipulation: filter lines (grep), remove lines, insert number sequences and GUIDs, sorting, change case, converting numbers, generating fake data and more. Great for finding information in logs.",
+	"description": "All-in-one solution with 150+ commands for text manipulation: filter lines (grep), remove lines, insert number sequences and GUIDs, sorting, change case, converting numbers, generating fake data and more. Great for finding information in logs.",
 	"keywords": [
 		"text",
 		"tools",
@@ -37,9 +37,10 @@
 		"regex",
 		"regexp",
 		"regular expression",
-		"regular expressions"
+		"regular expressions",
+		"trim"
 	],
-	"version": "1.28.0",
+	"version": "1.29.0",
 	"publisher": "qcz",
 	"private": true,
 	"engines": {
@@ -92,6 +93,9 @@
 		"onCommand:textPowerTools.appendSuffixToAllLines",
 		"onCommand:textPowerTools.wrapAllLinesWithTextSame",
 		"onCommand:textPowerTools.wrapAllLinesWithTextDifferent",
+
+		"onCommand:textPowerTools.trimStart",
+		"onCommand:textPowerTools.trim",
 
 		"onCommand:textPowerTools.formatContentAsTableByTabulator",
 		"onCommand:textPowerTools.formatContentAsTableBySemicolon",
@@ -234,6 +238,10 @@
 		"onCommand:textPowerTools.base64EncodeTextOnEachLine",
 		"onCommand:textPowerTools.base64DecodeText",
 		"onCommand:textPowerTools.base64DecodeTextOnEachLine",
+
+		"onCommand:textPowerTools.removeWhitespaceCharacters",
+		"onCommand:textPowerTools.removeNewLines",
+		"onCommand:textPowerTools.trimAndRemoveNewLines",
 
 		"onCommand:textPowerTools.removeDuplicates",
 		"onCommand:textPowerTools.removeEmptyLines",
@@ -390,6 +398,18 @@
 				"command": "textPowerTools.wrapAllLinesWithTextDifferent",
 				"category": "Text Power Tools",
 				"title": "Wrap all lines with text (different prefix and suffix)"
+			},
+
+
+			{
+				"command": "textPowerTools.trimStart",
+				"category": "Text Power Tools",
+				"title": "Trim leading whitespace"
+			},
+			{
+				"command": "textPowerTools.trim",
+				"category": "Text Power Tools",
+				"title": "Trim leading & trailing whitespace"
 			},
 
 
@@ -1068,6 +1088,23 @@
 
 
 			{
+				"command": "textPowerTools.removeWhitespaceCharacters",
+				"category": "Text Power Tools",
+				"title": "Remove whitespace characters"
+			},
+			{
+				"command": "textPowerTools.removeNewLines",
+				"category": "Text Power Tools",
+				"title": "Remove newlines"
+			},
+			{
+				"command": "textPowerTools.trimAndRemoveNewLines",
+				"category": "Text Power Tools",
+				"title": "Trim whitespace and remove newlines"
+			},
+
+
+			{
 				"command": "textPowerTools.removeDuplicates",
 				"category": "Text Power Tools",
 				"title": "Remove duplicated lines"
@@ -1293,36 +1330,45 @@
 				},
 
 				{
+					"command": "textPowerTools.trimStart",
+					"group": "tpt_3_trim@4"
+				},
+				{
+					"command": "textPowerTools.trim",
+					"group": "tpt_3_trim@4"
+				},
+
+				{
 					"command": "textPowerTools.formatContentAsTableByTabulator",
-					"group": "tpt_3_formatContentAsTable@1"
+					"group": "tpt_4_formatContentAsTable@1"
 				},
 				{
 					"command": "textPowerTools.formatContentAsTableBySemicolon",
-					"group": "tpt_3_formatContentAsTable@2"
+					"group": "tpt_4_formatContentAsTable@2"
 				},
 				{
 					"command": "textPowerTools.formatContentAsTableByComma",
-					"group": "tpt_3_formatContentAsTable@3"
+					"group": "tpt_4_formatContentAsTable@3"
 				},
 				{
 					"command": "textPowerTools.formatContentAsTableByPipe",
-					"group": "tpt_3_formatContentAsTable@4"
+					"group": "tpt_4_formatContentAsTable@4"
 				},
 				{
 					"command": "textPowerTools.formatContentAsTableByCustomCharacter",
-					"group": "tpt_3_formatContentAsTable@5"
+					"group": "tpt_4_formatContentAsTable@5"
 				},
 				{
 					"command": "textPowerTools.formatContentAsTableBySemicolonWithPadding",
-					"group": "tpt_3_formatContentAsTable@6"
+					"group": "tpt_4_formatContentAsTable@6"
 				},
 				{
 					"command": "textPowerTools.formatContentAsTableByPipeWithPadding",
-					"group": "tpt_3_formatContentAsTable@7"
+					"group": "tpt_4_formatContentAsTable@7"
 				},
 				{
 					"command": "textPowerTools.formatContentAsTableByCustomCharacterWithPadding",
-					"group": "tpt_3_formatContentAsTable@8"
+					"group": "tpt_4_formatContentAsTable@8"
 				}
 			],
 			"textPowerTools.changeLetters": [
@@ -1835,28 +1881,41 @@
 			],
 			"textPowerTools.remove": [
 				{
+					"command": "textPowerTools.removeWhitespaceCharacters",
+					"group": "tpt_1_removeCharacters@1"
+				},
+				{
+					"command": "textPowerTools.removeNewLines",
+					"group": "tpt_1_removeCharacters@2"
+				},
+				{
+					"command": "textPowerTools.trimAndRemoveNewLines",
+					"group": "tpt_1_removeCharacters@3"
+				},
+
+				{
 					"command": "textPowerTools.removeDuplicates",
-					"group": "tpt_1_removeDupe@1"
+					"group": "tpt_2_removeDupe@1"
 				},
 				{
 					"command": "textPowerTools.removeEmptyLines",
-					"group": "tpt_2_removeLines@1"
+					"group": "tpt_3_removeLines@1"
 				},
 				{
 					"command": "textPowerTools.removeSurplusEmptyLines",
-					"group": "tpt_2_removeLines@2"
+					"group": "tpt_3_removeLines@2"
 				},
 				{
 					"command": "textPowerTools.removeBlankLines",
-					"group": "tpt_2_removeLines@3"
+					"group": "tpt_3_removeLines@3"
 				},
 				{
 					"command": "textPowerTools.removeSurplusBlankLines",
-					"group": "tpt_2_removeLines@4"
+					"group": "tpt_3_removeLines@4"
 				},
 				{
 					"command": "textPowerTools.removeControlCharacters",
-					"group": "tpt_3_removeControlCharacters@1"
+					"group": "tpt_4_removeControlCharacters@1"
 				}
 			]
 		},
