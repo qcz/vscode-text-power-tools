@@ -136,6 +136,7 @@
 		"onCommand:textPowerTools.ipAddressSortAscending",
 		"onCommand:textPowerTools.ipAddressSortDescending",
 		"onCommand:textPowerTools.shuffleLines",
+		"onCommand:textPowerTools.reverseLines",
 
 		"onCommand:textPowerTools.generateFakeData",
 		"onCommand:textPowerTools.generateRandomGuids",
@@ -601,6 +602,11 @@
 				"command": "textPowerTools.shuffleLines",
 				"category": "Text Power Tools",
 				"title": "Shuffle lines (sort by random order)"
+			},
+			{
+				"command": "textPowerTools.reverseLines",
+				"category": "Text Power Tools",
+				"title": "Reverse lines"
 			},
 
 
@@ -1876,7 +1882,11 @@
 				},
 				{
 					"command": "textPowerTools.shuffleLines",
-					"group": "tpt_9_shuffle@2"
+					"group": "tpt_9_other@1"
+				},
+				{
+					"command": "textPowerTools.reverseLines",
+					"group": "tpt_9_other@2"
 				}
 			],
 			"textPowerTools.remove": [

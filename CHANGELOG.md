@@ -1,5 +1,8 @@
 # Changelog
 
+## **1.30.0** (2021. ??. ??.)
+- Add _Reverse lines_ command.
+
 ## **1.29.0** (2021. 09. 04.)
 - Add _Trim leading whitespace_ and _Trim leading & trailing whitespace_ commands.
 - Add _Remove whitespace characters_ command.

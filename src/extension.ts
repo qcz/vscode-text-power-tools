@@ -190,6 +190,8 @@ function registerSortCommands(context: vscode.ExtensionContext) {
 		runSortCommand({ sortMethod: SortMethod.IpAddress, sortDirection: "descending" })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.shuffleLines", () =>
 		runSortCommand({ sortMethod: SortMethod.Shuffle, sortDirection: "ascending" })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.reverseLines", () =>
+		runSortCommand({ sortMethod: SortMethod.Reverse, sortDirection: "ascending" })));
 }
 
 function registerGenerateFakeDataCommands(context: vscode.ExtensionContext) {

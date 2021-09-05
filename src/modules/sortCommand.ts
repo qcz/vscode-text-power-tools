@@ -16,7 +16,8 @@ export const enum SortMethod {
 	LengthCaseInsensitive,
 	WordCount,
 	GraphemeCount,
-	Shuffle
+	Shuffle,
+	Reverse
 }
 
 interface ISortOptions {
@@ -183,6 +184,9 @@ export async function runSortCommand(options: ISortOptions) {
 				break;
 			case SortMethod.Shuffle:
 				shuffleArray(lines);
+				break;
+			case SortMethod.Reverse:
+				lines = lines.reverse();
 				break;
 		}
 
