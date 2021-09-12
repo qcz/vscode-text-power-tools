@@ -35,7 +35,8 @@ export async function runTextTransformationCommand(options: ITransformTextOption
 					currentSelectionLines.push(lineContent.replace(/\s/g, ""));
 					break;
 				case TextTransformationType.Json:
-					currentSelectionLines.push(JSON.stringify(lineContent).substr(1, lineContent.length));
+					const stringified = JSON.stringify(lineContent);
+					currentSelectionLines.push(stringified.substr(1, stringified.length - 2));
 					break;
 				case TextTransformationType.JsonString:
 					currentSelectionLines.push(JSON.stringify(lineContent));

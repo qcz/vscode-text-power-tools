@@ -1,7 +1,8 @@
 # Changelog
 
-## **1.30.0** (2021. ??. ??.)
+## **1.30.0** (2021. 09. 12.)
 - Add _Reverse lines_ command.
+- Fix text truncation bug in the _Escape text for JSON_ command.
 
 ## **1.29.0** (2021. 09. 04.)
 - Add _Trim leading whitespace_ and _Trim leading & trailing whitespace_ commands.
