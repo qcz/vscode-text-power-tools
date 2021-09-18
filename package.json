@@ -2091,10 +2091,10 @@
 		"eslint-config-prettier": "^8.3.0",
 		"eslint-plugin-prettier": "^4.0.0",
 		"prettier": "2.4.1",
-		"ts-loader": "^8.0.1",
+		"ts-loader": "^9.2.5",
 		"typescript": "^3.9.7",
-		"webpack": "^4.44.0",
-		"webpack-cli": "^3.3.12"
+		"webpack": "^5.53.0",
+		"webpack-cli": "^4.8.0"
 	},
 	"dependencies": {
 		"change-case": "^3.0.2",
