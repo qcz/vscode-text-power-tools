@@ -27,14 +27,15 @@ export async function pasteTextSlotCommandInternal(context: vscode.ExtensionCont
 
 	const selections = getPureSelections(editor);
 
+	// eslint-disable-next-line no-unused-vars
 	for (const _ of selections) {
 		replacesBySelection.push([]);
 		replacesBySelection[replacesBySelection.length - 1].push(slotContent);
 	}
 
-	const isSingleEmptySelection = selections.length == 1
+	const isSingleEmptySelection = selections.length === 1
 		&& editor.selection.isEmpty;
-	
+
 	await replaceSelectionsWithLines(editor, selections, replacesBySelection, false);
 
 	if (isSingleEmptySelection && /[\r\n]/.test(slotContent) === false) {

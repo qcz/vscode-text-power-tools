@@ -36,7 +36,7 @@ export async function runAffixCommand(options: AffixOptions) {
 			suffix = await askForAffix(AffixTarget.Suffix);
 		}
 	} catch (err) {
-		vscode.window.showErrorMessage(err);
+		vscode.window.showErrorMessage(err as string);
 		return;
 	}
 
@@ -57,7 +57,7 @@ export async function runAffixCommand(options: AffixOptions) {
 			);
 		}
 	}
-	
+
 	await replaceSelectionsWithLines(editor, selections, linesBySelection, /* openNewDocument: */false);
 }
 

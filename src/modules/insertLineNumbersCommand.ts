@@ -22,7 +22,7 @@ export async function runInsertLineNumbersCommand(options: IInsertLineNumberComm
 
 	const replacedLinesBySelection: string[][] = [];
 	const selections = getSelectionsOrFullDocument(editor);
-	
+
 	let lineMax = 0;
 	let lineDiffMax = 0;
 	for (const selection of selections) {

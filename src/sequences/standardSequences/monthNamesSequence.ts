@@ -45,7 +45,7 @@ export class MonthNamesSequence extends ASequenceBase {
 				vscode.window.showErrorMessage(`Unknown locale provided for generator: '${locale}'`);
 			}
 		};
-	
+
 		return fun;
 	}
 }

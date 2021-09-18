@@ -39,6 +39,7 @@ export async function runInsertStuffCommand(options: InsertStuffOptions) {
 
 	const replacesBySelection: string[][] = [];
 	const selections = getPureSelections(editor);
+	// eslint-disable-next-line no-unused-vars
 	for (const _ of selections) {
 		replacesBySelection.push([inserted]);
 	}

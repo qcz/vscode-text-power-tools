@@ -9,7 +9,7 @@ import { RandomDecimalCharactersSequence } from "./randomDecimalCharactersSequen
 import { RandomGuidsSequence } from "./randomGuidsSequence";
 import { RandomHexCharactersSequence } from "./randomHexCharactersSequence";
 
-export const getKnownFakeSequences = (): ASequenceBase[] => {
+export function getKnownFakeSequences(): ASequenceBase[] {
 	const ret: ASequenceBase[] = [];
 
 	ret.push(new RandomHexCharactersSequence(undefined));
@@ -30,8 +30,9 @@ export const getKnownFakeSequences = (): ASequenceBase[] => {
 	ret.sort((a, b) => {
 		const pos = compareNumbers(a.order, b.order);
 
-		if (pos != 0)
+		if (pos !== 0) {
 			return pos;
+		}
 
 		return a.name.localeCompare(b.name);
 	});

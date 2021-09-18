@@ -9,7 +9,7 @@ import { NumberSequece } from "./numberSequence";
 import { UppercaseGreekLettersSequence } from "./uppercaseGreekLettersSequence";
 import { UppercaseLettersSequence } from "./uppercaseLettersSequence";
 
-export const getKnownStandardSequences = (): ASequenceBase[] => {
+export function getKnownStandardSequences(): ASequenceBase[] {
 	return [
 		new UppercaseLettersSequence(),
 		new LowercaseLettersSequence(),

@@ -92,7 +92,7 @@ export abstract class AFakerSequenceBase extends ASequenceBase {
 				yield self.generateFakerItem();
 			}
 		};
-	
+
 		return fun;
 	}
 }

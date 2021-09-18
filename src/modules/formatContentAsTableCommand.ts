@@ -2,11 +2,11 @@ import * as vscode from "vscode";
 import { NO_ACTIVE_EDITOR } from "../consts";
 import { getSelectionLines, getSelectionsOrFullDocument, replaceSelectionsWithLines } from "../helpers/vsCodeHelpers";
 
-export type ASK_SPLIT_CHARACTER_FROM_USER = 1;
+export type AskSplitCharacterFromUser = 1;
 export const ASK_SPLIT_CHARACTER_FROM_USER = 1;
 
 interface IAlignByCharacterOptions {
-	splitChar: string | ASK_SPLIT_CHARACTER_FROM_USER;
+	splitChar: string | AskSplitCharacterFromUser;
 	padAlignChar: boolean;
 }
 
@@ -27,7 +27,7 @@ export async function runFormatContentAsTableCommand(options: IAlignByCharacterO
 
 async function askForSplitCharacter(editor: vscode.TextEditor, options: IAlignByCharacterOptions) {
 	vscode.window.showInputBox({
-		prompt: `Please enter the character to split by`,
+		prompt: "Please enter the character to split by",
 		value: "1",
 	}).then(async (splitChar: string | undefined) => {
 		if (typeof splitChar === "undefined") {

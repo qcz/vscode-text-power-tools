@@ -20,13 +20,13 @@ export async function runRemoveNewLinesCommand(options: RemoveNewLinesOptions) {
 
 	for (const selection of selections) {
 		let currentSelectionText = "";
-		
+
 		for (const lineContent of getSelectionLines(editor, selection)) {
 			currentSelectionText += trimWhitespace ? lineContent.trim() : lineContent;
 		}
 
 		linesBySelection.push([currentSelectionText]);
 	}
-	
+
 	await replaceSelectionsWithLines(editor, selections, linesBySelection, /* openNewDocument: */false);
 }

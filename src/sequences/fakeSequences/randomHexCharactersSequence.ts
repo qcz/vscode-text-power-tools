@@ -8,7 +8,7 @@ const UPPERCASE_CHAR_TABLE: string = "0123456789ABCDEF";
 
 export class RandomHexCharactersSequence extends ASequenceBase {
 	public get name(): string {
-		return `Random hex characters`;
+		return "Random hex characters";
 	}
 
 	public get icon(): string {
@@ -34,8 +34,7 @@ export class RandomHexCharactersSequence extends ASequenceBase {
 	}
 
 	public async createGeneratorFunctionInternal(numberOfCharacters: number | undefined)
-		: Promise<StringIteratorGeneratorFunction>
-	{
+		: Promise<StringIteratorGeneratorFunction> {
 		const self = this;
 		const settings = getExtensionSettings();
 
@@ -47,7 +46,7 @@ export class RandomHexCharactersSequence extends ASequenceBase {
 				);
 			}
 		};
-	
+
 		return fun;
 	}
 
@@ -80,17 +79,17 @@ export class RandomHexCharactersSequence extends ASequenceBase {
 	private askForNumberOfCharacters(): Promise<EnsureAllParametersAreSetResult> {
 		return new Promise<EnsureAllParametersAreSetResult>((resolve) => {
 			vscode.window.showInputBox({
-				prompt: `Please enter how many characters an item should contain`,
+				prompt: "Please enter how many characters an item should contain",
 				value: "1",
 			}).then(async (filter: string | undefined) => {
 				if (typeof filter === "undefined" || !filter) {
 					resolve({ errorMessage: "No number of characters entered." });
 					return;
 				}
-		
+
 				const startingNumber = Number.parseInt(filter, 10);
 				if (isNaN(startingNumber)) {
-					resolve({ errorMessage: `The entered number of characters is not valid.` });
+					resolve({ errorMessage: "The entered number of characters is not valid." });
 					return;
 				}
 

@@ -25,7 +25,7 @@ export async function runPadCommand(options: PadOptions) {
 
 export async function askForPadLength(editor: vscode.TextEditor, options: PadOptions) {
 	vscode.window.showInputBox({
-		prompt: `Please enter the length of the padded string`,
+		prompt: "Please enter the length of the padded string",
 	}).then(async (rawPadLength: string | undefined) => {
 		if (typeof rawPadLength === "undefined") {
 			return;
@@ -38,7 +38,7 @@ export async function askForPadLength(editor: vscode.TextEditor, options: PadOpt
 
 		const padLength = Number.parseInt(rawPadLength, 10);
 		if (isNaN(padLength)) {
-			vscode.window.showErrorMessage(`The entered pad length is not a valid number.`);
+			vscode.window.showErrorMessage("The entered pad length is not a valid number.");
 			return;
 		}
 
@@ -52,7 +52,7 @@ export async function askForPadLength(editor: vscode.TextEditor, options: PadOpt
 
 export async function askForPadCharacter(editor: vscode.TextEditor, options: PadOptions, padLength: number) {
 	vscode.window.showInputBox({
-		prompt: `Please enter the string used for padding`,
+		prompt: "Please enter the string used for padding",
 	}).then(async (padString: string | undefined) => {
 		if (typeof padString === "undefined") {
 			return;
@@ -87,6 +87,6 @@ export async function padInternal(editor: vscode.TextEditor, direction: PadDirec
 			}
 		}
 	}
-	
+
 	await replaceSelectionsWithLines(editor, selections, linesBySelection, /* openNewDocument: */false);
 }

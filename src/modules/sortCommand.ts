@@ -1,10 +1,10 @@
+import ip6addr from "ip6addr";
+import semverSort from "semver-sort";
+import * as voca from "voca";
 import * as vscode from "vscode";
 import { NO_ACTIVE_EDITOR } from "../consts";
-import { expandSelectionToFullLine, getSelectionLines, getSelectionsOrFullDocument, replaceSelectionsWithLines } from "../helpers/vsCodeHelpers";
-import semverSort from "semver-sort";
-import ip6addr from "ip6addr";
 import { compareNumbers } from "../helpers/utils";
-import * as voca from "voca";
+import { expandSelectionToFullLine, getSelectionLines, getSelectionsOrFullDocument, replaceSelectionsWithLines } from "../helpers/vsCodeHelpers";
 
 export const enum SortMethod {
 	CaseSensitive,
@@ -42,7 +42,7 @@ export async function runSortCommand(options: ISortOptions) {
 		updatedSelections.push(selection);
 
 		let lines = Array.from(getSelectionLines(editor, selection));
-		
+
 		switch (options.sortMethod) {
 			case SortMethod.CaseSensitive:
 				lines.sort((a, b) => {
@@ -50,8 +50,9 @@ export async function runSortCommand(options: ISortOptions) {
 						sensitivity: "variant",
 						caseFirst: "upper"
 					});
-					if (options.sortDirection === "descending")
+					if (options.sortDirection === "descending") {
 						compareResult = compareResult * -1;
+					}
 
 					return compareResult;
 				});
@@ -73,9 +74,10 @@ export async function runSortCommand(options: ISortOptions) {
 								caseFirst: "upper"
 							});
 						}
-						if (options.sortDirection === "descending")
+						if (options.sortDirection === "descending") {
 							compareResult = compareResult * -1;
-	
+						}
+
 						return compareResult;
 					});
 					break;
@@ -83,7 +85,7 @@ export async function runSortCommand(options: ISortOptions) {
 						lines.sort((a, b) => {
 							const aAtColumn = selectionStartColumn > 0 ? a.substring(selectionStartColumn) : a;
 							const bAtColumn = selectionStartColumn > 0 ? b.substring(selectionStartColumn) : b;
-	
+
 							let compareResult;
 							if (aAtColumn === "" && bAtColumn === "") {
 								compareResult = a.localeCompare(b, undefined, {
@@ -94,9 +96,10 @@ export async function runSortCommand(options: ISortOptions) {
 									sensitivity: "base"
 								});
 							}
-							if (options.sortDirection === "descending")
+							if (options.sortDirection === "descending") {
 								compareResult = compareResult * -1;
-		
+							}
+
 							return compareResult;
 						});
 						break;
@@ -111,8 +114,9 @@ export async function runSortCommand(options: ISortOptions) {
 						});
 					}
 
-					if (options.sortDirection === "descending")
+					if (options.sortDirection === "descending") {
 						compareResult = compareResult * -1;
+					}
 
 					return compareResult;
 				});
@@ -127,8 +131,9 @@ export async function runSortCommand(options: ISortOptions) {
 						});
 					}
 
-					if (options.sortDirection === "descending")
+					if (options.sortDirection === "descending") {
 						compareResult = compareResult * -1;
+					}
 
 					return compareResult;
 				});
@@ -143,8 +148,9 @@ export async function runSortCommand(options: ISortOptions) {
 						});
 					}
 
-					if (options.sortDirection === "descending")
+					if (options.sortDirection === "descending") {
 						compareResult = compareResult * -1;
+					}
 
 					return compareResult;
 				});
@@ -159,25 +165,27 @@ export async function runSortCommand(options: ISortOptions) {
 						});
 					}
 
-					if (options.sortDirection === "descending")
+					if (options.sortDirection === "descending") {
 						compareResult = compareResult * -1;
+					}
 
 					return compareResult;
 				});
 				break;
 			case SortMethod.Semver:
-				if (options.sortDirection === "ascending")
+				if (options.sortDirection === "ascending") {
 					lines = semverSort.asc(lines);
-				else
+				} else {
 					lines = semverSort.desc(lines);
+				}
 				break;
 			case SortMethod.IpAddress:
 				try {
 					lines.sort(ip6addr.compare);
-					if (options.sortDirection === "descending")
+					if (options.sortDirection === "descending") {
 						lines.reverse();
-				}
-				catch (err) {
+					}
+				} catch (err) {
 					vscode.window.showErrorMessage("Failed to sort: selection contains invalid IP addresses.");
 				}
 
@@ -210,7 +218,7 @@ function shuffleArray(array: string[]): void {
 		// Pick a remaining element...
 		randomIndex = Math.floor(Math.random() * currentIndex);
 		currentIndex -= 1;
-  
+
 		// And swap it with the current element.
 		temporaryValue = array[currentIndex];
 		array[currentIndex] = array[randomIndex];

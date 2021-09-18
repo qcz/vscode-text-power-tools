@@ -20,8 +20,8 @@ export function getSelectionsOrFullDocument(editor: vscode.TextEditor): vscode.S
 		|| !selections.length
 		|| (selections.length === 1
 			&& selections[0].isSingleLine
-			&& selections[0].start.character === selections[0].end.character))
-	{
+			&& selections[0].start.character === selections[0].end.character)
+	) {
 		selections = [];
 		selections.push(getFullDocumentRange(editor));
 	}
@@ -91,8 +91,8 @@ export function sortSelectionsByPosition(selections: vscode.Selection[]) {
 }
 
 export async function replaceSelectionsWithText(editor: vscode.TextEditor, selections: vscode.Selection[],
-	contentBySelection: string[])
-{
+	contentBySelection: string[]
+): Promise<void> {
 	editor.edit((editBuilder) => {
 		for (let i = 0; i < selections.length; i++) {
 			editBuilder.replace(selections[i], contentBySelection[i]);
@@ -101,8 +101,8 @@ export async function replaceSelectionsWithText(editor: vscode.TextEditor, selec
 }
 
 export async function replaceSelectionsWithLines(editor: vscode.TextEditor, selections: vscode.Selection[],
-	contentBySelection: string[][], openNewDocument: boolean)
-{
+	contentBySelection: string[][], openNewDocument: boolean
+): Promise<void> {
 	if (openNewDocument === true) {
 		const targetEditor = await createNewEditor();
 
@@ -166,7 +166,7 @@ export function showHistoryQuickPick(
 	});
 	qp.onDidAccept(() => {
 		let selectedValue: string;
-		
+
 		if (qp.activeItems.length) {
 			selectedValue = qp.activeItems[0].label;
 			const history = selectedValue.match(/^(?:\$\(history\) )+(.*)$/);
@@ -187,7 +187,7 @@ export function showHistoryQuickPick(
 		}
 
 		historyItems.splice(0, 0, selectedValue);
-		
+
 		if (historyItems.length > 10) {
 			historyItems = historyItems.slice(0, 10);
 		}

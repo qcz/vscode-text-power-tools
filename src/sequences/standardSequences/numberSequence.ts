@@ -56,7 +56,7 @@ export class NumberSequece extends ASequenceBase {
 
 		let startingNumber: number;
 		let increment: number;
-		
+
 		if (typeof this.startingNumber === "undefined") {
 			startingNumber = 42;
 		} else {
@@ -97,12 +97,12 @@ export class NumberSequece extends ASequenceBase {
 					if (insertUppercaseHexNumbers) {
 						insertedString = insertedString.toLocaleUpperCase();
 					}
-		
+
 					yield insertedString;
 				} else {
 					yield insertedNumber.toString();
 				}
-		
+
 				insertedNumber += increment;
 			}
 		};
@@ -141,13 +141,13 @@ export class NumberSequece extends ASequenceBase {
 					resolve({ errorMessage: "No starting number entered." });
 					return;
 				}
-		
+
 				const startingNumber = Number.parseInt(rawStartingNumber, this.numeralSystem === NumeralSystem.Hexadecimal ? 16 : 10);
 				if (isNaN(startingNumber)) {
 					resolve({ errorMessage: `The entered starting number is not a valid ${numberType} number.` });
 					return;
 				}
-		
+
 				// TODO: warn for too big Roman number
 
 				this.startingNumber = startingNumber;
@@ -169,7 +169,7 @@ export class NumberSequece extends ASequenceBase {
 					resolve({ errorMessage: "No increment entered." });
 					return;
 				}
-		
+
 				const increment = Number.parseInt(rawIncrement, this.numeralSystem === NumeralSystem.Hexadecimal ? 16 : 10);
 				if (isNaN(increment)) {
 					resolve({ errorMessage: `The entered number to increment by is not a valid ${numberType} number.` });
@@ -177,7 +177,7 @@ export class NumberSequece extends ASequenceBase {
 				}
 
 				if (increment === 0) {
-					resolve({ errorMessage: `Increment cannot be 0.` });
+					resolve({ errorMessage: "Increment cannot be 0." });
 					return;
 				}
 

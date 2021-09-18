@@ -39,7 +39,7 @@ export async function runExtractInfoCommand(context: vscode.ExtensionContext, op
 					if (typeof replacement === "undefined") {
 						return;
 					}
-			
+
 					if (!replacement) {
 						vscode.window.showErrorMessage("No replacement entered.");
 						return;
@@ -47,7 +47,7 @@ export async function runExtractInfoCommand(context: vscode.ExtensionContext, op
 
 					const matchingLinesBySelection: string[][] = [];
 					const selections = getSelectionsOrFullDocument(editor);
-					
+
 					for (const selection of selections) {
 						matchingLinesBySelection.push([]);
 

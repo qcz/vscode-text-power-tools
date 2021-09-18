@@ -18,10 +18,10 @@ const FORMAT_CSHARP = "C# Guid constructor";
 
 export class RandomGuidsSequence extends ASequenceBase {
 	public get name(): string {
-		const type = this.guidType == "noDashes" ? ` without dashes`
-			: this.guidType == "dashes" ? ` with dashes`
-			: this.guidType == "dashesAndBraces" ? ` with dashes and braces`
-			: this.guidType == "cSharpGuidConstructor" ? ` as a C# GUID constructor`
+		const type = this.guidType === "noDashes" ? " without dashes"
+			: this.guidType === "dashes" ? " with dashes"
+			: this.guidType === "dashesAndBraces" ? " with dashes and braces"
+			: this.guidType === "cSharpGuidConstructor" ? " as a C# GUID constructor"
 			: "";
 		return `Random UUIDs/GUIDs${type}`;
 	}
@@ -53,8 +53,7 @@ export class RandomGuidsSequence extends ASequenceBase {
 	}
 
 	public async createGeneratorFunctionInternal(guidType: GeneratedGuidType | undefined)
-		: Promise<StringIteratorGeneratorFunction>
-	{
+		: Promise<StringIteratorGeneratorFunction> {
 		const self = this;
 		const settings = getExtensionSettings();
 
@@ -66,7 +65,7 @@ export class RandomGuidsSequence extends ASequenceBase {
 				);
 			}
 		};
-	
+
 		return fun;
 	}
 
@@ -109,7 +108,7 @@ export class RandomGuidsSequence extends ASequenceBase {
 			if (settings.insertUppercaseGuids) {
 				sampleGuid = sampleGuid.toUpperCase();
 			}
-			
+
 			const qp = vscode.window.createQuickPick<GuidTypeQuickPickItem>();
 			qp.items = [
 				{ label: FORMAT_DASHES, description: sampleGuid, type: "dashes" },
@@ -123,7 +122,7 @@ export class RandomGuidsSequence extends ASequenceBase {
 					resolve({ errorMessage: "No UUID/GUID type selected." });
 					return;
 				}
-				
+
 
 				this.guidType = qp.activeItems[0].type;
 

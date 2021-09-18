@@ -23,10 +23,9 @@ export async function insertSequenceInternal(
 
 async function askForNumberOfSequenceEntriesToInsert(
 	editor: vscode.TextEditor,
-	generator: () => IterableIterator<string>)
-{
+	generator: () => IterableIterator<string>) {
 	vscode.window.showInputBox({
-		prompt: `Please specify the number of items to insert.`,
+		prompt: "Please specify the number of items to insert.",
 		value: "1",
 	}).then(async (rawNumberOfItemsToInsert: string | undefined) => {
 		if (typeof rawNumberOfItemsToInsert === "undefined") {
@@ -40,7 +39,7 @@ async function askForNumberOfSequenceEntriesToInsert(
 
 		const numberOfItemsToInsert = Number.parseInt(rawNumberOfItemsToInsert, 10);
 		if (isNaN(numberOfItemsToInsert)) {
-			vscode.window.showErrorMessage(`The entered number of items to insert is not a valid number.`);
+			vscode.window.showErrorMessage("The entered number of items to insert is not a valid number.");
 			return;
 		}
 
@@ -55,12 +54,11 @@ async function askForNumberOfSequenceEntriesToInsert(
 async function insertSequenceForRealThisTime(
 	editor: vscode.TextEditor,
 	generator: () => IterableIterator<string>,
-	numberOfItemsToInsertPerSelection: number)
-{
+	numberOfItemsToInsertPerSelection: number) {
 	const replacesBySelection: string[][] = [];
 	const selections = getPureSelections(editor);
 	sortSelectionsByPosition(selections);
-	
+
 	let iterator = generator();
 	for (let i = 0, len = selections.length; i < len; i++) {
 

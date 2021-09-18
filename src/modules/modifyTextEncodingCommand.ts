@@ -50,13 +50,6 @@ export async function runModifyTextEncodingCommand(options: IModifyTextEncodingO
 						currentSelectionLines.push(AllHtmlEntities.decode(lineContent));
 					}
 					break;
-				case TextEncodingType.HtmlEntityEncoding:
-					if (options.direction === TextEncodingDirection.Encode) {
-						currentSelectionLines.push(AllHtmlEntities.encodeNonUTF(lineContent));
-					} else {
-						currentSelectionLines.push(AllHtmlEntities.decode(lineContent));
-					}
-					break;
 				case TextEncodingType.XmlEntityEncoding:
 					if (options.direction === TextEncodingDirection.Encode) {
 						currentSelectionLines.push(XmlEntities.encode(lineContent));

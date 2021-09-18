@@ -1,7 +1,7 @@
 "use strict";
 import * as vscode from "vscode";
 import { NumberArithmetic, NumeralSystem } from "./interfaces";
-import { ASK_SPLIT_CHARACTER_FROM_USER, Base4EncodingDirection, ChangeCaseType, FilterSourceType, FilterTarget, FilterType, InsertableStuff, LineNumberType, PadDirection, runBase64EncodingCommand, runChangeCaseCommand, runConvertNumberCommand, runConvertToZalgoCommand, runCopySelectionsToNewEditorCommand, runCountOccurrencesCommand, runExtractInfoCommand, runFilterTextCommand, runFormatContentAsTableCommand, runInsertLineNumbersCommand, runInsertNumbersCommand, runInsertStuffCommand, runModifyTextEncodingCommand, runPadCommand, runRemoveControlCharactersCommand, runRemoveDuplicatesCommand, runSetTextSlotContentCommand, runpasteTextSlotCommand, TextEncodingDirection, TextEncodingType, ZalgificationIntensity, runInsertPredefinedSeriesCommand as runInsertPredefinedSequenceCommand, InsertableSeries, runSortCommand, SortMethod, runAffixCommand, AffixTarget, runRemoveLinesCommand, RemovedLineType, runTextTransformationCommand, TextTransformationType, runTrimCommand, TrimDirection, runRemoveNewLinesCommand } from "./modules";
+import { AffixTarget, ASK_SPLIT_CHARACTER_FROM_USER, Base4EncodingDirection, ChangeCaseType, FilterSourceType, FilterTarget, FilterType, InsertableSeries, InsertableStuff, LineNumberType, PadDirection, RemovedLineType, runAffixCommand, runBase64EncodingCommand, runChangeCaseCommand, runConvertNumberCommand, runConvertToZalgoCommand, runCopySelectionsToNewEditorCommand, runCountOccurrencesCommand, runExtractInfoCommand, runFilterTextCommand, runFormatContentAsTableCommand, runInsertLineNumbersCommand, runInsertNumbersCommand, runInsertPredefinedSeriesCommand as runInsertPredefinedSequenceCommand, runInsertStuffCommand, runModifyTextEncodingCommand, runPadCommand, runpasteTextSlotCommand, runRemoveControlCharactersCommand, runRemoveDuplicatesCommand, runRemoveLinesCommand, runRemoveNewLinesCommand, runSetTextSlotContentCommand, runSortCommand, runTextTransformationCommand, runTrimCommand, SortMethod, TextEncodingDirection, TextEncodingType, TextTransformationType, TrimDirection, ZalgificationIntensity } from "./modules";
 
 export function activate(context: vscode.ExtensionContext) {
 	// Filter lines/extract info commands
@@ -94,7 +94,7 @@ function registerPadCommands(context: vscode.ExtensionContext) {
 		runAffixCommand({ target: AffixTarget.Prefix })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.appendSuffixToAllLines", () =>
 		runAffixCommand({ target: AffixTarget.Suffix })));
-	
+
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.wrapAllLinesWithTextSame", () =>
 		runAffixCommand({ target: AffixTarget.Both })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.wrapAllLinesWithTextDifferent", () =>

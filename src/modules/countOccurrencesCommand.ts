@@ -1,6 +1,6 @@
 import * as vscode from "vscode";
-import { getSelectionLines, getSelectionsOrFullDocument, replaceSelectionsWithLines } from "../helpers/vsCodeHelpers";
 import { NO_ACTIVE_EDITOR } from "../consts";
+import { getSelectionLines, getSelectionsOrFullDocument, replaceSelectionsWithLines } from "../helpers/vsCodeHelpers";
 
 interface ICountLinesCommandOptions {
 	inNewEditor: boolean;
@@ -18,20 +18,20 @@ export async function runCountOccurrencesCommand(options: ICountLinesCommandOpti
 
 	for (const selection of selections) {
 		const lineCounter: { [index: string]: number } = {};
-		
+
 		for (const lineContent of getSelectionLines(editor, selection)) {
-			
+
 			if (lineCounter[lineContent]) {
 				lineCounter[lineContent]++;
 			} else {
 				lineCounter[lineContent] = 1;
 			}
 		}
-		
+
 		linesBySelection.push([]);
 
 		const sortableLines: [string, number][] = [];
-		for (const key in lineCounter) {
+		for (const key of Object.keys(lineCounter)) {
 			sortableLines.push([key, lineCounter[key]]);
 		}
 		sortableLines.sort((a, b) => {

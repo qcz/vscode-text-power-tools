@@ -11,7 +11,7 @@ export abstract class AArraySequenceBase extends ASequenceBase {
 				yield ele;
 			}
 		};
-	
+
 		return fun;
 	}
 }

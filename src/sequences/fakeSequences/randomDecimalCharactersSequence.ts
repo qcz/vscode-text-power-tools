@@ -20,7 +20,7 @@ export class RandomDecimalCharactersSequence extends ASequenceBase {
 	}
 
 	public get name(): string {
-		return `Random decimal characters`;
+		return "Random decimal characters";
 	}
 
 	public async createStandardGenerator(): Promise<() => IterableIterator<string>> {
@@ -32,15 +32,14 @@ export class RandomDecimalCharactersSequence extends ASequenceBase {
 	}
 
 	public async createGeneratorFunctionInternal(numberOfCharacters: number | undefined)
-		: Promise<StringIteratorGeneratorFunction>
-	{
+		: Promise<StringIteratorGeneratorFunction> {
 		var self = this;
 		const fun = function* (): IterableIterator<string> {
 			while (true) {
 				yield self.generateRandomItem(numberOfCharacters || 1);
 			}
 		};
-	
+
 		return fun;
 	}
 
@@ -68,17 +67,17 @@ export class RandomDecimalCharactersSequence extends ASequenceBase {
 	private askForNumberOfCharacters(): Promise<EnsureAllParametersAreSetResult> {
 		return new Promise<EnsureAllParametersAreSetResult>((resolve) => {
 			vscode.window.showInputBox({
-				prompt: `Please enter how many characters an item should contain`,
+				prompt: "Please enter how many characters an item should contain",
 				value: "1",
 			}).then(async (filter: string | undefined) => {
 				if (typeof filter === "undefined" || !filter) {
 					resolve({ errorMessage: "No number of characters entered." });
 					return;
 				}
-		
+
 				const startingNumber = Number.parseInt(filter, 10);
 				if (isNaN(startingNumber)) {
-					resolve({ errorMessage: `The entered number of characters is not valid.` });
+					resolve({ errorMessage: "The entered number of characters is not valid." });
 					return;
 				}
 

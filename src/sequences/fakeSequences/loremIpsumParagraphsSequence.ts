@@ -5,7 +5,7 @@ import { CreateSampleGeneratorResult, StringIteratorGeneratorFunction } from "..
 
 export class LoremIpsumParagraphsSequence extends ASequenceBase {
 	public get name(): string {
-		return `Lorem ipsum paragraphs`;
+		return "Lorem ipsum paragraphs";
 	}
 
 	public get icon(): string {
@@ -29,10 +29,9 @@ export class LoremIpsumParagraphsSequence extends ASequenceBase {
 	}
 
 	public async createGeneratorFunctionInternal()
-		: Promise<StringIteratorGeneratorFunction>
-	{
+		: Promise<StringIteratorGeneratorFunction> {
 		const settings = getExtensionSettings();
-		
+
 		const lorem = new LoremIpsum({
 			wordsPerSentence: {
 				min: settings.loremIpsumMinWordsPerSentence,
@@ -43,13 +42,13 @@ export class LoremIpsumParagraphsSequence extends ASequenceBase {
 				max: settings.loremIpsumMaxSentencesPerParagraph,
 			},
 		});
-		
+
 		const fun = function* (): IterableIterator<string> {
 			while (true) {
 				yield lorem.generateParagraphs(1);
 			}
 		};
-	
+
 		return fun;
 	}
 }

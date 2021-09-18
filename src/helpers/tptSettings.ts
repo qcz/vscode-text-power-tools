@@ -15,7 +15,7 @@ export interface ITextPowerToolsSettings {
 
 export function getExtensionSettings(): ITextPowerToolsSettings {
 	const vscConfig = vscode.workspace.getConfiguration("textPowerTools");
-	
+
 	return {
 		caseSensitiveFiltering: vscConfig.get<boolean>("caseSensitiveFiltering", false),
 		defaultPadString: vscConfig.get<string>("defaultPadString"),

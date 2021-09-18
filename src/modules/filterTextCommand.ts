@@ -58,7 +58,7 @@ export async function runFilterTextCommand(context: vscode.ExtensionContext, opt
 			const matchingLinesBySelection: string[][] = [];
 			let clipboardContent = "";
 			const selections = getSelectionsOrFullDocument(editor);
-			
+
 			for (const selection of selections) {
 				matchingLinesBySelection.push([]);
 
@@ -73,7 +73,7 @@ export async function runFilterTextCommand(context: vscode.ExtensionContext, opt
 					if (filterType === FilterType.Exclude) {
 						matched = !matched;
 					}
-					
+
 					if (matched && isTargetingClipboard) {
 						if (clipboardContent.length > 0) {
 							clipboardContent += "\n";
@@ -90,7 +90,7 @@ export async function runFilterTextCommand(context: vscode.ExtensionContext, opt
 					}
 				}
 			}
-			
+
 			if (isTargetingClipboard) {
 				vscode.env.clipboard.writeText(clipboardContent);
 			}

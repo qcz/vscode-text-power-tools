@@ -10,7 +10,7 @@ export const enum ZalgificationIntensity {
 	Heavy
 }
 
-const ZalgoIntensityMap: Map<ZalgificationIntensity, number> = new Map([
+const ZALGO_INTENSITY_MAP: Map<ZalgificationIntensity, number> = new Map([
 	[ZalgificationIntensity.UltraLight, 0.04],
 	[ZalgificationIntensity.Light, 0.20],
 	[ZalgificationIntensity.Medium, 0.5],
@@ -30,7 +30,7 @@ export async function runConvertToZalgoCommand(options: IConvertToZalgoOptions) 
 
 	const selections = getSelectionsOrFullDocument(editor);
 	const linesBySelection: string[][] = [];
-	const intensity = ZalgoIntensityMap.get(options.intensity);
+	const intensity = ZALGO_INTENSITY_MAP.get(options.intensity);
 
 	for (const selection of selections) {
 		linesBySelection.push([]);

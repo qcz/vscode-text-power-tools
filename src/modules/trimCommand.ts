@@ -40,6 +40,6 @@ export async function runTrimCommand(options: TrimOptions) {
 			}
 		}
 	}
-	
+
 	await replaceSelectionsWithLines(editor, selections, linesBySelection, /* openNewDocument: */false);
 }

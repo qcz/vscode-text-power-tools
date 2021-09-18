@@ -84,7 +84,7 @@
 		"onCommand:textPowerTools.extractInformationToNewEditor",
 		"onCommand:textPowerTools.countOccurrences",
 		"onCommand:textPowerTools.countOccurrencesToNewEditor",
-		
+
 		"onCommand:textPowerTools.padStart",
 		"onCommand:textPowerTools.padStartWithCustomString",
 		"onCommand:textPowerTools.padEnd",
@@ -2085,8 +2085,13 @@
 		"@types/semver-sort": "^0.0.1",
 		"@types/voca": "^1.4.0",
 		"@types/vscode": "^1.32.0",
+		"@typescript-eslint/eslint-plugin": "^4.31.1",
+		"@typescript-eslint/parser": "^4.31.1",
+		"eslint": "^7.32.0",
+		"eslint-config-prettier": "^8.3.0",
+		"eslint-plugin-prettier": "^4.0.0",
+		"prettier": "2.4.1",
 		"ts-loader": "^8.0.1",
-		"tslint": "^5.20.1",
 		"typescript": "^3.9.7",
 		"webpack": "^4.44.0",
 		"webpack-cli": "^3.3.12"

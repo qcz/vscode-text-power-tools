@@ -10,7 +10,13 @@
 	"typescript.tsc.autoDetect": "off",
 
 	"[typescript]": {
-		"editor.insertSpaces": false
+		"files.insertFinalNewline": true,
+		"editor.insertSpaces": false,
+		"files.trimTrailingWhitespace": true
 	},
-	"typescript.tsdk": "node_modules\\typescript\\lib"
+	"typescript.tsdk": "node_modules\\typescript\\lib",
+
+	"editor.codeActionsOnSave": {
+		"source.organizeImports": true
+	},
 }

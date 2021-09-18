@@ -5,7 +5,10 @@ import { getSelectionLines, getSelectionsOrFullDocument, replaceSelectionsWithLi
 import { NumberArithmetic, NumeralSystem } from "../interfaces";
 import { SIGNED_HEXADECIMAL_NUMBER_REGEX, DECIMAL_NUMBER_REGEX, UNSIGNED_HEXADECIMAL_NUMBER_REGEX } from "../helpers/textualNumberConverter";
 
-type ArithmeticRange = { min: bigint, max: bigint};
+type ArithmeticRange = {
+	min: bigint;
+	max: bigint;
+};
 
 const UNSIGNED_ARITHMETIC_RANGES: { [key in NumberArithmetic]: ArithmeticRange } = {
 	[NumberArithmetic.SixtyFourBit]: { min: 0n, max: 18_446_744_073_709_551_615n },
@@ -41,9 +44,8 @@ export async function runConvertNumberCommand(options: IChangeNumeralSystemOptio
 	if (increment === "ask") {
 		try {
 			increment = await askForIncrement();
-		}
-		catch (err) {
-			vscode.window.showErrorMessage(err);
+		} catch (err) {
+			vscode.window.showErrorMessage(err as string);
 			return;
 		}
 	}
@@ -66,7 +68,7 @@ export async function runConvertNumberCommand(options: IChangeNumeralSystemOptio
 
 			let num: bigint;
 
-			if (sourceNumeralSystem == NumeralSystem.Hexadecimal
+			if (sourceNumeralSystem === NumeralSystem.Hexadecimal
 				&& ((typeof arithmetic === "undefined" && SIGNED_HEXADECIMAL_NUMBER_REGEX.test(lineContent))
 					|| (typeof arithmetic !== "undefined" && UNSIGNED_HEXADECIMAL_NUMBER_REGEX.test(lineContent))
 				)
@@ -81,7 +83,7 @@ export async function runConvertNumberCommand(options: IChangeNumeralSystemOptio
 
 				num = result.number;
 
-			} else if (sourceNumeralSystem == NumeralSystem.Decimal
+			} else if (sourceNumeralSystem === NumeralSystem.Decimal
 				&& DECIMAL_NUMBER_REGEX.test(lineContent)) {
 
 				const result = tryParseDecimalNumber(lineContent, options);
@@ -156,12 +158,12 @@ export async function runConvertNumberCommand(options: IChangeNumeralSystemOptio
 
 type NumberParseResult =
 	{ isValid: false }
-	| { isValid: true, number: bigint };
+	| { isValid: true; number: bigint };
 
 async function askForIncrement(): Promise<bigint> {
 	return new Promise<bigint>((resolve, reject) => {
 		vscode.window.showInputBox({
-			prompt: `Please enter the number to increment by in decimal format`,
+			prompt: "Please enter the number to increment by in decimal format",
 			value: "1",
 		}).then(async (rawIncrement: string | undefined) => {
 			if (typeof rawIncrement === "undefined"
@@ -174,7 +176,7 @@ async function askForIncrement(): Promise<bigint> {
 			try {
 				increment = BigInt(rawIncrement);
 			} catch (err) {
-				reject(`The entered number to increment by is not a valid number.`);
+				reject("The entered number to increment by is not a valid number.");
 				return;
 			}
 
@@ -236,8 +238,9 @@ function tryParseDecimalNumber(rawNumber: string, options: IChangeNumeralSystemO
 
 
 function transformDecimalNumberToHexWithArithmetic(num: bigint, arithmetic: NumberArithmetic): bigint {
-	if (typeof arithmetic === "undefined")
+	if (typeof arithmetic === "undefined") {
 		return num;
+	}
 
 	if (num < 0n) {
 		return UNSIGNED_ARITHMETIC_RANGES[arithmetic].max - ((-num) - 1n);
@@ -247,8 +250,9 @@ function transformDecimalNumberToHexWithArithmetic(num: bigint, arithmetic: Numb
 }
 
 function transformHexadecimalNumberToDecimalWithArithmetic(num: bigint, arithmetic: NumberArithmetic): bigint {
-	if (typeof arithmetic === "undefined")
+	if (typeof arithmetic === "undefined") {
 		return num;
+	}
 
 	if (num > SIGNED_ARITHMETIC_RANGES[arithmetic].max) {
 		return SIGNED_ARITHMETIC_RANGES[arithmetic].min + (num - SIGNED_ARITHMETIC_RANGES[arithmetic].max - 1n);

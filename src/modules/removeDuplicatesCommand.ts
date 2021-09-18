@@ -11,7 +11,7 @@ export async function runRemoveDuplicatesCommand() {
 
 	const matchingLinesBySelection: string[][] = [];
 	const selections = getSelectionsOrFullDocument(editor);
-		
+
 	for (const selection of selections) {
 		matchingLinesBySelection.push([]);
 
