@@ -49,6 +49,9 @@ Availability:
 * **Insert line numbers:** Inserts line numbers to the start of each line in every selection. Line numbers can be real line numbers in the file or can start with 1.
 * **Remove duplicated, blank, surplus blank, empty, surplus empty lines and control characters**
 * **Trim leading & trailing whitespace, remove whitespace characters, remove newlines**
+    * *Note*: There are disabled by default built-in settings for trimming trailing whitespace and secondary newlines at the end of file:
+    * - `files.trimTrailingWhitespace` – When `true`, will trim trailing whitespace when saving a file.
+    * - `files.trimFinalNewlines` – When `true`, will trim all new lines after the final new line at the end of the file when saving it.
 * **Prefix, suffix and wrap lines:** Prefix, suffix and wrap lines. Wrap uses either the same prefix/suffix or different ones.
 * **Insert full file path, directory path and file name of the opened file**.
 * **Escape text for JSON and convert text to JSON string**
