@@ -13,7 +13,7 @@ Availability:
 ## Features
 * **Filter lines using strings or regular expressions (grep like experience):** Filter line commands take an input – a raw text or a regular expression – and filter – exclude or include – the selected lines using that input. It works like the `grep` command but inside VS Code. 
     * *Protip:* The command provides a history feature with the last 10 filter texts available to use immediately.
-    * *Protip:* Filter comamnds can project the results to a new editor, so the original content is not modified. This way you can create multiple projections from your content without reloading the file or reverting the changes made by the filter command. Search for commands with `into a new editor` at the end to use this feature.
+    * *Protip:* Filter commands can project the results to a new editor, so the original content is not modified. This way you can create multiple projections from your content without reloading the file or reverting the changes made by the filter command. Search for commands with `into a new editor` at the end to use this feature.
     * *Protip:* There are commands to copy or cut resulting lines to the clipboard.
     * *Protip:* These commands search/match in a case insensitive manner. To use case sensitive search/match, set the value of the `textPowerTools.caseSensitiveFiltering` setting to `true`.
 * **Change case of text (camelCase, PascalCase, snake_case, CONSTANT_CASE, dash-case, dot.case, Title Case) and swap casing**.
@@ -89,7 +89,7 @@ Availability:
 
 Description:
 * Opening the VS Code Command Palette with `Ctrl+Shift+P`
-* Entering `filter`, so Text Power Tools' filter commands are dispalyed
+* Entering `filter`, so Text Power Tools' filter commands are displayed
 * Selecting the `Text Power Tools: Filter lines including string into a new editor` command
 * Entering `tiger` as the filter text
 * The command runs and pipes the result into a new editor
