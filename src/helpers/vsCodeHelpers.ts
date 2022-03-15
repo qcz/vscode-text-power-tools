@@ -3,7 +3,7 @@ import * as vscode from "vscode";
 export function getFullDocumentRange(editor: vscode.TextEditor): vscode.Selection {
 	if (editor.document.lineCount > 0) {
 		let lineCount = editor.document.lineCount;
-		return new vscode.Selection(0, 0, lineCount, editor.document.lineAt(lineCount-1).text.length);
+		return new vscode.Selection(0, 0, lineCount - 1, editor.document.lineAt(lineCount - 1).text.length);
 	}
 
 	return new vscode.Selection(0, 0, 0, 0);
