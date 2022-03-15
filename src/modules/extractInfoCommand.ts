@@ -1,7 +1,7 @@
 import * as vscode from "vscode";
+import { NO_ACTIVE_EDITOR } from "../consts";
 import { getExtensionSettings } from "../helpers/tptSettings";
 import { getSelectionLines, getSelectionsOrFullDocument, replaceSelectionsWithLines, showHistoryQuickPick } from "../helpers/vsCodeHelpers";
-import { NO_ACTIVE_EDITOR } from "../consts";
 
 interface IExtractInfoCommandOptions {
 	inNewEditor: boolean;
@@ -44,6 +44,8 @@ export async function runExtractInfoCommand(context: vscode.ExtensionContext, op
 						vscode.window.showErrorMessage("No replacement entered.");
 						return;
 					}
+
+					replacement = replacement.replace("\\n", "\n");
 
 					const matchingLinesBySelection: string[][] = [];
 					const selections = getSelectionsOrFullDocument(editor);
