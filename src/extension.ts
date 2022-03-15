@@ -43,6 +43,7 @@ function registerFilterLinesCommands(context: vscode.ExtensionContext) {
 		runFilterTextCommand(context, { filterType: FilterType.Include, sourceType: FilterSourceType.String, target: FilterTarget.CopyToClipboard })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.cutLinesIncludingStringToClipboard", () =>
 		runFilterTextCommand(context, { filterType: FilterType.Include, sourceType: FilterSourceType.String, target: FilterTarget.CutToClipboard })));
+
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.filterLinesMatchingRegex", () =>
 		runFilterTextCommand(context, { filterType: FilterType.Include, sourceType: FilterSourceType.Regex, target: FilterTarget.CurrentEditor })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.filterLinesMatchingRegexToNewEditor", () =>
@@ -51,6 +52,12 @@ function registerFilterLinesCommands(context: vscode.ExtensionContext) {
 		runFilterTextCommand(context, { filterType: FilterType.Include, sourceType: FilterSourceType.Regex, target: FilterTarget.CopyToClipboard })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.cutLinesMatchingRegexToClipboard", () =>
 		runFilterTextCommand(context, { filterType: FilterType.Include, sourceType: FilterSourceType.Regex, target: FilterTarget.CutToClipboard })));
+
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.filterLinesIncludingSelection", () =>
+		runFilterTextCommand(context, { filterType: FilterType.Include, sourceType: FilterSourceType.Selection, target: FilterTarget.CurrentEditor })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.filterLinesIncludingSelectionToNewEditor", () =>
+		runFilterTextCommand(context, { filterType: FilterType.Include, sourceType: FilterSourceType.Selection, target: FilterTarget.NewEditor })));
+
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.filterLinesNotIncludingString", () =>
 		runFilterTextCommand(context, { filterType: FilterType.Exclude, sourceType: FilterSourceType.String, target: FilterTarget.CurrentEditor })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.filterLinesNotIncludingStringToNewEditor", () =>
@@ -59,6 +66,7 @@ function registerFilterLinesCommands(context: vscode.ExtensionContext) {
 		runFilterTextCommand(context, { filterType: FilterType.Exclude, sourceType: FilterSourceType.String, target: FilterTarget.CopyToClipboard })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.cutLinesNotIncludingStringToClipboard", () =>
 		runFilterTextCommand(context, { filterType: FilterType.Exclude, sourceType: FilterSourceType.String, target: FilterTarget.CutToClipboard })));
+
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.filterLinesNotMatchingRegex", () =>
 		runFilterTextCommand(context, { filterType: FilterType.Exclude, sourceType: FilterSourceType.Regex, target: FilterTarget.CurrentEditor })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.filterLinesNotMatchingRegexToNewEditor", () =>
@@ -67,6 +75,11 @@ function registerFilterLinesCommands(context: vscode.ExtensionContext) {
 		runFilterTextCommand(context, { filterType: FilterType.Exclude, sourceType: FilterSourceType.Regex, target: FilterTarget.CopyToClipboard })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.cutLinesNotMatchingRegexToClipboard", () =>
 		runFilterTextCommand(context, { filterType: FilterType.Exclude, sourceType: FilterSourceType.Regex, target: FilterTarget.CutToClipboard })));
+
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.filterLinesNotIncludingSelection", () =>
+		runFilterTextCommand(context, { filterType: FilterType.Exclude, sourceType: FilterSourceType.Selection, target: FilterTarget.CurrentEditor })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.filterLinesNotIncludingSelectionToNewEditor", () =>
+		runFilterTextCommand(context, { filterType: FilterType.Exclude, sourceType: FilterSourceType.Selection, target: FilterTarget.NewEditor })));
 }
 
 function registerExtractInfoCommands(context: vscode.ExtensionContext) {

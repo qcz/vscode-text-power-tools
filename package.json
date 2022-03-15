@@ -67,18 +67,27 @@
 		"onCommand:textPowerTools.filterLinesIncludingStringToNewEditor",
 		"onCommand:textPowerTools.copyLinesIncludingStringToClipboard",
 		"onCommand:textPowerTools.cutLinesIncludingStringToClipboard",
+
 		"onCommand:textPowerTools.filterLinesMatchingRegex",
 		"onCommand:textPowerTools.filterLinesMatchingRegexToNewEditor",
 		"onCommand:textPowerTools.copyLinesMatchingRegexToClipboard",
 		"onCommand:textPowerTools.cutLinesMatchingRegexToClipboard",
+
+		"onCommand:textPowerTools.filterLinesIncludingSelection",
+		"onCommand:textPowerTools.filterLinesIncludingSelectionToNewEditor",
+
 		"onCommand:textPowerTools.filterLinesNotIncludingString",
 		"onCommand:textPowerTools.filterLinesNotIncludingStringToNewEditor",
 		"onCommand:textPowerTools.copyLinesNotIncludingStringToClipboard",
 		"onCommand:textPowerTools.cutLinesNotIncludingStringToClipboard",
+
 		"onCommand:textPowerTools.filterLinesNotMatchingRegex",
 		"onCommand:textPowerTools.filterLinesNotMatchingRegexToNewEditor",
 		"onCommand:textPowerTools.copyLinesNotMatchingRegexToClipboard",
 		"onCommand:textPowerTools.cutLinesNotMatchingRegexToClipboard",
+
+		"onCommand:textPowerTools.filterLinesNotIncludingSelection",
+		"onCommand:textPowerTools.filterLinesNotIncludingSelectionToNewEditor",
 
 		"onCommand:textPowerTools.extractInformation",
 		"onCommand:textPowerTools.extractInformationToNewEditor",
@@ -280,6 +289,7 @@
 				"category": "Text Power Tools",
 				"title": "Cut lines including a string to the clipboard"
 			},
+
 			{
 				"command": "textPowerTools.filterLinesMatchingRegex",
 				"category": "Text Power Tools",
@@ -300,6 +310,18 @@
 				"category": "Text Power Tools",
 				"title": "Cut lines matching a regex (grep) to clipboard"
 			},
+
+			{
+				"command": "textPowerTools.filterLinesIncludingSelection",
+				"category": "Text Power Tools",
+				"title": "Filter lines including the selected text"
+			},
+			{
+				"command": "textPowerTools.filterLinesIncludingSelectionToNewEditor",
+				"category": "Text Power Tools",
+				"title": "Filter lines including the selected text into a new editor"
+			},
+
 			{
 				"command": "textPowerTools.filterLinesNotIncludingString",
 				"category": "Text Power Tools",
@@ -320,6 +342,7 @@
 				"category": "Text Power Tools",
 				"title": "Cut lines not including a string into a new editor"
 			},
+
 			{
 				"command": "textPowerTools.filterLinesNotMatchingRegex",
 				"category": "Text Power Tools",
@@ -341,6 +364,16 @@
 				"title": "Cut lines not matching a regex (grep) to clipboard"
 			},
 
+			{
+				"command": "textPowerTools.filterLinesNotIncludingSelection",
+				"category": "Text Power Tools",
+				"title": "Filter lines not including the selected text"
+			},
+			{
+				"command": "textPowerTools.filterLinesNotIncludingSelectionToNewEditor",
+				"category": "Text Power Tools",
+				"title": "Filter lines not including the selected text into a new editor"
+			},
 
 			{
 				"command": "textPowerTools.extractInformation",
@@ -1244,67 +1277,83 @@
 			"textPowerTools.filterLines": [
 				{
 					"command": "textPowerTools.filterLinesIncludingString",
-					"group": "tpt_filterLines_includingString@1"
+					"group": "tpt_filterLines_1_includingString@1"
 				},
 				{
 					"command": "textPowerTools.filterLinesIncludingStringToNewEditor",
-					"group": "tpt_filterLines_includingString@2"
+					"group": "tpt_filterLines_1_includingString@2"
 				},
 				{
 					"command": "textPowerTools.copyLinesIncludingStringToClipboard",
-					"group": "tpt_filterLines_includingString@3"
+					"group": "tpt_filterLines_1_includingString@3"
 				},
 				{
 					"command": "textPowerTools.cutLinesIncludingStringToClipboard",
-					"group": "tpt_filterLines_includingString@4"
+					"group": "tpt_filterLines_1_includingString@4"
 				},
 				{
 					"command": "textPowerTools.filterLinesMatchingRegex",
-					"group": "tpt_filterLines_matchingRegex@1"
+					"group": "tpt_filterLines_2_matchingRegex@1"
 				},
 				{
 					"command": "textPowerTools.filterLinesMatchingRegexToNewEditor",
-					"group": "tpt_filterLines_matchingRegex@2"
+					"group": "tpt_filterLines_2_matchingRegex@2"
 				},
 				{
 					"command": "textPowerTools.copyLinesMatchingRegexToClipboard",
-					"group": "tpt_filterLines_matchingRegex@3"
+					"group": "tpt_filterLines_2_matchingRegex@3"
 				},
 				{
 					"command": "textPowerTools.cutLinesMatchingRegexToClipboard",
-					"group": "tpt_filterLines_matchingRegex@4"
+					"group": "tpt_filterLines_2_matchingRegex@4"
+				},
+				{
+					"command": "textPowerTools.filterLinesIncludingSelection",
+					"group": "tpt_filterLines_3_includingSelection@1"
+				},
+				{
+					"command": "textPowerTools.filterLinesIncludingSelectionToNewEditor",
+					"group": "tpt_filterLines_3_includingSelection@2"
 				},
 				{
 					"command": "textPowerTools.filterLinesNotIncludingString",
-					"group": "tpt_filterLines_notIncludingString@1"
+					"group": "tpt_filterLines_4_notIncludingString@1"
 				},
 				{
 					"command": "textPowerTools.filterLinesNotIncludingStringToNewEditor",
-					"group": "tpt_filterLines_notIncludingString@2"
+					"group": "tpt_filterLines_4_notIncludingString@2"
 				},
 				{
 					"command": "textPowerTools.copyLinesNotIncludingStringToClipboard",
-					"group": "tpt_filterLines_notIncludingString@3"
+					"group": "tpt_filterLines_4_notIncludingString@3"
 				},
 				{
 					"command": "textPowerTools.cutLinesNotIncludingStringToClipboard",
-					"group": "tpt_filterLines_notIncludingString@4"
+					"group": "tpt_filterLines_4_notIncludingString@4"
 				},
 				{
 					"command": "textPowerTools.filterLinesNotMatchingRegex",
-					"group": "tpt_filterLines_notMatchingRegex@1"
+					"group": "tpt_filterLines_5_notMatchingRegex@1"
 				},
 				{
 					"command": "textPowerTools.filterLinesNotMatchingRegexToNewEditor",
-					"group": "tpt_filterLines_notMatchingRegex@2"
+					"group": "tpt_filterLines_5_notMatchingRegex@2"
 				},
 				{
 					"command": "textPowerTools.copyLinesNotMatchingRegexToClipboard",
-					"group": "tpt_filterLines_notMatchingRegex@3"
+					"group": "tpt_filterLines_5_notMatchingRegex@3"
 				},
 				{
 					"command": "textPowerTools.cutLinesNotMatchingRegexToClipboard",
-					"group": "tpt_filterLines_notMatchingRegex@4"
+					"group": "tpt_filterLines_5_notMatchingRegex@4"
+				},
+				{
+					"command": "textPowerTools.filterLinesNotIncludingSelection",
+					"group": "tpt_filterLines_6_notIncludingSelection@1"
+				},
+				{
+					"command": "textPowerTools.filterLinesNotIncludingSelectionToNewEditor",
+					"group": "tpt_filterLines_6_notIncludingSelection@2"
 				}
 			],
 			"textPowerTools.extraction": [
