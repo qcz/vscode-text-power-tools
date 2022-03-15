@@ -1,5 +1,5 @@
 import * as vscode from "vscode";
-import { CANNOT_SELECT_MORE_THAN_ONE_LINE, NOTHING_IS_SELECTED, NO_ACTIVE_EDITOR } from "../consts";
+import { CANNOT_SELECT_MORE_THAN_ONE_LINE, NOTHING_IS_SELECTED, NO_ACTIVE_EDITOR, SELECT_MORE_THAN_ONE_LINE } from "../consts";
 import { getExtensionSettings } from "../helpers/tptSettings";
 import { getFullDocumentRange, getSelectionContent, getSelectionLines, getSelectionsOrFullDocument, replaceSelectionsWithLines, showHistoryQuickPick } from "../helpers/vsCodeHelpers";
 
@@ -39,18 +39,27 @@ export async function runFilterTextCommand(context: vscode.ExtensionContext, opt
 
 	if (sourceType === FilterSourceType.Selection) {
 		if (editor.selection.isEmpty) {
-			vscode.window.showWarningMessage(NOTHING_IS_SELECTED);
+			vscode.window.showErrorMessage(NOTHING_IS_SELECTED);
 			return;
 		}
 
 		if (editor.selection.isSingleLine === false) {
-			vscode.window.showWarningMessage(CANNOT_SELECT_MORE_THAN_ONE_LINE);
+			vscode.window.showErrorMessage(CANNOT_SELECT_MORE_THAN_ONE_LINE);
 			return;
 		}
 
 		const selectionContent = getSelectionContent(editor, editor.selection);
 		await doFilter(editor, selectionContent, options);
 	} else {
+		if (editor.selections.length === 1
+			&& (editor.selection.isEmpty || editor.selection.isSingleLine)
+		) {
+			vscode.window.showErrorMessage(editor.selection.isEmpty
+				? NOTHING_IS_SELECTED
+				: SELECT_MORE_THAN_ONE_LINE);
+			return;
+		}
+
 		showHistoryQuickPick({
 			context: context,
 			title: sourceType === FilterSourceType.String
