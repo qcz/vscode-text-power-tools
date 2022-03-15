@@ -380,19 +380,27 @@ function registerIncreaseDecreaseCommands(context: vscode.ExtensionContext) {
 
 function registerEncoderCommands(context: vscode.ExtensionContext) {
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.urlEncodeText", () =>
-		runModifyTextEncodingCommand({ type: TextEncodingType.UrlEncoding, direction: TextEncodingDirection.Encode })));
+		runModifyTextEncodingCommand({ type: TextEncodingType.UrlEncoding, direction: TextEncodingDirection.Encode, onEachLine: false })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.urlEncodeTextOnEachLine", () =>
+		runModifyTextEncodingCommand({ type: TextEncodingType.UrlEncoding, direction: TextEncodingDirection.Encode, onEachLine: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.urlDecodeText", () =>
-		runModifyTextEncodingCommand({ type: TextEncodingType.UrlEncoding, direction: TextEncodingDirection.Decode })));
+		runModifyTextEncodingCommand({ type: TextEncodingType.UrlEncoding, direction: TextEncodingDirection.Decode, onEachLine: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.encodeHtmlEntities", () =>
-		runModifyTextEncodingCommand({ type: TextEncodingType.HtmlEntityEncoding, direction: TextEncodingDirection.Encode })));
+		runModifyTextEncodingCommand({ type: TextEncodingType.HtmlEntityEncoding, direction: TextEncodingDirection.Encode, onEachLine: false })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.encodeHtmlEntitiesOnEachLine", () =>
+		runModifyTextEncodingCommand({ type: TextEncodingType.HtmlEntityEncoding, direction: TextEncodingDirection.Encode, onEachLine: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.encodeHtmlEntitiesWithNonAscii", () =>
-		runModifyTextEncodingCommand({ type: TextEncodingType.HtmlEntityEncodingWithNonAscii, direction: TextEncodingDirection.Encode })));
+		runModifyTextEncodingCommand({ type: TextEncodingType.HtmlEntityEncodingWithNonAscii, direction: TextEncodingDirection.Encode, onEachLine: false })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.encodeHtmlEntitiesWithNonAsciiOnEachLine", () =>
+		runModifyTextEncodingCommand({ type: TextEncodingType.HtmlEntityEncodingWithNonAscii, direction: TextEncodingDirection.Encode, onEachLine: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.decodeHtmlEntities", () =>
-		runModifyTextEncodingCommand({ type: TextEncodingType.HtmlEntityEncoding, direction: TextEncodingDirection.Decode })));
+		runModifyTextEncodingCommand({ type: TextEncodingType.HtmlEntityEncoding, direction: TextEncodingDirection.Decode, onEachLine: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.encodeXmlEntities", () =>
-		runModifyTextEncodingCommand({ type: TextEncodingType.XmlEntityEncoding, direction: TextEncodingDirection.Encode })));
+		runModifyTextEncodingCommand({ type: TextEncodingType.XmlEntityEncoding, direction: TextEncodingDirection.Encode, onEachLine: false })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.encodeXmlEntitiesOnEachLine", () =>
+		runModifyTextEncodingCommand({ type: TextEncodingType.XmlEntityEncoding, direction: TextEncodingDirection.Encode, onEachLine: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.decodeXmlEntities", () =>
-		runModifyTextEncodingCommand({ type: TextEncodingType.XmlEntityEncoding, direction: TextEncodingDirection.Decode })));
+		runModifyTextEncodingCommand({ type: TextEncodingType.XmlEntityEncoding, direction: TextEncodingDirection.Decode, onEachLine: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.escapeTextForJson", () =>
 		runTextTransformationCommand({ type: TextTransformationType.Json })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.convertToJsonString", () =>

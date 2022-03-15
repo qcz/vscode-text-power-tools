@@ -1,7 +1,7 @@
-import { AllHtmlEntities, XmlEntities } from "html-entities";
+import { decode as decodeEntities, encode as encodeEntities } from "html-entities";
 import * as vscode from "vscode";
 import { NO_ACTIVE_EDITOR } from "../consts";
-import { getSelectionLines, getSelectionsOrFullDocument, replaceSelectionsWithLines } from "../helpers/vsCodeHelpers";
+import { getSelectionContent, getSelectionLines, getSelectionsOrFullDocument, replaceSelectionsWithLines } from "../helpers/vsCodeHelpers";
 
 export const enum TextEncodingType {
 	UrlEncoding = 1,
@@ -18,6 +18,7 @@ export const enum TextEncodingDirection {
 interface IModifyTextEncodingOptions {
 	type: TextEncodingType;
 	direction: TextEncodingDirection;
+	onEachLine: boolean;
 }
 
 export async function runModifyTextEncodingCommand(options: IModifyTextEncodingOptions) {
@@ -34,34 +35,59 @@ export async function runModifyTextEncodingCommand(options: IModifyTextEncodingO
 		linesBySelection.push([]);
 		const currentSelectionLines = linesBySelection[linesBySelection.length - 1];
 
-		for (const lineContent of getSelectionLines(editor, selection)) {
-			switch (options.type) {
-				case TextEncodingType.UrlEncoding:
-					if (options.direction === TextEncodingDirection.Encode) {
-						currentSelectionLines.push(encodeURIComponent(lineContent));
-					} else {
-						currentSelectionLines.push(decodeURIComponent(lineContent));
-					}
-					break;
-				case TextEncodingType.HtmlEntityEncoding:
-					if (options.direction === TextEncodingDirection.Encode) {
-						currentSelectionLines.push(AllHtmlEntities.encode(lineContent));
-					} else {
-						currentSelectionLines.push(AllHtmlEntities.decode(lineContent));
-					}
-					break;
-				case TextEncodingType.XmlEntityEncoding:
-					if (options.direction === TextEncodingDirection.Encode) {
-						currentSelectionLines.push(XmlEntities.encode(lineContent));
-					} else {
-						currentSelectionLines.push(XmlEntities.decode(lineContent));
-					}
-					break;
-				default:
-					currentSelectionLines.push(lineContent);
+		if (options.onEachLine === true) {
+			for (const lineContent of getSelectionLines(editor, selection)) {
+				runEncodingOnLine(options, currentSelectionLines, lineContent);
 			}
+		} else {
+			const selectionContent = getSelectionContent(editor, selection);
+
+			runEncodingOnLine(options, currentSelectionLines, selectionContent);
 		}
 	}
 
 	await replaceSelectionsWithLines(editor, selections, linesBySelection, /* openNewDocument: */false);
 }
+function runEncodingOnLine(options: IModifyTextEncodingOptions, currentSelectionLines: string[], lineContent: string) {
+	switch (options.type) {
+		case TextEncodingType.UrlEncoding:
+			if (options.direction === TextEncodingDirection.Encode) {
+				currentSelectionLines.push(encodeURIComponent(lineContent).replace("\n", "%0A"));
+			} else {
+				currentSelectionLines.push(decodeURIComponent(lineContent));
+			}
+			break;
+		case TextEncodingType.HtmlEntityEncoding:
+			if (options.direction === TextEncodingDirection.Encode) {
+				currentSelectionLines.push(encodeEntities(lineContent, {
+					level: "html5",
+					mode: "specialChars"
+				}).replace("\n", "&#13;"));
+			} else {
+				currentSelectionLines.push(decodeEntities(lineContent, { level: "html5" }).replace("&#13;", "\n"));
+			}
+			break;
+		case TextEncodingType.HtmlEntityEncodingWithNonAscii:
+			if (options.direction === TextEncodingDirection.Encode) {
+				currentSelectionLines.push(encodeEntities(lineContent, {
+					level: "html5",
+					mode: "nonAsciiPrintable"
+				}).replace("\n", "&#13;"));
+			} else {
+				currentSelectionLines.push(decodeEntities(lineContent, { level: "html5" }).replace("&#13;", "\n"));
+			}
+			break;
+		case TextEncodingType.XmlEntityEncoding:
+			if (options.direction === TextEncodingDirection.Encode) {
+				currentSelectionLines.push(encodeEntities(lineContent, {
+					level: "xml"
+				}).replace("\n", "&#13;"));
+			} else {
+				currentSelectionLines.push(decodeEntities(lineContent, {level: "xml" }).replace("&#13;", "\n"));
+			}
+			break;
+		default:
+			currentSelectionLines.push(lineContent);
+	}
+}
+

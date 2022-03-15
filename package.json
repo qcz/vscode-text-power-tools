@@ -227,11 +227,15 @@
 		"onCommand:textPowerTools.changeHexNumbersWithIncrement64bit",
 
 		"onCommand:textPowerTools.urlEncodeText",
+		"onCommand:textPowerTools.urlEncodeTextOnEachLine",
 		"onCommand:textPowerTools.urlDecodeText",
 		"onCommand:textPowerTools.encodeHtmlEntities",
+		"onCommand:textPowerTools.encodeHtmlEntitiesOnEachLine",
 		"onCommand:textPowerTools.encodeHtmlEntitiesWithNonAscii",
+		"onCommand:textPowerTools.encodeHtmlEntitiesWithNonAsciiOnEachLine",
 		"onCommand:textPowerTools.decodeHtmlEntities",
 		"onCommand:textPowerTools.encodeXmlEntities",
+		"onCommand:textPowerTools.encodeXmlEntitiesOnEachLine",
 		"onCommand:textPowerTools.decodeXmlEntities",
 		"onCommand:textPowerTools.escapeTextForJson",
 		"onCommand:textPowerTools.convertToJsonString",
@@ -1032,6 +1036,11 @@
 				"title": "URL encode text"
 			},
 			{
+				"command": "textPowerTools.urlEncodeTextOnEachLine",
+				"category": "Text Power Tools",
+				"title": "URL encode text on each line"
+			},
+			{
 				"command": "textPowerTools.urlDecodeText",
 				"category": "Text Power Tools",
 				"title": "Decode URL encoded text"
@@ -1042,9 +1051,19 @@
 				"title": "Encode HTML entities"
 			},
 			{
+				"command": "textPowerTools.encodeHtmlEntitiesOnEachLine",
+				"category": "Text Power Tools",
+				"title": "Encode HTML entities on each lines"
+			},
+			{
 				"command": "textPowerTools.encodeHtmlEntitiesWithNonAscii",
 				"category": "Text Power Tools",
 				"title": "Encode HTML entities including non ASCII characters"
+			},
+			{
+				"command": "textPowerTools.encodeHtmlEntitiesWithNonAsciiOnEachLine",
+				"category": "Text Power Tools",
+				"title": "Encode HTML entities including non ASCII characters on each line"
 			},
 			{
 				"command": "textPowerTools.decodeHtmlEntities",
@@ -1055,6 +1074,11 @@
 				"command": "textPowerTools.encodeXmlEntities",
 				"category": "Text Power Tools",
 				"title": "Encode XML entities"
+			},
+			{
+				"command": "textPowerTools.encodeXmlEntitiesOnEachLine",
+				"category": "Text Power Tools",
+				"title": "Encode XML entities on each line"
 			},
 			{
 				"command": "textPowerTools.decodeXmlEntities",
@@ -1759,28 +1783,44 @@
 					"group": "tpt_1_urlEncode@1"
 				},
 				{
-					"command": "textPowerTools.urlDecodeText",
+					"command": "textPowerTools.urlEncodeTextOnEachLine",
 					"group": "tpt_1_urlEncode@2"
+				},
+				{
+					"command": "textPowerTools.urlDecodeText",
+					"group": "tpt_1_urlEncode@3"
 				},
 				{
 					"command": "textPowerTools.encodeHtmlEntities",
 					"group": "tpt_2_htmlXml@1"
 				},
 				{
-					"command": "textPowerTools.encodeHtmlEntitiesWithNonAscii",
+					"command": "textPowerTools.encodeHtmlEntitiesOnEachLine",
 					"group": "tpt_2_htmlXml@2"
 				},
 				{
-					"command": "textPowerTools.decodeHtmlEntities",
+					"command": "textPowerTools.encodeHtmlEntitiesWithNonAscii",
 					"group": "tpt_2_htmlXml@3"
 				},
 				{
-					"command": "textPowerTools.encodeXmlEntities",
+					"command": "textPowerTools.encodeHtmlEntitiesWithNonAsciiOnEachLine",
 					"group": "tpt_2_htmlXml@4"
 				},
 				{
+					"command": "textPowerTools.decodeHtmlEntities",
+					"group": "tpt_2_htmlXml@5"
+				},
+				{
+					"command": "textPowerTools.encodeXmlEntities",
+					"group": "tpt_2_htmlXml@6"
+				},
+				{
+					"command": "textPowerTools.encodeXmlEntitiesOnEachLine",
+					"group": "tpt_2_htmlXml@7"
+				},
+				{
 					"command": "textPowerTools.decodeXmlEntities",
-					"group": "tpt_2_htmlXml@4"
+					"group": "tpt_2_htmlXml@8"
 				},
 				{
 					"command": "textPowerTools.escapeTextForJson",
@@ -2099,7 +2139,7 @@
 	"dependencies": {
 		"change-case": "^3.0.2",
 		"faker": "github:qcz/faker#v5.2.0-tpt-3",
-		"html-entities": "^1.3.1",
+		"html-entities": "2.3.2",
 		"ip6addr": "^0.2.3",
 		"js-base64": "^3.4.5",
 		"js-roman-numerals": "^1.1.0",
