@@ -1,5 +1,13 @@
 # Changelog
 
+## **1.31.0** (2022. 03. 15.)
+- Support newlines in the output of the _Extract information from text_ commands. (#37)
+- Support encoding newlines for URL encode, HTML entities, XML entities. Base commands are now always works with the full selection, and there are new commands to encode on each line like for Base64 econdig. (#31)
+- Add support for filter lines including/not including the selected text. (#27)
+- Display warning for filter commands when there are no selection or when a single line is selected. (#26)
+- Fix `Illegal value for line` bug error message when there was no selection. (#35)
+- Fix typo in settings. (Thanks @chschroeIBM, #32)
+
 ## **1.30.0** (2021. 09. 12.)
 - Add _Reverse lines_ command.
 - Fix text truncation bug in the _Escape text for JSON_ command.
@@ -33,7 +41,7 @@
 - Add commands to _prefix_, _suffix_ and _wrap_ (with same or different prefix and suffix) lines.
 
 ## **1.23.0** (2021. 03. 21.)
-- Add commands to increase/decrease decimal and hexadecimal numbers. Increasing hexadecimal numbers can also be made using 8, 16, 32 and 64 bit arithmetic. 
+- Add commands to increase/decrease decimal and hexadecimal numbers. Increasing hexadecimal numbers can also be made using 8, 16, 32 and 64 bit arithmetic.
 
 ## **1.22.1** (2021. 03. 16.)
 - Fix insert number sequence when starting number is 0.

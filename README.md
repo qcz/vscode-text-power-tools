@@ -11,7 +11,7 @@ Availability:
 **Note:** Due to current architectural limitations of VSCode, no extension can access files larger than 50 Megabytes. Vote for [VSCode issue 31078](https://github.com/Microsoft/vscode/issues/31078), which once implemented, will allows this extension to work with these large files. In the meantime you can trick VSCode by opening a new file and copying the content of the large file there (without saving).
 
 ## Features
-* **Filter lines using strings or regular expressions (grep like experience):** Filter line commands take an input – a raw text or a regular expression – and filter – exclude or include – the selected lines using that input. It works like the `grep` command but inside VS Code. 
+* **Filter lines using strings or regular expressions (grep like experience):** Filter line commands take an input – a raw text, a regular expression or the selected text – and filter – exclude or include – the selected lines using that input. It works like the `grep` command but inside VS Code.
     * *Protip:* The command provides a history feature with the last 10 filter texts available to use immediately.
     * *Protip:* Filter commands can project the results to a new editor, so the original content is not modified. This way you can create multiple projections from your content without reloading the file or reverting the changes made by the filter command. Search for commands with `into a new editor` at the end to use this feature.
     * *Protip:* There are commands to copy or cut resulting lines to the clipboard.
@@ -36,7 +36,7 @@ Availability:
     * _Short current/custom locale month names_
     * _Long current/custom locale day names_
     * _Short current/custom locale day names_
-    
+
     (Note: current/custom locale means OS locale or the locale specified in the `textPowerTools.customLocale` setting)
 * **Generate fake/random data**:
     * _Random hex/decimal character sequences_
@@ -56,7 +56,7 @@ Availability:
 * **Insert full file path, directory path and file name of the opened file**.
 * **Escape text for JSON and convert text to JSON string**
 * **Insert Unix timestamp**
-* **Extract information from the source lines using regular expressions:** First input is the regular expression which should be matched with capture groups to find the desired parts of the lines (e.g.: `(\d.\d) dogs`). The second input is the replacement rule, which should contain capture group references (e.g. `$1 cats`). With these commands you can transform matching lines to the desired format in seconds.
+* **Extract information from the source lines using regular expressions:** First input is the regular expression which should be matched with capture groups to find the desired parts of the lines (e.g.: `(\d.\d) dogs`). The second input is the replacement rule, which should contain capture group references (e.g. `$1 cats`). You can insert newlines with `\n` to the output. With these commands you can transform matching lines to the desired format in seconds.
 
   The last 10 filter strings and replacement expressions are presented and can be used quickly when executing these commands.
 * **Count occurrences of lines:** This command will counts how many times a line appears in the selected text and generates an output with the number of occurrences and the lines themselves.
@@ -64,8 +64,8 @@ Availability:
     * _Case sensitive sort lines_
     * _Case sensitive sort lines starting at column_
     * _Case insensitive sort lines starting at column_
-    * _Sort lines by length (and then case sensitive)_ 
-    * _Sort lines by length (and then case insensitive)_ 
+    * _Sort lines by length (and then case sensitive)_
+    * _Sort lines by length (and then case insensitive)_
     * _Sort lines by semver rules_
     * _Sort lines by word count_
     * _Sort lines by grapheme count_ (taking care of surrogate pairs and combining marks thanks to Voca)
