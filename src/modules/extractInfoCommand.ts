@@ -45,7 +45,7 @@ export async function runExtractInfoCommand(context: vscode.ExtensionContext, op
 						return;
 					}
 
-					replacement = replacement.replace("\\n", "\n");
+					replacement = replacement.replace(/\\n/g, "\n");
 
 					const matchingLinesBySelection: string[][] = [];
 					const selections = getSelectionsOrFullDocument(editor);

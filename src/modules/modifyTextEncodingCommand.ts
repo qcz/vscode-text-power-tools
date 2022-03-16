@@ -52,7 +52,7 @@ function runEncodingOnLine(options: IModifyTextEncodingOptions, currentSelection
 	switch (options.type) {
 		case TextEncodingType.UrlEncoding:
 			if (options.direction === TextEncodingDirection.Encode) {
-				currentSelectionLines.push(encodeURIComponent(lineContent).replace("\n", "%0A"));
+				currentSelectionLines.push(encodeURIComponent(lineContent).replace(/\n/g, "%0A"));
 			} else {
 				currentSelectionLines.push(decodeURIComponent(lineContent));
 			}
@@ -62,9 +62,9 @@ function runEncodingOnLine(options: IModifyTextEncodingOptions, currentSelection
 				currentSelectionLines.push(encodeEntities(lineContent, {
 					level: "html5",
 					mode: "specialChars"
-				}).replace("\n", "&#13;"));
+				}).replace(/\n/g, "&#13;"));
 			} else {
-				currentSelectionLines.push(decodeEntities(lineContent, { level: "html5" }).replace("&#13;", "\n"));
+				currentSelectionLines.push(decodeEntities(lineContent, { level: "html5" }).replace(/&#13;/g, "\n"));
 			}
 			break;
 		case TextEncodingType.HtmlEntityEncodingWithNonAscii:
@@ -72,18 +72,18 @@ function runEncodingOnLine(options: IModifyTextEncodingOptions, currentSelection
 				currentSelectionLines.push(encodeEntities(lineContent, {
 					level: "html5",
 					mode: "nonAsciiPrintable"
-				}).replace("\n", "&#13;"));
+				}).replace(/\n/g, "&#13;"));
 			} else {
-				currentSelectionLines.push(decodeEntities(lineContent, { level: "html5" }).replace("&#13;", "\n"));
+				currentSelectionLines.push(decodeEntities(lineContent, { level: "html5" }).replace(/&#13;/g, "\n"));
 			}
 			break;
 		case TextEncodingType.XmlEntityEncoding:
 			if (options.direction === TextEncodingDirection.Encode) {
 				currentSelectionLines.push(encodeEntities(lineContent, {
 					level: "xml"
-				}).replace("\n", "&#13;"));
+				}).replace(/\n/g, "&#13;"));
 			} else {
-				currentSelectionLines.push(decodeEntities(lineContent, {level: "xml" }).replace("&#13;", "\n"));
+				currentSelectionLines.push(decodeEntities(lineContent, {level: "xml" }).replace(/&#13;/g, "\n"));
 			}
 			break;
 		default:
