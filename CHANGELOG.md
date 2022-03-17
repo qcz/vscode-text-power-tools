@@ -1,5 +1,8 @@
 # Changelog
 
+## **1.31.1** (2022. 03. 17.)
+- Fix replacement of multiple newlines in new functionality introduced in 1.31.0 (#38)
+
 ## **1.31.0** (2022. 03. 15.)
 - Support newlines in the output of the _Extract information from text_ commands. (#37)
 - Support encoding newlines for URL encode, HTML entities, XML entities. Base commands are now always works with the full selection, and there are new commands to encode on each line like for Base64 econdig. (#31)
