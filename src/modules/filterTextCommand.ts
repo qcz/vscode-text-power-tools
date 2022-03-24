@@ -51,12 +51,8 @@ export async function runFilterTextCommand(context: vscode.ExtensionContext, opt
 		const selectionContent = getSelectionContent(editor, editor.selection);
 		await doFilter(editor, selectionContent, options);
 	} else {
-		if (editor.selections.length === 1
-			&& (editor.selection.isEmpty || editor.selection.isSingleLine)
-		) {
-			vscode.window.showErrorMessage(editor.selection.isEmpty
-				? NOTHING_IS_SELECTED
-				: SELECT_MORE_THAN_ONE_LINE);
+		if (editor.selections.length === 1 && editor.selection.isSingleLine && editor.selection.isEmpty === false) {
+			vscode.window.showErrorMessage(SELECT_MORE_THAN_ONE_LINE);
 			return;
 		}
 
