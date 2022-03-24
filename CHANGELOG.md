@@ -1,5 +1,8 @@
 # Changelog
 
+## **1.31.2** (2022. 03. 24.)
+- Restore support of filtering the full file without selection (#39)
+
 ## **1.31.1** (2022. 03. 17.)
 - Fix replacement of multiple newlines in new functionality introduced in 1.31.0 (#38)
 
