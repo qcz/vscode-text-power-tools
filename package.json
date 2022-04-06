@@ -40,7 +40,7 @@
 		"regular expressions",
 		"trim"
 	],
-	"version": "1.31.2",
+	"version": "1.32.0",
 	"publisher": "qcz",
 	"private": true,
 	"engines": {
@@ -256,6 +256,7 @@
 		"onCommand:textPowerTools.removeWhitespaceCharacters",
 		"onCommand:textPowerTools.removeNewLines",
 		"onCommand:textPowerTools.trimAndRemoveNewLines",
+		"onCommand:textPowerTools.replaceNewLinesAndWhitespaceWithASingleSpace",
 
 		"onCommand:textPowerTools.removeDuplicates",
 		"onCommand:textPowerTools.removeEmptyLines",
@@ -1165,6 +1166,11 @@
 				"category": "Text Power Tools",
 				"title": "Trim whitespace and remove newlines"
 			},
+			{
+				"command": "textPowerTools.replaceNewLinesAndWhitespaceWithASingleSpace",
+				"category": "Text Power Tools",
+				"title": "Replace new lines and whitespace with a single space"
+			},
 
 
 			{
@@ -1989,6 +1995,10 @@
 				},
 				{
 					"command": "textPowerTools.trimAndRemoveNewLines",
+					"group": "tpt_1_removeCharacters@3"
+				},
+				{
+					"command": "textPowerTools.replaceNewLinesAndWhitespaceWithASingleSpace",
 					"group": "tpt_1_removeCharacters@3"
 				},
 

@@ -18,6 +18,7 @@ export { runRemoveControlCharactersCommand } from "./removeControlCharactersComm
 export { runRemoveDuplicatesCommand } from "./removeDuplicatesCommand";
 export { RemovedLineType, runRemoveLinesCommand } from "./removeLinesCommand";
 export { runRemoveNewLinesCommand } from "./removeNewLinesCommand";
+export { runReplaceNewLinesAndWhitespaceWithASingleSpace } from "./replaceNewLinesAndWhitespaceWithSpace";
 export { runSortCommand, SortMethod } from "./sortCommand";
 export { runpasteTextSlotCommand, runSetTextSlotContentCommand } from "./textSlotCommands";
 export { runTextTransformationCommand, TextTransformationType } from "./textTransformationCommand";

@@ -1,5 +1,8 @@
 # Changelog
 
+## **1.32.0** (2022. 04. 06.)
+- Add _Replace new lines and whitespace with a single space_ command.
+
 ## **1.31.2** (2022. 03. 24.)
 - Restore support of filtering the full file without selection (#39)
 
