@@ -104,7 +104,7 @@ export async function replaceSelectionsWithLines(editor: vscode.TextEditor, sele
 	contentBySelection: string[][], openNewDocument: boolean
 ): Promise<void> {
 	if (openNewDocument === true) {
-		const targetEditor = await createNewEditor();
+		const targetEditor = await createNewEditor(editor);
 
 		var docRange = getFullDocumentRange(targetEditor);
 		if (docRange) {
@@ -126,9 +126,11 @@ export async function replaceSelectionsWithLines(editor: vscode.TextEditor, sele
 	}
 }
 
-export function createNewEditor(): PromiseLike<vscode.TextEditor> {
+export function createNewEditor(originalEditor?: vscode.TextEditor): PromiseLike<vscode.TextEditor> {
 	return new Promise((resolve, reject) => {
-		vscode.workspace.openTextDocument({content: "", language: "" } as any).then(
+		const newEditorLanguageId = originalEditor?.document.languageId ?? "";
+
+		vscode.workspace.openTextDocument({content: "", language: newEditorLanguageId } as any).then(
 			(doc) => {
 				resolve(vscode.window.showTextDocument(doc));
 			},

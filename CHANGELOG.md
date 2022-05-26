@@ -1,5 +1,8 @@
 # Changelog
 
+## **1.33.0** (2022. 04. 06.)
+- New editors opened via the "_into a new editor_" commands now has the same language mode as their ancestors.
+
 ## **1.32.0** (2022. 04. 06.)
 - Add _Replace new lines and whitespace with a single space_ command.
 
