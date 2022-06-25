@@ -1,4 +1,4 @@
-import ip6addr, { compare, compareCIDR } from "ip6addr";
+import { compare, compareCIDR } from "ip6addr";
 import semverSort from "semver-sort";
 import * as voca from "voca";
 import * as vscode from "vscode";
