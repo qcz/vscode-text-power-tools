@@ -8,6 +8,8 @@ Availability:
 * **VS Code Marketplace:** https://marketplace.visualstudio.com/items?itemName=qcz.text-power-tools
 * **OpenVSX:** https://open-vsx.org/extension/qcz/text-power-tools
 
+Text Power Tools is also available as a Web Extension so it can be used on sites like vscode.dev.
+
 **Note:** Due to current architectural limitations of VSCode, no extension can access files larger than 50 Megabytes. Vote for [VSCode issue 31078](https://github.com/Microsoft/vscode/issues/31078), which once implemented, will allows this extension to work with these large files. In the meantime you can trick VSCode by opening a new file and copying the content of the large file there (without saving).
 
 ## Features
@@ -70,7 +72,7 @@ Availability:
     * _Sort lines by semver rules_
     * _Sort lines by word count_
     * _Sort lines by grapheme count_ (taking care of surrogate pairs and combining marks thanks to Voca)
-    * _Sort lines containing IP addresses_
+    * _Sort lines containing IP addresses_ (including CIDR ranges)
 * **Shuffle lines**
     * There are additional commands to convert between them using 8, 16, 32 and 64 bit arithmetic
 * **Increase/decrease decimal and hexadecimal numbers**
@@ -83,6 +85,7 @@ Availability:
 * **Encode and decode various encoding formats**: URL encode, HTML entities, XML entities and Base64
 * **Convert to Zalgo text**
 * **Copy content of selections to a new editor**
+* **Duplicate and repeat selection content**
 ## Showcase
 
 ### Filtering in action
