@@ -2054,6 +2054,10 @@
 				"label": "Generate fake/random content"
 			},
 			{
+				"id": "textPowerTools.selection",
+				"label": "Selection"
+			},
+			{
 				"id": "textPowerTools.remove",
 				"label": "Remove content"
 			}
