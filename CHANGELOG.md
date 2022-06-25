@@ -1,5 +1,10 @@
 # Changelog
 
+## **1.34.0** (2022. 06. 25.)
+- Add support for running as a Web Extension.
+- Add _Duplicate selection content_ and _Repeat selection content_ commands.
+- Add support for sorting CIDR ranges in the IP address sort function.
+
 ## **1.33.0** (2022. 04. 06.)
 - New editors opened via the "_into a new editor_" commands now has the same language mode as their ancestors.
 
