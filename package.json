@@ -40,7 +40,7 @@
 		"regular expressions",
 		"trim"
 	],
-	"version": "1.33.0",
+	"version": "1.34.0",
 	"publisher": "qcz",
 	"private": true,
 	"engines": {
@@ -67,33 +67,26 @@
 		"onCommand:textPowerTools.filterLinesIncludingStringToNewEditor",
 		"onCommand:textPowerTools.copyLinesIncludingStringToClipboard",
 		"onCommand:textPowerTools.cutLinesIncludingStringToClipboard",
-
 		"onCommand:textPowerTools.filterLinesMatchingRegex",
 		"onCommand:textPowerTools.filterLinesMatchingRegexToNewEditor",
 		"onCommand:textPowerTools.copyLinesMatchingRegexToClipboard",
 		"onCommand:textPowerTools.cutLinesMatchingRegexToClipboard",
-
 		"onCommand:textPowerTools.filterLinesIncludingSelection",
 		"onCommand:textPowerTools.filterLinesIncludingSelectionToNewEditor",
-
 		"onCommand:textPowerTools.filterLinesNotIncludingString",
 		"onCommand:textPowerTools.filterLinesNotIncludingStringToNewEditor",
 		"onCommand:textPowerTools.copyLinesNotIncludingStringToClipboard",
 		"onCommand:textPowerTools.cutLinesNotIncludingStringToClipboard",
-
 		"onCommand:textPowerTools.filterLinesNotMatchingRegex",
 		"onCommand:textPowerTools.filterLinesNotMatchingRegexToNewEditor",
 		"onCommand:textPowerTools.copyLinesNotMatchingRegexToClipboard",
 		"onCommand:textPowerTools.cutLinesNotMatchingRegexToClipboard",
-
 		"onCommand:textPowerTools.filterLinesNotIncludingSelection",
 		"onCommand:textPowerTools.filterLinesNotIncludingSelectionToNewEditor",
-
 		"onCommand:textPowerTools.extractInformation",
 		"onCommand:textPowerTools.extractInformationToNewEditor",
 		"onCommand:textPowerTools.countOccurrences",
 		"onCommand:textPowerTools.countOccurrencesToNewEditor",
-
 		"onCommand:textPowerTools.padStart",
 		"onCommand:textPowerTools.padStartWithCustomString",
 		"onCommand:textPowerTools.padEnd",
@@ -102,10 +95,8 @@
 		"onCommand:textPowerTools.appendSuffixToAllLines",
 		"onCommand:textPowerTools.wrapAllLinesWithTextSame",
 		"onCommand:textPowerTools.wrapAllLinesWithTextDifferent",
-
 		"onCommand:textPowerTools.trimStart",
 		"onCommand:textPowerTools.trim",
-
 		"onCommand:textPowerTools.formatContentAsTableByTabulator",
 		"onCommand:textPowerTools.formatContentAsTableBySemicolon",
 		"onCommand:textPowerTools.formatContentAsTableByComma",
@@ -114,7 +105,6 @@
 		"onCommand:textPowerTools.formatContentAsTableBySemicolonWithPadding",
 		"onCommand:textPowerTools.formatContentAsTableByPipeWithPadding",
 		"onCommand:textPowerTools.formatContentAsTableByCustomCharacterWithPadding",
-
 		"onCommand:textPowerTools.changeCaseToCamelCase",
 		"onCommand:textPowerTools.changeCaseToPascalCase",
 		"onCommand:textPowerTools.changeCaseToSnakeCase",
@@ -125,7 +115,6 @@
 		"onCommand:textPowerTools.changeCaseToSwapCase",
 		"onCommand:textPowerTools.latinize",
 		"onCommand:textPowerTools.slugify",
-
 		"onCommand:textPowerTools.caseSensitiveSortAscending",
 		"onCommand:textPowerTools.caseSensitiveSortDescending",
 		"onCommand:textPowerTools.caseSensitiveSortAscendingAtColumn",
@@ -146,17 +135,14 @@
 		"onCommand:textPowerTools.ipAddressSortDescending",
 		"onCommand:textPowerTools.shuffleLines",
 		"onCommand:textPowerTools.reverseLines",
-
 		"onCommand:textPowerTools.generateFakeData",
 		"onCommand:textPowerTools.generateRandomGuids",
 		"onCommand:textPowerTools.generateLoremIpsumSentence",
 		"onCommand:textPowerTools.generateLoremIpsumParagraph",
-
 		"onCommand:textPowerTools.insertFullFilePath",
 		"onCommand:textPowerTools.insertDirectoryPath",
 		"onCommand:textPowerTools.insertFileName",
 		"onCommand:textPowerTools.insertUnixTimestamp",
-
 		"onCommand:textPowerTools.insertDecimalNumbers",
 		"onCommand:textPowerTools.insertDecimalNumbersStartingAt",
 		"onCommand:textPowerTools.insertDecimalNumbersWithIncrements",
@@ -169,12 +155,10 @@
 		"onCommand:textPowerTools.insertRomanNumeralsStartingAt",
 		"onCommand:textPowerTools.insertRomanNumeralsWithIncrements",
 		"onCommand:textPowerTools.insertRomanNumeralsWithIncrementsStartingAt",
-
 		"onCommand:textPowerTools.insertLineNumbers",
 		"onCommand:textPowerTools.insertLineNumbersFixedLength",
 		"onCommand:textPowerTools.insertRelativeLineNumbers",
 		"onCommand:textPowerTools.insertRelativeLineNumbersFixedLength",
-
 		"onCommand:textPowerTools.insertSequence",
 		"onCommand:textPowerTools.insertLowercaseLetterSequence",
 		"onCommand:textPowerTools.insertUppercaseLetterSequence",
@@ -189,7 +173,6 @@
 		"onCommand:textPowerTools.insertShortEnglishDayNamesSequence",
 		"onCommand:textPowerTools.insertLongLocaleDayNamesSequence",
 		"onCommand:textPowerTools.insertShortLocaleDayNamesSequence",
-
 		"onCommand:textPowerTools.pasteTextSlot1Content",
 		"onCommand:textPowerTools.pasteTextSlot2Content",
 		"onCommand:textPowerTools.pasteTextSlot3Content",
@@ -200,7 +183,6 @@
 		"onCommand:textPowerTools.setTextSlot3Content",
 		"onCommand:textPowerTools.setTextSlot4Content",
 		"onCommand:textPowerTools.setTextSlot5Content",
-
 		"onCommand:textPowerTools.convertHexadecimalNumbersToDecimal",
 		"onCommand:textPowerTools.convertHexadecimalNumbersToDecimal8bit",
 		"onCommand:textPowerTools.convertHexadecimalNumbersToDecimal16bit",
@@ -215,7 +197,6 @@
 		"onCommand:textPowerTools.convertToZalgoLight",
 		"onCommand:textPowerTools.convertToZalgoMedium",
 		"onCommand:textPowerTools.convertToZalgoHeavy",
-
 		"onCommand:textPowerTools.increaseDecimalNumbersWithOne",
 		"onCommand:textPowerTools.increaseHexNumbersWithOne",
 		"onCommand:textPowerTools.increaseHexNumbersWithOne8bit",
@@ -234,7 +215,6 @@
 		"onCommand:textPowerTools.changeHexNumbersWithIncrement16bit",
 		"onCommand:textPowerTools.changeHexNumbersWithIncrement32bit",
 		"onCommand:textPowerTools.changeHexNumbersWithIncrement64bit",
-
 		"onCommand:textPowerTools.urlEncodeText",
 		"onCommand:textPowerTools.urlEncodeTextOnEachLine",
 		"onCommand:textPowerTools.urlDecodeText",
@@ -252,22 +232,20 @@
 		"onCommand:textPowerTools.base64EncodeTextOnEachLine",
 		"onCommand:textPowerTools.base64DecodeText",
 		"onCommand:textPowerTools.base64DecodeTextOnEachLine",
-
 		"onCommand:textPowerTools.removeWhitespaceCharacters",
 		"onCommand:textPowerTools.removeNewLines",
 		"onCommand:textPowerTools.trimAndRemoveNewLines",
 		"onCommand:textPowerTools.replaceNewLinesAndWhitespaceWithASingleSpace",
-
 		"onCommand:textPowerTools.removeDuplicates",
 		"onCommand:textPowerTools.removeEmptyLines",
 		"onCommand:textPowerTools.removeSurplusEmptyLines",
 		"onCommand:textPowerTools.removeBlankLines",
 		"onCommand:textPowerTools.removeSurplusBlankLines",
 		"onCommand:textPowerTools.removeControlCharacters",
-
 		"onCommand:textPowerTools.copySelectionsToNewEditor"
 	],
 	"main": "./dist/extension",
+	"browser": "./dist/extension-web.js",
 	"contributes": {
 		"commands": [
 			{
@@ -290,7 +268,6 @@
 				"category": "Text Power Tools",
 				"title": "Cut lines including a string to the clipboard"
 			},
-
 			{
 				"command": "textPowerTools.filterLinesMatchingRegex",
 				"category": "Text Power Tools",
@@ -311,7 +288,6 @@
 				"category": "Text Power Tools",
 				"title": "Cut lines matching a regex (grep) to clipboard"
 			},
-
 			{
 				"command": "textPowerTools.filterLinesIncludingSelection",
 				"category": "Text Power Tools",
@@ -322,7 +298,6 @@
 				"category": "Text Power Tools",
 				"title": "Filter lines including the selected text into a new editor"
 			},
-
 			{
 				"command": "textPowerTools.filterLinesNotIncludingString",
 				"category": "Text Power Tools",
@@ -343,7 +318,6 @@
 				"category": "Text Power Tools",
 				"title": "Cut lines not including a string into a new editor"
 			},
-
 			{
 				"command": "textPowerTools.filterLinesNotMatchingRegex",
 				"category": "Text Power Tools",
@@ -364,7 +338,6 @@
 				"category": "Text Power Tools",
 				"title": "Cut lines not matching a regex (grep) to clipboard"
 			},
-
 			{
 				"command": "textPowerTools.filterLinesNotIncludingSelection",
 				"category": "Text Power Tools",
@@ -375,7 +348,6 @@
 				"category": "Text Power Tools",
 				"title": "Filter lines not including the selected text into a new editor"
 			},
-
 			{
 				"command": "textPowerTools.extractInformation",
 				"category": "Text Power Tools",
@@ -396,8 +368,6 @@
 				"category": "Text Power Tools",
 				"title": "Count line occurrences into a new editor"
 			},
-
-
 			{
 				"command": "textPowerTools.padStart",
 				"category": "Text Power Tools",
@@ -438,8 +408,6 @@
 				"category": "Text Power Tools",
 				"title": "Wrap all lines with text (different prefix and suffix)"
 			},
-
-
 			{
 				"command": "textPowerTools.trimStart",
 				"category": "Text Power Tools",
@@ -450,8 +418,6 @@
 				"category": "Text Power Tools",
 				"title": "Trim leading & trailing whitespace"
 			},
-
-
 			{
 				"command": "textPowerTools.formatContentAsTableByTabulator",
 				"category": "Text Power Tools",
@@ -492,8 +458,6 @@
 				"category": "Text Power Tools",
 				"title": "Format content as table using custom string as splitter (with padding)"
 			},
-
-
 			{
 				"command": "textPowerTools.changeCaseToCamelCase",
 				"category": "Text Power Tools",
@@ -544,8 +508,6 @@
 				"category": "Text Power Tools",
 				"title": "Slugify text"
 			},
-
-
 			{
 				"command": "textPowerTools.caseSensitiveSortAscending",
 				"category": "Text Power Tools",
@@ -646,8 +608,6 @@
 				"category": "Text Power Tools",
 				"title": "Reverse lines"
 			},
-
-
 			{
 				"command": "textPowerTools.generateFakeData",
 				"category": "Text Power Tools",
@@ -668,8 +628,6 @@
 				"category": "Text Power Tools",
 				"title": "Generate Lorem ipsum paragraphs"
 			},
-
-
 			{
 				"command": "textPowerTools.insertFullFilePath",
 				"category": "Text Power Tools",
@@ -690,8 +648,6 @@
 				"category": "Text Power Tools",
 				"title": "Insert Unix timestamp"
 			},
-
-
 			{
 				"command": "textPowerTools.insertDecimalNumbers",
 				"category": "Text Power Tools",
@@ -752,8 +708,6 @@
 				"category": "Text Power Tools",
 				"title": "Insert Roman numeral sequence with custom increments starting at..."
 			},
-
-
 			{
 				"command": "textPowerTools.insertLineNumbers",
 				"category": "Text Power Tools",
@@ -774,8 +728,6 @@
 				"category": "Text Power Tools",
 				"title": "Insert fixed line numbers starting with 1 at the first selected line"
 			},
-
-
 			{
 				"command": "textPowerTools.insertSequence",
 				"category": "Text Power Tools",
@@ -846,8 +798,6 @@
 				"category": "Text Power Tools",
 				"title": "Insert series of short current/custom locale day names"
 			},
-
-
 			{
 				"command": "textPowerTools.pasteTextSlot1Content",
 				"category": "Text Power Tools",
@@ -898,8 +848,6 @@
 				"category": "Text Power Tools",
 				"title": "Set text slot 5 content"
 			},
-
-
 			{
 				"command": "textPowerTools.convertHexadecimalNumbersToDecimal",
 				"category": "Text Power Tools",
@@ -970,8 +918,6 @@
 				"category": "Text Power Tools",
 				"title": "Convert selection to heavy zalgo text"
 			},
-
-
 			{
 				"command": "textPowerTools.increaseDecimalNumbersWithOne",
 				"category": "Text Power Tools",
@@ -1062,8 +1008,6 @@
 				"category": "Text Power Tools",
 				"title": "Increase/decrease hexadecimal numbers with a custom value (using 64 bit arithmetic)"
 			},
-
-
 			{
 				"command": "textPowerTools.urlEncodeText",
 				"category": "Text Power Tools",
@@ -1149,8 +1093,6 @@
 				"category": "Text Power Tools",
 				"title": "Decode base64 text on each line"
 			},
-
-
 			{
 				"command": "textPowerTools.removeWhitespaceCharacters",
 				"category": "Text Power Tools",
@@ -1171,8 +1113,6 @@
 				"category": "Text Power Tools",
 				"title": "Replace new lines and whitespace with a single space"
 			},
-
-
 			{
 				"command": "textPowerTools.removeDuplicates",
 				"category": "Text Power Tools",
@@ -1203,7 +1143,6 @@
 				"category": "Text Power Tools",
 				"title": "Remove control characters"
 			},
-
 			{
 				"command": "textPowerTools.copySelectionsToNewEditor",
 				"category": "Text Power Tools",
@@ -1413,7 +1352,6 @@
 					"command": "textPowerTools.wrapAllLinesWithTextDifferent",
 					"group": "tpt_2_affix@4"
 				},
-
 				{
 					"command": "textPowerTools.trimStart",
 					"group": "tpt_3_trim@4"
@@ -1422,7 +1360,6 @@
 					"command": "textPowerTools.trim",
 					"group": "tpt_3_trim@4"
 				},
-
 				{
 					"command": "textPowerTools.formatContentAsTableByTabulator",
 					"group": "tpt_4_formatContentAsTable@1"
@@ -2001,7 +1938,6 @@
 					"command": "textPowerTools.replaceNewLinesAndWhitespaceWithASingleSpace",
 					"group": "tpt_1_removeCharacters@3"
 				},
-
 				{
 					"command": "textPowerTools.removeDuplicates",
 					"group": "tpt_2_removeDupe@1"
@@ -2169,9 +2105,11 @@
 		]
 	},
 	"scripts": {
-		"vscode:prepublish": "webpack --mode production",
+		"vscode:prepublish": "webpack --mode production --devtool hidden-source-map",
 		"webpack": "webpack --mode development",
 		"webpack-dev": "webpack --mode development --watch",
+		"compile-web": "webpack",
+		"watch-web": "webpack --watch",
 		"test-compile": "tsc -p ./"
 	},
 	"devDependencies": {
@@ -2180,7 +2118,6 @@
 		"@types/js-roman-numerals": "^1.1.0",
 		"@types/mocha": "^2.2.42",
 		"@types/node": "^12.12.0",
-		"@types/node-uuid": "0.0.28",
 		"@types/semver-sort": "^0.0.1",
 		"@types/voca": "^1.4.0",
 		"@types/vscode": "^1.32.0",
@@ -2196,15 +2133,23 @@
 		"webpack-cli": "^4.8.0"
 	},
 	"dependencies": {
+		"@types/uuid": "^8.3.4",
+		"assert": "^2.0.0",
+		"buffer": "^6.0.3",
 		"change-case": "^3.0.2",
+		"crypto-browserify": "^3.12.0",
 		"faker": "github:qcz/faker#v5.2.0-tpt-3",
 		"html-entities": "2.3.2",
 		"ip6addr": "^0.2.3",
 		"js-base64": "^3.4.5",
 		"js-roman-numerals": "^1.1.0",
 		"lorem-ipsum": "^2.0.3",
-		"node-uuid": "^1.4.8",
+		"path-browserify": "^1.0.1",
+		"process": "^0.11.10",
 		"semver-sort": "^0.0.4",
+		"stream-browserify": "^3.0.0",
+		"util": "^0.12.4",
+		"uuid": "^8.3.2",
 		"voca": "^1.4.0",
 		"vscode-test": "^1.4.0",
 		"zalgo-js": "^1.0.0"

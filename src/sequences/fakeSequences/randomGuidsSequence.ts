@@ -1,4 +1,4 @@
-import { v4 } from "node-uuid";
+import { v4 } from "uuid";
 import * as vscode from "vscode";
 import { getExtensionSettings } from "../../helpers/tptSettings";
 import { ASequenceBase } from "../sequenceBase";
