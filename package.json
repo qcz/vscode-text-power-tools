@@ -232,6 +232,9 @@
 		"onCommand:textPowerTools.base64EncodeTextOnEachLine",
 		"onCommand:textPowerTools.base64DecodeText",
 		"onCommand:textPowerTools.base64DecodeTextOnEachLine",
+		"onCommand:textPowerTools.duplicateSelectionContent",
+		"onCommand:textPowerTools.repeatSelectionContent",
+		"onCommand:textPowerTools.copySelectionsToNewEditor",
 		"onCommand:textPowerTools.removeWhitespaceCharacters",
 		"onCommand:textPowerTools.removeNewLines",
 		"onCommand:textPowerTools.trimAndRemoveNewLines",
@@ -241,8 +244,7 @@
 		"onCommand:textPowerTools.removeSurplusEmptyLines",
 		"onCommand:textPowerTools.removeBlankLines",
 		"onCommand:textPowerTools.removeSurplusBlankLines",
-		"onCommand:textPowerTools.removeControlCharacters",
-		"onCommand:textPowerTools.copySelectionsToNewEditor"
+		"onCommand:textPowerTools.removeControlCharacters"
 	],
 	"main": "./dist/extension",
 	"browser": "./dist/extension-web.js",
@@ -1094,6 +1096,21 @@
 				"title": "Decode base64 text on each line"
 			},
 			{
+				"command": "textPowerTools.duplicateSelectionContent",
+				"category": "Text Power Tools",
+				"title": "Duplicate selection content"
+			},
+			{
+				"command": "textPowerTools.repeatSelectionContent",
+				"category": "Text Power Tools",
+				"title": "Repeat selection content"
+			},
+			{
+				"command": "textPowerTools.copySelectionsToNewEditor",
+				"category": "Text Power Tools",
+				"title": "Copy content of selections to a new editor"
+			},
+			{
 				"command": "textPowerTools.removeWhitespaceCharacters",
 				"category": "Text Power Tools",
 				"title": "Remove whitespace characters"
@@ -1142,11 +1159,6 @@
 				"command": "textPowerTools.removeControlCharacters",
 				"category": "Text Power Tools",
 				"title": "Remove control characters"
-			},
-			{
-				"command": "textPowerTools.copySelectionsToNewEditor",
-				"category": "Text Power Tools",
-				"title": "Copy content of selections to a new editor"
 			}
 		],
 		"menus": {
@@ -1210,13 +1222,12 @@
 					"group": "tpt_14_conversion@3"
 				},
 				{
-					"submenu": "textPowerTools.remove",
-					"group": "tpt_20_remove"
+					"submenu": "textPowerTools.selection",
+					"group": "tpt_16_selection@1"
 				},
 				{
-					"command": "textPowerTools.copySelectionsToNewEditor",
-					"group": "tpt_100_copy",
-					"when": "editorHasSelection"
+					"submenu": "textPowerTools.remove",
+					"group": "tpt_20_remove"
 				}
 			],
 			"textPowerTools.filterLines": [
@@ -1919,6 +1930,23 @@
 				{
 					"command": "textPowerTools.reverseLines",
 					"group": "tpt_9_other@2"
+				}
+			],
+			"textPowerTools.selection": [
+				{
+					"command": "textPowerTools.duplicateSelectionContent",
+					"group": "tpt_1_selection@1",
+					"when": "editorHasSelection"
+				},
+				{
+					"command": "textPowerTools.repeatSelectionContent",
+					"group": "tpt_1_selection@2",
+					"when": "editorHasSelection"
+				},
+				{
+					"command": "textPowerTools.copySelectionsToNewEditor",
+					"group": "tpt_1_selection@3",
+					"when": "editorHasSelection"
 				}
 			],
 			"textPowerTools.remove": [

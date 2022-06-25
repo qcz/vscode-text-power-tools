@@ -1,7 +1,7 @@
 "use strict";
 import * as vscode from "vscode";
 import { NumberArithmetic, NumeralSystem } from "./interfaces";
-import { AffixTarget, ASK_SPLIT_CHARACTER_FROM_USER, Base4EncodingDirection, ChangeCaseType, FilterSourceType, FilterTarget, FilterType, InsertableSeries, InsertableStuff, LineNumberType, PadDirection, RemovedLineType, runAffixCommand, runBase64EncodingCommand, runChangeCaseCommand, runConvertNumberCommand, runConvertToZalgoCommand, runCopySelectionsToNewEditorCommand, runCountOccurrencesCommand, runExtractInfoCommand, runFilterTextCommand, runFormatContentAsTableCommand, runInsertLineNumbersCommand, runInsertNumbersCommand, runInsertPredefinedSeriesCommand as runInsertPredefinedSequenceCommand, runInsertStuffCommand, runModifyTextEncodingCommand, runPadCommand, runpasteTextSlotCommand, runRemoveControlCharactersCommand, runRemoveDuplicatesCommand, runRemoveLinesCommand, runRemoveNewLinesCommand, runReplaceNewLinesAndWhitespaceWithASingleSpace, runSetTextSlotContentCommand, runSortCommand, runTextTransformationCommand, runTrimCommand, SortMethod, TextEncodingDirection, TextEncodingType, TextTransformationType, TrimDirection, ZalgificationIntensity } from "./modules";
+import { AffixTarget, ASK_SPLIT_CHARACTER_FROM_USER, Base4EncodingDirection, ChangeCaseType, FilterSourceType, FilterTarget, FilterType, InsertableSeries, InsertableStuff, LineNumberType, PadDirection, RemovedLineType, runAffixCommand, runBase64EncodingCommand, runChangeCaseCommand, runConvertNumberCommand, runConvertToZalgoCommand, runCopySelectionsToNewEditorCommand, runCountOccurrencesCommand, runExtractInfoCommand, runFilterTextCommand, runFormatContentAsTableCommand, runInsertLineNumbersCommand, runInsertNumbersCommand, runInsertPredefinedSeriesCommand as runInsertPredefinedSequenceCommand, runInsertStuffCommand, runModifyTextEncodingCommand, runPadCommand, runpasteTextSlotCommand, runRemoveControlCharactersCommand, runRemoveDuplicatesCommand, runRemoveLinesCommand, runRemoveNewLinesCommand, runRepeatSelectionContentCommand, runReplaceNewLinesAndWhitespaceWithASingleSpace, runSetTextSlotContentCommand, runSortCommand, runTextTransformationCommand, runTrimCommand, SortMethod, TextEncodingDirection, TextEncodingType, TextTransformationType, TrimDirection, ZalgificationIntensity } from "./modules";
 
 export function activate(context: vscode.ExtensionContext) {
 	// Filter lines/extract info commands
@@ -28,8 +28,7 @@ export function activate(context: vscode.ExtensionContext) {
 	registerIncreaseDecreaseCommands(context);
 	registerEncoderCommands(context);
 
-	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.copySelectionsToNewEditor", () =>
-		runCopySelectionsToNewEditorCommand()));
+	registerSelectionCommands(context);
 
 	registerRemoveCommands(context);
 }
@@ -426,6 +425,16 @@ function registerEncoderCommands(context: vscode.ExtensionContext) {
 		runBase64EncodingCommand({ direction: Base4EncodingDirection.Decode, onEachLine: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.base64DecodeTextOnEachLine", () =>
 		runBase64EncodingCommand({ direction: Base4EncodingDirection.Decode, onEachLine: true })));
+}
+
+function registerSelectionCommands(context: vscode.ExtensionContext) {
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.duplicateSelectionContent", () =>
+		runRepeatSelectionContentCommand({ repeatCount: 2 })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.repeatSelectionContent", () =>
+		runRepeatSelectionContentCommand()));
+
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.copySelectionsToNewEditor", () =>
+		runCopySelectionsToNewEditorCommand()));
 }
 
 function registerRemoveCommands(context: vscode.ExtensionContext) {
