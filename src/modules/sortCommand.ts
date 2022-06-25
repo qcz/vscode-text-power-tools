@@ -1,4 +1,4 @@
-import ip6addr from "ip6addr";
+import ip6addr, { compare, compareCIDR } from "ip6addr";
 import semverSort from "semver-sort";
 import * as voca from "voca";
 import * as vscode from "vscode";
@@ -181,7 +181,7 @@ export async function runSortCommand(options: ISortOptions) {
 				break;
 			case SortMethod.IpAddress:
 				try {
-					lines.sort(ip6addr.compare);
+					lines.sort(sortIpAddressesOrCidrRanges);
 					if (options.sortDirection === "descending") {
 						lines.reverse();
 					}
@@ -224,4 +224,19 @@ function shuffleArray(array: string[]): void {
 		array[currentIndex] = array[randomIndex];
 		array[randomIndex] = temporaryValue;
 	}
+}
+
+function sortIpAddressesOrCidrRanges(ipOrCidrA: string, ipOrCidrB: string): number {
+	if (ipOrCidrA.indexOf("/") !== -1 && ipOrCidrB.indexOf("/") !== -1)
+		return compareCIDR(ipOrCidrA, ipOrCidrB);
+	else if (ipOrCidrA.indexOf("/") !== -1) {
+		const aIp = ipOrCidrA.substring(0, ipOrCidrA.indexOf("/"));
+		return compare(aIp, ipOrCidrB);
+	}
+	else if (ipOrCidrB.indexOf("/") !== -1) {
+		const bIp = ipOrCidrB.substring(0, ipOrCidrB.indexOf("/"));
+		return compare(ipOrCidrA, bIp);
+	}
+	
+	return compare(ipOrCidrA, ipOrCidrB);
 }
