@@ -1,5 +1,8 @@
 # Changelog
 
+## **1.35.0** (2022. 08. 13.)
+- Enable running in untrusted workspaces.
+
 ## **1.34.0** (2022. 06. 25.)
 - Add support for running as a Web Extension.
 - Add _Duplicate selection content_ and _Repeat selection content_ commands.
