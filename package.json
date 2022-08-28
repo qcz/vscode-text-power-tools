@@ -41,7 +41,7 @@
 		"trim",
 		"unicode"
 	],
-	"version": "1.36.0",
+	"version": "1.36.1",
 	"publisher": "qcz",
 	"private": true,
 	"engines": {
@@ -1122,12 +1122,12 @@
 			{
 				"command": "textPowerTools.convertToUnicodeEscapeSequences",
 				"category": "Text Power Tools",
-				"title": "Convert to unicode escape sequences"
+				"title": "Convert to Unicode escape sequences"
 			},
 			{
 				"command": "textPowerTools.decodeUnicodeEscapeSequences",
 				"category": "Text Power Tools",
-				"title": "Decode unicode escape sequences"
+				"title": "Decode Unicode escape sequences"
 			},
 			{
 				"command": "textPowerTools.base64EncodeText",

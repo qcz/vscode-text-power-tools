@@ -1,5 +1,8 @@
 # Changelog
 
+## **1.36.1** (2022. 08. 28.)
+- Fix Unicode casing in the name of two commands.
+
 ## **1.36.0** (2022. 08. 28.)
 - Add _Convert to unicode escape sequences_ and _Decode unicode escape sequences_ commands.
 - Add support for generating random IPv4 and IPv6 addresses.
