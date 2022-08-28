@@ -83,7 +83,8 @@ Text Power Tools is also available as a Web Extension so it can be used on sites
 
   Text can be splitted by tabulators, semicolons, commas, pipes or any custom character sequences.
 * **Text slots**, which are permanent clipboard entries in your VS Code. There are 5 of them. You can store a text in one of these slots with a command, for example *Set text slot 1 content*, and paste it with *Paste text slot 1 content* later. Recommended to bind the paste commands you use to a key combo of your choice for the quick usage.
-* **Encode and decode various encoding formats**: URL encode, HTML entities, XML entities and Base64
+* **Encode and decode various encoding formats**: URL encode, HTML entities, XML entities, Base64 and unicode escape sequences
+* **Convert to Unicode normalization forms (NFC, NFD, NFKC, NFKD)**
 * **Convert to Zalgo text**
 * **Copy content of selections to a new editor**
 * **Duplicate and repeat selection content**

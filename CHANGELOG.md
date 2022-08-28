@@ -1,5 +1,10 @@
 # Changelog
 
+## **1.36.0** (2022. 08. 28.)
+- Add _Convert to unicode escape sequences_ and _Decode unicode escape sequences_ commands.
+- Add support for generating random IPv4 and IPv6 addresses.
+- Add _Convert to Unicode normalization form_ commands (NFC, NFD, NFKC, NFKD).
+
 ## **1.35.0** (2022. 08. 13.)
 - Enable running in untrusted workspaces.
 
