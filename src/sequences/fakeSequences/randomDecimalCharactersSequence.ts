@@ -46,7 +46,7 @@ export class RandomDecimalCharactersSequence extends ASequenceBase {
 	public generateRandomItem(numberOfCharacters: number): string {
 		let ret = "";
 		for (let i = 0; i < numberOfCharacters; i++) {
-			const index = Math.floor(Math.random() * Math.floor(10));
+			const index = Math.floor(Math.random() * 10);
 			ret += CHAR_TABLE[index];
 		}
 

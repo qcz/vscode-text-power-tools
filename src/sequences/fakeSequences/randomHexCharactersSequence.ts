@@ -56,7 +56,7 @@ export class RandomHexCharactersSequence extends ASequenceBase {
 	): string {
 		let ret = "";
 		for (let i = 0; i < numberOfCharacters; i++) {
-			const index = Math.floor(Math.random() * Math.floor(16));
+			const index = Math.floor(Math.random() * 16);
 			ret += uppercase
 				? UPPERCASE_CHAR_TABLE[index]
 				: LOWERCASE_CHAR_TABLE[index];
