@@ -235,6 +235,8 @@
 		"onCommand:textPowerTools.decodeXmlEntities",
 		"onCommand:textPowerTools.escapeTextForJson",
 		"onCommand:textPowerTools.convertToJsonString",
+		"onCommand:textPowerTools.convertToUnicodeEscapeSequences",
+		"onCommand:textPowerTools.decodeUnicodeEscapeSequences",
 		"onCommand:textPowerTools.base64EncodeText",
 		"onCommand:textPowerTools.base64EncodeTextOnEachLine",
 		"onCommand:textPowerTools.base64DecodeText",
@@ -1093,6 +1095,16 @@
 				"title": "Convert text to JSON string"
 			},
 			{
+				"command": "textPowerTools.convertToUnicodeEscapeSequences",
+				"category": "Text Power Tools",
+				"title": "Convert to unicode escape sequences"
+			},
+			{
+				"command": "textPowerTools.decodeUnicodeEscapeSequences",
+				"category": "Text Power Tools",
+				"title": "Decode unicode escape sequences"
+			},
+			{
 				"command": "textPowerTools.base64EncodeText",
 				"category": "Text Power Tools",
 				"title": "Encode text with base64"
@@ -1859,20 +1871,28 @@
 					"group": "tpt_3_json@2"
 				},
 				{
+					"command": "textPowerTools.convertToUnicodeEscapeSequences",
+					"group": "tpt_4_ues@2"
+				},
+				{
+					"command": "textPowerTools.decodeUnicodeEscapeSequences",
+					"group": "tpt_4_ues@2"
+				},
+				{
 					"command": "textPowerTools.base64EncodeText",
-					"group": "tpt_4_base64@1"
+					"group": "tpt_5_base64@1"
 				},
 				{
 					"command": "textPowerTools.base64EncodeTextOnEachLine",
-					"group": "tpt_4_base64@2"
+					"group": "tpt_5_base64@2"
 				},
 				{
 					"command": "textPowerTools.base64DecodeText",
-					"group": "tpt_4_base64@3"
+					"group": "tpt_5_base64@3"
 				},
 				{
 					"command": "textPowerTools.base64DecodeTextOnEachLine",
-					"group": "tpt_4_base64@4"
+					"group": "tpt_5_base64@4"
 				}
 			],
 			"textPowerTools.sortLines": [

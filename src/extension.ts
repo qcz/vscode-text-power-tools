@@ -421,6 +421,10 @@ function registerEncoderCommands(context: vscode.ExtensionContext) {
 		runTextTransformationCommand({ type: TextTransformationType.Json })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.convertToJsonString", () =>
 		runTextTransformationCommand({ type: TextTransformationType.JsonString })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.convertToUnicodeEscapeSequences", () =>
+		runModifyTextEncodingCommand({ type: TextEncodingType.UnicodeEscapeSequences, direction: TextEncodingDirection.Encode, onEachLine: true })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.decodeUnicodeEscapeSequences", () =>
+		runModifyTextEncodingCommand({ type: TextEncodingType.UnicodeEscapeSequences, direction: TextEncodingDirection.Decode, onEachLine: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.base64EncodeText", () =>
 		runBase64EncodingCommand({ direction: Base4EncodingDirection.Encode, onEachLine: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.base64EncodeTextOnEachLine", () =>

@@ -8,6 +8,7 @@ export const enum TextEncodingType {
 	HtmlEntityEncoding = 2,
 	HtmlEntityEncodingWithNonAscii = 3,
 	XmlEntityEncoding = 4,
+	UnicodeEscapeSequences = 5
 }
 
 export const enum TextEncodingDirection {
@@ -85,6 +86,22 @@ function runEncodingOnLine(options: IModifyTextEncodingOptions, currentSelection
 			} else {
 				currentSelectionLines.push(decodeEntities(lineContent, {level: "xml" }).replace(/&#13;/g, "\n"));
 			}
+			break;
+		case TextEncodingType.UnicodeEscapeSequences:
+			if (options.direction === TextEncodingDirection.Encode) {
+				let result = "";
+				for (let i = 0; i < lineContent.length; i++) {
+					const escaped = "000" + lineContent[i].charCodeAt(0).toString(16);
+					result += "\\u" + escaped.substring(escaped.length - 4);
+				}
+				currentSelectionLines.push(result);
+			} else {
+				const sourceJsonString = JSON.stringify(lineContent)
+					.replace(/\\\\(u[0-9a-fA-F]{4})/g, "\\$1");
+				const decodedContent = JSON.parse(sourceJsonString);
+				currentSelectionLines.push(decodedContent);
+			}
+
 			break;
 		default:
 			currentSelectionLines.push(lineContent);
