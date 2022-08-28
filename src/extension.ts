@@ -161,6 +161,15 @@ function registerChangeLettersCommands(context: vscode.ExtensionContext) {
 		runTextTransformationCommand({ type: TextTransformationType.Latinize })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.slugify", () =>
 		runTextTransformationCommand({ type: TextTransformationType.Slugify })));
+
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.unicodeNormalizationNFC", () =>
+		runTextTransformationCommand({ type: TextTransformationType.UnicodeNormalizationNFC })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.unicodeNormalizationNFD", () =>
+		runTextTransformationCommand({ type: TextTransformationType.UnicodeNormalizationNFD })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.unicodeNormalizationNFKC", () =>
+		runTextTransformationCommand({ type: TextTransformationType.UnicodeNormalizationNFKC })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.unicodeNormalizationNFKD", () =>
+		runTextTransformationCommand({ type: TextTransformationType.UnicodeNormalizationNFKD })));
 }
 
 function registerSortCommands(context: vscode.ExtensionContext) {

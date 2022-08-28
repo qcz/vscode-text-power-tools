@@ -38,7 +38,8 @@
 		"regexp",
 		"regular expression",
 		"regular expressions",
-		"trim"
+		"trim",
+		"unicode"
 	],
 	"version": "1.35.0",
 	"publisher": "qcz",
@@ -120,6 +121,10 @@
 		"onCommand:textPowerTools.changeCaseToSwapCase",
 		"onCommand:textPowerTools.latinize",
 		"onCommand:textPowerTools.slugify",
+		"onCommand:textPowerTools.unicodeNormalizationNFC",
+		"onCommand:textPowerTools.unicodeNormalizationNFD",
+		"onCommand:textPowerTools.unicodeNormalizationNFKC",
+		"onCommand:textPowerTools.unicodeNormalizationNFKD",
 		"onCommand:textPowerTools.caseSensitiveSortAscending",
 		"onCommand:textPowerTools.caseSensitiveSortDescending",
 		"onCommand:textPowerTools.caseSensitiveSortAscendingAtColumn",
@@ -518,6 +523,26 @@
 				"command": "textPowerTools.slugify",
 				"category": "Text Power Tools",
 				"title": "Slugify text"
+			},
+			{
+				"command": "textPowerTools.unicodeNormalizationNFC",
+				"category": "Text Power Tools",
+				"title": "Convert to NFC Unicode normalization form"
+			},
+			{
+				"command": "textPowerTools.unicodeNormalizationNFD",
+				"category": "Text Power Tools",
+				"title": "Convert to NFD Unicode normalization form"
+			},
+			{
+				"command": "textPowerTools.unicodeNormalizationNFKC",
+				"category": "Text Power Tools",
+				"title": "Convert to NFKC Unicode normalization form"
+			},
+			{
+				"command": "textPowerTools.unicodeNormalizationNFKD",
+				"category": "Text Power Tools",
+				"title": "Convert to NFKD Unicode normalization form"
 			},
 			{
 				"command": "textPowerTools.caseSensitiveSortAscending",
@@ -1436,43 +1461,59 @@
 			"textPowerTools.changeLetters": [
 				{
 					"command": "textPowerTools.changeCaseToCamelCase",
-					"group": "tpt_changeCase@1"
+					"group": "tpt_1_changeCase@1"
 				},
 				{
 					"command": "textPowerTools.changeCaseToPascalCase",
-					"group": "tpt_changeCase@2"
+					"group": "tpt_1_changeCase@2"
 				},
 				{
 					"command": "textPowerTools.changeCaseToSnakeCase",
-					"group": "tpt_changeCase@3"
+					"group": "tpt_1_changeCase@3"
 				},
 				{
 					"command": "textPowerTools.changeCaseToDashCase",
-					"group": "tpt_changeCase@4"
+					"group": "tpt_1_changeCase@4"
 				},
 				{
 					"command": "textPowerTools.changeCaseToConstantCase",
-					"group": "tpt_changeCase@5"
+					"group": "tpt_1_changeCase@5"
 				},
 				{
 					"command": "textPowerTools.changeCaseToDotCase",
-					"group": "tpt_changeCase@6"
+					"group": "tpt_1_changeCase@6"
 				},
 				{
 					"command": "textPowerTools.changeCaseToTitleCase",
-					"group": "tpt_changeCase@7"
+					"group": "tpt_1_changeCase@7"
 				},
 				{
 					"command": "textPowerTools.changeCaseToSwapCase",
-					"group": "tpt_changeCase@8"
+					"group": "tpt_1_changeCase@8"
 				},
 				{
 					"command": "textPowerTools.latinize",
-					"group": "tpt_changeLetters@1"
+					"group": "tpt_2_changeLetters@1"
 				},
 				{
 					"command": "textPowerTools.slugify",
-					"group": "tpt_changeLetters@2"
+					"group": "tpt_2_changeLetters@2"
+				},
+				{
+					"command": "textPowerTools.unicodeNormalizationNFC",
+					"group": "tpt_3_unicodeNormalization@1"
+				},
+				{
+					"command": "textPowerTools.unicodeNormalizationNFD",
+					"group": "tpt_3_unicodeNormalization@2"
+				},
+				{
+					"command": "textPowerTools.unicodeNormalizationNFKC",
+					"group": "tpt_3_unicodeNormalization@3"
+				},
+				{
+					"command": "textPowerTools.unicodeNormalizationNFKD",
+					"group": "tpt_3_unicodeNormalization@4"
 				}
 			],
 			"textPowerTools.insertFacts": [

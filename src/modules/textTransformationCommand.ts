@@ -1,5 +1,5 @@
-import * as vscode from "vscode";
 import v from "voca";
+import * as vscode from "vscode";
 import { NO_ACTIVE_EDITOR } from "../consts";
 import { getSelectionLines, getSelectionsOrFullDocument, replaceSelectionsWithLines } from "../helpers/vsCodeHelpers";
 
@@ -9,6 +9,10 @@ export const enum TextTransformationType {
 	JsonString = 6,
 	Latinize = 7,
 	Slugify = 8,
+	UnicodeNormalizationNFC = 9,
+	UnicodeNormalizationNFD = 10,
+	UnicodeNormalizationNFKC = 11,
+	UnicodeNormalizationNFKD = 12,
 }
 
 interface ITransformTextOptions {
@@ -47,6 +51,18 @@ export async function runTextTransformationCommand(options: ITransformTextOption
 					break;
 				case TextTransformationType.Slugify:
 					currentSelectionLines.push(v.slugify(lineContent));
+					break;
+				case TextTransformationType.UnicodeNormalizationNFC:
+					currentSelectionLines.push(lineContent.normalize("NFC"));
+					break;
+				case TextTransformationType.UnicodeNormalizationNFD:
+					currentSelectionLines.push(lineContent.normalize("NFD"));
+					break;
+				case TextTransformationType.UnicodeNormalizationNFKC:
+					currentSelectionLines.push(lineContent.normalize("NFKC"));
+					break;
+				case TextTransformationType.UnicodeNormalizationNFKD:
+					currentSelectionLines.push(lineContent.normalize("NFKD"));
 					break;
 				default:
 					currentSelectionLines.push(lineContent);
