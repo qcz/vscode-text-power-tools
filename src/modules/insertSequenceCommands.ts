@@ -6,6 +6,7 @@ import { getKnownFakeSequences } from "../sequences/fakeSequences";
 import { LoremIpsumParagraphsSequence } from "../sequences/fakeSequences/loremIpsumParagraphsSequence";
 import { LoremIpsumSentencesSequence } from "../sequences/fakeSequences/loremIpsumSentencesSequence";
 import { GeneratedGuidType, KNOWN_GUID_TYPES, RandomGuidsSequence } from "../sequences/fakeSequences/randomGuidsSequence";
+import { IpAddressType, RandomIpAdressesSequence } from "../sequences/fakeSequences/randomIpAdressesSequence";
 import { ASequenceBase } from "../sequences/sequenceBase";
 import { insertSequenceInternal } from "../sequences/sequenceInserter";
 import { isSequenceErrorMessage as isGeneratorCreationError, isSequenceErrorMessage } from "../sequences/sequenceTypes";
@@ -36,6 +37,8 @@ export const enum InsertableSeries {
 	LongLocaleDayNames,
 	ShortLocaleDayNames,
 	RandomGuids,
+	RandomIpv4Addresses,
+	RandomIpv6Addresses,
 	LoremIpsumSentences,
 	LoremIpsumParagraphs
 }
@@ -101,6 +104,12 @@ export async function runInsertPredefinedSeriesCommand(options: IInsertPredefine
 				: undefined);
 			break;
 		}
+		case InsertableSeries.RandomIpv4Addresses:
+			seqClass = new RandomIpAdressesSequence(IpAddressType.Ipv4);
+			break;
+		case InsertableSeries.RandomIpv6Addresses:
+			seqClass = new RandomIpAdressesSequence(IpAddressType.Ipv6);
+			break;
 		case InsertableSeries.LoremIpsumSentences:
 			seqClass = new LoremIpsumSentencesSequence();
 			break;

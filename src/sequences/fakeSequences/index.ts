@@ -8,12 +8,15 @@ import { LoremIpsumSentencesSequence } from "./loremIpsumSentencesSequence";
 import { RandomDecimalCharactersSequence } from "./randomDecimalCharactersSequence";
 import { RandomGuidsSequence } from "./randomGuidsSequence";
 import { RandomHexCharactersSequence } from "./randomHexCharactersSequence";
+import { IpAddressType, RandomIpAdressesSequence } from "./randomIpAdressesSequence";
 
 export function getKnownFakeSequences(): ASequenceBase[] {
 	const ret: ASequenceBase[] = [];
 
 	ret.push(new RandomHexCharactersSequence(undefined));
 	ret.push(new RandomDecimalCharactersSequence(undefined));
+	ret.push(new RandomIpAdressesSequence(IpAddressType.Ipv4));
+	ret.push(new RandomIpAdressesSequence(IpAddressType.Ipv6));
 	ret.push(new RandomGuidsSequence("noDashes"));
 	ret.push(new RandomGuidsSequence("dashes"));
 	ret.push(new RandomGuidsSequence("dashesAndBraces"));

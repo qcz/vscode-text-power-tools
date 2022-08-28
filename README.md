@@ -45,6 +45,7 @@ Text Power Tools is also available as a Web Extension so it can be used on sites
     * _Fake first names, last names and full names_ in the following languages: English, French, German and Hungarian.
     * _GUIDs/UUIDs_ (globally unique identifiers or universally unique identifiers) using multiple predefined formats (no dashes, dashes, dashes and braces, C# Guid constructor).
         * To insert GUIDs with uppercase hex characters, set the value of the `textPowerTools.insertUppercaseGuids` setting to `true`. The default GUID style can be set using the `textPowerTools.defaultGuidType` setting.
+    * _IPv4 and Ipv6 addresses_
     * _Lorem ipsum sentences_
     * _Lorem ipsum paragraphs_
 * **Pad start and end of strings:** Pad the start or the end of selections to the desired length with default or custom character sequences. The default pad string can be customized with the `textPowerTools.defaultPadString` setting.

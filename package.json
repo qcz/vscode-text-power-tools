@@ -142,6 +142,8 @@
 		"onCommand:textPowerTools.reverseLines",
 		"onCommand:textPowerTools.generateFakeData",
 		"onCommand:textPowerTools.generateRandomGuids",
+		"onCommand:textPowerTools.generateRandomIpv4Addresses",
+		"onCommand:textPowerTools.generateRandomIpv6Addresses",
 		"onCommand:textPowerTools.generateLoremIpsumSentence",
 		"onCommand:textPowerTools.generateLoremIpsumParagraph",
 		"onCommand:textPowerTools.insertFullFilePath",
@@ -624,6 +626,16 @@
 				"command": "textPowerTools.generateRandomGuids",
 				"category": "Text Power Tools",
 				"title": "Generate random GUIDs"
+			},
+			{
+				"command": "textPowerTools.generateRandomIpv4Addresses",
+				"category": "Text Power Tools",
+				"title": "Generate random IPv4 Addresses"
+			},
+			{
+				"command": "textPowerTools.generateRandomIpv6Addresses",
+				"category": "Text Power Tools",
+				"title": "Generate random IPv6 Addresses"
 			},
 			{
 				"command": "textPowerTools.generateLoremIpsumSentence",
@@ -1642,7 +1654,15 @@
 				},
 				{
 					"command": "textPowerTools.generateRandomGuids",
-					"group": "tpt_2_generateGuid@1"
+					"group": "tpt_2_generateItStuff@1"
+				},
+				{
+					"command": "textPowerTools.generateRandomIpv4Addresses",
+					"group": "tpt_2_generateItStuff@2"
+				},
+				{
+					"command": "textPowerTools.generateRandomIpv6Addresses",
+					"group": "tpt_2_generateItStuff@3"
 				},
 				{
 					"command": "textPowerTools.generateLoremIpsumSentence",

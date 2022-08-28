@@ -211,6 +211,10 @@ function registerGenerateFakeDataCommands(context: vscode.ExtensionContext) {
 		runInsertPredefinedSequenceCommand({ series: InsertableSeries.UserSelectionOfFakeSeries })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateRandomGuids", () =>
 		runInsertPredefinedSequenceCommand({ series: InsertableSeries.RandomGuids })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateRandomIpv4Addresses", () =>
+		runInsertPredefinedSequenceCommand({ series: InsertableSeries.RandomIpv4Addresses })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateRandomIpv6Addresses", () =>
+		runInsertPredefinedSequenceCommand({ series: InsertableSeries.RandomIpv6Addresses })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateLoremIpsumSentence", () =>
 		runInsertPredefinedSequenceCommand({ series: InsertableSeries.LoremIpsumSentences })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateLoremIpsumParagraph", () =>

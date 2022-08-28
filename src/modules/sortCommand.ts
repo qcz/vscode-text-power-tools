@@ -227,16 +227,15 @@ function shuffleArray(array: string[]): void {
 }
 
 function sortIpAddressesOrCidrRanges(ipOrCidrA: string, ipOrCidrB: string): number {
-	if (ipOrCidrA.indexOf("/") !== -1 && ipOrCidrB.indexOf("/") !== -1)
+	if (ipOrCidrA.indexOf("/") !== -1 && ipOrCidrB.indexOf("/") !== -1) {
 		return compareCIDR(ipOrCidrA, ipOrCidrB);
-	else if (ipOrCidrA.indexOf("/") !== -1) {
+	} else if (ipOrCidrA.indexOf("/") !== -1) {
 		const aIp = ipOrCidrA.substring(0, ipOrCidrA.indexOf("/"));
 		return compare(aIp, ipOrCidrB);
-	}
-	else if (ipOrCidrB.indexOf("/") !== -1) {
+	} else if (ipOrCidrB.indexOf("/") !== -1) {
 		const bIp = ipOrCidrB.substring(0, ipOrCidrB.indexOf("/"));
 		return compare(ipOrCidrA, bIp);
 	}
-	
+
 	return compare(ipOrCidrA, ipOrCidrB);
 }
