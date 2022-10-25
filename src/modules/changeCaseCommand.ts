@@ -1,4 +1,8 @@
 import * as cc from "change-case";
+import { spongeCase } from "sponge-case";
+import { swapCase } from "swap-case";
+import { titleCase } from "title-case";
+import { camelCase } from "voca";
 import * as vscode from "vscode";
 import { NO_ACTIVE_EDITOR } from "../consts";
 import { getSelectionLines, getSelectionsOrFullDocument, replaceSelectionsWithLines } from "../helpers/vsCodeHelpers";
@@ -11,6 +15,7 @@ export const enum ChangeCaseType {
 	ConstantCase = 5,
 	DotCase = 6,
 	TitleCase = 7,
+	SpongeCase = 8,
 	SwapCase = 100,
 }
 
@@ -35,10 +40,10 @@ export async function runChangeCaseCommand(options: IChangeCaseOptions) {
 		for (const lineContent of getSelectionLines(editor, selection)) {
 			switch (options.type) {
 				case ChangeCaseType.CamelCase:
-					currentSelectionLines.push(cc.camelCase(lineContent, /*locale:*/ undefined, /*mergeNumbers:*/ true));
+					currentSelectionLines.push(camelCase(lineContent));
 					break;
 				case ChangeCaseType.PascalCase:
-					currentSelectionLines.push(cc.pascalCase(lineContent, /*locale:*/ undefined, /*mergeNumbers:*/ true));
+					currentSelectionLines.push(cc.pascalCase(lineContent));
 					break;
 				case ChangeCaseType.SnakeCase:
 					currentSelectionLines.push(cc.snakeCase(lineContent));
@@ -53,10 +58,13 @@ export async function runChangeCaseCommand(options: IChangeCaseOptions) {
 					currentSelectionLines.push(cc.dotCase(lineContent));
 					break;
 				case ChangeCaseType.SwapCase:
-					currentSelectionLines.push(cc.swapCase(lineContent));
+					currentSelectionLines.push(swapCase(lineContent));
 					break;
 				case ChangeCaseType.TitleCase:
-					currentSelectionLines.push(cc.titleCase(lineContent));
+					currentSelectionLines.push(titleCase(lineContent));
+					break;
+				case ChangeCaseType.SpongeCase:
+					currentSelectionLines.push(spongeCase(lineContent));
 					break;
 				default:
 					currentSelectionLines.push(lineContent);

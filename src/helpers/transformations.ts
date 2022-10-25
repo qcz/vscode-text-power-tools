@@ -1,7 +1,10 @@
 import * as cc from "change-case";
-import { ITextPowerToolsSettings } from "./tptSettings";
+import { spongeCase } from "sponge-case";
+import { swapCase } from "swap-case";
+import { camelCase } from "voca";
 import { NumeralSystem } from "../interfaces";
 import { convertTextualNumber } from "./textualNumberConverter";
+import { ITextPowerToolsSettings } from "./tptSettings";
 
 export function removeControlCharacters(text: string) {
 	// eslint-disable-next-line no-control-regex
@@ -23,7 +26,7 @@ export function runTransformations(
 				text = removeControlCharacters(text);
 				break;
 			case "camelCase":
-				text = cc.camelCase(text);
+				text = camelCase(text);
 				break;
 			case "pascalCase":
 				text = cc.pascalCase(text);
@@ -41,7 +44,10 @@ export function runTransformations(
 				text = cc.dotCase(text);
 				break;
 			case "swapCase":
-				text = cc.swapCase(text);
+				text = swapCase(text);
+				break;
+			case "spongeCase":
+				text = spongeCase(text);
 				break;
 			case "toDecimal":
 				text = convertTextualNumber(text, NumeralSystem.Decimal, settings).result;
