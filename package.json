@@ -41,7 +41,7 @@
 		"trim",
 		"unicode"
 	],
-	"version": "1.36.1",
+	"version": "1.37.0",
 	"publisher": "qcz",
 	"private": true,
 	"engines": {
@@ -118,6 +118,7 @@
 		"onCommand:textPowerTools.changeCaseToConstantCase",
 		"onCommand:textPowerTools.changeCaseToDotCase",
 		"onCommand:textPowerTools.changeCaseToTitleCase",
+		"onCommand:textPowerTools.changeCaseToSpongeCase",
 		"onCommand:textPowerTools.changeCaseToSwapCase",
 		"onCommand:textPowerTools.latinize",
 		"onCommand:textPowerTools.slugify",
@@ -508,6 +509,11 @@
 				"command": "textPowerTools.changeCaseToTitleCase",
 				"category": "Text Power Tools",
 				"title": "Change case to title case (Title Case)"
+			},
+			{
+				"command": "textPowerTools.changeCaseToSpongeCase",
+				"category": "Text Power Tools",
+				"title": "Change case to sponge case (random capitalization)"
 			},
 			{
 				"command": "textPowerTools.changeCaseToSwapCase",
@@ -1488,8 +1494,12 @@
 					"group": "tpt_1_changeCase@7"
 				},
 				{
-					"command": "textPowerTools.changeCaseToSwapCase",
+					"command": "textPowerTools.changeCaseToSpongeCase",
 					"group": "tpt_1_changeCase@8"
+				},
+				{
+					"command": "textPowerTools.changeCaseToSwapCase",
+					"group": "tpt_1_changeCase@9"
 				},
 				{
 					"command": "textPowerTools.latinize",
@@ -2254,7 +2264,7 @@
 		"@types/uuid": "^8.3.4",
 		"assert": "^2.0.0",
 		"buffer": "^6.0.3",
-		"change-case": "^3.0.2",
+		"change-case": "^4.1.2",
 		"crypto-browserify": "^3.12.0",
 		"faker": "github:qcz/faker#v5.2.0-tpt-3",
 		"html-entities": "2.3.2",
@@ -2265,7 +2275,10 @@
 		"path-browserify": "^1.0.1",
 		"process": "^0.11.10",
 		"semver-sort": "^0.0.4",
+		"sponge-case": "^1.0.1",
 		"stream-browserify": "^3.0.0",
+		"swap-case": "^2.0.2",
+		"title-case": "^3.0.3",
 		"util": "^0.12.4",
 		"uuid": "^8.3.2",
 		"voca": "^1.4.0",

@@ -1,5 +1,9 @@
 # Changelog
 
+## **1.37.0** (2022. 10. 25.)
+- Introduce advanced title casing for English texts.
+- Add _Change case to sponge case_ command.
+
 ## **1.36.1** (2022. 08. 28.)
 - Fix Unicode casing in the name of two commands.
 
