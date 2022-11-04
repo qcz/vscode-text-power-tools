@@ -2306,7 +2306,7 @@
 		"path-browserify": "^1.0.1",
 		"path-case": "^3.0.4",
 		"process": "^0.11.10",
-		"semver-sort": "^0.0.4",
+		"semver-sort": "^1.0.0",
 		"sponge-case": "^1.0.1",
 		"stream-browserify": "^3.0.0",
 		"swap-case": "^2.0.2",
