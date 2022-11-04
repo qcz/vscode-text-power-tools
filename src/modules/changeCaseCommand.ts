@@ -1,4 +1,5 @@
 import * as cc from "change-case";
+import { noCase, pathCase } from "change-case";
 import { spongeCase } from "sponge-case";
 import { swapCase } from "swap-case";
 import { titleCase } from "title-case";
@@ -16,6 +17,9 @@ export const enum ChangeCaseType {
 	DotCase = 6,
 	TitleCase = 7,
 	SpongeCase = 8,
+	SeparateWithSpaces = 9,
+	SeparateWithForwardSlashes = 10,
+	SeparateWithBackslashes = 11,
 	SwapCase = 100,
 }
 
@@ -65,6 +69,22 @@ export async function runChangeCaseCommand(options: IChangeCaseOptions) {
 					break;
 				case ChangeCaseType.SpongeCase:
 					currentSelectionLines.push(spongeCase(lineContent));
+					break;
+				case ChangeCaseType.SeparateWithSpaces:
+					currentSelectionLines.push(noCase(lineContent, {
+						transform: (input: string) => input
+					}));
+					break;
+				case ChangeCaseType.SeparateWithForwardSlashes:
+					currentSelectionLines.push(pathCase(lineContent, {
+						transform: (input: string) => input
+					}));
+					break;
+				case ChangeCaseType.SeparateWithBackslashes:
+					currentSelectionLines.push(pathCase(lineContent, {
+						delimiter: "\\",
+						transform: (input: string) => input
+					}));
 					break;
 				default:
 					currentSelectionLines.push(lineContent);

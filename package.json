@@ -101,6 +101,9 @@
 		"onCommand:textPowerTools.appendSuffixToAllLines",
 		"onCommand:textPowerTools.wrapAllLinesWithTextSame",
 		"onCommand:textPowerTools.wrapAllLinesWithTextDifferent",
+		"onCommand:textPowerTools.separateWordsWithSpaces",
+		"onCommand:textPowerTools.separateWordsWithForwardSlashes",
+		"onCommand:textPowerTools.separateWordsWithBackslashes",
 		"onCommand:textPowerTools.trimStart",
 		"onCommand:textPowerTools.trim",
 		"onCommand:textPowerTools.formatContentAsTableByTabulator",
@@ -424,6 +427,21 @@
 				"command": "textPowerTools.wrapAllLinesWithTextDifferent",
 				"category": "Text Power Tools",
 				"title": "Wrap all lines with text (different prefix and suffix)"
+			},
+			{
+				"command": "textPowerTools.separateWordsWithSpaces",
+				"category": "Text Power Tools",
+				"title": "Separate words with spaces"
+			},
+			{
+				"command": "textPowerTools.separateWordsWithForwardSlashes",
+				"category": "Text Power Tools",
+				"title": "Separate words with forward slashes"
+			},
+			{
+				"command": "textPowerTools.separateWordsWithBackslashes",
+				"category": "Text Power Tools",
+				"title": "Separate words with backslashes"
 			},
 			{
 				"command": "textPowerTools.trimStart",
@@ -1424,44 +1442,56 @@
 					"group": "tpt_2_affix@4"
 				},
 				{
+					"command": "textPowerTools.separateWordsWithSpaces",
+					"group": "tpt_3_separateWords@1"
+				},
+				{
+					"command": "textPowerTools.separateWordsWithForwardSlashes",
+					"group": "tpt_3_separateWords@2"
+				},
+				{
+					"command": "textPowerTools.separateWordsWithBackslashes",
+					"group": "tpt_3_separateWords@3"
+				},
+				{
 					"command": "textPowerTools.trimStart",
-					"group": "tpt_3_trim@4"
+					"group": "tpt_4_trim@4"
 				},
 				{
 					"command": "textPowerTools.trim",
-					"group": "tpt_3_trim@4"
+					"group": "tpt_4_trim@4"
 				},
 				{
 					"command": "textPowerTools.formatContentAsTableByTabulator",
-					"group": "tpt_4_formatContentAsTable@1"
+					"group": "tpt_5_formatContentAsTable@1"
 				},
 				{
 					"command": "textPowerTools.formatContentAsTableBySemicolon",
-					"group": "tpt_4_formatContentAsTable@2"
+					"group": "tpt_5_formatContentAsTable@2"
 				},
 				{
 					"command": "textPowerTools.formatContentAsTableByComma",
-					"group": "tpt_4_formatContentAsTable@3"
+					"group": "tpt_5_formatContentAsTable@3"
 				},
 				{
 					"command": "textPowerTools.formatContentAsTableByPipe",
-					"group": "tpt_4_formatContentAsTable@4"
+					"group": "tpt_5_formatContentAsTable@4"
 				},
 				{
 					"command": "textPowerTools.formatContentAsTableByCustomCharacter",
-					"group": "tpt_4_formatContentAsTable@5"
+					"group": "tpt_5_formatContentAsTable@5"
 				},
 				{
 					"command": "textPowerTools.formatContentAsTableBySemicolonWithPadding",
-					"group": "tpt_4_formatContentAsTable@6"
+					"group": "tpt_5_formatContentAsTable@6"
 				},
 				{
 					"command": "textPowerTools.formatContentAsTableByPipeWithPadding",
-					"group": "tpt_4_formatContentAsTable@7"
+					"group": "tpt_5_formatContentAsTable@7"
 				},
 				{
 					"command": "textPowerTools.formatContentAsTableByCustomCharacterWithPadding",
-					"group": "tpt_4_formatContentAsTable@8"
+					"group": "tpt_5_formatContentAsTable@8"
 				}
 			],
 			"textPowerTools.changeLetters": [
@@ -2272,7 +2302,9 @@
 		"js-base64": "^3.4.5",
 		"js-roman-numerals": "^1.1.0",
 		"lorem-ipsum": "^2.0.3",
+		"no-case": "^3.0.4",
 		"path-browserify": "^1.0.1",
+		"path-case": "^3.0.4",
 		"process": "^0.11.10",
 		"semver-sort": "^0.0.4",
 		"sponge-case": "^1.0.1",

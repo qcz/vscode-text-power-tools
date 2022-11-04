@@ -10,6 +10,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 	// Formatting, sorting commands
 	registerPadCommands(context);
+	registerSeparateWordsCommands(context);
 	registerTrimCommands(context);
 	registerFormatContentAsTableCommands(context);
 	registerChangeLettersCommands(context);
@@ -111,6 +112,15 @@ function registerPadCommands(context: vscode.ExtensionContext) {
 		runAffixCommand({ target: AffixTarget.Both })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.wrapAllLinesWithTextDifferent", () =>
 		runAffixCommand({ target: AffixTarget.Wrap })));
+}
+
+function registerSeparateWordsCommands(context: vscode.ExtensionContext) {
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.separateWordsWithSpaces", () =>
+		runChangeCaseCommand({ type: ChangeCaseType.SeparateWithSpaces })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.separateWordsWithForwardSlashes", () =>
+		runChangeCaseCommand({ type: ChangeCaseType.SeparateWithForwardSlashes })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.separateWordsWithBackslashes", () =>
+		runChangeCaseCommand({ type: ChangeCaseType.SeparateWithBackslashes })));
 }
 
 function registerTrimCommands(context: vscode.ExtensionContext) {
