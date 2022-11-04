@@ -1,5 +1,8 @@
 # Changelog
 
+## **1.38.0** (2022. 11. 04.)
+- Add _Separate words with spaces_, _Separate words with forward slashes_ and _Separate words with backslashes_ commands.
+
 ## **1.37.0** (2022. 10. 25.)
 - Introduce advanced title casing for English texts.
 - Add _Change case to sponge case_ command.
