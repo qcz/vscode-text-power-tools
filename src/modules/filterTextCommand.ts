@@ -32,7 +32,6 @@ export async function runFilterTextCommand(context: vscode.ExtensionContext, opt
 
 	const editor = vscode.window.activeTextEditor;
 	if (!editor) {
-		console.log(vscode.window.visibleTextEditors);
 		vscode.window.showWarningMessage(NO_ACTIVE_EDITOR);
 		return;
 	}

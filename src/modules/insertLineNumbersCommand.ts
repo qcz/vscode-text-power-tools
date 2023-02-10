@@ -15,7 +15,6 @@ interface IInsertLineNumberCommandOptions {
 export async function runInsertLineNumbersCommand(options: IInsertLineNumberCommandOptions) {
 	const editor = vscode.window.activeTextEditor;
 	if (!editor) {
-		console.log(vscode.window.visibleTextEditors);
 		vscode.window.showWarningMessage(NO_ACTIVE_EDITOR);
 		return;
 	}

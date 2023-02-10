@@ -13,7 +13,6 @@ interface IAlignByCharacterOptions {
 export async function runFormatContentAsTableCommand(options: IAlignByCharacterOptions) {
 	const editor = vscode.window.activeTextEditor;
 	if (!editor) {
-		console.log(vscode.window.visibleTextEditors);
 		vscode.window.showWarningMessage(NO_ACTIVE_EDITOR);
 		return;
 	}
