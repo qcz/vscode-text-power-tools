@@ -83,6 +83,7 @@ Text Power Tools is also available as a Web Extension so it can be used on sites
 * **Format content as table** by splitting text to pieces by predefined or custom characters or strings and formatting them as a table with equal length columns using space characters.
 
   Text can be splitted by tabulators, semicolons, commas, pipes or any custom character sequences.
+* **Spread paste lines from clipboard** including support for skipping empty lines and pasting lines repeatedly if there are fewer lines on the clipboard than selections.
 * **Text slots**, which are permanent clipboard entries in your VS Code. There are 5 of them. You can store a text in one of these slots with a command, for example *Set text slot 1 content*, and paste it with *Paste text slot 1 content* later. Recommended to bind the paste commands you use to a key combo of your choice for the quick usage.
 * **Encode and decode various encoding formats**: URL encode, HTML entities, XML entities, Base64 and unicode escape sequences
 * **Convert to Unicode normalization forms (NFC, NFD, NFKC, NFKD)**

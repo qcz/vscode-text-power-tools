@@ -1,5 +1,8 @@
 # Changelog
 
+## **1.39.0** (2023. 02. 10.)
+- Add _Spread paste lines from clipboard_ commands (with 4 variations)
+
 ## **1.38.0** (2022. 11. 04.)
 - Add _Separate words with spaces_, _Separate words with forward slashes_ and _Separate words with backslashes_ commands.
 

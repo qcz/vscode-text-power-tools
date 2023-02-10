@@ -14,6 +14,7 @@ export { InsertableSeries, runInsertPredefinedSeriesCommand } from "./insertSequ
 export { InsertableStuff, runInsertStuffCommand } from "./insertStuffCommand";
 export { runModifyTextEncodingCommand, TextEncodingDirection, TextEncodingType } from "./modifyTextEncodingCommand";
 export { PadDirection, runPadCommand } from "./padCommand";
+export { ClipboardContentPasteType, runPasteFromClipboardCommand } from "./pasteFromClipboardCommand";
 export { runRemoveControlCharactersCommand } from "./removeControlCharactersCommand";
 export { runRemoveDuplicatesCommand } from "./removeDuplicatesCommand";
 export { RemovedLineType, runRemoveLinesCommand } from "./removeLinesCommand";

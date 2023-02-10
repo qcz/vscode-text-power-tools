@@ -1,7 +1,7 @@
 "use strict";
 import * as vscode from "vscode";
 import { NumberArithmetic, NumeralSystem } from "./interfaces";
-import { AffixTarget, ASK_SPLIT_CHARACTER_FROM_USER, Base4EncodingDirection, ChangeCaseType, FilterSourceType, FilterTarget, FilterType, InsertableSeries, InsertableStuff, LineNumberType, PadDirection, RemovedLineType, runAffixCommand, runBase64EncodingCommand, runChangeCaseCommand, runConvertNumberCommand, runConvertToZalgoCommand, runCopySelectionsToNewEditorCommand, runCountOccurrencesCommand, runExtractInfoCommand, runFilterTextCommand, runFormatContentAsTableCommand, runInsertLineNumbersCommand, runInsertNumbersCommand, runInsertPredefinedSeriesCommand as runInsertPredefinedSequenceCommand, runInsertStuffCommand, runModifyTextEncodingCommand, runPadCommand, runpasteTextSlotCommand, runRemoveControlCharactersCommand, runRemoveDuplicatesCommand, runRemoveLinesCommand, runRemoveNewLinesCommand, runRepeatSelectionContentCommand, runReplaceNewLinesAndWhitespaceWithASingleSpace, runSetTextSlotContentCommand, runSortCommand, runTextTransformationCommand, runTrimCommand, SortMethod, TextEncodingDirection, TextEncodingType, TextTransformationType, TrimDirection, ZalgificationIntensity } from "./modules";
+import { AffixTarget, ASK_SPLIT_CHARACTER_FROM_USER, Base4EncodingDirection, ChangeCaseType, ClipboardContentPasteType, FilterSourceType, FilterTarget, FilterType, InsertableSeries, InsertableStuff, LineNumberType, PadDirection, RemovedLineType, runAffixCommand, runBase64EncodingCommand, runChangeCaseCommand, runConvertNumberCommand, runConvertToZalgoCommand, runCopySelectionsToNewEditorCommand, runCountOccurrencesCommand, runExtractInfoCommand, runFilterTextCommand, runFormatContentAsTableCommand, runInsertLineNumbersCommand, runInsertNumbersCommand, runInsertPredefinedSeriesCommand as runInsertPredefinedSequenceCommand, runInsertStuffCommand, runModifyTextEncodingCommand, runPadCommand, runPasteFromClipboardCommand, runpasteTextSlotCommand, runRemoveControlCharactersCommand, runRemoveDuplicatesCommand, runRemoveLinesCommand, runRemoveNewLinesCommand, runRepeatSelectionContentCommand, runReplaceNewLinesAndWhitespaceWithASingleSpace, runSetTextSlotContentCommand, runSortCommand, runTextTransformationCommand, runTrimCommand, SortMethod, TextEncodingDirection, TextEncodingType, TextTransformationType, TrimDirection, ZalgificationIntensity } from "./modules";
 
 export function activate(context: vscode.ExtensionContext) {
 	// Filter lines/extract info commands
@@ -23,6 +23,7 @@ export function activate(context: vscode.ExtensionContext) {
 	registerInsertLineNumbersCommands(context);
 	registerInsertSeriesCommands(context);
 
+	registerPasteCommands(context);
 	registerTextSlotCommands(context);
 
 	registerConverterCommands(context);
@@ -320,6 +321,17 @@ function registerInsertSeriesCommands(context: vscode.ExtensionContext) {
 		runInsertPredefinedSequenceCommand({ series: InsertableSeries.LongLocaleDayNames })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertShortLocaleDayNamesSequence", () =>
 		runInsertPredefinedSequenceCommand({ series: InsertableSeries.ShortLocaleDayNames })));
+}
+
+function registerPasteCommands(context: vscode.ExtensionContext) {
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.spreadPasteFromClipboard", () =>
+		runPasteFromClipboardCommand({ type: ClipboardContentPasteType.Spread, skipEmpty: false })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.spreadPasteFromClipboardSkipEmpty", () =>
+		runPasteFromClipboardCommand({ type: ClipboardContentPasteType.Spread, skipEmpty: true })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.spreadPasteRepeatedlyFromClipboard", () =>
+		runPasteFromClipboardCommand({ type: ClipboardContentPasteType.SpreadRepeatedly, skipEmpty: false })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.spreadPasteRepeatedlyFromClipboardSkipEmpty", () =>
+		runPasteFromClipboardCommand({ type: ClipboardContentPasteType.SpreadRepeatedly, skipEmpty: true })));
 }
 
 function registerTextSlotCommands(context: vscode.ExtensionContext) {

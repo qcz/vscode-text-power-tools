@@ -189,6 +189,10 @@
 		"onCommand:textPowerTools.insertShortEnglishDayNamesSequence",
 		"onCommand:textPowerTools.insertLongLocaleDayNamesSequence",
 		"onCommand:textPowerTools.insertShortLocaleDayNamesSequence",
+		"onCommand:textPowerTools.spreadPasteFromClipboard",
+		"onCommand:textPowerTools.spreadPasteFromClipboardSkipEmpty",
+		"onCommand:textPowerTools.spreadPasteRepeatedlyFromClipboard",
+		"onCommand:textPowerTools.spreadPasteRepeatedlyFromClipboardSkipEmpty",
 		"onCommand:textPowerTools.pasteTextSlot1Content",
 		"onCommand:textPowerTools.pasteTextSlot2Content",
 		"onCommand:textPowerTools.pasteTextSlot3Content",
@@ -869,6 +873,26 @@
 				"title": "Insert series of short current/custom locale day names"
 			},
 			{
+				"command": "textPowerTools.spreadPasteFromClipboard",
+				"category": "Text Power Tools",
+				"title": "Spread paste lines from clipboard"
+			},
+			{
+				"command": "textPowerTools.spreadPasteFromClipboardSkipEmpty",
+				"category": "Text Power Tools",
+				"title": "Spread paste lines from clipboard (skip empty lines)"
+			},
+			{
+				"command": "textPowerTools.spreadPasteRepeatedlyFromClipboard",
+				"category": "Text Power Tools",
+				"title": "Spread paste lines repeatedly from clipboard"
+			},
+			{
+				"command": "textPowerTools.spreadPasteRepeatedlyFromClipboardSkipEmpty",
+				"category": "Text Power Tools",
+				"title": "Spread paste lines repeatedly from clipboard (skip empty lines)"
+			},
+			{
 				"command": "textPowerTools.pasteTextSlot1Content",
 				"category": "Text Power Tools",
 				"title": "Paste text slot 1 content"
@@ -1284,8 +1308,12 @@
 					"group": "tpt_10_generate@4"
 				},
 				{
+					"submenu": "textPowerTools.paste",
+					"group": "tpt_12_clipboard@1"
+				},
+				{
 					"submenu": "textPowerTools.textSlots",
-					"group": "tpt_12_clipboardLike@1"
+					"group": "tpt_12_clipboard@1"
 				},
 				{
 					"submenu": "textPowerTools.convert",
@@ -1696,6 +1724,24 @@
 				{
 					"command": "textPowerTools.insertShortLocaleDayNamesSequence",
 					"group": "tpt_5_localeDateRelated@4"
+				}
+			],
+			"textPowerTools.paste": [
+				{
+					"command": "textPowerTools.spreadPasteFromClipboard",
+					"group": "tpt_1_spreadPaste@1"
+				},
+				{
+					"command": "textPowerTools.spreadPasteFromClipboardSkipEmpty",
+					"group": "tpt_1_spreadPaste@1"
+				},
+				{
+					"command": "textPowerTools.spreadPasteRepeatedlyFromClipboard",
+					"group": "tpt_1_spreadPaste@1"
+				},
+				{
+					"command": "textPowerTools.spreadPasteRepeatedlyFromClipboardSkipEmpty",
+					"group": "tpt_1_spreadPaste@1"
 				}
 			],
 			"textPowerTools.textSlots": [
@@ -2154,6 +2200,10 @@
 			{
 				"id": "textPowerTools.insertSequences",
 				"label": "Insert series of items"
+			},
+			{
+				"id": "textPowerTools.paste",
+				"label": "Paste"
 			},
 			{
 				"id": "textPowerTools.textSlots",
