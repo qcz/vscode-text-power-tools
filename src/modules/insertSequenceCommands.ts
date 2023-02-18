@@ -2,12 +2,14 @@ import * as vscode from "vscode";
 import { QuickPickItem } from "vscode";
 import { NO_ACTIVE_EDITOR } from "../consts";
 import { getExtensionSettings } from "../helpers/tptSettings";
+import { NumeralSystem } from "../interfaces";
 import { getKnownFakeSequences } from "../sequences/fakeSequences";
 import { LoremIpsumParagraphsSequence } from "../sequences/fakeSequences/loremIpsumParagraphsSequence";
 import { LoremIpsumSentencesSequence } from "../sequences/fakeSequences/loremIpsumSentencesSequence";
 import { RandomFromUserInputSequence } from "../sequences/fakeSequences/randomFromUserInputSequence";
 import { GeneratedGuidType, KNOWN_GUID_TYPES, RandomGuidsSequence } from "../sequences/fakeSequences/randomGuidsSequence";
 import { IpAddressType, RandomIpAdressesSequence } from "../sequences/fakeSequences/randomIpAdressesSequence";
+import { RandomNumberFromRangeSequence } from "../sequences/fakeSequences/randomNumberFromRangeSequence";
 import { ASequenceBase } from "../sequences/sequenceBase";
 import { insertSequenceInternal } from "../sequences/sequenceInserter";
 import { isSequenceErrorMessage as isGeneratorCreationError, isSequenceErrorMessage } from "../sequences/sequenceTypes";
@@ -37,13 +39,17 @@ export const enum InsertableSeries {
 	ShortEnglishDayNames,
 	LongLocaleDayNames,
 	ShortLocaleDayNames,
+
+	RandomFromUserInput,
+	RandomDecimalNumberFromRange,
+	RandomHexadecimalNumberFromRange,
+	RandomRealNumberFromRange,
+
 	RandomGuids,
 	RandomIpv4Addresses,
 	RandomIpv6Addresses,
 	LoremIpsumSentences,
 	LoremIpsumParagraphs,
-
-	RandomFromUserInput
 }
 
 interface IInsertPredefinedSeriesOptions {
@@ -103,6 +109,20 @@ export async function runInsertPredefinedSeriesCommand(
 		case InsertableSeries.ShortLocaleDayNames:
 			seqClass = new DayNamesSequence(undefined, "short");
 			break;
+
+		case InsertableSeries.RandomFromUserInput:
+			seqClass = new RandomFromUserInputSequence(context, undefined);
+			break;
+		case InsertableSeries.RandomDecimalNumberFromRange:
+			seqClass = new RandomNumberFromRangeSequence(NumeralSystem.Decimal, false);
+			break;
+		case InsertableSeries.RandomHexadecimalNumberFromRange:
+			seqClass = new RandomNumberFromRangeSequence(NumeralSystem.Hexadecimal, false);
+			break;
+		case InsertableSeries.RandomRealNumberFromRange:
+			seqClass = new RandomNumberFromRangeSequence(NumeralSystem.Decimal, true);
+			break;
+
 		case InsertableSeries.RandomGuids: {
 			const settingAsGuidType = settings.defaultGuidType as GeneratedGuidType;
 			seqClass = new RandomGuidsSequence(KNOWN_GUID_TYPES.indexOf(settingAsGuidType) !== -1
@@ -122,9 +142,7 @@ export async function runInsertPredefinedSeriesCommand(
 		case InsertableSeries.LoremIpsumParagraphs:
 			seqClass = new LoremIpsumParagraphsSequence();
 			break;
-		case InsertableSeries.RandomFromUserInput:
-			seqClass = new RandomFromUserInputSequence(context, undefined);
-			break;
+
 		case InsertableSeries.UserSelectionOfFakeSeries:
 			showPredefinedSeriesPicker(editor, await getFakeSeriesQuickPickItems(context));
 			break;

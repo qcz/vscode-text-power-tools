@@ -231,6 +231,16 @@ function registerSortCommands(context: vscode.ExtensionContext) {
 function registerGenerateFakeDataCommands(context: vscode.ExtensionContext) {
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateFakeData", () =>
 		runInsertPredefinedSequenceCommand(context, { series: InsertableSeries.UserSelectionOfFakeSeries })));
+
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateRandomFromUserInput", () =>
+		runInsertPredefinedSequenceCommand(context, { series: InsertableSeries.RandomFromUserInput })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateRandomDecimalNumbersFromRange", () =>
+		runInsertPredefinedSequenceCommand(context, { series: InsertableSeries.RandomDecimalNumberFromRange })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateRandomHexadecimalNumbersFromRange", () =>
+		runInsertPredefinedSequenceCommand(context, { series: InsertableSeries.RandomHexadecimalNumberFromRange })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateRandomRealNumbersFromRange", () =>
+		runInsertPredefinedSequenceCommand(context, { series: InsertableSeries.RandomRealNumberFromRange })));
+
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateRandomGuids", () =>
 		runInsertPredefinedSequenceCommand(context, { series: InsertableSeries.RandomGuids })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateRandomIpv4Addresses", () =>
@@ -241,8 +251,6 @@ function registerGenerateFakeDataCommands(context: vscode.ExtensionContext) {
 		runInsertPredefinedSequenceCommand(context, { series: InsertableSeries.LoremIpsumSentences })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateLoremIpsumParagraph", () =>
 		runInsertPredefinedSequenceCommand(context, { series: InsertableSeries.LoremIpsumParagraphs })));
-	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateRandomFromUserInput", () =>
-		runInsertPredefinedSequenceCommand(context, { series: InsertableSeries.RandomFromUserInput })));
 }
 
 function registerInsertFactsCommands(context: vscode.ExtensionContext) {

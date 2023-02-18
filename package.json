@@ -149,13 +149,16 @@
 		"onCommand:textPowerTools.ipAddressSortDescending",
 		"onCommand:textPowerTools.shuffleLines",
 		"onCommand:textPowerTools.reverseLines",
+		"onCommand:textPowerTools.generateRandomFromUserInput",
+		"onCommand:textPowerTools.generateRandomDecimalNumbersFromRange",
+		"onCommand:textPowerTools.generateRandomHexadecimalNumbersFromRange",
+		"onCommand:textPowerTools.generateRandomRealNumbersFromRange",
 		"onCommand:textPowerTools.generateFakeData",
 		"onCommand:textPowerTools.generateRandomGuids",
 		"onCommand:textPowerTools.generateRandomIpv4Addresses",
 		"onCommand:textPowerTools.generateRandomIpv6Addresses",
 		"onCommand:textPowerTools.generateLoremIpsumSentence",
 		"onCommand:textPowerTools.generateLoremIpsumParagraph",
-		"onCommand:textPowerTools.generateRandomFromUserInput",
 		"onCommand:textPowerTools.insertFullFilePath",
 		"onCommand:textPowerTools.insertDirectoryPath",
 		"onCommand:textPowerTools.insertFileName",
@@ -674,6 +677,26 @@
 				"title": "Reverse lines"
 			},
 			{
+				"command": "textPowerTools.generateRandomFromUserInput",
+				"category": "Text Power Tools",
+				"title": "Generate random items from user input"
+			},
+			{
+				"command": "textPowerTools.generateRandomDecimalNumbersFromRange",
+				"category": "Text Power Tools",
+				"title": "Generate random decimal numbers from range"
+			},
+			{
+				"command": "textPowerTools.generateRandomHexadecimalNumbersFromRange",
+				"category": "Text Power Tools",
+				"title": "Generate random hexadecimal numbers from range"
+			},
+			{
+				"command": "textPowerTools.generateRandomRealNumbersFromRange",
+				"category": "Text Power Tools",
+				"title": "Generate random real numbers from range"
+			},
+			{
 				"command": "textPowerTools.generateFakeData",
 				"category": "Text Power Tools",
 				"title": "Generate fake/random data..."
@@ -702,11 +725,6 @@
 				"command": "textPowerTools.generateLoremIpsumParagraph",
 				"category": "Text Power Tools",
 				"title": "Generate Lorem ipsum paragraphs"
-			},
-			{
-				"command": "textPowerTools.generateRandomFromUserInput",
-				"category": "Text Power Tools",
-				"title": "Generate random items from user input"
 			},
 			{
 				"command": "textPowerTools.insertFullFilePath",
@@ -1798,28 +1816,40 @@
 					"group": "tpt_1_sequence@2"
 				},
 				{
+					"command": "textPowerTools.generateRandomFromUserInput",
+					"group": "tpt_2_generateFromUserInput@1"
+				},
+				{
+					"command": "textPowerTools.generateRandomDecimalNumbersFromRange",
+					"group": "tpt_2_generateFromUserInput@1"
+				},
+				{
+					"command": "textPowerTools.generateRandomHexadecimalNumbersFromRange",
+					"group": "tpt_2_generateFromUserInput@1"
+				},
+				{
+					"command": "textPowerTools.generateRandomRealNumbersFromRange",
+					"group": "tpt_2_generateFromUserInput@1"
+				},
+				{
 					"command": "textPowerTools.generateRandomGuids",
-					"group": "tpt_2_generateItStuff@1"
+					"group": "tpt_3_generateItStuff@1"
 				},
 				{
 					"command": "textPowerTools.generateRandomIpv4Addresses",
-					"group": "tpt_2_generateItStuff@2"
+					"group": "tpt_3_generateItStuff@2"
 				},
 				{
 					"command": "textPowerTools.generateRandomIpv6Addresses",
-					"group": "tpt_2_generateItStuff@3"
+					"group": "tpt_3_generateItStuff@3"
 				},
 				{
 					"command": "textPowerTools.generateLoremIpsumSentence",
-					"group": "tpt_3_generateLoremIpsum@1"
+					"group": "tpt_4_generateLoremIpsum@1"
 				},
 				{
 					"command": "textPowerTools.generateLoremIpsumParagraph",
-					"group": "tpt_3_generateLoremIpsum@3"
-				},
-				{
-					"command": "textPowerTools.generateRandomFromUserInput",
-					"group": "tpt_4_generateFromUserInput@1"
+					"group": "tpt_4_generateLoremIpsum@3"
 				}
 			],
 			"textPowerTools.convert": [

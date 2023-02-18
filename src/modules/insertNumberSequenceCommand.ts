@@ -1,9 +1,9 @@
 import * as vscode from "vscode";
 import { NO_ACTIVE_EDITOR } from "../consts";
-import { insertSequenceInternal } from "../sequences/sequenceInserter";
 import { NumeralSystem } from "../interfaces";
-import { NumberSequece } from "../sequences/standardSequences/numberSequence";
+import { insertSequenceInternal } from "../sequences/sequenceInserter";
 import { isSequenceErrorMessage } from "../sequences/sequenceTypes";
+import { NumberSequece } from "../sequences/standardSequences/numberSequence";
 
 interface InsertNumberSequenceOptions {
 	numeralSystem: NumeralSystem;

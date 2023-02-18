@@ -42,6 +42,7 @@ Text Power Tools is also available as a Web Extension so it can be used on sites
 
     (Note: current/custom locale means OS locale or the locale specified in the `textPowerTools.customLocale` setting)
 * **Generate fake/random data**:
+    * _Random decimal, hexadecimal and real numbers from range_
     * _Random hex/decimal character sequences_
     * _Fake first names, last names and full names_ in the following languages: English, French, German and Hungarian.
     * _GUIDs/UUIDs_ (globally unique identifiers or universally unique identifiers) using multiple predefined formats (no dashes, dashes, dashes and braces, C# Guid constructor).

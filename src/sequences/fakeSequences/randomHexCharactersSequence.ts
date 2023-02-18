@@ -16,7 +16,7 @@ export class RandomHexCharactersSequence extends ASequenceBase {
 	}
 
 	public get order(): number {
-		return 0;
+		return 100;
 	}
 
 	constructor(
