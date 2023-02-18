@@ -1,3 +1,4 @@
+import * as vscode from "vscode";
 import { compareNumbers } from "../../helpers/utils";
 import { ASequenceBase } from "../sequenceBase";
 import { FakeFirstNamesSequence } from "./fakeFirstNamesSequence";
@@ -6,13 +7,15 @@ import { FakeLastNamesSequence } from "./fakeLastNamesSequence";
 import { LoremIpsumParagraphsSequence } from "./loremIpsumParagraphsSequence";
 import { LoremIpsumSentencesSequence } from "./loremIpsumSentencesSequence";
 import { RandomDecimalCharactersSequence } from "./randomDecimalCharactersSequence";
+import { RandomFromUserInputSequence } from "./randomFromUserInputSequence";
 import { RandomGuidsSequence } from "./randomGuidsSequence";
 import { RandomHexCharactersSequence } from "./randomHexCharactersSequence";
 import { IpAddressType, RandomIpAdressesSequence } from "./randomIpAdressesSequence";
 
-export function getKnownFakeSequences(): ASequenceBase[] {
+export function getKnownFakeSequences(context: vscode.ExtensionContext): ASequenceBase[] {
 	const ret: ASequenceBase[] = [];
 
+	ret.push(new RandomFromUserInputSequence(context, undefined));
 	ret.push(new RandomHexCharactersSequence(undefined));
 	ret.push(new RandomDecimalCharactersSequence(undefined));
 	ret.push(new RandomIpAdressesSequence(IpAddressType.Ipv4));

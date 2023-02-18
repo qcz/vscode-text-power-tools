@@ -49,6 +49,7 @@ Text Power Tools is also available as a Web Extension so it can be used on sites
     * _IPv4 and Ipv6 addresses_
     * _Lorem ipsum sentences_
     * _Lorem ipsum paragraphs_
+    * _From comma separated list of items provided by the user_
 * **Pad start and end of strings:** Pad the start or the end of selections to the desired length with default or custom character sequences. The default pad string can be customized with the `textPowerTools.defaultPadString` setting.
 * **Insert line numbers:** Inserts line numbers to the start of each line in every selection. Line numbers can be real line numbers in the file or can start with 1.
 * **Remove duplicated, blank, surplus blank, empty, surplus empty lines and control characters**

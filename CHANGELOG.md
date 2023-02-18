@@ -1,5 +1,8 @@
 # Changelog
 
+## **1.40.0** (2023. ??. ??.)
+- Add _Generate random items from user input` command.
+
 ## **1.39.0** (2023. 02. 10.)
 - Add _Spread paste lines from clipboard_ commands (with 4 variations)
 

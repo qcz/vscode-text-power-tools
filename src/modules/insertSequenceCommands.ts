@@ -5,6 +5,7 @@ import { getExtensionSettings } from "../helpers/tptSettings";
 import { getKnownFakeSequences } from "../sequences/fakeSequences";
 import { LoremIpsumParagraphsSequence } from "../sequences/fakeSequences/loremIpsumParagraphsSequence";
 import { LoremIpsumSentencesSequence } from "../sequences/fakeSequences/loremIpsumSentencesSequence";
+import { RandomFromUserInputSequence } from "../sequences/fakeSequences/randomFromUserInputSequence";
 import { GeneratedGuidType, KNOWN_GUID_TYPES, RandomGuidsSequence } from "../sequences/fakeSequences/randomGuidsSequence";
 import { IpAddressType, RandomIpAdressesSequence } from "../sequences/fakeSequences/randomIpAdressesSequence";
 import { ASequenceBase } from "../sequences/sequenceBase";
@@ -40,14 +41,19 @@ export const enum InsertableSeries {
 	RandomIpv4Addresses,
 	RandomIpv6Addresses,
 	LoremIpsumSentences,
-	LoremIpsumParagraphs
+	LoremIpsumParagraphs,
+
+	RandomFromUserInput
 }
 
 interface IInsertPredefinedSeriesOptions {
 	series: InsertableSeries;
 }
 
-export async function runInsertPredefinedSeriesCommand(options: IInsertPredefinedSeriesOptions) {
+export async function runInsertPredefinedSeriesCommand(
+	context: vscode.ExtensionContext,
+	options: IInsertPredefinedSeriesOptions
+) {
 	const editor = vscode.window.activeTextEditor;
 	if (!editor) {
 		vscode.window.showWarningMessage(NO_ACTIVE_EDITOR);
@@ -116,8 +122,11 @@ export async function runInsertPredefinedSeriesCommand(options: IInsertPredefine
 		case InsertableSeries.LoremIpsumParagraphs:
 			seqClass = new LoremIpsumParagraphsSequence();
 			break;
+		case InsertableSeries.RandomFromUserInput:
+			seqClass = new RandomFromUserInputSequence(context, undefined);
+			break;
 		case InsertableSeries.UserSelectionOfFakeSeries:
-			showPredefinedSeriesPicker(editor, await getFakeSeriesQuickPickItems());
+			showPredefinedSeriesPicker(editor, await getFakeSeriesQuickPickItems(context));
 			break;
 		case InsertableSeries.UserSelectionOfStandardSeries:
 		default:
@@ -189,9 +198,9 @@ async function getStandardSeriesQuickPickItems(): Promise<SequenceQuickPickItem[
 	return quickPickItems;
 }
 
-async function getFakeSeriesQuickPickItems(): Promise<SequenceQuickPickItem[]> {
+async function getFakeSeriesQuickPickItems(context: vscode.ExtensionContext): Promise<SequenceQuickPickItem[]> {
 	const quickPickItems: SequenceQuickPickItem[] = [];
-	for (const seq of getKnownFakeSequences()) {
+	for (const seq of getKnownFakeSequences(context)) {
 		quickPickItems.push({
 			label: `$(${seq.icon}) ${seq.name}`,
 			detail: `$(blank) $(blank) $(blank) $(blank) $(blank) ${await seq.getSample()}`,

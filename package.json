@@ -155,6 +155,7 @@
 		"onCommand:textPowerTools.generateRandomIpv6Addresses",
 		"onCommand:textPowerTools.generateLoremIpsumSentence",
 		"onCommand:textPowerTools.generateLoremIpsumParagraph",
+		"onCommand:textPowerTools.generateRandomFromUserInput",
 		"onCommand:textPowerTools.insertFullFilePath",
 		"onCommand:textPowerTools.insertDirectoryPath",
 		"onCommand:textPowerTools.insertFileName",
@@ -701,6 +702,11 @@
 				"command": "textPowerTools.generateLoremIpsumParagraph",
 				"category": "Text Power Tools",
 				"title": "Generate Lorem ipsum paragraphs"
+			},
+			{
+				"command": "textPowerTools.generateRandomFromUserInput",
+				"category": "Text Power Tools",
+				"title": "Generate random items from user input"
 			},
 			{
 				"command": "textPowerTools.insertFullFilePath",
@@ -1810,6 +1816,10 @@
 				{
 					"command": "textPowerTools.generateLoremIpsumParagraph",
 					"group": "tpt_3_generateLoremIpsum@3"
+				},
+				{
+					"command": "textPowerTools.generateRandomFromUserInput",
+					"group": "tpt_4_generateFromUserInput@1"
 				}
 			],
 			"textPowerTools.convert": [
