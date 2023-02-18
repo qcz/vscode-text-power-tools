@@ -5,7 +5,6 @@ import { getSelectionLines, getSelectionsOrFullDocument, replaceSelectionsWithLi
 
 export const enum TextTransformationType {
 	RemoveWhitespace = 1,
-	Json = 5,
 	JsonString = 6,
 	Latinize = 7,
 	Slugify = 8,
@@ -38,11 +37,6 @@ export async function runTextTransformationCommand(options: ITransformTextOption
 				case TextTransformationType.RemoveWhitespace:
 					currentSelectionLines.push(lineContent.replace(/\s/g, ""));
 					break;
-				case TextTransformationType.Json: {
-					const stringified = JSON.stringify(lineContent);
-					currentSelectionLines.push(stringified.substr(1, stringified.length - 2));
-					break;
-				}
 				case TextTransformationType.JsonString:
 					currentSelectionLines.push(JSON.stringify(lineContent));
 					break;

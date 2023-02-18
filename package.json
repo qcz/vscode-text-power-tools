@@ -251,6 +251,7 @@
 		"onCommand:textPowerTools.encodeXmlEntitiesOnEachLine",
 		"onCommand:textPowerTools.decodeXmlEntities",
 		"onCommand:textPowerTools.escapeTextForJson",
+		"onCommand:textPowerTools.unescapeTextForJson",
 		"onCommand:textPowerTools.convertToJsonString",
 		"onCommand:textPowerTools.convertToUnicodeEscapeSequences",
 		"onCommand:textPowerTools.decodeUnicodeEscapeSequences",
@@ -1187,6 +1188,11 @@
 				"title": "Escape text for JSON"
 			},
 			{
+				"command": "textPowerTools.unescapeTextForJson",
+				"category": "Text Power Tools",
+				"title": "Unescape JSON escaped text"
+			},
+			{
 				"command": "textPowerTools.convertToJsonString",
 				"category": "Text Power Tools",
 				"title": "Convert text to JSON string"
@@ -2034,12 +2040,16 @@
 					"group": "tpt_3_json@1"
 				},
 				{
-					"command": "textPowerTools.convertToJsonString",
+					"command": "textPowerTools.unescapeTextForJson",
 					"group": "tpt_3_json@2"
 				},
 				{
+					"command": "textPowerTools.convertToJsonString",
+					"group": "tpt_3_json@3"
+				},
+				{
 					"command": "textPowerTools.convertToUnicodeEscapeSequences",
-					"group": "tpt_4_ues@2"
+					"group": "tpt_4_ues@1"
 				},
 				{
 					"command": "textPowerTools.decodeUnicodeEscapeSequences",

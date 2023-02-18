@@ -1,8 +1,9 @@
 # Changelog
 
-## **1.40.0** (2023. ??. ??.)
+## **1.40.0** (2023. 02. 18.)
 - Add _Generate random items from user input_ command (with history support).
 - Add _Generate random decimal/hexadecimal/real numbers from range_ command.
+- Add _Unescape JSON escaped text_ command.
 
 ## **1.39.0** (2023. 02. 10.)
 - Add _Spread paste lines from clipboard_ commands (with 4 variations)

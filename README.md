@@ -61,7 +61,7 @@ Text Power Tools is also available as a Web Extension so it can be used on sites
     * - `files.trimFinalNewlines` – When `true`, will trim all new lines after the final new line at the end of the file when saving it.
 * **Prefix, suffix and wrap lines:** Prefix, suffix and wrap lines. Wrap uses either the same prefix/suffix or different ones.
 * **Insert full file path, directory path and file name of the opened file**.
-* **Escape text for JSON and convert text to JSON string**
+* **Escape/unescape text for JSON and convert text to JSON string**
 * **Insert Unix timestamp**
 * **Extract information from the source lines using regular expressions:** First input is the regular expression which should be matched with capture groups to find the desired parts of the lines (e.g.: `(\d.\d) dogs`). The second input is the replacement rule, which should contain capture group references (e.g. `$1 cats`). You can insert newlines with `\n` to the output. With these commands you can transform matching lines to the desired format in seconds.
 

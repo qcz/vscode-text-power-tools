@@ -8,7 +8,8 @@ export const enum TextEncodingType {
 	HtmlEntityEncoding = 2,
 	HtmlEntityEncodingWithNonAscii = 3,
 	XmlEntityEncoding = 4,
-	UnicodeEscapeSequences = 5
+	UnicodeEscapeSequences = 5,
+	Json
 }
 
 export const enum TextEncodingDirection {
@@ -38,18 +39,22 @@ export async function runModifyTextEncodingCommand(options: IModifyTextEncodingO
 
 		if (options.onEachLine === true) {
 			for (const lineContent of getSelectionLines(editor, selection)) {
-				runEncodingOnLine(options, currentSelectionLines, lineContent);
+				if (!runEncodingOnLine(options, currentSelectionLines, lineContent)) {
+					return;
+				}
 			}
 		} else {
 			const selectionContent = getSelectionContent(editor, selection);
 
-			runEncodingOnLine(options, currentSelectionLines, selectionContent);
+			if (!runEncodingOnLine(options, currentSelectionLines, selectionContent)) {
+				return;
+			}
 		}
 	}
 
 	await replaceSelectionsWithLines(editor, selections, linesBySelection, /* openNewDocument: */false);
 }
-function runEncodingOnLine(options: IModifyTextEncodingOptions, currentSelectionLines: string[], lineContent: string) {
+function runEncodingOnLine(options: IModifyTextEncodingOptions, currentSelectionLines: string[], lineContent: string): boolean {
 	switch (options.type) {
 		case TextEncodingType.UrlEncoding:
 			if (options.direction === TextEncodingDirection.Encode) {
@@ -103,8 +108,41 @@ function runEncodingOnLine(options: IModifyTextEncodingOptions, currentSelection
 			}
 
 			break;
+		case TextEncodingType.Json:
+			if (options.direction === TextEncodingDirection.Encode) {
+				const jsonifiedContent = JSON.stringify(lineContent);
+				currentSelectionLines.push(jsonifiedContent.substring(1, jsonifiedContent.length - 2));
+			} else {
+				try {
+					const deJsonifiedContent = JSON.parse(`"${lineContent}"`);
+					if (typeof deJsonifiedContent === "string") {
+						currentSelectionLines.push(deJsonifiedContent);
+					} else {
+						complainAboutJsonStringError(lineContent);
+						return false;
+					}
+				} catch (err) {
+					complainAboutJsonStringError(lineContent);
+					return false;
+				}
+			}
+
+			break;
 		default:
 			currentSelectionLines.push(lineContent);
 	}
+
+	return true;
+}
+
+function complainAboutJsonStringError(lineContent: string) {
+	let lineStart;
+	if (lineContent.length > 15) {
+		lineStart = `The selection/line starting with \`${lineContent.substring(0, 15)}\``;
+	} else {
+		lineStart = `The selection/line \`${lineContent.substring(0, 15)}\``;
+	}
+
+	vscode.window.showErrorMessage(`${lineStart} is not a valid JSON escaped text`);
 }
 
