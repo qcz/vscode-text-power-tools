@@ -1,5 +1,7 @@
 # Changelog
 
+## **1.40.1** (2023. 02. 18.)
+- Fix bug in _Escape text for JSON_ introduced in 1.40.0.
 ## **1.40.0** (2023. 02. 18.)
 - Add _Generate random items from user input_ command (with history support).
 - Add _Generate random decimal/hexadecimal/real numbers from range_ command.

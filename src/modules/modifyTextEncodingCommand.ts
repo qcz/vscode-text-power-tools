@@ -111,7 +111,7 @@ function runEncodingOnLine(options: IModifyTextEncodingOptions, currentSelection
 		case TextEncodingType.Json:
 			if (options.direction === TextEncodingDirection.Encode) {
 				const jsonifiedContent = JSON.stringify(lineContent);
-				currentSelectionLines.push(jsonifiedContent.substring(1, jsonifiedContent.length - 2));
+				currentSelectionLines.push(jsonifiedContent.substring(1, jsonifiedContent.length - 1));
 			} else {
 				try {
 					const deJsonifiedContent = JSON.parse(`"${lineContent}"`);
