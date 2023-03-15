@@ -1092,7 +1092,8 @@
 			"editor/context": [
 				{
 					"submenu": "textPowerTools.editorContextMain",
-					"group": "t_textPowerTools"
+					"group": "t_textPowerTools",
+					"when": "focusedView != workbench.panel.output"
 				}
 			],
 			"textPowerTools.editorContextMain": [
