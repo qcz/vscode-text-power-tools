@@ -1,27 +1,32 @@
 # Changelog
 
+## **1.40.2** (2023. 03. 15.)
+* Do not show TPT context menu in output window (#65).
+* Bump required VSCode version to 1.75.0.
+
 ## **1.40.1** (2023. 02. 18.)
-- Fix bug in _Escape text for JSON_ introduced in 1.40.0.
+- Fix bug in _Escape text for JSON_ introduced in 1.40.0. (#63)
+
 ## **1.40.0** (2023. 02. 18.)
-- Add _Generate random items from user input_ command (with history support).
-- Add _Generate random decimal/hexadecimal/real numbers from range_ command.
-- Add _Unescape JSON escaped text_ command.
+- Add _Generate random items from user input_ command (with history support, #62).
+- Add _Generate random decimal/hexadecimal/real numbers from range_ command (#61).
+- Add _Unescape JSON escaped text_ command. (#60)
 
 ## **1.39.0** (2023. 02. 10.)
-- Add _Spread paste lines from clipboard_ commands (with 4 variations)
+- Add _Spread paste lines from clipboard_ commands (with 4 variations, #56)
 
 ## **1.38.0** (2022. 11. 04.)
-- Add _Separate words with spaces_, _Separate words with forward slashes_ and _Separate words with backslashes_ commands.
+- Add _Separate words with spaces_, _Separate words with forward slashes_ and _Separate words with backslashes_ commands. (#52)
 
 ## **1.37.0** (2022. 10. 25.)
-- Introduce advanced title casing for English texts.
+- Introduce advanced title casing for English texts. (49)
 - Add _Change case to sponge case_ command.
 
 ## **1.36.1** (2022. 08. 28.)
 - Fix Unicode casing in the name of two commands.
 
 ## **1.36.0** (2022. 08. 28.)
-- Add _Convert to unicode escape sequences_ and _Decode unicode escape sequences_ commands.
+- Add _Convert to unicode escape sequences_ and _Decode unicode escape sequences_ commands. (#46)
 - Add support for generating random IPv4 and IPv6 addresses.
 - Add _Convert to Unicode normalization form_ commands (NFC, NFD, NFKC, NFKD).
 
@@ -30,8 +35,8 @@
 
 ## **1.34.0** (2022. 06. 25.)
 - Add support for running as a Web Extension.
-- Add _Duplicate selection content_ and _Repeat selection content_ commands.
-- Add support for sorting CIDR ranges in the IP address sort function.
+- Add _Duplicate selection content_ and _Repeat selection content_ commands. (#42)
+- Add support for sorting CIDR ranges in the IP address sort function. (#41)
 
 ## **1.33.0** (2022. 04. 06.)
 - New editors opened via the "_into a new editor_" commands now has the same language mode as their ancestors.

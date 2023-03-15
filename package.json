@@ -41,7 +41,7 @@
 		"trim",
 		"unicode"
 	],
-	"version": "1.40.1",
+	"version": "1.40.2",
 	"publisher": "qcz",
 	"private": true,
 	"engines": {
