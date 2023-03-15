@@ -68,6 +68,7 @@
 			"supported": true
 		}
 	},
+	"activationEvents": [],
 	"main": "./dist/extension",
 	"browser": "./dist/extension-web.js",
 	"contributes": {
