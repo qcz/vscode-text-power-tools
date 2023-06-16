@@ -55,6 +55,8 @@ Text Power Tools is also available as a Web Extension so it can be used on sites
 * **Insert line numbers:** Inserts line numbers to the start of each line in every selection. Line numbers can be real line numbers in the file or can start with 1.
 * **Remove duplicated, blank, surplus blank, empty, surplus empty lines and control characters**
 * **Replace new lines and whitespace with a single space** and **replace whitespace with a single space**
+* **Split lines** by spaces, semicolons, commas, pipes or any custom string.
+* **Join every two or N lines** (using only the raw lines or glue them together with spaces, semicolons, commas, pipes or any custom string)
 * **Trim leading & trailing whitespace, remove whitespace characters, remove newlines**
     * *Note*: There are disabled by default built-in settings for trimming trailing whitespace and secondary newlines at the end of file:
     * - `files.trimTrailingWhitespace` – When `true`, will trim trailing whitespace when saving a file.

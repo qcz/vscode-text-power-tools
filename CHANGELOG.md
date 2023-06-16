@@ -1,5 +1,11 @@
 # Changelog
 
+## **1.41.0** (2023. 06. 16.)
+* Add _Join every two lines_ and _Join every N lines_ family of commands. (#67)
+* Add _Split lines_ family of commands.
+* Add _Replace whitespace with a single space_ command. (#69)
+* Add missing _Sort lines by grapheme count ascending_ command to the context menu. (#68)
+
 ## **1.40.2** (2023. 03. 15.)
 * Do not show TPT context menu in output window (#65).
 * Bump required VSCode version to 1.75.0.
