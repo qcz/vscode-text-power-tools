@@ -1924,7 +1924,7 @@
 					"group": "tpt_3_length@6"
 				},
 				{
-					"command": "textPowerTools.sortByGraphemeCountDescending",
+					"command": "textPowerTools.sortByGraphemeCountAscending",
 					"group": "tpt_3_length@7"
 				},
 				{
