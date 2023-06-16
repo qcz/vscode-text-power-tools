@@ -12,6 +12,7 @@ export { LineNumberType, runInsertLineNumbersCommand } from "./insertLineNumbers
 export { runInsertNumberSequenceCommand as runInsertNumbersCommand } from "./insertNumberSequenceCommand";
 export { InsertableSeries, runInsertPredefinedSeriesCommand } from "./insertSequenceCommands";
 export { InsertableStuff, runInsertStuffCommand } from "./insertStuffCommand";
+export { runJoinLinesCommand } from "./joinLinesCommand";
 export { TextEncodingDirection, TextEncodingType, runModifyTextEncodingCommand } from "./modifyTextEncodingCommand";
 export { PadDirection, runPadCommand } from "./padCommand";
 export { ClipboardContentPasteType, runPasteFromClipboardCommand } from "./pasteFromClipboardCommand";

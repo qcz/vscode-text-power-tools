@@ -373,6 +373,57 @@
 				"category": "Text Power Tools",
 				"title": "Convert to NFKD Unicode normalization form"
 			},
+
+			{
+				"command": "textPowerTools.joinEvery2Lines",
+				"category": "Text Power Tools",
+				"title": "Join every two lines"
+			},
+			{
+				"command": "textPowerTools.joinEvery2LinesWithComma",
+				"category": "Text Power Tools",
+				"title": "Join every two lines with comma"
+			},
+			{
+				"command": "textPowerTools.joinEvery2LinesWithSemicolon",
+				"category": "Text Power Tools",
+				"title": "Join every two lines with semicolon"
+			},
+			{
+				"command": "textPowerTools.joinEvery2LinesWithPipe",
+				"category": "Text Power Tools",
+				"title": "Join every two lines with pipe"
+			},
+			{
+				"command": "textPowerTools.joinEvery2LinesWithCustomString",
+				"category": "Text Power Tools",
+				"title": "Join every two lines with custom string"
+			},
+			{
+				"command": "textPowerTools.joinEveryNLines",
+				"category": "Text Power Tools",
+				"title": "Join every N lines"
+			},
+			{
+				"command": "textPowerTools.joinEveryNLinesWithComma",
+				"category": "Text Power Tools",
+				"title": "Join every N lines with comma"
+			},
+			{
+				"command": "textPowerTools.joinEveryNLinesWithSemicolon",
+				"category": "Text Power Tools",
+				"title": "Join every N lines with semicolon"
+			},
+			{
+				"command": "textPowerTools.joinEveryNLinesWithPipe",
+				"category": "Text Power Tools",
+				"title": "Join every N lines with pipe"
+			},
+			{
+				"command": "textPowerTools.joinEveryNLinesWithCustomString",
+				"category": "Text Power Tools",
+				"title": "Join every N lines with custom string"
+			},
 			{
 				"command": "textPowerTools.caseSensitiveSortAscending",
 				"category": "Text Power Tools",
@@ -1120,8 +1171,12 @@
 					"group": "tpt_02_formatting@2"
 				},
 				{
-					"submenu": "textPowerTools.sortLines",
+					"submenu": "textPowerTools.joinLines",
 					"group": "tpt_02_formatting@3"
+				},
+				{
+					"submenu": "textPowerTools.sortLines",
+					"group": "tpt_02_formatting@4"
 				},
 				{
 					"submenu": "textPowerTools.generateFakeContent",
@@ -1874,6 +1929,48 @@
 					"group": "tpt_5_base64@4"
 				}
 			],
+			"textPowerTools.joinLines": [
+				{
+					"command": "textPowerTools.joinEvery2Lines",
+					"group": "tpt_1_every2Lines@1"
+				},
+				{
+					"command": "textPowerTools.joinEvery2LinesWithComma",
+					"group": "tpt_1_every2Lines@2"
+				},
+				{
+					"command": "textPowerTools.joinEvery2LinesWithSemicolon",
+					"group": "tpt_1_every2Lines@3"
+				},
+				{
+					"command": "textPowerTools.joinEvery2LinesWithPipe",
+					"group": "tpt_1_every2Lines@4"
+				},
+				{
+					"command": "textPowerTools.joinEvery2LinesWithCustomString",
+					"group": "tpt_1_every2Lines@5"
+				},
+				{
+					"command": "textPowerTools.joinEveryNLines",
+					"group": "tpt_2_everyNLines@1"
+				},
+				{
+					"command": "textPowerTools.joinEveryNLinesWithComma",
+					"group": "tpt_2_everyNLines@2"
+				},
+				{
+					"command": "textPowerTools.joinEveryNLinesWithSemicolon",
+					"group": "tpt_2_everyNLines@3"
+				},
+				{
+					"command": "textPowerTools.joinEveryNLinesWithPipe",
+					"group": "tpt_2_everyNLines@4"
+				},
+				{
+					"command": "textPowerTools.joinEveryNLinesWithCustomString",
+					"group": "tpt_2_everyNLines@5"
+				}
+			],
 			"textPowerTools.sortLines": [
 				{
 					"command": "textPowerTools.caseSensitiveSortAscending",
@@ -2076,6 +2173,10 @@
 			{
 				"id": "textPowerTools.encodeDecode",
 				"label": "Encode/decode"
+			},
+			{
+				"id": "textPowerTools.joinLines",
+				"label": "Join lines"
 			},
 			{
 				"id": "textPowerTools.sortLines",
