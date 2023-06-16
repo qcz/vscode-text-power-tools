@@ -1054,6 +1054,11 @@
 				"title": "Trim whitespace and remove newlines"
 			},
 			{
+				"command": "textPowerTools.replaceWhitespaceWithASingleSpace",
+				"category": "Text Power Tools",
+				"title": "Replace whitespace with a single space"
+			},
+			{
 				"command": "textPowerTools.replaceNewLinesAndWhitespaceWithASingleSpace",
 				"category": "Text Power Tools",
 				"title": "Replace new lines and whitespace with a single space"
@@ -1982,8 +1987,12 @@
 					"group": "tpt_1_removeCharacters@3"
 				},
 				{
+					"command": "textPowerTools.replaceWhitespaceWithASingleSpace",
+					"group": "tpt_1_removeCharacters@4"
+				},
+				{
 					"command": "textPowerTools.replaceNewLinesAndWhitespaceWithASingleSpace",
-					"group": "tpt_1_removeCharacters@3"
+					"group": "tpt_1_removeCharacters@5"
 				},
 				{
 					"command": "textPowerTools.removeDuplicates",
