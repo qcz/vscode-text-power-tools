@@ -380,6 +380,11 @@
 				"title": "Join every two lines"
 			},
 			{
+				"command": "textPowerTools.joinEvery2LinesWithSpace",
+				"category": "Text Power Tools",
+				"title": "Join every two lines with space"
+			},
+			{
 				"command": "textPowerTools.joinEvery2LinesWithComma",
 				"category": "Text Power Tools",
 				"title": "Join every two lines with comma"
@@ -405,6 +410,11 @@
 				"title": "Join every N lines"
 			},
 			{
+				"command": "textPowerTools.joinEveryNLinesWithSpace",
+				"category": "Text Power Tools",
+				"title": "Join every N lines with space"
+			},
+			{
 				"command": "textPowerTools.joinEveryNLinesWithComma",
 				"category": "Text Power Tools",
 				"title": "Join every N lines with comma"
@@ -423,6 +433,31 @@
 				"command": "textPowerTools.joinEveryNLinesWithCustomString",
 				"category": "Text Power Tools",
 				"title": "Join every N lines with custom string"
+			},
+			{
+				"command": "textPowerTools.splitLinesBySpace",
+				"category": "Text Power Tools",
+				"title": "Split lines by space"
+			},
+			{
+				"command": "textPowerTools.splitLinesByComma",
+				"category": "Text Power Tools",
+				"title": "Split lines by comma"
+			},
+			{
+				"command": "textPowerTools.splitLinesBySemicolon",
+				"category": "Text Power Tools",
+				"title": "Split lines by semicolon"
+			},
+			{
+				"command": "textPowerTools.splitLinesByPipe",
+				"category": "Text Power Tools",
+				"title": "Split lines by pipe"
+			},
+			{
+				"command": "textPowerTools.splitLinesByCustomString",
+				"category": "Text Power Tools",
+				"title": "Split lines by custom string"
 			},
 			{
 				"command": "textPowerTools.caseSensitiveSortAscending",
@@ -1171,7 +1206,7 @@
 					"group": "tpt_02_formatting@2"
 				},
 				{
-					"submenu": "textPowerTools.joinLines",
+					"submenu": "textPowerTools.joinSplitLines",
 					"group": "tpt_02_formatting@3"
 				},
 				{
@@ -1929,46 +1964,74 @@
 					"group": "tpt_5_base64@4"
 				}
 			],
-			"textPowerTools.joinLines": [
+			"textPowerTools.joinSplitLines": [
 				{
 					"command": "textPowerTools.joinEvery2Lines",
 					"group": "tpt_1_every2Lines@1"
 				},
 				{
-					"command": "textPowerTools.joinEvery2LinesWithComma",
+					"command": "textPowerTools.joinEvery2LinesWithSpace",
 					"group": "tpt_1_every2Lines@2"
 				},
 				{
-					"command": "textPowerTools.joinEvery2LinesWithSemicolon",
+					"command": "textPowerTools.joinEvery2LinesWithComma",
 					"group": "tpt_1_every2Lines@3"
 				},
 				{
-					"command": "textPowerTools.joinEvery2LinesWithPipe",
+					"command": "textPowerTools.joinEvery2LinesWithSemicolon",
 					"group": "tpt_1_every2Lines@4"
 				},
 				{
-					"command": "textPowerTools.joinEvery2LinesWithCustomString",
+					"command": "textPowerTools.joinEvery2LinesWithPipe",
 					"group": "tpt_1_every2Lines@5"
+				},
+				{
+					"command": "textPowerTools.joinEvery2LinesWithCustomString",
+					"group": "tpt_1_every2Lines@6"
 				},
 				{
 					"command": "textPowerTools.joinEveryNLines",
 					"group": "tpt_2_everyNLines@1"
 				},
 				{
-					"command": "textPowerTools.joinEveryNLinesWithComma",
+					"command": "textPowerTools.joinEveryNLinesWithSpace",
 					"group": "tpt_2_everyNLines@2"
 				},
 				{
-					"command": "textPowerTools.joinEveryNLinesWithSemicolon",
+					"command": "textPowerTools.joinEveryNLinesWithComma",
 					"group": "tpt_2_everyNLines@3"
 				},
 				{
-					"command": "textPowerTools.joinEveryNLinesWithPipe",
+					"command": "textPowerTools.joinEveryNLinesWithSemicolon",
 					"group": "tpt_2_everyNLines@4"
 				},
 				{
-					"command": "textPowerTools.joinEveryNLinesWithCustomString",
+					"command": "textPowerTools.joinEveryNLinesWithPipe",
 					"group": "tpt_2_everyNLines@5"
+				},
+				{
+					"command": "textPowerTools.joinEveryNLinesWithCustomString",
+					"group": "tpt_2_everyNLines@6"
+				},
+				{
+					"command": "textPowerTools.splitLinesBySpace",
+					"group": "tpt_3_splitLines@1"
+				},
+				{
+					"command": "textPowerTools.splitLinesByComma",
+					"group": "tpt_3_splitLines@2"
+				},
+				{
+					"command": "textPowerTools.splitLinesBySemicolon",
+					"group": "tpt_3_splitLines@3"
+				},
+				{
+					"command": "textPowerTools.splitLinesByPipe",
+					"group": "tpt_3_splitLines@4"
+				},
+				{
+					"command": "textPowerTools.splitLinesByCustomString",
+					"group": "tpt_3_splitLines@5"
 				}
 			],
 			"textPowerTools.sortLines": [
@@ -2175,8 +2238,8 @@
 				"label": "Encode/decode"
 			},
 			{
-				"id": "textPowerTools.joinLines",
-				"label": "Join lines"
+				"id": "textPowerTools.joinSplitLines",
+				"label": "Join/split lines"
 			},
 			{
 				"id": "textPowerTools.sortLines",

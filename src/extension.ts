@@ -1,7 +1,7 @@
 "use strict";
 import * as vscode from "vscode";
 import { NumberArithmetic, NumeralSystem } from "./interfaces";
-import { ASK_SPLIT_CHARACTER_FROM_USER, AffixTarget, Base4EncodingDirection, ChangeCaseType, ClipboardContentPasteType, FilterSourceType, FilterTarget, FilterType, InsertableSeries, InsertableStuff, LineNumberType, PadDirection, RemovedLineType, SortMethod, TextEncodingDirection, TextEncodingType, TextTransformationType, TrimDirection, ZalgificationIntensity, runAffixCommand, runBase64EncodingCommand, runChangeCaseCommand, runConvertNumberCommand, runConvertToZalgoCommand, runCopySelectionsToNewEditorCommand, runCountOccurrencesCommand, runExtractInfoCommand, runFilterTextCommand, runFormatContentAsTableCommand, runInsertLineNumbersCommand, runInsertNumbersCommand, runInsertPredefinedSeriesCommand as runInsertPredefinedSequenceCommand, runInsertStuffCommand, runJoinLinesCommand, runModifyTextEncodingCommand, runPadCommand, runPasteFromClipboardCommand, runRemoveControlCharactersCommand, runRemoveDuplicatesCommand, runRemoveLinesCommand, runRemoveNewLinesCommand, runRepeatSelectionContentCommand, runReplaceNewLinesAndWhitespaceWithASingleSpace, runReplaceWhitespaceWithASingleSpace, runSetTextSlotContentCommand, runSortCommand, runTextTransformationCommand, runTrimCommand, runpasteTextSlotCommand } from "./modules";
+import { ASK_SPLIT_CHARACTER_FROM_USER, AffixTarget, Base4EncodingDirection, ChangeCaseType, ClipboardContentPasteType, FilterSourceType, FilterTarget, FilterType, InsertableSeries, InsertableStuff, LineNumberType, PadDirection, RemovedLineType, SortMethod, TextEncodingDirection, TextEncodingType, TextTransformationType, TrimDirection, ZalgificationIntensity, runAffixCommand, runBase64EncodingCommand, runChangeCaseCommand, runConvertNumberCommand, runConvertToZalgoCommand, runCopySelectionsToNewEditorCommand, runCountOccurrencesCommand, runExtractInfoCommand, runFilterTextCommand, runFormatContentAsTableCommand, runInsertLineNumbersCommand, runInsertNumbersCommand, runInsertPredefinedSeriesCommand as runInsertPredefinedSequenceCommand, runInsertStuffCommand, runJoinLinesCommand, runModifyTextEncodingCommand, runPadCommand, runPasteFromClipboardCommand, runRemoveControlCharactersCommand, runRemoveDuplicatesCommand, runRemoveLinesCommand, runRemoveNewLinesCommand, runRepeatSelectionContentCommand, runReplaceNewLinesAndWhitespaceWithASingleSpace, runReplaceWhitespaceWithASingleSpace, runSetTextSlotContentCommand, runSortCommand, runSplitLinesCommand, runTextTransformationCommand, runTrimCommand, runpasteTextSlotCommand } from "./modules";
 
 export function activate(context: vscode.ExtensionContext) {
 	// Filter lines/extract info commands
@@ -189,6 +189,8 @@ function registerChangeLettersCommands(context: vscode.ExtensionContext) {
 function registerJoinCommands(context: vscode.ExtensionContext) {
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.joinEvery2Lines", () =>
 		runJoinLinesCommand({ joinString: "", numberOfJoinedLines: 2 })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.joinEvery2LinesWithSpace", () =>
+		runJoinLinesCommand({ joinString: " ", numberOfJoinedLines: 2 })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.joinEvery2LinesWithComma", () =>
 		runJoinLinesCommand({ joinString: ",", numberOfJoinedLines: 2 })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.joinEvery2LinesWithSemicolon", () =>
@@ -199,6 +201,8 @@ function registerJoinCommands(context: vscode.ExtensionContext) {
 		runJoinLinesCommand({ numberOfJoinedLines: 2 })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.joinEveryNLines", () =>
 		runJoinLinesCommand({ joinString: "" })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.joinEveryNLinesWithSpace", () =>
+		runJoinLinesCommand({ joinString: " " })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.joinEveryNLinesWithComma", () =>
 		runJoinLinesCommand({ joinString: "," })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.joinEveryNLinesWithSemicolon", () =>
@@ -207,6 +211,17 @@ function registerJoinCommands(context: vscode.ExtensionContext) {
 		runJoinLinesCommand({ joinString: "|" })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.joinEveryNLinesWithCustomString", () =>
 		runJoinLinesCommand({})));
+
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.splitLinesBySpace", () =>
+		runSplitLinesCommand({ splitString: " " })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.splitLinesByComma", () =>
+		runSplitLinesCommand({ splitString: "," })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.splitLinesBySemicolon", () =>
+		runSplitLinesCommand({ splitString: ";" })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.splitLinesByPipe", () =>
+		runSplitLinesCommand({ splitString: "|" })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.splitLinesByCustomString", () =>
+		runSplitLinesCommand({})));
 }
 
 function registerSortCommands(context: vscode.ExtensionContext) {

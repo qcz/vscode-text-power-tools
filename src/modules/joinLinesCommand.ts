@@ -64,7 +64,7 @@ async function askForJoinString(editor: vscode.TextEditor, numberOfJoinedLines: 
 		}
 
 		if (joinString == null) {
-			vscode.window.showErrorMessage("No pad string entered.");
+			vscode.window.showErrorMessage("No join string entered.");
 			return;
 		}
 

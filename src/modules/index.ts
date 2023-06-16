@@ -24,6 +24,7 @@ export { runRepeatSelectionContentCommand } from "./repeatSelectionContentComman
 export { runReplaceNewLinesAndWhitespaceWithASingleSpace } from "./replaceNewLinesAndWhitespaceWithSpace";
 export { runReplaceWhitespaceWithASingleSpace } from "./replaceWhitespaceWithSpace";
 export { SortMethod, runSortCommand } from "./sortCommand";
+export { runSplitLinesCommand } from "./splitLinesCommand";
 export { runSetTextSlotContentCommand, runpasteTextSlotCommand } from "./textSlotCommands";
 export { TextTransformationType, runTextTransformationCommand } from "./textTransformationCommand";
 export { TrimDirection, runTrimCommand } from "./trimCommand";
