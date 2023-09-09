@@ -43,7 +43,7 @@
 		"join",
 		"split"
 	],
-	"version": "1.41.0",
+	"version": "1.42.0",
 	"publisher": "qcz",
 	"private": true,
 	"engines": {
@@ -194,6 +194,16 @@
 				"command": "textPowerTools.countOccurrencesToNewEditor",
 				"category": "Text Power Tools",
 				"title": "Count line occurrences into a new editor"
+			},
+			{
+				"command": "textPowerTools.countAdjacentDuplicates",
+				"category": "Text Power Tools",
+				"title": "Count adjacent duplicates"
+			},
+			{
+				"command": "textPowerTools.countAdjacentDuplicatesToNewEditor",
+				"category": "Text Power Tools",
+				"title": "Count adjacent duplicates into a new editor"
 			},
 			{
 				"command": "textPowerTools.padStart",
@@ -375,7 +385,6 @@
 				"category": "Text Power Tools",
 				"title": "Convert to NFKD Unicode normalization form"
 			},
-
 			{
 				"command": "textPowerTools.joinEvery2Lines",
 				"category": "Text Power Tools",
@@ -1157,6 +1166,41 @@
 				"title": "Remove duplicated lines"
 			},
 			{
+				"command": "textPowerTools.caseInsensitiveRemoveDuplicates",
+				"category": "Text Power Tools",
+				"title": "Remove duplicated lines (case insensitive)"
+			},
+			{
+				"command": "textPowerTools.removeAdjacentDuplicates",
+				"category": "Text Power Tools",
+				"title": "Remove adjacent duplicated lines"
+			},
+			{
+				"command": "textPowerTools.caseInsensitiveRemoveAdjacentDuplicates",
+				"category": "Text Power Tools",
+				"title": "Remove adjacent duplicated lines (case insensitive)"
+			},
+			{
+				"command": "textPowerTools.keepOnlyDuplicates",
+				"category": "Text Power Tools",
+				"title": "Keep only duplicated lines"
+			},
+			{
+				"command": "textPowerTools.caseInsensitiveKeepOnlyDuplicates",
+				"category": "Text Power Tools",
+				"title": "Keep only duplicated lines (case insensitive)"
+			},
+			{
+				"command": "textPowerTools.keepOnlyAdjacentDuplicates",
+				"category": "Text Power Tools",
+				"title": "Keep only adjacent duplicated lines"
+			},
+			{
+				"command": "textPowerTools.caseInsensitiveKeepOnlyAdjacentDuplicates",
+				"category": "Text Power Tools",
+				"title": "Keep only adjacent duplicated lines (case insensitive)"
+			},
+			{
 				"command": "textPowerTools.removeEmptyLines",
 				"category": "Text Power Tools",
 				"title": "Remove empty lines"
@@ -1358,6 +1402,14 @@
 				{
 					"command": "textPowerTools.countOccurrencesToNewEditor",
 					"group": "tpt_2_countOccurrences@2"
+				},
+				{
+					"command": "textPowerTools.countAdjacentDuplicates",
+					"group": "tpt_2_countOccurrences@3"
+				},
+				{
+					"command": "textPowerTools.countAdjacentDuplicatesToNewEditor",
+					"group": "tpt_2_countOccurrences@4"
 				}
 			],
 			"textPowerTools.formatContent": [
@@ -2161,24 +2213,52 @@
 					"group": "tpt_2_removeDupe@1"
 				},
 				{
+					"command": "textPowerTools.caseInsensitiveRemoveDuplicates",
+					"group": "tpt_2_removeDupe@2"
+				},
+				{
+					"command": "textPowerTools.removeAdjacentDuplicates",
+					"group": "tpt_2_removeDupe@3"
+				},
+				{
+					"command": "textPowerTools.caseInsensitiveRemoveAdjacentDuplicates",
+					"group": "tpt_2_removeDupe@4"
+				},
+				{
+					"command": "textPowerTools.keepOnlyDuplicates",
+					"group": "tpt_3_keepDupe@1"
+				},
+				{
+					"command": "textPowerTools.caseInsensitiveKeepOnlyDuplicates",
+					"group": "tpt_3_keepDupe@2"
+				},
+				{
+					"command": "textPowerTools.keepOnlyAdjacentDuplicates",
+					"group": "tpt_3_keepDupe@3"
+				},
+				{
+					"command": "textPowerTools.caseInsensitiveKeepOnlyAdjacentDuplicates",
+					"group": "tpt_3_keepDupe@4"
+				},
+				{
 					"command": "textPowerTools.removeEmptyLines",
-					"group": "tpt_3_removeLines@1"
+					"group": "tpt_4_removeLines@1"
 				},
 				{
 					"command": "textPowerTools.removeSurplusEmptyLines",
-					"group": "tpt_3_removeLines@2"
+					"group": "tpt_4_removeLines@2"
 				},
 				{
 					"command": "textPowerTools.removeBlankLines",
-					"group": "tpt_3_removeLines@3"
+					"group": "tpt_4_removeLines@3"
 				},
 				{
 					"command": "textPowerTools.removeSurplusBlankLines",
-					"group": "tpt_3_removeLines@4"
+					"group": "tpt_4_removeLines@4"
 				},
 				{
 					"command": "textPowerTools.removeControlCharacters",
-					"group": "tpt_4_removeControlCharacters@1"
+					"group": "tpt_5_removeControlCharacters@1"
 				}
 			]
 		},

@@ -53,7 +53,8 @@ Text Power Tools is also available as a Web Extension so it can be used on sites
     * _From comma separated list of items provided by the user_
 * **Pad start and end of strings:** Pad the start or the end of selections to the desired length with default or custom character sequences. The default pad string can be customized with the `textPowerTools.defaultPadString` setting.
 * **Insert line numbers:** Inserts line numbers to the start of each line in every selection. Line numbers can be real line numbers in the file or can start with 1.
-* **Remove duplicated, blank, surplus blank, empty, surplus empty lines and control characters**
+* **Remove duplicated, adjacent duplicated, blank, surplus blank, empty, surplus empty lines and control characters**
+* **Keep only duplicated lines**
 * **Replace new lines and whitespace with a single space** and **replace whitespace with a single space**
 * **Split lines** by spaces, semicolons, commas, pipes or any custom string.
 * **Join every two or N lines** (using only the raw lines or glue them together with spaces, semicolons, commas, pipes or any custom string)
@@ -69,6 +70,7 @@ Text Power Tools is also available as a Web Extension so it can be used on sites
 
   The last 10 filter strings and replacement expressions are presented and can be used quickly when executing these commands.
 * **Count occurrences of lines:** This command will counts how many times a line appears in the selected text and generates an output with the number of occurrences and the lines themselves.
+* **Count adjacent duplicated lines:** This command will counts how many times adjacent duplicated lines appears in the selected text. Generates the same output as the standard count occurrences command.
 * **Various sorting methods which all supports ascending and descending orders**
     * _Case sensitive sort lines_
     * _Case sensitive sort lines starting at column_

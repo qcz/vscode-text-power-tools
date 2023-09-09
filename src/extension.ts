@@ -1,7 +1,7 @@
 "use strict";
 import * as vscode from "vscode";
 import { NumberArithmetic, NumeralSystem } from "./interfaces";
-import { ASK_SPLIT_CHARACTER_FROM_USER, AffixTarget, Base4EncodingDirection, ChangeCaseType, ClipboardContentPasteType, FilterSourceType, FilterTarget, FilterType, InsertableSeries, InsertableStuff, LineNumberType, PadDirection, RemovedLineType, SortMethod, TextEncodingDirection, TextEncodingType, TextTransformationType, TrimDirection, ZalgificationIntensity, runAffixCommand, runBase64EncodingCommand, runChangeCaseCommand, runConvertNumberCommand, runConvertToZalgoCommand, runCopySelectionsToNewEditorCommand, runCountOccurrencesCommand, runExtractInfoCommand, runFilterTextCommand, runFormatContentAsTableCommand, runInsertLineNumbersCommand, runInsertNumbersCommand, runInsertPredefinedSeriesCommand as runInsertPredefinedSequenceCommand, runInsertStuffCommand, runJoinLinesCommand, runModifyTextEncodingCommand, runPadCommand, runPasteFromClipboardCommand, runRemoveControlCharactersCommand, runRemoveDuplicatesCommand, runRemoveLinesCommand, runRemoveNewLinesCommand, runRepeatSelectionContentCommand, runReplaceNewLinesAndWhitespaceWithASingleSpace, runReplaceWhitespaceWithASingleSpace, runSetTextSlotContentCommand, runSortCommand, runSplitLinesCommand, runTextTransformationCommand, runTrimCommand, runpasteTextSlotCommand } from "./modules";
+import { ASK_SPLIT_CHARACTER_FROM_USER, AffixTarget, Base4EncodingDirection, ChangeCaseType, ClipboardContentPasteType, FilterSourceType, FilterTarget, FilterType, InsertableSeries, InsertableStuff, LineNumberType, PadDirection, RemovedLineType, SortMethod, TextEncodingDirection, TextEncodingType, TextTransformationType, TrimDirection, ZalgificationIntensity, runAffixCommand, runBase64EncodingCommand, runChangeCaseCommand, runConvertNumberCommand, runConvertToZalgoCommand, runCopySelectionsToNewEditorCommand, runCountOccurrencesCommand, runExtractInfoCommand, runFilterTextCommand, runFormatContentAsTableCommand, runInsertLineNumbersCommand, runInsertNumbersCommand, runInsertPredefinedSeriesCommand as runInsertPredefinedSequenceCommand, runInsertStuffCommand, runJoinLinesCommand, runKeepDuplicatesCommand, runModifyTextEncodingCommand, runPadCommand, runPasteFromClipboardCommand, runRemoveControlCharactersCommand, runRemoveDuplicatesCommand, runRemoveLinesCommand, runRemoveNewLinesCommand, runRepeatSelectionContentCommand, runReplaceNewLinesAndWhitespaceWithASingleSpace, runReplaceWhitespaceWithASingleSpace, runSetTextSlotContentCommand, runSortCommand, runSplitLinesCommand, runTextTransformationCommand, runTrimCommand, runpasteTextSlotCommand } from "./modules";
 
 export function activate(context: vscode.ExtensionContext) {
 	// Filter lines/extract info commands
@@ -90,9 +90,13 @@ function registerExtractInfoCommands(context: vscode.ExtensionContext) {
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.extractInformationToNewEditor", () =>
 		runExtractInfoCommand(context, { inNewEditor: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.countOccurrences", () =>
-		runCountOccurrencesCommand({ inNewEditor: false })));
+		runCountOccurrencesCommand({ onlyAdjacent: false, inNewEditor: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.countOccurrencesToNewEditor", () =>
-		runCountOccurrencesCommand({ inNewEditor: true })));
+		runCountOccurrencesCommand({ onlyAdjacent: false, inNewEditor: true })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.countAdjacentDuplicates", () =>
+		runCountOccurrencesCommand({ onlyAdjacent: true, inNewEditor: false })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.countAdjacentDuplicatesToNewEditor", () =>
+		runCountOccurrencesCommand({ onlyAdjacent: true, inNewEditor: true })));
 }
 
 function registerPadCommands(context: vscode.ExtensionContext) {
@@ -542,7 +546,23 @@ function registerRemoveCommands(context: vscode.ExtensionContext) {
 		runReplaceNewLinesAndWhitespaceWithASingleSpace()));
 
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.removeDuplicates", () =>
-		runRemoveDuplicatesCommand()));
+		runRemoveDuplicatesCommand({ onlyAdjacent: false, caseSensitive: true })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.caseInsensitiveRemoveDuplicates", () =>
+		runRemoveDuplicatesCommand({ onlyAdjacent: false, caseSensitive: false })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.removeAdjacentDuplicates", () =>
+		runRemoveDuplicatesCommand({ onlyAdjacent: true, caseSensitive: true })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.caseInsensitiveRemoveAdjacentDuplicates", () =>
+		runRemoveDuplicatesCommand({ onlyAdjacent: true, caseSensitive: false })));
+
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.keepOnlyDuplicates", () =>
+		runKeepDuplicatesCommand({ onlyAdjacent: false, caseSensitive: true })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.caseInsensitiveKeepOnlyDuplicates", () =>
+		runKeepDuplicatesCommand({ onlyAdjacent: false, caseSensitive: false })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.keepOnlyAdjacentDuplicates", () =>
+		runKeepDuplicatesCommand({ onlyAdjacent: true, caseSensitive: true })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.caseInsensitiveKeepOnlyAdjacentDuplicates", () =>
+		runKeepDuplicatesCommand({ onlyAdjacent: true, caseSensitive: false })));
+
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.removeEmptyLines", () =>
 		runRemoveLinesCommand({ type: RemovedLineType.Empty, onlySurplus: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.removeSurplusEmptyLines", () =>

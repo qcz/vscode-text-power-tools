@@ -2,12 +2,12 @@ import * as vscode from "vscode";
 import { NO_ACTIVE_EDITOR } from "../consts";
 import { getSelectionLines, getSelectionsOrFullDocument, replaceSelectionsWithLines } from "../helpers/vsCodeHelpers";
 
-interface RemoveDuplicatesOptions {
+interface KeepDuplicatesOptions {
 	onlyAdjacent: boolean;
 	caseSensitive: boolean;
 }
 
-export async function runRemoveDuplicatesCommand(options: RemoveDuplicatesOptions) {
+export async function runKeepDuplicatesCommand(options: KeepDuplicatesOptions) {
 	const editor = vscode.window.activeTextEditor;
 	if (!editor) {
 		vscode.window.showWarningMessage(NO_ACTIVE_EDITOR);
@@ -20,28 +20,30 @@ export async function runRemoveDuplicatesCommand(options: RemoveDuplicatesOption
 	for (const selection of selections) {
 		matchingLinesBySelection.push([]);
 		const currentSelectionLines = matchingLinesBySelection[matchingLinesBySelection.length - 1];
-		const currentSelectionNormalizedLines: string[] = [];
+
+		let lineCounter: { [index: string]: number } = {};
+		let lastLine: string | null = null;
 
 		for (const lineContent of getSelectionLines(editor, selection)) {
 			const normalizedLineContent = options.caseSensitive
 				? lineContent
 				: lineContent.toLocaleLowerCase();
 
-			if (options.onlyAdjacent) {
-				const lastItem: string | null = currentSelectionNormalizedLines.length > 0
-					? currentSelectionNormalizedLines[currentSelectionNormalizedLines.length -1]
-					: null;
+			if (options.onlyAdjacent && normalizedLineContent !== lastLine) {
+				lineCounter = {};
+			}
 
-				if (lastItem !== normalizedLineContent) {
+			if (lineCounter[normalizedLineContent]) {
+				lineCounter[normalizedLineContent]++;
+
+				if (lineCounter[normalizedLineContent] === 2) {
 					currentSelectionLines.push(lineContent);
-					currentSelectionNormalizedLines.push(normalizedLineContent);
 				}
 			} else {
-				if (currentSelectionNormalizedLines.indexOf(normalizedLineContent) === -1) {
-					currentSelectionLines.push(lineContent);
-					currentSelectionNormalizedLines.push(normalizedLineContent);
-				}
+				lineCounter[normalizedLineContent] = 1;
 			}
+
+			lastLine = normalizedLineContent;
 		}
 	}
 

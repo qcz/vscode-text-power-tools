@@ -1,5 +1,16 @@
 # Changelog
 
+## **1.42.0** (2023. 09. 09.)
+* Add _Remove duplicated lines (case insensitive)_ command
+* Add _Keep only duplicated lines_ and _Keep only duplicated lines (case insensitive)_ commands (#72)
+* Add commands related to adjacent duplicated lines (#72):
+   * _Remove adjacent duplicated lines_
+   * _Remove adjacent duplicated lines (case insensitive)_
+   * _Keep only adjacent duplicated lines_
+   * _Keep only adjacent duplicated lines (case insensitive)_
+   * _Count adjacent duplicated lines_
+
+
 ## **1.41.0** (2023. 06. 16.)
 * Add _Join every two lines_ and _Join every N lines_ family of commands. (#67)
 * Add _Split lines_ family of commands.

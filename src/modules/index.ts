@@ -13,6 +13,7 @@ export { runInsertNumberSequenceCommand as runInsertNumbersCommand } from "./ins
 export { InsertableSeries, runInsertPredefinedSeriesCommand } from "./insertSequenceCommands";
 export { InsertableStuff, runInsertStuffCommand } from "./insertStuffCommand";
 export { runJoinLinesCommand } from "./joinLinesCommand";
+export { runKeepDuplicatesCommand } from "./keepOnlyDuplicates";
 export { TextEncodingDirection, TextEncodingType, runModifyTextEncodingCommand } from "./modifyTextEncodingCommand";
 export { PadDirection, runPadCommand } from "./padCommand";
 export { ClipboardContentPasteType, runPasteFromClipboardCommand } from "./pasteFromClipboardCommand";
@@ -28,4 +29,3 @@ export { runSplitLinesCommand } from "./splitLinesCommand";
 export { runSetTextSlotContentCommand, runpasteTextSlotCommand } from "./textSlotCommands";
 export { TextTransformationType, runTextTransformationCommand } from "./textTransformationCommand";
 export { TrimDirection, runTrimCommand } from "./trimCommand";
-
