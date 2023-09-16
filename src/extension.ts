@@ -1,7 +1,7 @@
 "use strict";
 import * as vscode from "vscode";
 import { NumberArithmetic, NumeralSystem } from "./interfaces";
-import { ASK_SPLIT_CHARACTER_FROM_USER, AffixTarget, Base4EncodingDirection, ChangeCaseType, ClipboardContentPasteType, FilterSourceType, FilterTarget, FilterType, InsertableSeries, InsertableStuff, LineNumberType, PadDirection, RemovedLineType, SortMethod, TextEncodingDirection, TextEncodingType, TextTransformationType, TrimDirection, ZalgificationIntensity, runAffixCommand, runBase64EncodingCommand, runChangeCaseCommand, runConvertNumberCommand, runConvertToZalgoCommand, runCopySelectionsToNewEditorCommand, runCountOccurrencesCommand, runExtractInfoCommand, runFilterTextCommand, runFormatContentAsTableCommand, runInsertLineNumbersCommand, runInsertNumbersCommand, runInsertPredefinedSeriesCommand as runInsertPredefinedSequenceCommand, runInsertStuffCommand, runJoinLinesCommand, runKeepDuplicatesCommand, runModifyTextEncodingCommand, runPadCommand, runPasteFromClipboardCommand, runRemoveControlCharactersCommand, runRemoveDuplicatesCommand, runRemoveLinesCommand, runRemoveNewLinesCommand, runRepeatSelectionContentCommand, runReplaceNewLinesAndWhitespaceWithASingleSpace, runReplaceWhitespaceWithASingleSpace, runSetTextSlotContentCommand, runSortCommand, runSplitLinesCommand, runTextTransformationCommand, runTrimCommand, runpasteTextSlotCommand } from "./modules";
+import { ASK_SPLIT_CHARACTER_FROM_USER, AffixTarget, Base4EncodingDirection, ChangeCaseType, ClipboardContentPasteType, FilterSourceType, FilterTarget, FilterType, InsertableSeries, InsertableStuff, LineNumberType, PadDirection, RemovedLineType, SortMethod, TextEncodingDirection, TextEncodingType, TextTransformationType, TrimDirection, ZalgificationIntensity, runAffixCommand, runBase64EncodingCommand, runChangeCaseCommand, runConvertNumberCommand, runConvertToZalgoCommand, runCopySelectionsToNewEditorCommand, runCountOccurrencesCommand, runExtractInfoCommand, runFilterTextCommand, runFormatContentAsTableCommand, runInsertLineNumbersCommand, runInsertNumberSequenceCommand, runInsertPredefinedSeriesCommand, runInsertStuffCommand, runJoinLinesCommand, runKeepOnlyCommand, runModifyTextEncodingCommand, runPadCommand, runPasteFromClipboardCommand, runRemoveControlCharactersCommand, runRemoveDuplicatesCommand, runRemoveLinesCommand, runRemoveNewLinesCommand, runRepeatSelectionContentCommand, runReplaceNewLinesAndWhitespaceWithASingleSpace, runReplaceWhitespaceWithASingleSpace, runSetTextSlotContentCommand, runSortCommand, runSplitLinesCommand, runTextTransformationCommand, runTrimCommand, runpasteTextSlotCommand } from "./modules";
 
 export function activate(context: vscode.ExtensionContext) {
 	// Filter lines/extract info commands
@@ -273,27 +273,27 @@ function registerSortCommands(context: vscode.ExtensionContext) {
 
 function registerGenerateFakeDataCommands(context: vscode.ExtensionContext) {
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateFakeData", () =>
-		runInsertPredefinedSequenceCommand(context, { series: InsertableSeries.UserSelectionOfFakeSeries })));
+		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.UserSelectionOfFakeSeries })));
 
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateRandomFromUserInput", () =>
-		runInsertPredefinedSequenceCommand(context, { series: InsertableSeries.RandomFromUserInput })));
+		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.RandomFromUserInput })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateRandomDecimalNumbersFromRange", () =>
-		runInsertPredefinedSequenceCommand(context, { series: InsertableSeries.RandomDecimalNumberFromRange })));
+		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.RandomDecimalNumberFromRange })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateRandomHexadecimalNumbersFromRange", () =>
-		runInsertPredefinedSequenceCommand(context, { series: InsertableSeries.RandomHexadecimalNumberFromRange })));
+		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.RandomHexadecimalNumberFromRange })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateRandomRealNumbersFromRange", () =>
-		runInsertPredefinedSequenceCommand(context, { series: InsertableSeries.RandomRealNumberFromRange })));
+		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.RandomRealNumberFromRange })));
 
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateRandomGuids", () =>
-		runInsertPredefinedSequenceCommand(context, { series: InsertableSeries.RandomGuids })));
+		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.RandomGuids })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateRandomIpv4Addresses", () =>
-		runInsertPredefinedSequenceCommand(context, { series: InsertableSeries.RandomIpv4Addresses })));
+		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.RandomIpv4Addresses })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateRandomIpv6Addresses", () =>
-		runInsertPredefinedSequenceCommand(context, { series: InsertableSeries.RandomIpv6Addresses })));
+		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.RandomIpv6Addresses })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateLoremIpsumSentence", () =>
-		runInsertPredefinedSequenceCommand(context, { series: InsertableSeries.LoremIpsumSentences })));
+		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.LoremIpsumSentences })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateLoremIpsumParagraph", () =>
-		runInsertPredefinedSequenceCommand(context, { series: InsertableSeries.LoremIpsumParagraphs })));
+		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.LoremIpsumParagraphs })));
 }
 
 function registerInsertFactsCommands(context: vscode.ExtensionContext) {
@@ -309,29 +309,29 @@ function registerInsertFactsCommands(context: vscode.ExtensionContext) {
 
 function registerInsertNumbersCommands(context: vscode.ExtensionContext) {
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertDecimalNumbers", () =>
-		runInsertNumbersCommand({ numeralSystem: NumeralSystem.Decimal, askForIncrements: false, askForStartingNumber: false })));
+		runInsertNumberSequenceCommand({ numeralSystem: NumeralSystem.Decimal, askForIncrements: false, askForStartingNumber: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertDecimalNumbersStartingAt", () =>
-		runInsertNumbersCommand({ numeralSystem: NumeralSystem.Decimal, askForIncrements: false, askForStartingNumber: true })));
+		runInsertNumberSequenceCommand({ numeralSystem: NumeralSystem.Decimal, askForIncrements: false, askForStartingNumber: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertDecimalNumbersWithIncrements", () =>
-		runInsertNumbersCommand({ numeralSystem: NumeralSystem.Decimal, askForIncrements: true, askForStartingNumber: false })));
+		runInsertNumberSequenceCommand({ numeralSystem: NumeralSystem.Decimal, askForIncrements: true, askForStartingNumber: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertDecimalNumbersWithIncrementsStartingAt", () =>
-		runInsertNumbersCommand({ numeralSystem: NumeralSystem.Decimal, askForIncrements: true, askForStartingNumber: true })));
+		runInsertNumberSequenceCommand({ numeralSystem: NumeralSystem.Decimal, askForIncrements: true, askForStartingNumber: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertHexNumbers", () =>
-		runInsertNumbersCommand({ numeralSystem: NumeralSystem.Hexadecimal, askForIncrements: false, askForStartingNumber: false })));
+		runInsertNumberSequenceCommand({ numeralSystem: NumeralSystem.Hexadecimal, askForIncrements: false, askForStartingNumber: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertHexNumbersStartingAt", () =>
-		runInsertNumbersCommand({ numeralSystem: NumeralSystem.Hexadecimal, askForIncrements: false, askForStartingNumber: true })));
+		runInsertNumberSequenceCommand({ numeralSystem: NumeralSystem.Hexadecimal, askForIncrements: false, askForStartingNumber: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertHexNumbersWithIncrements", () =>
-		runInsertNumbersCommand({ numeralSystem: NumeralSystem.Hexadecimal, askForIncrements: true, askForStartingNumber: false })));
+		runInsertNumberSequenceCommand({ numeralSystem: NumeralSystem.Hexadecimal, askForIncrements: true, askForStartingNumber: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertHexNumbersWithIncrementsStartingAt", () =>
-		runInsertNumbersCommand({ numeralSystem: NumeralSystem.Hexadecimal, askForIncrements: true, askForStartingNumber: true })));
+		runInsertNumberSequenceCommand({ numeralSystem: NumeralSystem.Hexadecimal, askForIncrements: true, askForStartingNumber: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertRomanNumerals", () =>
-		runInsertNumbersCommand({ numeralSystem: NumeralSystem.Roman, askForIncrements: false, askForStartingNumber: false })));
+		runInsertNumberSequenceCommand({ numeralSystem: NumeralSystem.Roman, askForIncrements: false, askForStartingNumber: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertRomanNumeralsStartingAt", () =>
-		runInsertNumbersCommand({ numeralSystem: NumeralSystem.Roman, askForIncrements: false, askForStartingNumber: true })));
+		runInsertNumberSequenceCommand({ numeralSystem: NumeralSystem.Roman, askForIncrements: false, askForStartingNumber: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertRomanNumeralsWithIncrements", () =>
-		runInsertNumbersCommand({ numeralSystem: NumeralSystem.Roman, askForIncrements: true, askForStartingNumber: false })));
+		runInsertNumberSequenceCommand({ numeralSystem: NumeralSystem.Roman, askForIncrements: true, askForStartingNumber: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertRomanNumeralsWithIncrementsStartingAt", () =>
-		runInsertNumbersCommand({ numeralSystem: NumeralSystem.Roman, askForIncrements: true, askForStartingNumber: true })));
+		runInsertNumberSequenceCommand({ numeralSystem: NumeralSystem.Roman, askForIncrements: true, askForStartingNumber: true })));
 }
 
 function registerInsertLineNumbersCommands(context: vscode.ExtensionContext) {
@@ -347,33 +347,33 @@ function registerInsertLineNumbersCommands(context: vscode.ExtensionContext) {
 
 function registerInsertSeriesCommands(context: vscode.ExtensionContext) {
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertSequence", () =>
-		runInsertPredefinedSequenceCommand(context, { series: InsertableSeries.UserSelectionOfStandardSeries })));
+		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.UserSelectionOfStandardSeries })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertLowercaseLetterSequence", () =>
-		runInsertPredefinedSequenceCommand(context, { series: InsertableSeries.LowercaseLetters })));
+		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.LowercaseLetters })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertUppercaseLetterSequence", () =>
-		runInsertPredefinedSequenceCommand(context, { series: InsertableSeries.UppercaseLetters })));
+		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.UppercaseLetters })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertLowercaseGreekLetterSequence", () =>
-		runInsertPredefinedSequenceCommand(context, { series: InsertableSeries.LowercaseGreekLetters })));
+		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.LowercaseGreekLetters })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertUppercaseGreekLetterSequence", () =>
-		runInsertPredefinedSequenceCommand(context, { series: InsertableSeries.UppercaseGreekLetters })));
+		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.UppercaseGreekLetters })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertNatoPhoneticAlphabetSequence", () =>
-		runInsertPredefinedSequenceCommand(context, { series: InsertableSeries.NatoPhoneticAlphabet })));
+		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.NatoPhoneticAlphabet })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertLongEnglishMonthNamesSequence", () =>
-		runInsertPredefinedSequenceCommand(context, { series: InsertableSeries.LongEnglishMonthNames })));
+		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.LongEnglishMonthNames })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertShortEnglishMonthNamesSequence", () =>
-		runInsertPredefinedSequenceCommand(context, { series: InsertableSeries.ShortEnglishMonthNames })));
+		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.ShortEnglishMonthNames })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertLongLocaleMonthNamesSequence", () =>
-		runInsertPredefinedSequenceCommand(context, { series: InsertableSeries.LongLocaleMonthNames })));
+		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.LongLocaleMonthNames })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertShortLocaleMonthNamesSequence", () =>
-		runInsertPredefinedSequenceCommand(context, { series: InsertableSeries.ShortLocaleMonthNames })));
+		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.ShortLocaleMonthNames })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertLongEnglishDayNamesSequence", () =>
-		runInsertPredefinedSequenceCommand(context, { series: InsertableSeries.LongEnglishDayNames })));
+		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.LongEnglishDayNames })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertShortEnglishDayNamesSequence", () =>
-		runInsertPredefinedSequenceCommand(context, { series: InsertableSeries.ShortEnglishDayNames })));
+		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.ShortEnglishDayNames })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertLongLocaleDayNamesSequence", () =>
-		runInsertPredefinedSequenceCommand(context, { series: InsertableSeries.LongLocaleDayNames })));
+		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.LongLocaleDayNames })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertShortLocaleDayNamesSequence", () =>
-		runInsertPredefinedSequenceCommand(context, { series: InsertableSeries.ShortLocaleDayNames })));
+		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.ShortLocaleDayNames })));
 }
 
 function registerPasteCommands(context: vscode.ExtensionContext) {
@@ -555,13 +555,18 @@ function registerRemoveCommands(context: vscode.ExtensionContext) {
 		runRemoveDuplicatesCommand({ onlyAdjacent: true, caseSensitive: false })));
 
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.keepOnlyDuplicates", () =>
-		runKeepDuplicatesCommand({ onlyAdjacent: false, caseSensitive: true })));
+		runKeepOnlyCommand({ what: "duplicates", onlyAdjacent: false, caseSensitive: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.caseInsensitiveKeepOnlyDuplicates", () =>
-		runKeepDuplicatesCommand({ onlyAdjacent: false, caseSensitive: false })));
+		runKeepOnlyCommand({ what: "duplicates", onlyAdjacent: false, caseSensitive: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.keepOnlyAdjacentDuplicates", () =>
-		runKeepDuplicatesCommand({ onlyAdjacent: true, caseSensitive: true })));
+		runKeepOnlyCommand({ what: "duplicates", onlyAdjacent: true, caseSensitive: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.caseInsensitiveKeepOnlyAdjacentDuplicates", () =>
-		runKeepDuplicatesCommand({ onlyAdjacent: true, caseSensitive: false })));
+		runKeepOnlyCommand({ what: "duplicates", onlyAdjacent: true, caseSensitive: false })));
+
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.keepOnlyUniques", () =>
+		runKeepOnlyCommand({ what: "uniques", onlyAdjacent: true, caseSensitive: true })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.caseInsensitiveKeepOnlyUniques", () =>
+		runKeepOnlyCommand({ what: "uniques", onlyAdjacent: false, caseSensitive: false })));
 
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.removeEmptyLines", () =>
 		runRemoveLinesCommand({ type: RemovedLineType.Empty, onlySurplus: false })));

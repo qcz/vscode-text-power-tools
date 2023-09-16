@@ -1202,6 +1202,16 @@
 				"title": "Keep only adjacent duplicated lines (case insensitive)"
 			},
 			{
+				"command": "textPowerTools.keepOnlyUniques",
+				"category": "Text Power Tools",
+				"title": "Keep only unique lines"
+			},
+			{
+				"command": "textPowerTools.caseInsensitiveKeepOnlyUniques",
+				"category": "Text Power Tools",
+				"title": "Keep only unique lines (case insensitive)"
+			},
+			{
 				"command": "textPowerTools.removeEmptyLines",
 				"category": "Text Power Tools",
 				"title": "Remove empty lines"
@@ -2227,19 +2237,27 @@
 				},
 				{
 					"command": "textPowerTools.keepOnlyDuplicates",
-					"group": "tpt_3_keepDupe@1"
+					"group": "tpt_3_keepOnly@1"
 				},
 				{
 					"command": "textPowerTools.caseInsensitiveKeepOnlyDuplicates",
-					"group": "tpt_3_keepDupe@2"
+					"group": "tpt_3_keepOnly@2"
 				},
 				{
 					"command": "textPowerTools.keepOnlyAdjacentDuplicates",
-					"group": "tpt_3_keepDupe@3"
+					"group": "tpt_3_keepOnly@3"
 				},
 				{
 					"command": "textPowerTools.caseInsensitiveKeepOnlyAdjacentDuplicates",
-					"group": "tpt_3_keepDupe@4"
+					"group": "tpt_3_keepOnly@4"
+				},
+				{
+					"command": "textPowerTools.keepOnlyUniques",
+					"group": "tpt_3_keepOnly@5"
+				},
+				{
+					"command": "textPowerTools.caseInsensitiveKeepOnlyUniques",
+					"group": "tpt_3_keepOnly@6"
 				},
 				{
 					"command": "textPowerTools.removeEmptyLines",

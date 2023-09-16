@@ -9,11 +9,11 @@ export { runExtractInfoCommand } from "./extractInfoCommand";
 export { FilterSourceType, FilterTarget, FilterType, runFilterTextCommand } from "./filterTextCommand";
 export { ASK_SPLIT_CHARACTER_FROM_USER, runFormatContentAsTableCommand } from "./formatContentAsTableCommand";
 export { LineNumberType, runInsertLineNumbersCommand } from "./insertLineNumbersCommand";
-export { runInsertNumberSequenceCommand as runInsertNumbersCommand } from "./insertNumberSequenceCommand";
+export { runInsertNumberSequenceCommand } from "./insertNumberSequenceCommand";
 export { InsertableSeries, runInsertPredefinedSeriesCommand } from "./insertSequenceCommands";
 export { InsertableStuff, runInsertStuffCommand } from "./insertStuffCommand";
 export { runJoinLinesCommand } from "./joinLinesCommand";
-export { runKeepDuplicatesCommand } from "./keepOnlyDuplicates";
+export { runKeepOnlyCommand } from "./keepOnlyCommand";
 export { TextEncodingDirection, TextEncodingType, runModifyTextEncodingCommand } from "./modifyTextEncodingCommand";
 export { PadDirection, runPadCommand } from "./padCommand";
 export { ClipboardContentPasteType, runPasteFromClipboardCommand } from "./pasteFromClipboardCommand";
@@ -29,3 +29,4 @@ export { runSplitLinesCommand } from "./splitLinesCommand";
 export { runSetTextSlotContentCommand, runpasteTextSlotCommand } from "./textSlotCommands";
 export { TextTransformationType, runTextTransformationCommand } from "./textTransformationCommand";
 export { TrimDirection, runTrimCommand } from "./trimCommand";
+
