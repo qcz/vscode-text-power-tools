@@ -41,7 +41,8 @@
 		"trim",
 		"unicode",
 		"join",
-		"split"
+		"split",
+		"uniq"
 	],
 	"version": "1.42.0",
 	"publisher": "qcz",

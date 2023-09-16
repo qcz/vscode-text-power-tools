@@ -7,6 +7,11 @@ interface ICountLinesCommandOptions {
 	inNewEditor: boolean;
 }
 
+interface LineAppearanceCount {
+	content: string;
+	count: number;
+}
+
 export async function runCountOccurrencesCommand(options: ICountLinesCommandOptions) {
 	const editor = vscode.window.activeTextEditor;
 	if (!editor) {
@@ -20,46 +25,61 @@ export async function runCountOccurrencesCommand(options: ICountLinesCommandOpti
 	for (const selection of selections) {
 		linesBySelection.push([]);
 		const currentSelectionLines = linesBySelection[linesBySelection.length - 1];
-		let lineCounter: { [index: string]: number } = {};
 		let lastLine: string | null = null;
+
+		let currentCounter: Map<string, number> = new Map();
+		const finalCountLines: LineAppearanceCount[] = [];
 
 		for (const lineContent of getSelectionLines(editor, selection)) {
 			if (options.onlyAdjacent && lastLine !== lineContent) {
-				printCountResults(lineCounter, currentSelectionLines);
-				lineCounter = {};
+				addCountResults(currentCounter, finalCountLines);
+				currentCounter.clear();
 			}
 
-			if (lineCounter[lineContent]) {
-				lineCounter[lineContent]++;
+			if (currentCounter.has(lineContent)) {
+				currentCounter.set(lineContent, currentCounter.get(lineContent)! + 1);
 			} else {
-				lineCounter[lineContent] = 1;
+				currentCounter.set(lineContent, 1);
 			}
 
 			lastLine = lineContent;
 		}
 
-		printCountResults(lineCounter, currentSelectionLines);
+		addCountResults(currentCounter, finalCountLines);
+
+		const maxNumberLength: number = finalCountLines.reduce<number>(
+			(max, val) => {
+				const numberLength = val.count.toFixed().length;
+				return max < numberLength ? numberLength : max;
+			},
+			0
+		);
+
+		for (const ele of finalCountLines) {
+			currentSelectionLines.push(`${ele.count.toFixed().padStart(maxNumberLength, " ")}\t${ele.content}`);
+		}
 	}
 
 	await replaceSelectionsWithLines(editor, selections, linesBySelection, options.inNewEditor);
 }
 
-function printCountResults(lineCounter: { [index: string]: number }, currentSelectionLines: string[]): void {
-	const keys = Object.keys(lineCounter);
+function addCountResults(lineCounter: Map<string, number>, finalCountLines: LineAppearanceCount[]): void {
+	const keys = [...lineCounter.keys()];
 	if (keys.length ===  0) {
 		return;
 	}
 
-	const sortableLines: [string, number][] = [];
+	const sortableLines: LineAppearanceCount[] = [];
 	for (const key of keys) {
-		sortableLines.push([key, lineCounter[key]]);
+		sortableLines.push({
+			content: key,
+			count: lineCounter.get(key)!
+		});
 	}
 	sortableLines.sort((a, b) => {
-		return b[1] - a[1];
+		return b.count - a.count;
 	});
 
-	for (const ele of sortableLines) {
-		currentSelectionLines.push(`${ele[1]}\t${ele[0]}`);
-	}
+	finalCountLines.push(...sortableLines);
 }
 

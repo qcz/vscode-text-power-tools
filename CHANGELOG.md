@@ -1,5 +1,8 @@
 # Changelog
 
+## **1.43.0** (2023. 09. 16.)
+* Pad counters in the output of _Count line occurrences_ and _Count adjacent duplicates_ commands, so the result can be sorted using standard sorting commands.
+
 ## **1.42.0** (2023. 09. 09.)
 * Add _Remove duplicated lines (case insensitive)_ command
 * Add _Keep only duplicated lines_ and _Keep only duplicated lines (case insensitive)_ commands (#72)
