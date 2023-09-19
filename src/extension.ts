@@ -564,7 +564,7 @@ function registerRemoveCommands(context: vscode.ExtensionContext) {
 		runKeepOnlyCommand({ what: "duplicates", onlyAdjacent: true, caseSensitive: false })));
 
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.keepOnlyUniques", () =>
-		runKeepOnlyCommand({ what: "uniques", onlyAdjacent: true, caseSensitive: true })));
+		runKeepOnlyCommand({ what: "uniques", onlyAdjacent: false, caseSensitive: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.caseInsensitiveKeepOnlyUniques", () =>
 		runKeepOnlyCommand({ what: "uniques", onlyAdjacent: false, caseSensitive: false })));
 

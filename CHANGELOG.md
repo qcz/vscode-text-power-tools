@@ -1,5 +1,8 @@
 # Changelog
 
+## **1.43.1** (2023. 09. 19.)
+* Fix bug in Keep only uniques command.
+
 ## **1.43.0** (2023. 09. 16.)
 * Pad counters in the output of _Count line occurrences_ and _Count adjacent duplicates_ commands, so the result can be sorted using standard sorting commands.
 * Add _Keep only unique lines_ and _Keep only unique lines (case insensitive)_ commands (#72)
