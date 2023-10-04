@@ -1212,6 +1212,16 @@
 				"title": "Keep only unique lines (case insensitive)"
 			},
 			{
+				"command": "textPowerTools.keepNumberOfRandomLines",
+				"category": "Text Power Tools",
+				"title": "Keep a number of random lines"
+			},
+			{
+				"command": "textPowerTools.keepPercentageOfRandomLines",
+				"category": "Text Power Tools",
+				"title": "Keep a percentage of random lines"
+			},
+			{
 				"command": "textPowerTools.removeEmptyLines",
 				"category": "Text Power Tools",
 				"title": "Remove empty lines"
@@ -2260,24 +2270,32 @@
 					"group": "tpt_3_keepOnly@6"
 				},
 				{
+					"command": "textPowerTools.keepNumberOfRandomLines",
+					"group": "tpt_4_keepRandom@1"
+				},
+				{
+					"command": "textPowerTools.keepPercentageOfRandomLines",
+					"group": "tpt_4_keepRandom@2"
+				},
+				{
 					"command": "textPowerTools.removeEmptyLines",
-					"group": "tpt_4_removeLines@1"
+					"group": "tpt_5_removeLines@1"
 				},
 				{
 					"command": "textPowerTools.removeSurplusEmptyLines",
-					"group": "tpt_4_removeLines@2"
+					"group": "tpt_5_removeLines@2"
 				},
 				{
 					"command": "textPowerTools.removeBlankLines",
-					"group": "tpt_4_removeLines@3"
+					"group": "tpt_5_removeLines@3"
 				},
 				{
 					"command": "textPowerTools.removeSurplusBlankLines",
-					"group": "tpt_4_removeLines@4"
+					"group": "tpt_5_removeLines@4"
 				},
 				{
 					"command": "textPowerTools.removeControlCharacters",
-					"group": "tpt_5_removeControlCharacters@1"
+					"group": "tpt_6_removeControlCharacters@1"
 				}
 			]
 		},
@@ -2450,8 +2468,8 @@
 		"@types/semver-sort": "^0.0.1",
 		"@types/voca": "^1.4.0",
 		"@types/vscode": "^1.32.0",
-		"@typescript-eslint/eslint-plugin": "^4.31.1",
-		"@typescript-eslint/parser": "^4.31.1",
+		"@typescript-eslint/eslint-plugin": "^6.7.4",
+		"@typescript-eslint/parser": "^6.7.4",
 		"eslint": "^7.32.0",
 		"eslint-config-prettier": "^8.3.0",
 		"eslint-plugin-prettier": "^4.0.0",

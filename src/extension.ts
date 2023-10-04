@@ -1,7 +1,7 @@
 "use strict";
 import * as vscode from "vscode";
 import { NumberArithmetic, NumeralSystem } from "./interfaces";
-import { ASK_SPLIT_CHARACTER_FROM_USER, AffixTarget, Base4EncodingDirection, ChangeCaseType, ClipboardContentPasteType, FilterSourceType, FilterTarget, FilterType, InsertableSeries, InsertableStuff, LineNumberType, PadDirection, RemovedLineType, SortMethod, TextEncodingDirection, TextEncodingType, TextTransformationType, TrimDirection, ZalgificationIntensity, runAffixCommand, runBase64EncodingCommand, runChangeCaseCommand, runConvertNumberCommand, runConvertToZalgoCommand, runCopySelectionsToNewEditorCommand, runCountOccurrencesCommand, runExtractInfoCommand, runFilterTextCommand, runFormatContentAsTableCommand, runInsertLineNumbersCommand, runInsertNumberSequenceCommand, runInsertPredefinedSeriesCommand, runInsertStuffCommand, runJoinLinesCommand, runKeepOnlyCommand, runModifyTextEncodingCommand, runPadCommand, runPasteFromClipboardCommand, runRemoveControlCharactersCommand, runRemoveDuplicatesCommand, runRemoveLinesCommand, runRemoveNewLinesCommand, runRepeatSelectionContentCommand, runReplaceNewLinesAndWhitespaceWithASingleSpace, runReplaceWhitespaceWithASingleSpace, runSetTextSlotContentCommand, runSortCommand, runSplitLinesCommand, runTextTransformationCommand, runTrimCommand, runpasteTextSlotCommand } from "./modules";
+import { ASK_SPLIT_CHARACTER_FROM_USER, AffixTarget, Base4EncodingDirection, ChangeCaseType, ClipboardContentPasteType, FilterSourceType, FilterTarget, FilterType, InsertableSeries, InsertableStuff, LineNumberType, PadDirection, RemovedLineType, SortMethod, TextEncodingDirection, TextEncodingType, TextTransformationType, TrimDirection, ZalgificationIntensity, runAffixCommand, runBase64EncodingCommand, runChangeCaseCommand, runConvertNumberCommand, runConvertToZalgoCommand, runCopySelectionsToNewEditorCommand, runCountOccurrencesCommand, runExtractInfoCommand, runFilterTextCommand, runFormatContentAsTableCommand, runInsertLineNumbersCommand, runInsertNumberSequenceCommand, runInsertPredefinedSeriesCommand, runInsertStuffCommand, runJoinLinesCommand, runKeepOnlyCommand, runKeepRandomLinesCommand, runModifyTextEncodingCommand, runPadCommand, runPasteFromClipboardCommand, runRemoveControlCharactersCommand, runRemoveDuplicatesCommand, runRemoveLinesCommand, runRemoveNewLinesCommand, runRepeatSelectionContentCommand, runReplaceNewLinesAndWhitespaceWithASingleSpace, runReplaceWhitespaceWithASingleSpace, runSetTextSlotContentCommand, runSortCommand, runSplitLinesCommand, runTextTransformationCommand, runTrimCommand, runpasteTextSlotCommand } from "./modules";
 
 export function activate(context: vscode.ExtensionContext) {
 	// Filter lines/extract info commands
@@ -567,6 +567,11 @@ function registerRemoveCommands(context: vscode.ExtensionContext) {
 		runKeepOnlyCommand({ what: "uniques", onlyAdjacent: false, caseSensitive: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.caseInsensitiveKeepOnlyUniques", () =>
 		runKeepOnlyCommand({ what: "uniques", onlyAdjacent: false, caseSensitive: false })));
+
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.keepNumberOfRandomLines", () =>
+		runKeepRandomLinesCommand({ unit: "integer" })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.keepPercentageOfRandomLines", () =>
+		runKeepRandomLinesCommand({ unit: "percentage" })));
 
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.removeEmptyLines", () =>
 		runRemoveLinesCommand({ type: RemovedLineType.Empty, onlySurplus: false })));
