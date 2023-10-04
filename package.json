@@ -347,6 +347,11 @@
 				"title": "Change case to title case (Title Case)"
 			},
 			{
+				"command": "textPowerTools.changeCaseToSentenceCase",
+				"category": "Text Power Tools",
+				"title": "Change case to sentence case (Sentence case)"
+			},
+			{
 				"command": "textPowerTools.changeCaseToSpongeCase",
 				"category": "Text Power Tools",
 				"title": "Change case to sponge case (random capitalization)"
@@ -1549,12 +1554,16 @@
 					"group": "tpt_1_changeCase@7"
 				},
 				{
-					"command": "textPowerTools.changeCaseToSpongeCase",
+					"command": "textPowerTools.changeCaseToSentenceCase",
 					"group": "tpt_1_changeCase@8"
 				},
 				{
-					"command": "textPowerTools.changeCaseToSwapCase",
+					"command": "textPowerTools.changeCaseToSpongeCase",
 					"group": "tpt_1_changeCase@9"
+				},
+				{
+					"command": "textPowerTools.changeCaseToSwapCase",
+					"group": "tpt_1_changeCase@10"
 				},
 				{
 					"command": "textPowerTools.latinize",

@@ -1,5 +1,5 @@
 import * as cc from "change-case";
-import { noCase, pathCase } from "change-case";
+import { noCase, pathCase, sentenceCase } from "change-case";
 import { spongeCase } from "sponge-case";
 import { swapCase } from "swap-case";
 import { titleCase } from "title-case";
@@ -9,18 +9,19 @@ import { NO_ACTIVE_EDITOR } from "../consts";
 import { getSelectionLines, getSelectionsOrFullDocument, replaceSelectionsWithLines } from "../helpers/vsCodeHelpers";
 
 export const enum ChangeCaseType {
-	CamelCase = 1,
-	PascalCase = 2,
-	SnakeCase = 3,
-	DashCase = 4,
-	ConstantCase = 5,
-	DotCase = 6,
-	TitleCase = 7,
-	SpongeCase = 8,
-	SeparateWithSpaces = 9,
-	SeparateWithForwardSlashes = 10,
-	SeparateWithBackslashes = 11,
-	SwapCase = 100,
+	CamelCase,
+	PascalCase,
+	SnakeCase,
+	DashCase,
+	ConstantCase,
+	DotCase ,
+	TitleCase,
+	SentenceCase,
+	SpongeCase,
+	SeparateWithSpaces,
+	SeparateWithForwardSlashes,
+	SeparateWithBackslashes,
+	SwapCase,
 }
 
 interface IChangeCaseOptions {
@@ -69,6 +70,9 @@ export async function runChangeCaseCommand(options: IChangeCaseOptions) {
 					break;
 				case ChangeCaseType.SpongeCase:
 					currentSelectionLines.push(spongeCase(lineContent));
+					break;
+				case ChangeCaseType.SentenceCase:
+					currentSelectionLines.push(sentenceCase(lineContent));
 					break;
 				case ChangeCaseType.SeparateWithSpaces:
 					currentSelectionLines.push(noCase(lineContent, {
