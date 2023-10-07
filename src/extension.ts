@@ -305,6 +305,22 @@ function registerInsertFactsCommands(context: vscode.ExtensionContext) {
 		runInsertStuffCommand({ what: InsertableStuff.DirectoryPath })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertFileName", () =>
 		runInsertStuffCommand({ what: InsertableStuff.FileName })));
+
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertDate", () =>
+		runInsertStuffCommand({ what: InsertableStuff.Date })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertLocalDate", () =>
+		runInsertStuffCommand({ what: InsertableStuff.DateLocal })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertTime", () =>
+		runInsertStuffCommand({ what: InsertableStuff.Time })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertLocalTime", () =>
+		runInsertStuffCommand({ what: InsertableStuff.TimeLocal })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertTimestamp", () =>
+		runInsertStuffCommand({ what: InsertableStuff.Timestamp })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertLocalTimestamp", () =>
+		runInsertStuffCommand({ what: InsertableStuff.TimestampLocal })));
+
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertUtcTimestamp", () =>
+		runInsertStuffCommand({ what: InsertableStuff.UtcTimestamp })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertUnixTimestamp", () =>
 		runInsertStuffCommand({ what: InsertableStuff.UnixTimestamp })));
 }

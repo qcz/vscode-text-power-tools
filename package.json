@@ -642,6 +642,41 @@
 				"title": "Insert file name of the opened file"
 			},
 			{
+				"command": "textPowerTools.insertDate",
+				"category": "Text Power Tools",
+				"title": "Insert date"
+			},
+			{
+				"command": "textPowerTools.insertLocalDate",
+				"category": "Text Power Tools",
+				"title": "Insert date (formatted using custom locale)"
+			},
+			{
+				"command": "textPowerTools.insertTime",
+				"category": "Text Power Tools",
+				"title": "Insert time"
+			},
+			{
+				"command": "textPowerTools.insertLocalTime",
+				"category": "Text Power Tools",
+				"title": "Insert time (formatted using custom locale)"
+			},
+			{
+				"command": "textPowerTools.insertTimestamp",
+				"category": "Text Power Tools",
+				"title": "Insert timestamp"
+			},
+			{
+				"command": "textPowerTools.insertLocalTimestamp",
+				"category": "Text Power Tools",
+				"title": "Insert timestamp (formatted using custom locale)"
+			},
+			{
+				"command": "textPowerTools.insertUtcTimestamp",
+				"category": "Text Power Tools",
+				"title": "Insert UTC timestamp (ISO 8601)"
+			},
+			{
 				"command": "textPowerTools.insertUnixTimestamp",
 				"category": "Text Power Tools",
 				"title": "Insert Unix timestamp"
@@ -1604,8 +1639,36 @@
 					"group": "tpt_1_insertFileSystemStuff@3"
 				},
 				{
+					"command": "textPowerTools.insertDate",
+					"group": "tpt_2_insertTimeStuff@1"
+				},
+				{
+					"command": "textPowerTools.insertLocalDate",
+					"group": "tpt_2_insertTimeStuff@2"
+				},
+				{
+					"command": "textPowerTools.insertTime",
+					"group": "tpt_2_insertTimeStuff@3"
+				},
+				{
+					"command": "textPowerTools.insertLocalTime",
+					"group": "tpt_2_insertTimeStuff@4"
+				},
+				{
+					"command": "textPowerTools.insertTimestamp",
+					"group": "tpt_2_insertTimeStuff@5"
+				},
+				{
+					"command": "textPowerTools.insertLocalTimestamp",
+					"group": "tpt_2_insertTimeStuff@6"
+				},
+				{
+					"command": "textPowerTools.insertUtcTimestamp",
+					"group": "tpt_3_insertStandardTimeStuff@1"
+				},
+				{
 					"command": "textPowerTools.insertUnixTimestamp",
-					"group": "tpt_1_insertTimeStuff@1"
+					"group": "tpt_3_insertStandardTimeStuff@2"
 				}
 			],
 			"textPowerTools.insertNumbers": [
