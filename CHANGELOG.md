@@ -1,5 +1,12 @@
 # Changelog
 
+## **1.44.0** (2023. 10. 07.)
+* Add _Keep a number of random lines_ and _Keep a percentage of random lines_ commands.
+* Add _Change case to sentence case_ command (#74).
+* Add _Insert date_, _time_ and _timestamp_ commands using editor locale & custom locale.
+* Add _Insert UTC timestamp (ISO 8601)_ command.
+* Fix: Handle unicode letters properly in change case commands.
+
 ## **1.43.1** (2023. 09. 19.)
 * Fix bug in Keep only uniques command.
 

@@ -1,7 +1,7 @@
 {
 	"name": "text-power-tools",
 	"displayName": "Text Power Tools",
-	"description": "All-in-one solution with 200+ commands for text manipulation: filter lines (grep), remove lines, insert number sequences and GUIDs, sorting, change case, converting numbers, generating fake data and more. Great for finding information in logs.",
+	"description": "All-in-one solution with 240+ commands for text manipulation: filter lines (grep), remove lines, insert number sequences and GUIDs, sorting, change case, converting numbers, generating fake data and more. Great for finding information in logs.",
 	"keywords": [
 		"text",
 		"tools",
@@ -44,7 +44,7 @@
 		"split",
 		"uniq"
 	],
-	"version": "1.43.1",
+	"version": "1.44.0",
 	"publisher": "qcz",
 	"private": true,
 	"engines": {
