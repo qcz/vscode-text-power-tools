@@ -509,42 +509,42 @@
 			{
 				"command": "textPowerTools.sortByLengthCaseSensitiveAscending",
 				"category": "Text Power Tools",
-				"title": "Sort lines by length (and then case sensitive) ascending"
+				"title": "Sort lines ascending by length (and then case sensitive)"
 			},
 			{
 				"command": "textPowerTools.sortByLengthCaseSensitiveDescending",
 				"category": "Text Power Tools",
-				"title": "Sort lines by length (and then case sensitive) descending "
+				"title": "Sort lines descending by length (and then case sensitive)"
 			},
 			{
 				"command": "textPowerTools.sortByLengthCaseInsensitiveAscending",
 				"category": "Text Power Tools",
-				"title": "Sort lines by length (and then case insensitive) ascending"
+				"title": "Sort lines ascending by length (and then case insensitive)"
 			},
 			{
 				"command": "textPowerTools.sortByLengthCaseInsensitiveDescending",
 				"category": "Text Power Tools",
-				"title": "Sort lines by length (and then case insensitive) descending"
+				"title": "Sort lines descending by length (and then case insensitive)"
 			},
 			{
 				"command": "textPowerTools.sortByWordCountAscending",
 				"category": "Text Power Tools",
-				"title": "Sort lines by word count ascending"
+				"title": "Sort lines ascending by word count"
 			},
 			{
 				"command": "textPowerTools.sortByWordCountDescending",
 				"category": "Text Power Tools",
-				"title": "Sort lines by word count descending"
+				"title": "Sort lines descending by word count"
 			},
 			{
 				"command": "textPowerTools.sortByGraphemeCountAscending",
 				"category": "Text Power Tools",
-				"title": "Sort lines by grapheme count ascending"
+				"title": "Sort lines ascending by grapheme count"
 			},
 			{
 				"command": "textPowerTools.sortByGraphemeCountDescending",
 				"category": "Text Power Tools",
-				"title": "Sort lines by grapheme count descending"
+				"title": "Sort lines descending by grapheme count"
 			},
 			{
 				"command": "textPowerTools.semverSortAscending",
@@ -565,6 +565,26 @@
 				"command": "textPowerTools.ipAddressSortDescending",
 				"category": "Text Power Tools",
 				"title": "Sort IP addresses descending"
+			},
+			{
+				"command": "textPowerTools.sortByDecimalValueAscending",
+				"category": "Text Power Tools",
+				"title": "Sort lines ascending by decimal number value"
+			},
+			{
+				"command": "textPowerTools.sortByDecimalValueDescending",
+				"category": "Text Power Tools",
+				"title": "Sort lines descending by decimal number value"
+			},
+			{
+				"command": "textPowerTools.sortByHexadecimalValueAscending",
+				"category": "Text Power Tools",
+				"title": "Sort lines ascending by hexadecimal number value"
+			},
+			{
+				"command": "textPowerTools.sortByHexadecimalValueDescending",
+				"category": "Text Power Tools",
+				"title": "Sort lines descending by hexadecimal number value"
 			},
 			{
 				"command": "textPowerTools.shuffleLines",
@@ -2253,6 +2273,22 @@
 				{
 					"command": "textPowerTools.ipAddressSortDescending",
 					"group": "tpt_5_ipAddress@2"
+				},
+				{
+					"command": "textPowerTools.sortByDecimalValueAscending",
+					"group": "tpt_6_numberValue@1"
+				},
+				{
+					"command": "textPowerTools.sortByDecimalValueDescending",
+					"group": "tpt_6_numberValue@2"
+				},
+				{
+					"command": "textPowerTools.sortByHexadecimalValueAscending",
+					"group": "tpt_6_numberValue@3"
+				},
+				{
+					"command": "textPowerTools.sortByHexadecimalValueDescending",
+					"group": "tpt_6_numberValue@4"
 				},
 				{
 					"command": "textPowerTools.shuffleLines",

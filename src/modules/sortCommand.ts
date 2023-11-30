@@ -17,7 +17,9 @@ export const enum SortMethod {
 	WordCount,
 	GraphemeCount,
 	Shuffle,
-	Reverse
+	Reverse,
+	DecimalNumberValue,
+	HexadecimalNumberValue,
 }
 
 interface ISortOptions {
@@ -195,6 +197,43 @@ export async function runSortCommand(options: ISortOptions) {
 				break;
 			case SortMethod.Reverse:
 				lines = lines.reverse();
+				break;
+			case SortMethod.DecimalNumberValue:
+			case SortMethod.HexadecimalNumberValue:
+				var linesWithNumbers: [number, string][] = lines.map(line => {
+					let numberValue = Number.NaN;
+					if (options.sortMethod === SortMethod.DecimalNumberValue) {
+						numberValue = Number(line);
+					} else if (/^(0x)?[0-9a-f]+$/i.test(line)) {
+						numberValue = parseInt(line, 16);
+					}
+
+					return [numberValue, line];
+				});
+
+				linesWithNumbers.sort((a, b) => {
+					if (Number.isNaN(a[0]) && Number.isNaN(b[0])) {
+						return 0;
+					}
+
+					if (Number.isNaN(a[0])) {
+						return 1;
+					}
+
+					if (Number.isNaN(b[0])) {
+						return -1;
+					}
+
+					let compareResult = compareNumbers(a[0], b[0]);
+
+					if (options.sortDirection === "descending") {
+						compareResult = compareResult * -1;
+					}
+
+					return compareResult;
+				});
+
+				lines = linesWithNumbers.map(x => x[1]);
 				break;
 		}
 

@@ -267,6 +267,16 @@ function registerSortCommands(context: vscode.ExtensionContext) {
 		runSortCommand({ sortMethod: SortMethod.IpAddress, sortDirection: "ascending" })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.ipAddressSortDescending", () =>
 		runSortCommand({ sortMethod: SortMethod.IpAddress, sortDirection: "descending" })));
+
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.sortByDecimalValueAscending", () =>
+		runSortCommand({ sortMethod: SortMethod.DecimalNumberValue, sortDirection: "ascending" })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.sortByDecimalValueDescending", () =>
+		runSortCommand({ sortMethod: SortMethod.DecimalNumberValue, sortDirection: "descending" })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.sortByHexadecimalValueAscending", () =>
+		runSortCommand({ sortMethod: SortMethod.HexadecimalNumberValue, sortDirection: "ascending" })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.sortByHexadecimalValueDescending", () =>
+		runSortCommand({ sortMethod: SortMethod.HexadecimalNumberValue, sortDirection: "descending" })));
+
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.shuffleLines", () =>
 		runSortCommand({ sortMethod: SortMethod.Shuffle, sortDirection: "ascending" })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.reverseLines", () =>
