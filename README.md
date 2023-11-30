@@ -81,6 +81,7 @@ Text Power Tools is also available as a Web Extension so it can be used on sites
     * _Sort lines by word count_
     * _Sort lines by grapheme count_ (taking care of surrogate pairs and combining marks thanks to Voca)
     * _Sort lines containing IP addresses_ (including CIDR ranges)
+    * _Sort lines by decimal/hexadecimal value_
 * **Shuffle lines**
     * There are additional commands to convert between them using 8, 16, 32 and 64 bit arithmetic
 * **Increase/decrease decimal and hexadecimal numbers**

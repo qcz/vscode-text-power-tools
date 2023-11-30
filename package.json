@@ -44,7 +44,7 @@
 		"split",
 		"uniq"
 	],
-	"version": "1.44.0",
+	"version": "1.45.0",
 	"publisher": "qcz",
 	"private": true,
 	"engines": {

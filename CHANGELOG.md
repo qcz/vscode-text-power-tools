@@ -1,5 +1,8 @@
 # Changelog
 
+## **1.45.0** (2023. 11. 30.)
+* Add functions for sorting lines by decimal and hexadecimal numeric value.
+
 ## **1.44.0** (2023. 10. 07.)
 * Add _Keep a number of random lines_ and _Keep a percentage of random lines_ commands.
 * Add _Change case to sentence case_ command (#74).
