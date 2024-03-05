@@ -79,1232 +79,1232 @@
 			{
 				"command": "textPowerTools.filterLinesIncludingString",
 				"category": "Text Power Tools",
-				"title": "Filter lines including a string"
+				"title": "%command.filterLinesIncludingString.title%"
 			},
 			{
 				"command": "textPowerTools.filterLinesIncludingStringToNewEditor",
 				"category": "Text Power Tools",
-				"title": "Filter lines including a string into a new editor"
+				"title": "%command.filterLinesIncludingStringToNewEditor.title%"
 			},
 			{
 				"command": "textPowerTools.copyLinesIncludingStringToClipboard",
 				"category": "Text Power Tools",
-				"title": "Copy lines including a string to the clipboard"
+				"title": "%command.copyLinesIncludingStringToClipboard.title%"
 			},
 			{
 				"command": "textPowerTools.cutLinesIncludingStringToClipboard",
 				"category": "Text Power Tools",
-				"title": "Cut lines including a string to the clipboard"
+				"title": "%command.cutLinesIncludingStringToClipboard.title%"
 			},
 			{
 				"command": "textPowerTools.filterLinesMatchingRegex",
 				"category": "Text Power Tools",
-				"title": "Filter lines matching a regex (grep)"
+				"title": "%command.filterLinesMatchingRegex.title%"
 			},
 			{
 				"command": "textPowerTools.filterLinesMatchingRegexToNewEditor",
 				"category": "Text Power Tools",
-				"title": "Filter lines matching a regex (grep) into a new editor"
+				"title": "%command.filterLinesMatchingRegexToNewEditor.title%"
 			},
 			{
 				"command": "textPowerTools.copyLinesMatchingRegexToClipboard",
 				"category": "Text Power Tools",
-				"title": "Copy lines matching a regex (grep) to clipboard"
+				"title": "%command.copyLinesMatchingRegexToClipboard.title%"
 			},
 			{
 				"command": "textPowerTools.cutLinesMatchingRegexToClipboard",
 				"category": "Text Power Tools",
-				"title": "Cut lines matching a regex (grep) to clipboard"
+				"title": "%command.cutLinesMatchingRegexToClipboard.title%"
 			},
 			{
 				"command": "textPowerTools.filterLinesIncludingSelection",
 				"category": "Text Power Tools",
-				"title": "Filter lines including the selected text"
+				"title": "%command.filterLinesIncludingSelection.title%"
 			},
 			{
 				"command": "textPowerTools.filterLinesIncludingSelectionToNewEditor",
 				"category": "Text Power Tools",
-				"title": "Filter lines including the selected text into a new editor"
+				"title": "%command.filterLinesIncludingSelectionToNewEditor.title%"
 			},
 			{
 				"command": "textPowerTools.filterLinesNotIncludingString",
 				"category": "Text Power Tools",
-				"title": "Filter lines not including a string"
+				"title": "%command.filterLinesNotIncludingString.title%"
 			},
 			{
 				"command": "textPowerTools.filterLinesNotIncludingStringToNewEditor",
 				"category": "Text Power Tools",
-				"title": "Filter lines not including a string into a new editor"
+				"title": "%command.filterLinesNotIncludingStringToNewEditor.title%"
 			},
 			{
 				"command": "textPowerTools.copyLinesNotIncludingStringToClipboard",
 				"category": "Text Power Tools",
-				"title": "Copy lines not including a string into a new editor"
+				"title": "%command.copyLinesNotIncludingStringToClipboard.title%"
 			},
 			{
 				"command": "textPowerTools.cutLinesNotIncludingStringToClipboard",
 				"category": "Text Power Tools",
-				"title": "Cut lines not including a string into a new editor"
+				"title": "%command.cutLinesNotIncludingStringToClipboard.title%"
 			},
 			{
 				"command": "textPowerTools.filterLinesNotMatchingRegex",
 				"category": "Text Power Tools",
-				"title": "Filter lines not matching a regex (grep)"
+				"title": "%command.filterLinesNotMatchingRegex.title%"
 			},
 			{
 				"command": "textPowerTools.filterLinesNotMatchingRegexToNewEditor",
 				"category": "Text Power Tools",
-				"title": "Filter lines not matching a regex (grep) into a new editor"
+				"title": "%command.filterLinesNotMatchingRegexToNewEditor.title%"
 			},
 			{
 				"command": "textPowerTools.copyLinesNotMatchingRegexToClipboard",
 				"category": "Text Power Tools",
-				"title": "Copy lines not matching a regex (grep) to clipboard"
+				"title": "%command.copyLinesNotMatchingRegexToClipboard.title%"
 			},
 			{
 				"command": "textPowerTools.cutLinesNotMatchingRegexToClipboard",
 				"category": "Text Power Tools",
-				"title": "Cut lines not matching a regex (grep) to clipboard"
+				"title": "%command.cutLinesNotMatchingRegexToClipboard.title%"
 			},
 			{
 				"command": "textPowerTools.filterLinesNotIncludingSelection",
 				"category": "Text Power Tools",
-				"title": "Filter lines not including the selected text"
+				"title": "%command.filterLinesNotIncludingSelection.title%"
 			},
 			{
 				"command": "textPowerTools.filterLinesNotIncludingSelectionToNewEditor",
 				"category": "Text Power Tools",
-				"title": "Filter lines not including the selected text into a new editor"
+				"title": "%command.filterLinesNotIncludingSelectionToNewEditor.title%"
 			},
 			{
 				"command": "textPowerTools.extractInformation",
 				"category": "Text Power Tools",
-				"title": "Extract information from text"
+				"title": "%command.extractInformation.title%"
 			},
 			{
 				"command": "textPowerTools.extractInformationToNewEditor",
 				"category": "Text Power Tools",
-				"title": "Extract information from text into a new editor"
+				"title": "%command.extractInformationToNewEditor.title%"
 			},
 			{
 				"command": "textPowerTools.countOccurrences",
 				"category": "Text Power Tools",
-				"title": "Count line occurrences"
+				"title": "%command.countOccurrences.title%"
 			},
 			{
 				"command": "textPowerTools.countOccurrencesToNewEditor",
 				"category": "Text Power Tools",
-				"title": "Count line occurrences into a new editor"
+				"title": "%command.countOccurrencesToNewEditor.title%"
 			},
 			{
 				"command": "textPowerTools.countAdjacentDuplicates",
 				"category": "Text Power Tools",
-				"title": "Count adjacent duplicates"
+				"title": "%command.countAdjacentDuplicates.title%"
 			},
 			{
 				"command": "textPowerTools.countAdjacentDuplicatesToNewEditor",
 				"category": "Text Power Tools",
-				"title": "Count adjacent duplicates into a new editor"
+				"title": "%command.countAdjacentDuplicatesToNewEditor.title%"
 			},
 			{
 				"command": "textPowerTools.padStart",
 				"category": "Text Power Tools",
-				"title": "Pad start (left) with default string"
+				"title": "%command.padStart.title%"
 			},
 			{
 				"command": "textPowerTools.padStartWithCustomString",
 				"category": "Text Power Tools",
-				"title": "Pad start (left) with custom string"
+				"title": "%command.padStartWithCustomString.title%"
 			},
 			{
 				"command": "textPowerTools.padEnd",
 				"category": "Text Power Tools",
-				"title": "Pad end (right) with default string"
+				"title": "%command.padEnd.title%"
 			},
 			{
 				"command": "textPowerTools.padEndWithCustomString",
 				"category": "Text Power Tools",
-				"title": "Pad end (right) with custom string"
+				"title": "%command.padEndWithCustomString.title%"
 			},
 			{
 				"command": "textPowerTools.appendPrefixToAllLines",
 				"category": "Text Power Tools",
-				"title": "Append prefix to all lines"
+				"title": "%command.appendPrefixToAllLines.title%"
 			},
 			{
 				"command": "textPowerTools.appendSuffixToAllLines",
 				"category": "Text Power Tools",
-				"title": "Append suffix to all lines"
+				"title": "%command.appendSuffixToAllLines.title%"
 			},
 			{
 				"command": "textPowerTools.wrapAllLinesWithTextSame",
 				"category": "Text Power Tools",
-				"title": "Wrap all lines with text (same prefix and suffix)"
+				"title": "%command.wrapAllLinesWithTextSame.title%"
 			},
 			{
 				"command": "textPowerTools.wrapAllLinesWithTextDifferent",
 				"category": "Text Power Tools",
-				"title": "Wrap all lines with text (different prefix and suffix)"
+				"title": "%command.wrapAllLinesWithTextDifferent.title%"
 			},
 			{
 				"command": "textPowerTools.separateWordsWithSpaces",
 				"category": "Text Power Tools",
-				"title": "Separate words with spaces"
+				"title": "%command.separateWordsWithSpaces.title%"
 			},
 			{
 				"command": "textPowerTools.separateWordsWithForwardSlashes",
 				"category": "Text Power Tools",
-				"title": "Separate words with forward slashes"
+				"title": "%command.separateWordsWithForwardSlashes.title%"
 			},
 			{
 				"command": "textPowerTools.separateWordsWithBackslashes",
 				"category": "Text Power Tools",
-				"title": "Separate words with backslashes"
+				"title": "%command.separateWordsWithBackslashes.title%"
 			},
 			{
 				"command": "textPowerTools.trimStart",
 				"category": "Text Power Tools",
-				"title": "Trim leading whitespace"
+				"title": "%command.trimStart.title%"
 			},
 			{
 				"command": "textPowerTools.trim",
 				"category": "Text Power Tools",
-				"title": "Trim leading & trailing whitespace"
+				"title": "%command.trim.title%"
 			},
 			{
 				"command": "textPowerTools.formatContentAsTableByTabulator",
 				"category": "Text Power Tools",
-				"title": "Format content as table using tabulator as splitter"
+				"title": "%command.formatContentAsTableByTabulator.title%"
 			},
 			{
 				"command": "textPowerTools.formatContentAsTableBySemicolon",
 				"category": "Text Power Tools",
-				"title": "Format content as table using semicolon as splitter"
+				"title": "%command.formatContentAsTableBySemicolon.title%"
 			},
 			{
 				"command": "textPowerTools.formatContentAsTableByComma",
 				"category": "Text Power Tools",
-				"title": "Format content as table using comma as splitter"
+				"title": "%command.formatContentAsTableByComma.title%"
 			},
 			{
 				"command": "textPowerTools.formatContentAsTableByPipe",
 				"category": "Text Power Tools",
-				"title": "Format content as table using pipe as splitter"
+				"title": "%command.formatContentAsTableByPipe.title%"
 			},
 			{
 				"command": "textPowerTools.formatContentAsTableByCustomCharacter",
 				"category": "Text Power Tools",
-				"title": "Format content as table using custom string as splitter"
+				"title": "%command.formatContentAsTableByCustomCharacter.title%"
 			},
 			{
 				"command": "textPowerTools.formatContentAsTableBySemicolonWithPadding",
 				"category": "Text Power Tools",
-				"title": "Format content as table using semicolon as splitter (with padding)"
+				"title": "%command.formatContentAsTableBySemicolonWithPadding.title%"
 			},
 			{
 				"command": "textPowerTools.formatContentAsTableByPipeWithPadding",
 				"category": "Text Power Tools",
-				"title": "Format content as table using pipe as splitter (with padding)"
+				"title": "%command.formatContentAsTableByPipeWithPadding.title%"
 			},
 			{
 				"command": "textPowerTools.formatContentAsTableByCustomCharacterWithPadding",
 				"category": "Text Power Tools",
-				"title": "Format content as table using custom string as splitter (with padding)"
+				"title": "%command.formatContentAsTableByCustomCharacterWithPadding.title%"
 			},
 			{
 				"command": "textPowerTools.changeCaseToCamelCase",
 				"category": "Text Power Tools",
-				"title": "Change case to camel case (camelCase)"
+				"title": "%command.changeCaseToCamelCase.title%"
 			},
 			{
 				"command": "textPowerTools.changeCaseToPascalCase",
 				"category": "Text Power Tools",
-				"title": "Change case to Pascal case (PascalCase)"
+				"title": "%command.changeCaseToPascalCase.title%"
 			},
 			{
 				"command": "textPowerTools.changeCaseToSnakeCase",
 				"category": "Text Power Tools",
-				"title": "Change case to snake case (snake_case)"
+				"title": "%command.changeCaseToSnakeCase.title%"
 			},
 			{
 				"command": "textPowerTools.changeCaseToDashCase",
 				"category": "Text Power Tools",
-				"title": "Change case to dash case (dash-case)"
+				"title": "%command.changeCaseToDashCase.title%"
 			},
 			{
 				"command": "textPowerTools.changeCaseToConstantCase",
 				"category": "Text Power Tools",
-				"title": "Change case to constant case (CONSTANT_CASE)"
+				"title": "%command.changeCaseToConstantCase.title%"
 			},
 			{
 				"command": "textPowerTools.changeCaseToDotCase",
 				"category": "Text Power Tools",
-				"title": "Change case to dot case (dot.case)"
+				"title": "%command.changeCaseToDotCase.title%"
 			},
 			{
 				"command": "textPowerTools.changeCaseToTitleCase",
 				"category": "Text Power Tools",
-				"title": "Change case to title case (Title Case)"
+				"title": "%command.changeCaseToTitleCase.title%"
 			},
 			{
 				"command": "textPowerTools.changeCaseToSentenceCase",
 				"category": "Text Power Tools",
-				"title": "Change case to sentence case (Sentence case)"
+				"title": "%command.changeCaseToSentenceCase.title%"
 			},
 			{
 				"command": "textPowerTools.changeCaseToSpongeCase",
 				"category": "Text Power Tools",
-				"title": "Change case to sponge case (random capitalization)"
+				"title": "%command.changeCaseToSpongeCase.title%"
 			},
 			{
 				"command": "textPowerTools.changeCaseToSwapCase",
 				"category": "Text Power Tools",
-				"title": "Swap text case"
+				"title": "%command.changeCaseToSwapCase.title%"
 			},
 			{
 				"command": "textPowerTools.latinize",
 				"category": "Text Power Tools",
-				"title": "Latinize text"
+				"title": "%command.latinize.title%"
 			},
 			{
 				"command": "textPowerTools.slugify",
 				"category": "Text Power Tools",
-				"title": "Slugify text"
+				"title": "%command.slugify.title%"
 			},
 			{
 				"command": "textPowerTools.unicodeNormalizationNFC",
 				"category": "Text Power Tools",
-				"title": "Convert to NFC Unicode normalization form"
+				"title": "%command.unicodeNormalizationNFC.title%"
 			},
 			{
 				"command": "textPowerTools.unicodeNormalizationNFD",
 				"category": "Text Power Tools",
-				"title": "Convert to NFD Unicode normalization form"
+				"title": "%command.unicodeNormalizationNFD.title%"
 			},
 			{
 				"command": "textPowerTools.unicodeNormalizationNFKC",
 				"category": "Text Power Tools",
-				"title": "Convert to NFKC Unicode normalization form"
+				"title": "%command.unicodeNormalizationNFKC.title%"
 			},
 			{
 				"command": "textPowerTools.unicodeNormalizationNFKD",
 				"category": "Text Power Tools",
-				"title": "Convert to NFKD Unicode normalization form"
+				"title": "%command.unicodeNormalizationNFKD.title%"
 			},
 			{
 				"command": "textPowerTools.joinEvery2Lines",
 				"category": "Text Power Tools",
-				"title": "Join every two lines"
+				"title": "%command.joinEvery2Lines.title%"
 			},
 			{
 				"command": "textPowerTools.joinEvery2LinesWithSpace",
 				"category": "Text Power Tools",
-				"title": "Join every two lines with space"
+				"title": "%command.joinEvery2LinesWithSpace.title%"
 			},
 			{
 				"command": "textPowerTools.joinEvery2LinesWithComma",
 				"category": "Text Power Tools",
-				"title": "Join every two lines with comma"
+				"title": "%command.joinEvery2LinesWithComma.title%"
 			},
 			{
 				"command": "textPowerTools.joinEvery2LinesWithSemicolon",
 				"category": "Text Power Tools",
-				"title": "Join every two lines with semicolon"
+				"title": "%command.joinEvery2LinesWithSemicolon.title%"
 			},
 			{
 				"command": "textPowerTools.joinEvery2LinesWithPipe",
 				"category": "Text Power Tools",
-				"title": "Join every two lines with pipe"
+				"title": "%command.joinEvery2LinesWithPipe.title%"
 			},
 			{
 				"command": "textPowerTools.joinEvery2LinesWithCustomString",
 				"category": "Text Power Tools",
-				"title": "Join every two lines with custom string"
+				"title": "%command.joinEvery2LinesWithCustomString.title%"
 			},
 			{
 				"command": "textPowerTools.joinEveryNLines",
 				"category": "Text Power Tools",
-				"title": "Join every N lines"
+				"title": "%command.joinEveryNLines.title%"
 			},
 			{
 				"command": "textPowerTools.joinEveryNLinesWithSpace",
 				"category": "Text Power Tools",
-				"title": "Join every N lines with space"
+				"title": "%command.joinEveryNLinesWithSpace.title%"
 			},
 			{
 				"command": "textPowerTools.joinEveryNLinesWithComma",
 				"category": "Text Power Tools",
-				"title": "Join every N lines with comma"
+				"title": "%command.joinEveryNLinesWithComma.title%"
 			},
 			{
 				"command": "textPowerTools.joinEveryNLinesWithSemicolon",
 				"category": "Text Power Tools",
-				"title": "Join every N lines with semicolon"
+				"title": "%command.joinEveryNLinesWithSemicolon.title%"
 			},
 			{
 				"command": "textPowerTools.joinEveryNLinesWithPipe",
 				"category": "Text Power Tools",
-				"title": "Join every N lines with pipe"
+				"title": "%command.joinEveryNLinesWithPipe.title%"
 			},
 			{
 				"command": "textPowerTools.joinEveryNLinesWithCustomString",
 				"category": "Text Power Tools",
-				"title": "Join every N lines with custom string"
+				"title": "%command.joinEveryNLinesWithCustomString.title%"
 			},
 			{
 				"command": "textPowerTools.splitLinesBySpace",
 				"category": "Text Power Tools",
-				"title": "Split lines by space"
+				"title": "%command.splitLinesBySpace.title%"
 			},
 			{
 				"command": "textPowerTools.splitLinesByComma",
 				"category": "Text Power Tools",
-				"title": "Split lines by comma"
+				"title": "%command.splitLinesByComma.title%"
 			},
 			{
 				"command": "textPowerTools.splitLinesBySemicolon",
 				"category": "Text Power Tools",
-				"title": "Split lines by semicolon"
+				"title": "%command.splitLinesBySemicolon.title%"
 			},
 			{
 				"command": "textPowerTools.splitLinesByPipe",
 				"category": "Text Power Tools",
-				"title": "Split lines by pipe"
+				"title": "%command.splitLinesByPipe.title%"
 			},
 			{
 				"command": "textPowerTools.splitLinesByCustomString",
 				"category": "Text Power Tools",
-				"title": "Split lines by custom string"
+				"title": "%command.splitLinesByCustomString.title%"
 			},
 			{
 				"command": "textPowerTools.caseSensitiveSortAscending",
 				"category": "Text Power Tools",
-				"title": "Sort lines ascending (case sensitive)"
+				"title": "%command.caseSensitiveSortAscending.title%"
 			},
 			{
 				"command": "textPowerTools.caseSensitiveSortDescending",
 				"category": "Text Power Tools",
-				"title": "Sort lines descending (case sensitive)"
+				"title": "%command.caseSensitiveSortDescending.title%"
 			},
 			{
 				"command": "textPowerTools.caseSensitiveSortAscendingAtColumn",
 				"category": "Text Power Tools",
-				"title": "Sort lines ascending (case sensitive at column of selection start)"
+				"title": "%command.caseSensitiveSortAscendingAtColumn.title%"
 			},
 			{
 				"command": "textPowerTools.caseSensitiveSortDescendingAtColumn",
 				"category": "Text Power Tools",
-				"title": "Sort lines descending (case sensitive at column of selection start)"
+				"title": "%command.caseSensitiveSortDescendingAtColumn.title%"
 			},
 			{
 				"command": "textPowerTools.caseInsensitiveSortAscendingAtColumn",
 				"category": "Text Power Tools",
-				"title": "Sort lines ascending (case insensitive at column of selection start)"
+				"title": "%command.caseInsensitiveSortAscendingAtColumn.title%"
 			},
 			{
 				"command": "textPowerTools.caseInsensitiveSortDescendingAtColumn",
 				"category": "Text Power Tools",
-				"title": "Sort lines descending (case insensitive at column of selection start)"
+				"title": "%command.caseInsensitiveSortDescendingAtColumn.title%"
 			},
 			{
 				"command": "textPowerTools.sortByLengthCaseSensitiveAscending",
 				"category": "Text Power Tools",
-				"title": "Sort lines ascending by length (and then case sensitive)"
+				"title": "%command.sortByLengthCaseSensitiveAscending.title%"
 			},
 			{
 				"command": "textPowerTools.sortByLengthCaseSensitiveDescending",
 				"category": "Text Power Tools",
-				"title": "Sort lines descending by length (and then case sensitive)"
+				"title": "%command.sortByLengthCaseSensitiveDescending.title%"
 			},
 			{
 				"command": "textPowerTools.sortByLengthCaseInsensitiveAscending",
 				"category": "Text Power Tools",
-				"title": "Sort lines ascending by length (and then case insensitive)"
+				"title": "%command.sortByLengthCaseInsensitiveAscending.title%"
 			},
 			{
 				"command": "textPowerTools.sortByLengthCaseInsensitiveDescending",
 				"category": "Text Power Tools",
-				"title": "Sort lines descending by length (and then case insensitive)"
+				"title": "%command.sortByLengthCaseInsensitiveDescending.title%"
 			},
 			{
 				"command": "textPowerTools.sortByWordCountAscending",
 				"category": "Text Power Tools",
-				"title": "Sort lines ascending by word count"
+				"title": "%command.sortByWordCountAscending.title%"
 			},
 			{
 				"command": "textPowerTools.sortByWordCountDescending",
 				"category": "Text Power Tools",
-				"title": "Sort lines descending by word count"
+				"title": "%command.sortByWordCountDescending.title%"
 			},
 			{
 				"command": "textPowerTools.sortByGraphemeCountAscending",
 				"category": "Text Power Tools",
-				"title": "Sort lines ascending by grapheme count"
+				"title": "%command.sortByGraphemeCountAscending.title%"
 			},
 			{
 				"command": "textPowerTools.sortByGraphemeCountDescending",
 				"category": "Text Power Tools",
-				"title": "Sort lines descending by grapheme count"
+				"title": "%command.sortByGraphemeCountDescending.title%"
 			},
 			{
 				"command": "textPowerTools.semverSortAscending",
 				"category": "Text Power Tools",
-				"title": "Sort lines ascending using semver rules"
+				"title": "%command.semverSortAscending.title%"
 			},
 			{
 				"command": "textPowerTools.semverSortDescending",
 				"category": "Text Power Tools",
-				"title": "Sort lines descending using semver rules"
+				"title": "%command.semverSortDescending.title%"
 			},
 			{
 				"command": "textPowerTools.ipAddressSortAscending",
 				"category": "Text Power Tools",
-				"title": "Sort IP addresses ascending"
+				"title": "%command.ipAddressSortAscending.title%"
 			},
 			{
 				"command": "textPowerTools.ipAddressSortDescending",
 				"category": "Text Power Tools",
-				"title": "Sort IP addresses descending"
+				"title": "%command.ipAddressSortDescending.title%"
 			},
 			{
 				"command": "textPowerTools.sortByDecimalValueAscending",
 				"category": "Text Power Tools",
-				"title": "Sort lines ascending by decimal number value"
+				"title": "%command.sortByDecimalValueAscending.title%"
 			},
 			{
 				"command": "textPowerTools.sortByDecimalValueDescending",
 				"category": "Text Power Tools",
-				"title": "Sort lines descending by decimal number value"
+				"title": "%command.sortByDecimalValueDescending.title%"
 			},
 			{
 				"command": "textPowerTools.sortByHexadecimalValueAscending",
 				"category": "Text Power Tools",
-				"title": "Sort lines ascending by hexadecimal number value"
+				"title": "%command.sortByHexadecimalValueAscending.title%"
 			},
 			{
 				"command": "textPowerTools.sortByHexadecimalValueDescending",
 				"category": "Text Power Tools",
-				"title": "Sort lines descending by hexadecimal number value"
+				"title": "%command.sortByHexadecimalValueDescending.title%"
 			},
 			{
 				"command": "textPowerTools.shuffleLines",
 				"category": "Text Power Tools",
-				"title": "Shuffle lines (sort by random order)"
+				"title": "%command.shuffleLines.title%"
 			},
 			{
 				"command": "textPowerTools.reverseLines",
 				"category": "Text Power Tools",
-				"title": "Reverse lines"
+				"title": "%command.reverseLines.title%"
 			},
 			{
 				"command": "textPowerTools.generateRandomFromUserInput",
 				"category": "Text Power Tools",
-				"title": "Generate random items from user input"
+				"title": "%command.generateRandomFromUserInput.title%"
 			},
 			{
 				"command": "textPowerTools.generateRandomDecimalNumbersFromRange",
 				"category": "Text Power Tools",
-				"title": "Generate random decimal numbers from range"
+				"title": "%command.generateRandomDecimalNumbersFromRange.title%"
 			},
 			{
 				"command": "textPowerTools.generateRandomHexadecimalNumbersFromRange",
 				"category": "Text Power Tools",
-				"title": "Generate random hexadecimal numbers from range"
+				"title": "%command.generateRandomHexadecimalNumbersFromRange.title%"
 			},
 			{
 				"command": "textPowerTools.generateRandomRealNumbersFromRange",
 				"category": "Text Power Tools",
-				"title": "Generate random real numbers from range"
+				"title": "%command.generateRandomRealNumbersFromRange.title%"
 			},
 			{
 				"command": "textPowerTools.generateFakeData",
 				"category": "Text Power Tools",
-				"title": "Generate fake/random data..."
+				"title": "%command.generateFakeData.title%"
 			},
 			{
 				"command": "textPowerTools.generateRandomGuids",
 				"category": "Text Power Tools",
-				"title": "Generate random GUIDs"
+				"title": "%command.generateRandomGuids.title%"
 			},
 			{
 				"command": "textPowerTools.generateRandomIpv4Addresses",
 				"category": "Text Power Tools",
-				"title": "Generate random IPv4 Addresses"
+				"title": "%command.generateRandomIpv4Addresses.title%"
 			},
 			{
 				"command": "textPowerTools.generateRandomIpv6Addresses",
 				"category": "Text Power Tools",
-				"title": "Generate random IPv6 Addresses"
+				"title": "%command.generateRandomIpv6Addresses.title%"
 			},
 			{
 				"command": "textPowerTools.generateLoremIpsumSentence",
 				"category": "Text Power Tools",
-				"title": "Generate Lorem ipsum sentences"
+				"title": "%command.generateLoremIpsumSentence.title%"
 			},
 			{
 				"command": "textPowerTools.generateLoremIpsumParagraph",
 				"category": "Text Power Tools",
-				"title": "Generate Lorem ipsum paragraphs"
+				"title": "%command.generateLoremIpsumParagraph.title%"
 			},
 			{
 				"command": "textPowerTools.insertFullFilePath",
 				"category": "Text Power Tools",
-				"title": "Insert full path of the opened file"
+				"title": "%command.insertFullFilePath.title%"
 			},
 			{
 				"command": "textPowerTools.insertDirectoryPath",
 				"category": "Text Power Tools",
-				"title": "Insert directory path of the opened file"
+				"title": "%command.insertDirectoryPath.title%"
 			},
 			{
 				"command": "textPowerTools.insertFileName",
 				"category": "Text Power Tools",
-				"title": "Insert file name of the opened file"
+				"title": "%command.insertFileName.title%"
 			},
 			{
 				"command": "textPowerTools.insertDate",
 				"category": "Text Power Tools",
-				"title": "Insert date"
+				"title": "%command.insertDate.title%"
 			},
 			{
 				"command": "textPowerTools.insertLocalDate",
 				"category": "Text Power Tools",
-				"title": "Insert date (formatted using custom locale)"
+				"title": "%command.insertLocalDate.title%"
 			},
 			{
 				"command": "textPowerTools.insertTime",
 				"category": "Text Power Tools",
-				"title": "Insert time"
+				"title": "%command.insertTime.title%"
 			},
 			{
 				"command": "textPowerTools.insertLocalTime",
 				"category": "Text Power Tools",
-				"title": "Insert time (formatted using custom locale)"
+				"title": "%command.insertLocalTime.title%"
 			},
 			{
 				"command": "textPowerTools.insertTimestamp",
 				"category": "Text Power Tools",
-				"title": "Insert timestamp"
+				"title": "%command.insertTimestamp.title%"
 			},
 			{
 				"command": "textPowerTools.insertLocalTimestamp",
 				"category": "Text Power Tools",
-				"title": "Insert timestamp (formatted using custom locale)"
+				"title": "%command.insertLocalTimestamp.title%"
 			},
 			{
 				"command": "textPowerTools.insertUtcTimestamp",
 				"category": "Text Power Tools",
-				"title": "Insert UTC timestamp (ISO 8601)"
+				"title": "%command.insertUtcTimestamp.title%"
 			},
 			{
 				"command": "textPowerTools.insertUnixTimestamp",
 				"category": "Text Power Tools",
-				"title": "Insert Unix timestamp"
+				"title": "%command.insertUnixTimestamp.title%"
 			},
 			{
 				"command": "textPowerTools.insertDecimalNumbers",
 				"category": "Text Power Tools",
-				"title": "Insert decimal number sequence"
+				"title": "%command.insertDecimalNumbers.title%"
 			},
 			{
 				"command": "textPowerTools.insertDecimalNumbersStartingAt",
 				"category": "Text Power Tools",
-				"title": "Insert decimal number sequence starting at..."
+				"title": "%command.insertDecimalNumbersStartingAt.title%"
 			},
 			{
 				"command": "textPowerTools.insertDecimalNumbersWithIncrements",
 				"category": "Text Power Tools",
-				"title": "Insert decimal number sequence with custom increments"
+				"title": "%command.insertDecimalNumbersWithIncrements.title%"
 			},
 			{
 				"command": "textPowerTools.insertDecimalNumbersWithIncrementsStartingAt",
 				"category": "Text Power Tools",
-				"title": "Insert decimal number sequence with custom increments starting at..."
+				"title": "%command.insertDecimalNumbersWithIncrementsStartingAt.title%"
 			},
 			{
 				"command": "textPowerTools.insertHexNumbers",
 				"category": "Text Power Tools",
-				"title": "Insert hex number sequence"
+				"title": "%command.insertHexNumbers.title%"
 			},
 			{
 				"command": "textPowerTools.insertHexNumbersStartingAt",
 				"category": "Text Power Tools",
-				"title": "Insert hex number sequence starting at..."
+				"title": "%command.insertHexNumbersStartingAt.title%"
 			},
 			{
 				"command": "textPowerTools.insertHexNumbersWithIncrements",
 				"category": "Text Power Tools",
-				"title": "Insert hex number sequence with custom increments"
+				"title": "%command.insertHexNumbersWithIncrements.title%"
 			},
 			{
 				"command": "textPowerTools.insertHexNumbersWithIncrementsStartingAt",
 				"category": "Text Power Tools",
-				"title": "Insert hex number sequence with custom increments starting at..."
+				"title": "%command.insertHexNumbersWithIncrementsStartingAt.title%"
 			},
 			{
 				"command": "textPowerTools.insertRomanNumerals",
 				"category": "Text Power Tools",
-				"title": "Insert Roman numeral sequence"
+				"title": "%command.insertRomanNumerals.title%"
 			},
 			{
 				"command": "textPowerTools.insertRomanNumeralsStartingAt",
 				"category": "Text Power Tools",
-				"title": "Insert Roman numeral sequence starting at..."
+				"title": "%command.insertRomanNumeralsStartingAt.title%"
 			},
 			{
 				"command": "textPowerTools.insertRomanNumeralsWithIncrements",
 				"category": "Text Power Tools",
-				"title": "Insert Roman numeral sequence with custom increments"
+				"title": "%command.insertRomanNumeralsWithIncrements.title%"
 			},
 			{
 				"command": "textPowerTools.insertRomanNumeralsWithIncrementsStartingAt",
 				"category": "Text Power Tools",
-				"title": "Insert Roman numeral sequence with custom increments starting at..."
+				"title": "%command.insertRomanNumeralsWithIncrementsStartingAt.title%"
 			},
 			{
 				"command": "textPowerTools.insertLineNumbers",
 				"category": "Text Power Tools",
-				"title": "Insert line numbers"
+				"title": "%command.insertLineNumbers.title%"
 			},
 			{
 				"command": "textPowerTools.insertLineNumbersFixedLength",
 				"category": "Text Power Tools",
-				"title": "Insert fixed length line numbers"
+				"title": "%command.insertLineNumbersFixedLength.title%"
 			},
 			{
 				"command": "textPowerTools.insertRelativeLineNumbers",
 				"category": "Text Power Tools",
-				"title": "Insert line numbers starting with 1 at the first selected line"
+				"title": "%command.insertRelativeLineNumbers.title%"
 			},
 			{
 				"command": "textPowerTools.insertRelativeLineNumbersFixedLength",
 				"category": "Text Power Tools",
-				"title": "Insert fixed line numbers starting with 1 at the first selected line"
+				"title": "%command.insertRelativeLineNumbersFixedLength.title%"
 			},
 			{
 				"command": "textPowerTools.insertSequence",
 				"category": "Text Power Tools",
-				"title": "Insert series of items..."
+				"title": "%command.insertSequence.title%"
 			},
 			{
 				"command": "textPowerTools.insertLowercaseLetterSequence",
 				"category": "Text Power Tools",
-				"title": "Insert series of lowercase letters"
+				"title": "%command.insertLowercaseLetterSequence.title%"
 			},
 			{
 				"command": "textPowerTools.insertUppercaseLetterSequence",
 				"category": "Text Power Tools",
-				"title": "Insert series of uppercase letters"
+				"title": "%command.insertUppercaseLetterSequence.title%"
 			},
 			{
 				"command": "textPowerTools.insertLowercaseGreekLetterSequence",
 				"category": "Text Power Tools",
-				"title": "Insert series of lowercase Greek letters"
+				"title": "%command.insertLowercaseGreekLetterSequence.title%"
 			},
 			{
 				"command": "textPowerTools.insertUppercaseGreekLetterSequence",
 				"category": "Text Power Tools",
-				"title": "Insert series of uppercase Greek letters"
+				"title": "%command.insertUppercaseGreekLetterSequence.title%"
 			},
 			{
 				"command": "textPowerTools.insertNatoPhoneticAlphabetSequence",
 				"category": "Text Power Tools",
-				"title": "Insert series of NATO phonetic alphabet items"
+				"title": "%command.insertNatoPhoneticAlphabetSequence.title%"
 			},
 			{
 				"command": "textPowerTools.insertLongEnglishMonthNamesSequence",
 				"category": "Text Power Tools",
-				"title": "Insert series of long English month names"
+				"title": "%command.insertLongEnglishMonthNamesSequence.title%"
 			},
 			{
 				"command": "textPowerTools.insertShortEnglishMonthNamesSequence",
 				"category": "Text Power Tools",
-				"title": "Insert series of short English month names"
+				"title": "%command.insertShortEnglishMonthNamesSequence.title%"
 			},
 			{
 				"command": "textPowerTools.insertLongLocaleMonthNamesSequence",
 				"category": "Text Power Tools",
-				"title": "Insert series of long current/custom locale month names"
+				"title": "%command.insertLongLocaleMonthNamesSequence.title%"
 			},
 			{
 				"command": "textPowerTools.insertShortLocaleMonthNamesSequence",
 				"category": "Text Power Tools",
-				"title": "Insert series of short current/custom locale month names"
+				"title": "%command.insertShortLocaleMonthNamesSequence.title%"
 			},
 			{
 				"command": "textPowerTools.insertLongEnglishDayNamesSequence",
 				"category": "Text Power Tools",
-				"title": "Insert series of long English day names"
+				"title": "%command.insertLongEnglishDayNamesSequence.title%"
 			},
 			{
 				"command": "textPowerTools.insertShortEnglishDayNamesSequence",
 				"category": "Text Power Tools",
-				"title": "Insert series of short English day names"
+				"title": "%command.insertShortEnglishDayNamesSequence.title%"
 			},
 			{
 				"command": "textPowerTools.insertLongLocaleDayNamesSequence",
 				"category": "Text Power Tools",
-				"title": "Insert series of long current/custom locale day names"
+				"title": "%command.insertLongLocaleDayNamesSequence.title%"
 			},
 			{
 				"command": "textPowerTools.insertShortLocaleDayNamesSequence",
 				"category": "Text Power Tools",
-				"title": "Insert series of short current/custom locale day names"
+				"title": "%command.insertShortLocaleDayNamesSequence.title%"
 			},
 			{
 				"command": "textPowerTools.spreadPasteFromClipboard",
 				"category": "Text Power Tools",
-				"title": "Spread paste lines from clipboard"
+				"title": "%command.spreadPasteFromClipboard.title%"
 			},
 			{
 				"command": "textPowerTools.spreadPasteFromClipboardSkipEmpty",
 				"category": "Text Power Tools",
-				"title": "Spread paste lines from clipboard (skip empty lines)"
+				"title": "%command.spreadPasteFromClipboardSkipEmpty.title%"
 			},
 			{
 				"command": "textPowerTools.spreadPasteRepeatedlyFromClipboard",
 				"category": "Text Power Tools",
-				"title": "Spread paste lines repeatedly from clipboard"
+				"title": "%command.spreadPasteRepeatedlyFromClipboard.title%"
 			},
 			{
 				"command": "textPowerTools.spreadPasteRepeatedlyFromClipboardSkipEmpty",
 				"category": "Text Power Tools",
-				"title": "Spread paste lines repeatedly from clipboard (skip empty lines)"
+				"title": "%command.spreadPasteRepeatedlyFromClipboardSkipEmpty.title%"
 			},
 			{
 				"command": "textPowerTools.pasteTextSlot1Content",
 				"category": "Text Power Tools",
-				"title": "Paste text slot 1 content"
+				"title": "%command.pasteTextSlot1Content.title%"
 			},
 			{
 				"command": "textPowerTools.pasteTextSlot2Content",
 				"category": "Text Power Tools",
-				"title": "Paste text slot 2 content"
+				"title": "%command.pasteTextSlot2Content.title%"
 			},
 			{
 				"command": "textPowerTools.pasteTextSlot3Content",
 				"category": "Text Power Tools",
-				"title": "Paste text slot 3 content"
+				"title": "%command.pasteTextSlot3Content.title%"
 			},
 			{
 				"command": "textPowerTools.pasteTextSlot4Content",
 				"category": "Text Power Tools",
-				"title": "Paste text slot 4 content"
+				"title": "%command.pasteTextSlot4Content.title%"
 			},
 			{
 				"command": "textPowerTools.pasteTextSlot5Content",
 				"category": "Text Power Tools",
-				"title": "Paste text slot 5 content"
+				"title": "%command.pasteTextSlot5Content.title%"
 			},
 			{
 				"command": "textPowerTools.setTextSlot1Content",
 				"category": "Text Power Tools",
-				"title": "Set text slot 1 content"
+				"title": "%command.setTextSlot1Content.title%"
 			},
 			{
 				"command": "textPowerTools.setTextSlot2Content",
 				"category": "Text Power Tools",
-				"title": "Set text slot 2 content"
+				"title": "%command.setTextSlot2Content.title%"
 			},
 			{
 				"command": "textPowerTools.setTextSlot3Content",
 				"category": "Text Power Tools",
-				"title": "Set text slot 3 content"
+				"title": "%command.setTextSlot3Content.title%"
 			},
 			{
 				"command": "textPowerTools.setTextSlot4Content",
 				"category": "Text Power Tools",
-				"title": "Set text slot 4 content"
+				"title": "%command.setTextSlot4Content.title%"
 			},
 			{
 				"command": "textPowerTools.setTextSlot5Content",
 				"category": "Text Power Tools",
-				"title": "Set text slot 5 content"
+				"title": "%command.setTextSlot5Content.title%"
 			},
 			{
 				"command": "textPowerTools.convertHexadecimalNumbersToDecimal",
 				"category": "Text Power Tools",
-				"title": "Convert selected hexadecimal numbers to decimal"
+				"title": "%command.convertHexadecimalNumbersToDecimal.title%"
 			},
 			{
 				"command": "textPowerTools.convertHexadecimalNumbersToDecimal8bit",
 				"category": "Text Power Tools",
-				"title": "Convert selected hexadecimal numbers to decimal (using 8 bit arithmetic)"
+				"title": "%command.convertHexadecimalNumbersToDecimal8bit.title%"
 			},
 			{
 				"command": "textPowerTools.convertHexadecimalNumbersToDecimal16bit",
 				"category": "Text Power Tools",
-				"title": "Convert selected hexadecimal numbers to decimal (using 16 bit arithmetic)"
+				"title": "%command.convertHexadecimalNumbersToDecimal16bit.title%"
 			},
 			{
 				"command": "textPowerTools.convertHexadecimalNumbersToDecimal32bit",
 				"category": "Text Power Tools",
-				"title": "Convert selected hexadecimal numbers to decimal (using 32 bit arithmetic)"
+				"title": "%command.convertHexadecimalNumbersToDecimal32bit.title%"
 			},
 			{
 				"command": "textPowerTools.convertHexadecimalNumbersToDecimal64bit",
 				"category": "Text Power Tools",
-				"title": "Convert selected hexadecimal numbers to decimal (using 64 bit arithmetic)"
+				"title": "%command.convertHexadecimalNumbersToDecimal64bit.title%"
 			},
 			{
 				"command": "textPowerTools.convertDecimalNumbersToHexadecimal",
 				"category": "Text Power Tools",
-				"title": "Convert selected decimal numbers to hexadecimal"
+				"title": "%command.convertDecimalNumbersToHexadecimal.title%"
 			},
 			{
 				"command": "textPowerTools.convertDecimalNumbersToHexadecimal8bit",
 				"category": "Text Power Tools",
-				"title": "Convert selected decimal numbers to hexadecimal (using 8 bit arithmetic)"
+				"title": "%command.convertDecimalNumbersToHexadecimal8bit.title%"
 			},
 			{
 				"command": "textPowerTools.convertDecimalNumbersToHexadecimal16bit",
 				"category": "Text Power Tools",
-				"title": "Convert selected decimal numbers to hexadecimal (using 16 bit arithmetic)"
+				"title": "%command.convertDecimalNumbersToHexadecimal16bit.title%"
 			},
 			{
 				"command": "textPowerTools.convertDecimalNumbersToHexadecimal32bit",
 				"category": "Text Power Tools",
-				"title": "Convert selected decimal numbers to hexadecimal (using 32 bit arithmetic)"
+				"title": "%command.convertDecimalNumbersToHexadecimal32bit.title%"
 			},
 			{
 				"command": "textPowerTools.convertDecimalNumbersToHexadecimal64bit",
 				"category": "Text Power Tools",
-				"title": "Convert selected decimal numbers to hexadecimal (using 64 bit arithmetic)"
+				"title": "%command.convertDecimalNumbersToHexadecimal64bit.title%"
 			},
 			{
 				"command": "textPowerTools.convertToZalgoUltraLight",
 				"category": "Text Power Tools",
-				"title": "Convert selection to ultra light zalgo text"
+				"title": "%command.convertToZalgoUltraLight.title%"
 			},
 			{
 				"command": "textPowerTools.convertToZalgoLight",
 				"category": "Text Power Tools",
-				"title": "Convert selection to light zalgo text"
+				"title": "%command.convertToZalgoLight.title%"
 			},
 			{
 				"command": "textPowerTools.convertToZalgoMedium",
 				"category": "Text Power Tools",
-				"title": "Convert selection to medium zalgo text"
+				"title": "%command.convertToZalgoMedium.title%"
 			},
 			{
 				"command": "textPowerTools.convertToZalgoHeavy",
 				"category": "Text Power Tools",
-				"title": "Convert selection to heavy zalgo text"
+				"title": "%command.convertToZalgoHeavy.title%"
 			},
 			{
 				"command": "textPowerTools.increaseDecimalNumbersWithOne",
 				"category": "Text Power Tools",
-				"title": "Increase decimal numbers with 1"
+				"title": "%command.increaseDecimalNumbersWithOne.title%"
 			},
 			{
 				"command": "textPowerTools.increaseHexNumbersWithOne",
 				"category": "Text Power Tools",
-				"title": "Increase hexadecimal numbers with 1"
+				"title": "%command.increaseHexNumbersWithOne.title%"
 			},
 			{
 				"command": "textPowerTools.increaseHexNumbersWithOne8bit",
 				"category": "Text Power Tools",
-				"title": "Increase hexadecimal numbers with 1 (using 8 bit arithmetic)"
+				"title": "%command.increaseHexNumbersWithOne8bit.title%"
 			},
 			{
 				"command": "textPowerTools.increaseHexNumbersWithOne16bit",
 				"category": "Text Power Tools",
-				"title": "Increase hexadecimal numbers with 1 (using 16 bit arithmetic)"
+				"title": "%command.increaseHexNumbersWithOne16bit.title%"
 			},
 			{
 				"command": "textPowerTools.increaseHexNumbersWithOne32bit",
 				"category": "Text Power Tools",
-				"title": "Increase hexadecimal numbers with 1 (using 32 bit arithmetic)"
+				"title": "%command.increaseHexNumbersWithOne32bit.title%"
 			},
 			{
 				"command": "textPowerTools.increaseHexNumbersWithOne64bit",
 				"category": "Text Power Tools",
-				"title": "Increase hexadecimal numbers with 1 (using 64 bit arithmetic)"
+				"title": "%command.increaseHexNumbersWithOne64bit.title%"
 			},
 			{
 				"command": "textPowerTools.decreaseDecimalNumbersWithOne",
 				"category": "Text Power Tools",
-				"title": "Decrease decimal numbers with 1"
+				"title": "%command.decreaseDecimalNumbersWithOne.title%"
 			},
 			{
 				"command": "textPowerTools.decreaseHexNumbersWithOne",
 				"category": "Text Power Tools",
-				"title": "Decrease hexadecimal numbers with 1"
+				"title": "%command.decreaseHexNumbersWithOne.title%"
 			},
 			{
 				"command": "textPowerTools.decreaseHexNumbersWithOne8bit",
 				"category": "Text Power Tools",
-				"title": "Decrease hexadecimal numbers with 1 (using 8 bit arithmetic)"
+				"title": "%command.decreaseHexNumbersWithOne8bit.title%"
 			},
 			{
 				"command": "textPowerTools.decreaseHexNumbersWithOne16bit",
 				"category": "Text Power Tools",
-				"title": "Decrease hexadecimal numbers with 1 (using 16 bit arithmetic)"
+				"title": "%command.decreaseHexNumbersWithOne16bit.title%"
 			},
 			{
 				"command": "textPowerTools.decreaseHexNumbersWithOne32bit",
 				"category": "Text Power Tools",
-				"title": "Decrease hexadecimal numbers with 1 (using 32 bit arithmetic)"
+				"title": "%command.decreaseHexNumbersWithOne32bit.title%"
 			},
 			{
 				"command": "textPowerTools.decreaseHexNumbersWithOne64bit",
 				"category": "Text Power Tools",
-				"title": "Decrease hexadecimal numbers with 1 (using 64 bit arithmetic)"
+				"title": "%command.decreaseHexNumbersWithOne64bit.title%"
 			},
 			{
 				"command": "textPowerTools.changeDecimalNumbersWithIncrement",
 				"category": "Text Power Tools",
-				"title": "Increase/decrease decimal numbers with a custom value"
+				"title": "%command.changeDecimalNumbersWithIncrement.title%"
 			},
 			{
 				"command": "textPowerTools.changeHexNumbersWithIncrement",
 				"category": "Text Power Tools",
-				"title": "Increase/decrease hexadecimal numbers with a custom value"
+				"title": "%command.changeHexNumbersWithIncrement.title%"
 			},
 			{
 				"command": "textPowerTools.changeHexNumbersWithIncrement8bit",
 				"category": "Text Power Tools",
-				"title": "Increase/decrease hexadecimal numbers with a custom value (using 8 bit arithmetic)"
+				"title": "%command.changeHexNumbersWithIncrement8bit.title%"
 			},
 			{
 				"command": "textPowerTools.changeHexNumbersWithIncrement16bit",
 				"category": "Text Power Tools",
-				"title": "Increase/decrease hexadecimal numbers with a custom value (using 16 bit arithmetic)"
+				"title": "%command.changeHexNumbersWithIncrement16bit.title%"
 			},
 			{
 				"command": "textPowerTools.changeHexNumbersWithIncrement32bit",
 				"category": "Text Power Tools",
-				"title": "Increase/decrease hexadecimal numbers with a custom value (using 32 bit arithmetic)"
+				"title": "%command.changeHexNumbersWithIncrement32bit.title%"
 			},
 			{
 				"command": "textPowerTools.changeHexNumbersWithIncrement64bit",
 				"category": "Text Power Tools",
-				"title": "Increase/decrease hexadecimal numbers with a custom value (using 64 bit arithmetic)"
+				"title": "%command.changeHexNumbersWithIncrement64bit.title%"
 			},
 			{
 				"command": "textPowerTools.urlEncodeText",
 				"category": "Text Power Tools",
-				"title": "URL encode text"
+				"title": "%command.urlEncodeText.title%"
 			},
 			{
 				"command": "textPowerTools.urlEncodeTextOnEachLine",
 				"category": "Text Power Tools",
-				"title": "URL encode text on each line"
+				"title": "%command.urlEncodeTextOnEachLine.title%"
 			},
 			{
 				"command": "textPowerTools.urlDecodeText",
 				"category": "Text Power Tools",
-				"title": "Decode URL encoded text"
+				"title": "%command.urlDecodeText.title%"
 			},
 			{
 				"command": "textPowerTools.encodeHtmlEntities",
 				"category": "Text Power Tools",
-				"title": "Encode HTML entities"
+				"title": "%command.encodeHtmlEntities.title%"
 			},
 			{
 				"command": "textPowerTools.encodeHtmlEntitiesOnEachLine",
 				"category": "Text Power Tools",
-				"title": "Encode HTML entities on each lines"
+				"title": "%command.encodeHtmlEntitiesOnEachLine.title%"
 			},
 			{
 				"command": "textPowerTools.encodeHtmlEntitiesWithNonAscii",
 				"category": "Text Power Tools",
-				"title": "Encode HTML entities including non ASCII characters"
+				"title": "%command.encodeHtmlEntitiesWithNonAscii.title%"
 			},
 			{
 				"command": "textPowerTools.encodeHtmlEntitiesWithNonAsciiOnEachLine",
 				"category": "Text Power Tools",
-				"title": "Encode HTML entities including non ASCII characters on each line"
+				"title": "%command.encodeHtmlEntitiesWithNonAsciiOnEachLine.title%"
 			},
 			{
 				"command": "textPowerTools.decodeHtmlEntities",
 				"category": "Text Power Tools",
-				"title": "Decode HTML entities"
+				"title": "%command.decodeHtmlEntities.title%"
 			},
 			{
 				"command": "textPowerTools.encodeXmlEntities",
 				"category": "Text Power Tools",
-				"title": "Encode XML entities"
+				"title": "%command.encodeXmlEntities.title%"
 			},
 			{
 				"command": "textPowerTools.encodeXmlEntitiesOnEachLine",
 				"category": "Text Power Tools",
-				"title": "Encode XML entities on each line"
+				"title": "%command.encodeXmlEntitiesOnEachLine.title%"
 			},
 			{
 				"command": "textPowerTools.decodeXmlEntities",
 				"category": "Text Power Tools",
-				"title": "Decode XML entities"
+				"title": "%command.decodeXmlEntities.title%"
 			},
 			{
 				"command": "textPowerTools.escapeTextForJson",
 				"category": "Text Power Tools",
-				"title": "Escape text for JSON"
+				"title": "%command.escapeTextForJson.title%"
 			},
 			{
 				"command": "textPowerTools.unescapeTextForJson",
 				"category": "Text Power Tools",
-				"title": "Unescape JSON escaped text"
+				"title": "%command.unescapeTextForJson.title%"
 			},
 			{
 				"command": "textPowerTools.convertToJsonString",
 				"category": "Text Power Tools",
-				"title": "Convert text to JSON string"
+				"title": "%command.convertToJsonString.title%"
 			},
 			{
 				"command": "textPowerTools.convertToUnicodeEscapeSequences",
 				"category": "Text Power Tools",
-				"title": "Convert to Unicode escape sequences"
+				"title": "%command.convertToUnicodeEscapeSequences.title%"
 			},
 			{
 				"command": "textPowerTools.decodeUnicodeEscapeSequences",
 				"category": "Text Power Tools",
-				"title": "Decode Unicode escape sequences"
+				"title": "%command.decodeUnicodeEscapeSequences.title%"
 			},
 			{
 				"command": "textPowerTools.base64EncodeText",
 				"category": "Text Power Tools",
-				"title": "Encode text with base64"
+				"title": "%command.base64EncodeText.title%"
 			},
 			{
 				"command": "textPowerTools.base64EncodeTextOnEachLine",
 				"category": "Text Power Tools",
-				"title": "Encode text with base64 on each line"
+				"title": "%command.base64EncodeTextOnEachLine.title%"
 			},
 			{
 				"command": "textPowerTools.base64DecodeText",
 				"category": "Text Power Tools",
-				"title": "Decode base64 text"
+				"title": "%command.base64DecodeText.title%"
 			},
 			{
 				"command": "textPowerTools.base64DecodeTextOnEachLine",
 				"category": "Text Power Tools",
-				"title": "Decode base64 text on each line"
+				"title": "%command.base64DecodeTextOnEachLine.title%"
 			},
 			{
 				"command": "textPowerTools.duplicateSelectionContent",
 				"category": "Text Power Tools",
-				"title": "Duplicate selection content"
+				"title": "%command.duplicateSelectionContent.title%"
 			},
 			{
 				"command": "textPowerTools.repeatSelectionContent",
 				"category": "Text Power Tools",
-				"title": "Repeat selection content"
+				"title": "%command.repeatSelectionContent.title%"
 			},
 			{
 				"command": "textPowerTools.copySelectionsToNewEditor",
 				"category": "Text Power Tools",
-				"title": "Copy content of selections to a new editor"
+				"title": "%command.copySelectionsToNewEditor.title%"
 			},
 			{
 				"command": "textPowerTools.removeWhitespaceCharacters",
 				"category": "Text Power Tools",
-				"title": "Remove whitespace characters"
+				"title": "%command.removeWhitespaceCharacters.title%"
 			},
 			{
 				"command": "textPowerTools.removeNewLines",
 				"category": "Text Power Tools",
-				"title": "Remove newlines"
+				"title": "%command.removeNewLines.title%"
 			},
 			{
 				"command": "textPowerTools.trimAndRemoveNewLines",
 				"category": "Text Power Tools",
-				"title": "Trim whitespace and remove newlines"
+				"title": "%command.trimAndRemoveNewLines.title%"
 			},
 			{
 				"command": "textPowerTools.replaceWhitespaceWithASingleSpace",
 				"category": "Text Power Tools",
-				"title": "Replace whitespace with a single space"
+				"title": "%command.replaceWhitespaceWithASingleSpace.title%"
 			},
 			{
 				"command": "textPowerTools.replaceNewLinesAndWhitespaceWithASingleSpace",
 				"category": "Text Power Tools",
-				"title": "Replace new lines and whitespace with a single space"
+				"title": "%command.replaceNewLinesAndWhitespaceWithASingleSpace.title%"
 			},
 			{
 				"command": "textPowerTools.removeDuplicates",
 				"category": "Text Power Tools",
-				"title": "Remove duplicated lines"
+				"title": "%command.removeDuplicates.title%"
 			},
 			{
 				"command": "textPowerTools.caseInsensitiveRemoveDuplicates",
 				"category": "Text Power Tools",
-				"title": "Remove duplicated lines (case insensitive)"
+				"title": "%command.caseInsensitiveRemoveDuplicates.title%"
 			},
 			{
 				"command": "textPowerTools.removeAdjacentDuplicates",
 				"category": "Text Power Tools",
-				"title": "Remove adjacent duplicated lines"
+				"title": "%command.removeAdjacentDuplicates.title%"
 			},
 			{
 				"command": "textPowerTools.caseInsensitiveRemoveAdjacentDuplicates",
 				"category": "Text Power Tools",
-				"title": "Remove adjacent duplicated lines (case insensitive)"
+				"title": "%command.caseInsensitiveRemoveAdjacentDuplicates.title%"
 			},
 			{
 				"command": "textPowerTools.keepOnlyDuplicates",
 				"category": "Text Power Tools",
-				"title": "Keep only duplicated lines"
+				"title": "%command.keepOnlyDuplicates.title%"
 			},
 			{
 				"command": "textPowerTools.caseInsensitiveKeepOnlyDuplicates",
 				"category": "Text Power Tools",
-				"title": "Keep only duplicated lines (case insensitive)"
+				"title": "%command.caseInsensitiveKeepOnlyDuplicates.title%"
 			},
 			{
 				"command": "textPowerTools.keepOnlyAdjacentDuplicates",
 				"category": "Text Power Tools",
-				"title": "Keep only adjacent duplicated lines"
+				"title": "%command.keepOnlyAdjacentDuplicates.title%"
 			},
 			{
 				"command": "textPowerTools.caseInsensitiveKeepOnlyAdjacentDuplicates",
 				"category": "Text Power Tools",
-				"title": "Keep only adjacent duplicated lines (case insensitive)"
+				"title": "%command.caseInsensitiveKeepOnlyAdjacentDuplicates.title%"
 			},
 			{
 				"command": "textPowerTools.keepOnlyUniques",
 				"category": "Text Power Tools",
-				"title": "Keep only unique lines"
+				"title": "%command.keepOnlyUniques.title%"
 			},
 			{
 				"command": "textPowerTools.caseInsensitiveKeepOnlyUniques",
 				"category": "Text Power Tools",
-				"title": "Keep only unique lines (case insensitive)"
+				"title": "%command.caseInsensitiveKeepOnlyUniques.title%"
 			},
 			{
 				"command": "textPowerTools.keepNumberOfRandomLines",
 				"category": "Text Power Tools",
-				"title": "Keep a number of random lines"
+				"title": "%command.keepNumberOfRandomLines.title%"
 			},
 			{
 				"command": "textPowerTools.keepPercentageOfRandomLines",
 				"category": "Text Power Tools",
-				"title": "Keep a percentage of random lines"
+				"title": "%command.keepPercentageOfRandomLines.title%"
 			},
 			{
 				"command": "textPowerTools.removeEmptyLines",
 				"category": "Text Power Tools",
-				"title": "Remove empty lines"
+				"title": "%command.removeEmptyLines.title%"
 			},
 			{
 				"command": "textPowerTools.removeSurplusEmptyLines",
 				"category": "Text Power Tools",
-				"title": "Remove surplus empty lines"
+				"title": "%command.removeSurplusEmptyLines.title%"
 			},
 			{
 				"command": "textPowerTools.removeBlankLines",
 				"category": "Text Power Tools",
-				"title": "Remove blank lines"
+				"title": "%command.removeBlankLines.title%"
 			},
 			{
 				"command": "textPowerTools.removeSurplusBlankLines",
 				"category": "Text Power Tools",
-				"title": "Remove surplus blank lines"
+				"title": "%command.removeSurplusBlankLines.title%"
 			},
 			{
 				"command": "textPowerTools.removeControlCharacters",
 				"category": "Text Power Tools",
-				"title": "Remove control characters"
+				"title": "%command.removeControlCharacters.title%"
 			}
 		],
 		"menus": {
@@ -2414,75 +2414,75 @@
 			},
 			{
 				"id": "textPowerTools.filterLines",
-				"label": "Filter lines (like grep)",
-				"icon": "$(filter)"
+				"label": "%submenu.filterLines.label%",
+				"icon": "%(filter)"
 			},
 			{
 				"id": "textPowerTools.extraction",
-				"label": "Extract info",
-				"icon": "$(text-size)"
+				"label": "%submenu.extraction.label%",
+				"icon": "%(text-size)"
 			},
 			{
 				"id": "textPowerTools.formatContent",
-				"label": "Format content",
-				"icon": "$(filter)"
+				"label": "%submenu.formatContent.label%",
+				"icon": "%(filter)"
 			},
 			{
 				"id": "textPowerTools.changeLetters",
-				"label": "Change letters",
-				"icon": "$(text-size)"
+				"label": "%submenu.changeLetters.label%",
+				"icon": "%(text-size)"
 			},
 			{
 				"id": "textPowerTools.insertFacts",
-				"label": "Insert facts"
+				"label": "%submenu.insertFacts.label%"
 			},
 			{
 				"id": "textPowerTools.insertNumbers",
-				"label": "Insert numbers"
+				"label": "%submenu.insertNumbers.label%"
 			},
 			{
 				"id": "textPowerTools.insertSequences",
-				"label": "Insert series of items"
+				"label": "%submenu.insertSequences.label%"
 			},
 			{
 				"id": "textPowerTools.paste",
-				"label": "Paste"
+				"label": "%submenu.paste.label%"
 			},
 			{
 				"id": "textPowerTools.textSlots",
-				"label": "Text slots (clipboard-like)"
+				"label": "%submenu.textSlots.label%"
 			},
 			{
 				"id": "textPowerTools.convert",
-				"label": "Convert"
+				"label": "%submenu.convert.label%"
 			},
 			{
 				"id": "textPowerTools.increaseDecrease",
-				"label": "Increase/decrease numbers"
+				"label": "%submenu.increaseDecrease.label%"
 			},
 			{
 				"id": "textPowerTools.encodeDecode",
-				"label": "Encode/decode"
+				"label": "%submenu.encodeDecode.label%"
 			},
 			{
 				"id": "textPowerTools.joinSplitLines",
-				"label": "Join/split lines"
+				"label": "%submenu.joinSplitLines.label%"
 			},
 			{
 				"id": "textPowerTools.sortLines",
-				"label": "Sort lines"
+				"label": "%submenu.sortLines.label%"
 			},
 			{
 				"id": "textPowerTools.generateFakeContent",
-				"label": "Generate fake/random content"
+				"label": "%submenu.generateFakeContent.label%"
 			},
 			{
 				"id": "textPowerTools.selection",
-				"label": "Selection"
+				"label": "%submenu.selection.label%"
 			},
 			{
 				"id": "textPowerTools.remove",
-				"label": "Remove content"
+				"label": "%submenu.remove.label%"
 			}
 		],
 		"configuration": {
