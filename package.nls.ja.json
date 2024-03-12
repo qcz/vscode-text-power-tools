@@ -260,6 +260,6 @@
 	"submenu.joinSplitLines.label": "行の結合・分割",
 	"submenu.sortLines.label": "行の並べ替え",
 	"submenu.generateFakeContent.label": "ダミー・ランダム文字列の生成",
-	"submenu.selection.label": "選択範囲を...",
+	"submenu.selection.label": "選択範囲の操作",
 	"submenu.remove.label": "コンテンツの削除"
 }
