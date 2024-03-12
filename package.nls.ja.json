@@ -261,5 +261,15 @@
 	"submenu.sortLines.label": "行の並べ替え",
 	"submenu.generateFakeContent.label": "ダミー・ランダム文字列の生成",
 	"submenu.selection.label": "選択範囲の操作",
-	"submenu.remove.label": "コンテンツの削除"
+	"submenu.remove.label": "コンテンツの削除",
+	"properties.caseSensitiveFiltering.description": "文字列を抽出する際に大文字と小文字を区別します。",
+	"properties.defaultPadString.description": "「左パディング」「右パディング」コマンドで挿入されるデフォルトの文字。",
+	"properties.insertUppercaseHexNumbers.description": "16進数値を挿入する際に大文字を使用します。",
+	"properties.insertUppercaseGuids.description": "GUIDを挿入する際に大文字を使用します。",
+	"properties.defaultGuidType.description": "GUIDを挿入する際のタイプを制御します。デフォルトでは、コマンド実行時に毎回確認します。",
+	"properties.loremIpsum.wordsPerSentence.min.description": "生成されたLorem ipsumテキストの文中の最小単語数。",
+	"properties.loremIpsum.wordsPerSentence.max.description": "生成されたLorem ipsumテキストの文中の最大単語数。",
+	"properties.loremIpsum.sentencesPerParagraph.min.description": "生成されたLorem ipsumテキストの段落内の最小文章数。",
+	"properties.loremIpsum.sentencesPerParagraph.max.description": "生成されたLorem ipsumテキストの段落内の最大文章数。",
+	"properties.customLocale.description": "日時に関するコマンドを実行する際にシステムロケールの代わりに使用する、カスタムロケール（例えば `en-US`, `hu-HU`）。"
 }

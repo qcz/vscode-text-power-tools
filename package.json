@@ -2492,21 +2492,21 @@
 				"textPowerTools.caseSensitiveFiltering": {
 					"type": "boolean",
 					"default": false,
-					"description": "Use case sensitive comparison when performing filter operations."
+					"description": "%properties.caseSensitiveFiltering.description%"
 				},
 				"textPowerTools.defaultPadString": {
 					"type": "string",
-					"description": "Default pad string for the 'Pad start (left)' and 'Pad end (right)' functions."
+					"description": "%properties.defaultPadString.description%"
 				},
 				"textPowerTools.insertUppercaseHexNumbers": {
 					"type": "boolean",
 					"default": true,
-					"description": "Insert uppercase hex numbers when using the 'Insert hex number' and other numeric functions."
+					"description": "%properties.insertUppercaseHexNumbers.description%"
 				},
 				"textPowerTools.insertUppercaseGuids": {
 					"type": "boolean",
 					"default": false,
-					"description": "Insert uppercase GUIDs when using the 'Generate a GUID' or 'Generate multiple GUIDs' functions."
+					"description": "%properties.insertUppercaseGuids.description%"
 				},
 				"textPowerTools.defaultGuidType": {
 					"type": "string",
@@ -2518,35 +2518,35 @@
 						"dashesAndBraces",
 						"cSharpGuidConstructor"
 					],
-					"description": "Type of the GUIDs inserted when using the 'Generate a GUID' or 'Generate multiple GUIDs' functions. By default the method will ask the type of GUID you want to generate."
+					"description": "%properties.defaultGuidType.description%"
 				},
 				"textPowerTools.loremIpsum.wordsPerSentence.min": {
 					"type": "number",
 					"minimum": 1,
 					"default": 4,
-					"description": "Minimum number of words in a sentence in generated Lorem ipsum texts."
+					"description": "%properties.loremIpsum.wordsPerSentence.min.description%"
 				},
 				"textPowerTools.loremIpsum.wordsPerSentence.max": {
 					"type": "number",
 					"minimum": 1,
 					"default": 16,
-					"description": "Maximum number of words in a sentence in generated Lorem ipsum texts."
+					"description": "%properties.loremIpsum.wordsPerSentence.max.description%"
 				},
 				"textPowerTools.loremIpsum.sentencesPerParagraph.min": {
 					"type": "number",
 					"minimum": 1,
 					"default": 4,
-					"description": "Minimum number of sentences in a paragraph in generated Lorem ipsum texts."
+					"description": "%properties.loremIpsum.sentencesPerParagraph.min.description%"
 				},
 				"textPowerTools.loremIpsum.sentencesPerParagraph.max": {
 					"type": "number",
 					"minimum": 1,
 					"default": 8,
-					"description": "Maximum number of sentences in a paragraph in generated Lorem ipsum texts."
+					"description": "%properties.loremIpsum.sentencesPerParagraph.max.description%"
 				},
 				"textPowerTools.customLocale": {
 					"type": "string",
-					"description": "Custom locale (eg. `en-US`, `hu-HU`) to use instead of system locale when running date and time related comamnds."
+					"description": "%properties.customLocale.description%"
 				}
 			}
 		},
