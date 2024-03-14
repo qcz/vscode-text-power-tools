@@ -271,5 +271,5 @@
 	"properties.loremIpsum.wordsPerSentence.max.description": "生成されたLorem ipsumテキストの文中の最大単語数。",
 	"properties.loremIpsum.sentencesPerParagraph.min.description": "生成されたLorem ipsumテキストの段落内の最小文章数。",
 	"properties.loremIpsum.sentencesPerParagraph.max.description": "生成されたLorem ipsumテキストの段落内の最大文章数。",
-	"properties.customLocale.description": "日時に関するコマンドを実行する際にシステムロケールの代わりに使用する、カスタムロケール（例えば `en-US`, `hu-HU`）。"
+	"properties.customLocale.description": "日時に関するコマンドを実行する際にシステムロケールの代わりに使用する、カスタムロケール（例えば `en-US`, `ja-JP`）。"
 }
