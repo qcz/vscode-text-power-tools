@@ -11,19 +11,18 @@ interface GuidTypeQuickPickItem extends vscode.QuickPickItem {
 	type: GeneratedGuidType;
 }
 
-const FORMAT_NO_DASHES = "No dashes";
-const FORMAT_DASHES = "Dashes";
-const FORMAT_DASHES_AND_BRACES = "Dashes and braces";
-const FORMAT_CSHARP = "C# Guid constructor";
+const FORMAT_NO_DASHES = vscode.l10n.t("No dashes");
+const FORMAT_DASHES = vscode.l10n.t("Dashes");
+const FORMAT_DASHES_AND_BRACES = vscode.l10n.t("Dashes and braces");
+const FORMAT_CSHARP = vscode.l10n.t("C# Guid constructor");
 
 export class RandomGuidsSequence extends ASequenceBase {
 	public get name(): string {
-		const type = this.guidType === "noDashes" ? " without dashes"
-			: this.guidType === "dashes" ? " with dashes"
-			: this.guidType === "dashesAndBraces" ? " with dashes and braces"
-			: this.guidType === "cSharpGuidConstructor" ? " as a C# GUID constructor"
+		return this.guidType === "noDashes" ? vscode.l10n.t("Random UUIDs/GUIDs without dashes")
+			: this.guidType === "dashes" ? vscode.l10n.t("Random UUIDs/GUIDs with dashes")
+			: this.guidType === "dashesAndBraces" ? vscode.l10n.t("Random UUIDs/GUIDs with dashes and braces")
+			: this.guidType === "cSharpGuidConstructor" ? vscode.l10n.t("Random UUIDs/GUIDs as a C# GUID constructor")
 			: "";
-		return `Random UUIDs/GUIDs${type}`;
 	}
 
 	public get icon(): string {
@@ -119,7 +118,7 @@ export class RandomGuidsSequence extends ASequenceBase {
 
 			qp.onDidAccept(() => {
 				if (!qp.activeItems.length) {
-					resolve({ errorMessage: "No UUID/GUID type selected." });
+					resolve({ errorMessage: vscode.l10n.t("No UUID/GUID type selected.") });
 					return;
 				}
 

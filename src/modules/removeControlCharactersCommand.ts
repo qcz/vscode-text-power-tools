@@ -1,7 +1,7 @@
 import * as vscode from "vscode";
 import { NO_ACTIVE_EDITOR } from "../consts";
-import { getSelectionsOrFullDocument, replaceSelectionsWithText } from "../helpers/vsCodeHelpers";
 import { removeControlCharacters } from "../helpers/transformations";
+import { getSelectionsOrFullDocument, replaceSelectionsWithText } from "../helpers/vsCodeHelpers";
 
 export async function runRemoveControlCharactersCommand() {
 	const editor = vscode.window.activeTextEditor;

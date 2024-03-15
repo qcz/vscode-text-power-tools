@@ -1,11 +1,12 @@
 import { LoremIpsum } from "lorem-ipsum";
+import * as vscode from "vscode";
 import { getExtensionSettings } from "../../helpers/tptSettings";
 import { ASequenceBase } from "../sequenceBase";
 import { CreateSampleGeneratorResult, StringIteratorGeneratorFunction } from "../sequenceTypes";
 
 export class LoremIpsumSentencesSequence extends ASequenceBase {
 	public get name(): string {
-		return "Lorem ipsum paragraphs";
+		return vscode.l10n.t("Lorem ipsum sentences");
 	}
 
 	public get icon(): string {

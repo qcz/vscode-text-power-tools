@@ -74,6 +74,7 @@
 	"activationEvents": [],
 	"main": "./dist/extension",
 	"browser": "./dist/extension-web.js",
+	"l10n": "./l10n",
 	"contributes": {
 		"commands": [
 			{

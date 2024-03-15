@@ -9,7 +9,7 @@ interface SplitLinesOptions {
 export async function runSplitLinesCommand(options: SplitLinesOptions) {
 	const editor = vscode.window.activeTextEditor;
 	if (!editor) {
-		vscode.window.showWarningMessage(NO_ACTIVE_EDITOR);
+		vscode.window.showErrorMessage(NO_ACTIVE_EDITOR);
 		return;
 	}
 
@@ -22,14 +22,14 @@ export async function runSplitLinesCommand(options: SplitLinesOptions) {
 
 async function askForSplitString(editor: vscode.TextEditor) {
 	vscode.window.showInputBox({
-		prompt: "Please enter the string to split by",
+		prompt: vscode.l10n.t("Please enter the string to split by"),
 	}).then(async (splitString: string | undefined) => {
 		if (typeof splitString === "undefined") {
 			return;
 		}
 
 		if (!splitString) {
-			vscode.window.showErrorMessage("No split string entered.");
+			vscode.window.showErrorMessage(vscode.l10n.t("No split string entered."));
 			return;
 		}
 

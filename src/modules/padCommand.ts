@@ -25,20 +25,20 @@ export async function runPadCommand(options: PadOptions) {
 
 export async function askForPadLength(editor: vscode.TextEditor, options: PadOptions) {
 	vscode.window.showInputBox({
-		prompt: "Please enter the length of the padded string",
+		prompt: vscode.l10n.t("Please enter the length of the padded string"),
 	}).then(async (rawPadLength: string | undefined) => {
 		if (typeof rawPadLength === "undefined") {
 			return;
 		}
 
 		if (!rawPadLength) {
-			vscode.window.showErrorMessage("No pad length entered.");
+			vscode.window.showErrorMessage(vscode.l10n.t("No pad length entered."));
 			return;
 		}
 
 		const padLength = Number.parseInt(rawPadLength, 10);
 		if (isNaN(padLength)) {
-			vscode.window.showErrorMessage("The entered pad length is not a valid number.");
+			vscode.window.showErrorMessage(vscode.l10n.t("The entered pad length is not a valid number."));
 			return;
 		}
 
@@ -52,14 +52,14 @@ export async function askForPadLength(editor: vscode.TextEditor, options: PadOpt
 
 export async function askForPadCharacter(editor: vscode.TextEditor, options: PadOptions, padLength: number) {
 	vscode.window.showInputBox({
-		prompt: "Please enter the string used for padding",
+		prompt: vscode.l10n.t("Please enter the string used for padding"),
 	}).then(async (padString: string | undefined) => {
 		if (typeof padString === "undefined") {
 			return;
 		}
 
 		if (!padString) {
-			vscode.window.showErrorMessage("No pad string entered.");
+			vscode.window.showErrorMessage(vscode.l10n.t("No pad string entered."));
 			return;
 		}
 

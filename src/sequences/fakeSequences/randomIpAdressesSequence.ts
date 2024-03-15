@@ -1,3 +1,4 @@
+import * as vscode from "vscode";
 import { ASequenceBase } from "../sequenceBase";
 import { CreateSampleGeneratorResult, StringIteratorGeneratorFunction } from "../sequenceTypes";
 
@@ -11,9 +12,9 @@ export enum IpAddressType {
 export class RandomIpAdressesSequence extends ASequenceBase {
 	public get name(): string {
 		if (this.type === IpAddressType.Ipv4) {
-			return "Random IPv4 adresses";
+			return vscode.l10n.t("Random IPv4 adresses");
 		} else {
-			return "Random IPv6 adresses";
+			return vscode.l10n.t("Random IPv6 adresses");
 		}
 	}
 

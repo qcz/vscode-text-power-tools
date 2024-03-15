@@ -1,7 +1,7 @@
 import * as path from "path";
 import * as vscode from "vscode";
 import { NO_ACTIVE_EDITOR } from "../consts";
-import { getExtensionSettings } from '../helpers/tptSettings';
+import { getExtensionSettings } from "../helpers/tptSettings";
 import { getPureSelections, replaceSelectionsWithLines } from "../helpers/vsCodeHelpers";
 
 export const enum InsertableStuff {
@@ -31,7 +31,7 @@ export async function runInsertStuffCommand(options: InsertStuffOptions) {
 
 	const settings = getExtensionSettings();
 	let customLocale = vscode.env.language;
-	if (settings.customLocale != null && settings.customLocale != "") {
+	if (settings.customLocale != null && settings.customLocale !== "") {
 		customLocale = settings.customLocale;
 	}
 

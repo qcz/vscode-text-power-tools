@@ -1,8 +1,9 @@
+import * as vscode from "vscode";
 import { AArraySequenceBase } from "../arraySeqenceBase";
 
 export class LowercaseLettersSequence extends AArraySequenceBase {
 	public get name(): string {
-		return "Lowercase letters";
+		return vscode.l10n.t("Lowercase letters");
 	}
 
 	public get icon(): string {

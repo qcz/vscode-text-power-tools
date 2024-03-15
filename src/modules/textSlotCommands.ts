@@ -19,7 +19,10 @@ export async function runpasteTextSlotCommand(context: vscode.ExtensionContext, 
 export async function pasteTextSlotCommandInternal(context: vscode.ExtensionContext, editor: vscode.TextEditor, options: ITextSlotCommandOptions) {
 	let slotContent = context.globalState.get<string>(`textSlot${options.slotId}-content`, "");
 	if (!slotContent) {
-		vscode.window.showWarningMessage(`Text slot ${options.slotId} is empty. Use the 'Set text slot ${options.slotId} content' to configure it.`);
+		vscode.window.showWarningMessage(vscode.l10n.t(
+			"Text slot {0} is empty. Use the 'Set text slot {0} content' to configure it.",
+			options.slotId
+		));
 		return;
 	}
 
@@ -61,7 +64,7 @@ export async function runSetTextSlotContentCommand(context: vscode.ExtensionCont
 export async function setTextSlotCommandInternal(context: vscode.ExtensionContext, editor: vscode.TextEditor, options: ITextSlotCommandOptions) {
 	const selections = getPureSelections(editor);
 	if (selections.length === 0) {
-		vscode.window.showWarningMessage("You need to select some text in the active editor to set the content of a text slot.");
+		vscode.window.showWarningMessage(vscode.l10n.t("You need to select some text in the active editor to set the content of a text slot."));
 		return;
 	}
 
@@ -70,5 +73,5 @@ export async function setTextSlotCommandInternal(context: vscode.ExtensionContex
 		getSelectionContent(editor, selections[0])
 	);
 
-	vscode.window.showInformationMessage(`Text slot ${options.slotId} content updated from selection.`);
+	vscode.window.showInformationMessage(vscode.l10n.t("Text slot {0} content updated from selection.", options.slotId));
 }

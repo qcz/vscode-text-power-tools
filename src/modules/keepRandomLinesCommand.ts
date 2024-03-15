@@ -19,30 +19,30 @@ export async function runKeepRandomLinesCommand(options: KeepRandomLinesCommandO
 
 async function askForNumberOfLinesToKeep(editor: vscode.TextEditor, unit: "integer" | "percentage") {
 	vscode.window.showInputBox({
-		prompt: "Please enter the "
-			+ (unit === "integer" ? "number" : "percentage")
-			+ " of lines to keep",
+		prompt: unit === "integer"
+			? vscode.l10n.t("Please enter the number of lines to keep")
+			: vscode.l10n.t("Please enter the percentage of lines to keep"),
 	}).then(async (rawPadLength: string | undefined) => {
 		if (typeof rawPadLength === "undefined") {
 			return;
 		}
 
 		if (!rawPadLength) {
-			vscode.window.showErrorMessage("No line count entered.");
+			vscode.window.showErrorMessage(vscode.l10n.t("No line count entered."));
 			return;
 		}
 
 		const amount = Number.parseInt(rawPadLength, 10);
 		if (isNaN(amount)) {
-			vscode.window.showErrorMessage("The entered line count is not a valid number.");
+			vscode.window.showErrorMessage(vscode.l10n.t("The entered line count is not a valid number."));
 			return;
 		}
 
 		if (unit === "percentage" && amount < 1 || amount > 99) {
-			vscode.window.showErrorMessage("The entered line count is not supported (≥ 1 and ≤ 99).");
+			vscode.window.showErrorMessage(vscode.l10n.t("The entered line count is not supported (≥ 1 and ≤ 99)."));
 			return;
 		} else if (amount < 1) {
-			vscode.window.showErrorMessage("Line count must be a positive number.");
+			vscode.window.showErrorMessage(vscode.l10n.t("Line count must be a positive number."));
 		}
 
 

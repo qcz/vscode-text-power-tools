@@ -26,7 +26,7 @@ export async function runFormatContentAsTableCommand(options: IAlignByCharacterO
 
 async function askForSplitCharacter(editor: vscode.TextEditor, options: IAlignByCharacterOptions) {
 	vscode.window.showInputBox({
-		prompt: "Please enter the character to split by",
+		prompt: vscode.l10n.t("Please enter the character to split by"),
 		value: "1",
 	}).then(async (splitChar: string | undefined) => {
 		if (typeof splitChar === "undefined") {
@@ -34,7 +34,7 @@ async function askForSplitCharacter(editor: vscode.TextEditor, options: IAlignBy
 		}
 
 		if (!splitChar) {
-			vscode.window.showErrorMessage("No starting number entered.");
+			vscode.window.showErrorMessage(vscode.l10n.t("No starting number entered."));
 			return;
 		}
 

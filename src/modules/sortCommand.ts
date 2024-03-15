@@ -188,7 +188,9 @@ export async function runSortCommand(options: ISortOptions) {
 						lines.reverse();
 					}
 				} catch (err) {
-					vscode.window.showErrorMessage("Failed to sort: selection contains invalid IP addresses.");
+					vscode.window.showErrorMessage(
+						vscode.l10n.t("Failed to sort: selection contains invalid IP addresses.")
+					);
 				}
 
 				break;

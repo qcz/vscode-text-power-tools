@@ -18,7 +18,7 @@ export async function runExtractInfoCommand(context: vscode.ExtensionContext, op
 
 	showHistoryQuickPick({
 		context: context,
-		title: "Please enter the filter text",
+		title: vscode.l10n.t("Please enter the filter text"),
 		historyStateKey: "extractInfo-filter",
 		onDidAccept: async (filter: string) => {
 			if (!filter) {
@@ -33,7 +33,7 @@ export async function runExtractInfoCommand(context: vscode.ExtensionContext, op
 
 			showHistoryQuickPick({
 				context: context,
-				title: "Please enter the replacement rule",
+				title: vscode.l10n.t("Please enter the replacement rule"),
 				historyStateKey: "extractInfo-replacement",
 				onDidAccept: async (replacement: string) => {
 					if (typeof replacement === "undefined") {
@@ -41,7 +41,7 @@ export async function runExtractInfoCommand(context: vscode.ExtensionContext, op
 					}
 
 					if (!replacement) {
-						vscode.window.showErrorMessage("No replacement entered.");
+						vscode.window.showErrorMessage(vscode.l10n.t("No replacement entered."));
 						return;
 					}
 

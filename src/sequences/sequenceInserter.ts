@@ -25,7 +25,7 @@ async function askForNumberOfSequenceEntriesToInsert(
 	editor: vscode.TextEditor,
 	generator: () => IterableIterator<string>) {
 	vscode.window.showInputBox({
-		prompt: "Please specify the number of items to insert.",
+		prompt: vscode.l10n.t("Please specify the number of items to insert."),
 		value: "1",
 	}).then(async (rawNumberOfItemsToInsert: string | undefined) => {
 		if (typeof rawNumberOfItemsToInsert === "undefined") {
@@ -33,13 +33,17 @@ async function askForNumberOfSequenceEntriesToInsert(
 		}
 
 		if (!rawNumberOfItemsToInsert) {
-			vscode.window.showErrorMessage("No number of items to insert entered.");
+			vscode.window.showErrorMessage(
+				vscode.l10n.t("No number of items to insert entered.")
+			);
 			return;
 		}
 
 		const numberOfItemsToInsert = Number.parseInt(rawNumberOfItemsToInsert, 10);
 		if (isNaN(numberOfItemsToInsert)) {
-			vscode.window.showErrorMessage("The entered number of items to insert is not a valid number.");
+			vscode.window.showErrorMessage(
+				vscode.l10n.t("The entered number of items to insert is not a valid number.")
+			);
 			return;
 		}
 
@@ -73,7 +77,9 @@ async function insertSequenceForRealThisTime(
 			}
 
 			if (typeof iteratorValue.value !== "string") {
-				vscode.window.showErrorMessage("Error while generating the sequence to insert.");
+				vscode.window.showErrorMessage(
+					vscode.l10n.t("Error while generating the sequence to insert.")
+				);
 				return;
 			}
 

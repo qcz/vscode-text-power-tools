@@ -63,18 +63,18 @@ export async function runAffixCommand(options: AffixOptions) {
 
 async function askForAffix(target: AffixTarget): Promise<string> {
 	return new Promise<string>((resolve, reject) => {
-		const targetLabel = target === AffixTarget.Both ? "Please enter the text to wrap the lines with"
-			: target === AffixTarget.Prefix ? "Please enter the prefix for the lines"
-			: "Please enter the suffix for the lines";
+		const targetLabel = target === AffixTarget.Both ? vscode.l10n.t("Please enter the text to wrap the lines with")
+			: target === AffixTarget.Prefix ? vscode.l10n.t("Please enter the prefix for the lines")
+			: vscode.l10n.t("Please enter the suffix for the lines");
 
 		vscode.window.showInputBox({
 			prompt: targetLabel,
 			value: "",
 		}).then(async (affixString: string | undefined) => {
 			if (typeof affixString === "undefined" || affixString === "") {
-				const errorMessage = target === AffixTarget.Both ? "No text entered to wrap with"
-					: target === AffixTarget.Prefix ? "No prefix entered"
-					: "No suffix entered";
+				const errorMessage = target === AffixTarget.Both ? vscode.l10n.t("No text entered to wrap with")
+					: target === AffixTarget.Prefix ? vscode.l10n.t("No prefix entered")
+					: vscode.l10n.t("No suffix entered");
 				reject(errorMessage);
 				return;
 			}

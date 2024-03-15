@@ -1,9 +1,9 @@
 import * as vscode from "vscode";
 import { NO_ACTIVE_EDITOR } from "../consts";
+import { DECIMAL_NUMBER_REGEX, SIGNED_HEXADECIMAL_NUMBER_REGEX, UNSIGNED_HEXADECIMAL_NUMBER_REGEX } from "../helpers/textualNumberConverter";
 import { getExtensionSettings } from "../helpers/tptSettings";
 import { getSelectionLines, getSelectionsOrFullDocument, replaceSelectionsWithLines } from "../helpers/vsCodeHelpers";
 import { NumberArithmetic, NumeralSystem } from "../interfaces";
-import { SIGNED_HEXADECIMAL_NUMBER_REGEX, DECIMAL_NUMBER_REGEX, UNSIGNED_HEXADECIMAL_NUMBER_REGEX } from "../helpers/textualNumberConverter";
 
 type ArithmeticRange = {
 	min: bigint;
@@ -137,13 +137,13 @@ export async function runConvertNumberCommand(options: IChangeNumeralSystemOptio
 
 	if (hasInvalidNumbers && hasValidNumbers === false) {
 		vscode.window.showErrorMessage(
-			"Failed to parse any lines in the selection as numbers.",
+			vscode.l10n.t("Failed to parse any lines in the selection as numbers."),
 		);
 	} else if (hasInvalidNumbers) {
 		vscode.window.showErrorMessage(
-			"Not all selections or lines could be parsed as numbers. Do you want to convert the recognized lines?",
-			"Yes",
-			"No"
+			vscode.l10n.t("Not all selections or lines could be parsed as numbers. Do you want to convert the recognized lines?"),
+			vscode.l10n.t("Yes"),
+			vscode.l10n.t("No")
 		).then(async (selected) => {
 			if (selected === "Yes") {
 				await replaceSelectionsWithLines(editor, selections, linesBySelection, /* openNewDocument: */false);
@@ -163,12 +163,12 @@ type NumberParseResult =
 async function askForIncrement(): Promise<bigint> {
 	return new Promise<bigint>((resolve, reject) => {
 		vscode.window.showInputBox({
-			prompt: "Please enter the number to increment by in decimal format",
+			prompt: vscode.l10n.t("Please enter the number to increment by in decimal format"),
 			value: "1",
 		}).then(async (rawIncrement: string | undefined) => {
 			if (typeof rawIncrement === "undefined"
 				|| rawIncrement === "") {
-				reject("No increment entered.");
+				reject(vscode.l10n.t("No increment entered."));
 				return;
 			}
 
@@ -176,12 +176,12 @@ async function askForIncrement(): Promise<bigint> {
 			try {
 				increment = BigInt(rawIncrement);
 			} catch (err) {
-				reject("The entered number to increment by is not a valid number.");
+				reject(vscode.l10n.t("The entered number to increment by is not a valid number."));
 				return;
 			}
 
 			if (increment === 0n) {
-				reject("Increment cannot be 0.");
+				reject(vscode.l10n.t("Increment cannot be 0."));
 				return;
 			}
 

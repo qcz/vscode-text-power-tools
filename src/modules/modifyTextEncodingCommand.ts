@@ -136,13 +136,19 @@ function runEncodingOnLine(options: IModifyTextEncodingOptions, currentSelection
 }
 
 function complainAboutJsonStringError(lineContent: string) {
-	let lineStart;
+	let errorMessage;
 	if (lineContent.length > 15) {
-		lineStart = `The selection/line starting with \`${lineContent.substring(0, 15)}\``;
+		errorMessage = vscode.l10n.t(
+			"The selection/line starting with `{0}` is not a valid JSON escaped text",
+			lineContent.substring(0, 15)
+		);
 	} else {
-		lineStart = `The selection/line \`${lineContent.substring(0, 15)}\``;
+		errorMessage = vscode.l10n.t(
+			"The selection/line `{0}` is not a valid JSON escaped text",
+			lineContent
+		);
 	}
 
-	vscode.window.showErrorMessage(`${lineStart} is not a valid JSON escaped text`);
+	vscode.window.showErrorMessage(errorMessage);
 }
 

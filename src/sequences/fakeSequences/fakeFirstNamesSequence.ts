@@ -1,9 +1,11 @@
 import faker from "faker";
+import * as vscode from "vscode";
+import { getHumanizedLanguageName } from "../../helpers/utils";
 import { AFakerSequenceBase } from "../fakerSequenceBase";
 
 export class FakeFirstNamesSequence extends AFakerSequenceBase {
 	public get name(): string {
-		return `${this.humanizedLanguageName} first names`;
+		return vscode.l10n.t("{0} first names", getHumanizedLanguageName(this.locale));
 	}
 
 	public get icon(): string {

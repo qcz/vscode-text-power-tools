@@ -1,5 +1,6 @@
 import * as vscode from "vscode";
 import { getExtensionSettings } from "../../helpers/tptSettings";
+import { getHumanizedLanguageName } from "../../helpers/utils";
 import { ASequenceBase } from "../sequenceBase";
 import { StringIteratorGeneratorFunction } from "../sequenceTypes";
 
@@ -9,12 +10,12 @@ export class MonthNamesSequence extends ASequenceBase {
 	}
 
 	public get name(): string {
-		const type = this.type === "long" ? "Long"
-			: this.type === "narrow" ? "Narrow"
-			: "Short";
-		return typeof this.locale === "undefined" || this.locale === "" ? `${type} current/custom locale month names`
-			: this.locale === "en-US" ? `${type} English month names`
-			: `${this.type} ${this.locale} month names`;
+		const type = this.type === "long" ? vscode.l10n.t("Long")
+			: this.type === "narrow" ? vscode.l10n.t("Narrow")
+			: vscode.l10n.t("Short");
+		return typeof this.locale === "undefined" || this.locale === "" ? vscode.l10n.t("{0} current/custom locale month names", type)
+			: this.locale === "en-US" ? vscode.l10n.t("{0} English month names")
+			: vscode.l10n.t("{0} {1} month names", type, getHumanizedLanguageName(this.locale));
 	}
 
 	public get icon(): string {
@@ -42,7 +43,7 @@ export class MonthNamesSequence extends ASequenceBase {
 					);
 				}
 			} catch (err) {
-				vscode.window.showErrorMessage(`Unknown locale provided for generator: '${locale}'`);
+				vscode.window.showErrorMessage(vscode.l10n.t("Unknown locale provided for generator: '{0}'", locale ?? "undefined"));
 			}
 		};
 

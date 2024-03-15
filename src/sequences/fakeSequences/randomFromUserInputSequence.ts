@@ -20,7 +20,7 @@ export class RandomFromUserInputSequence extends ASequenceBase {
 	}
 
 	public get name(): string {
-		return "Random items from user input";
+		return vscode.l10n.t("Random items from user input");
 	}
 
 	public async createStandardGenerator(): Promise<() => IterableIterator<string>> {
@@ -72,11 +72,11 @@ export class RandomFromUserInputSequence extends ASequenceBase {
 		return new Promise<EnsureAllParametersAreSetResult>((resolve) => {
 			showHistoryQuickPick({
 				context: this.context,
-				title: "Please enter the comma separated list of items",
+				title: vscode.l10n.t("Please enter the comma separated list of items"),
 				historyStateKey: "generateItems-fromRandomUserInput",
 				onDidAccept: async (input: string) => {
 					if (!input || input.split(",").every(x => x.trim() === "")) {
-						resolve({ errorMessage: "No items entered." });
+						resolve({ errorMessage: vscode.l10n.t("No items entered.") });
 					}
 
 					this.rawInputList = input;

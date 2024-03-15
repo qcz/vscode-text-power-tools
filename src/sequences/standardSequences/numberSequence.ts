@@ -1,9 +1,9 @@
+import RomanNumeral from "js-roman-numerals";
+import * as vscode from "vscode";
 import { getExtensionSettings } from "../../helpers/tptSettings";
 import { NumeralSystem } from "../../interfaces";
 import { ASequenceBase } from "../sequenceBase";
-import RomanNumeral  from "js-roman-numerals";
-import * as vscode from "vscode";
-import {  CreateSampleGeneratorResult, EnsureAllParametersAreSetResult, isSequenceErrorMessage } from "../sequenceTypes";
+import { CreateSampleGeneratorResult, EnsureAllParametersAreSetResult, isSequenceErrorMessage } from "../sequenceTypes";
 
 export class NumberSequece extends ASequenceBase {
 	constructor(
@@ -15,20 +15,19 @@ export class NumberSequece extends ASequenceBase {
 	}
 
 	public get name(): string {
-		const type = this.numeralSystem === NumeralSystem.Hexadecimal ? "Hex"
-			: this.numeralSystem === NumeralSystem.Roman ? "Roman"
-			: "Decimal";
+		const type = this.numeralSystem === NumeralSystem.Hexadecimal ? vscode.l10n.t("Hex numbers")
+			: this.numeralSystem === NumeralSystem.Roman ? vscode.l10n.t("Roman numbers")
+			: vscode.l10n.t("Decimal numbers");
 
-		let ret = `${type} numbers`;
 		if (typeof this.startingNumber === "undefined" && typeof this.increment === "undefined") {
-			ret += " with custom starting number and increment";
+			return vscode.l10n.t("{0} with custom starting number and increment", type);
 		} else if (typeof this.startingNumber === "undefined") {
-			ret += " with custom starting number";
+			return vscode.l10n.t("{0} with custom starting number", type);
 		} else if (typeof this.increment === "undefined") {
-			ret += " with custom increment";
+			return vscode.l10n.t("{0} with custom increment", type);
 		}
 
-		return ret;
+		return "";
 	}
 
 	public get icon(): string {
@@ -130,21 +129,28 @@ export class NumberSequece extends ASequenceBase {
 
 	private askForStartingNumber(): Promise<EnsureAllParametersAreSetResult> {
 		return new Promise<EnsureAllParametersAreSetResult>((resolve) => {
-			const numberType = this.numeralSystem === NumeralSystem.Hexadecimal ? "hex" : "decimal";
+			const numberType = this.numeralSystem === NumeralSystem.Hexadecimal
+				? vscode.l10n.t("hex")
+				: vscode.l10n.t("decimal");
 
 			vscode.window.showInputBox({
-				prompt: `Please enter the starting number in ${numberType} format`,
+				prompt: vscode.l10n.t("Please enter the starting number in {0} format", numberType),
 				value: "1",
 			}).then(async (rawStartingNumber: string | undefined) => {
 				if (typeof rawStartingNumber === "undefined"
 					|| rawStartingNumber === "") {
-					resolve({ errorMessage: "No starting number entered." });
+					resolve({ errorMessage: vscode.l10n.t("No starting number entered.") });
 					return;
 				}
 
 				const startingNumber = Number.parseInt(rawStartingNumber, this.numeralSystem === NumeralSystem.Hexadecimal ? 16 : 10);
 				if (isNaN(startingNumber)) {
-					resolve({ errorMessage: `The entered starting number is not a valid ${numberType} number.` });
+					resolve({
+						errorMessage: vscode.l10n.t(
+							"The entered starting number is not a valid {0} number.",
+							numberType
+						)
+					});
 					return;
 				}
 
@@ -158,26 +164,33 @@ export class NumberSequece extends ASequenceBase {
 
 	private askForIncrement(): Promise<EnsureAllParametersAreSetResult> {
 		return new Promise<EnsureAllParametersAreSetResult>((resolve) => {
-			const numberType = this.numeralSystem === NumeralSystem.Hexadecimal ? "hex" : "decimal";
+			const numberType = this.numeralSystem === NumeralSystem.Hexadecimal
+				? vscode.l10n.t("hex")
+				: vscode.l10n.t("decimal");
 
 			vscode.window.showInputBox({
-				prompt: `Please enter the number to increment by in ${numberType} format`,
+				prompt: vscode.l10n.t("Please enter the number to increment by in {0} format", numberType),
 				value: "1",
 			}).then(async (rawIncrement: string | undefined) => {
 				if (typeof rawIncrement === "undefined"
 					|| rawIncrement === "") {
-					resolve({ errorMessage: "No increment entered." });
+					resolve({ errorMessage: vscode.l10n.t("No increment entered.") });
 					return;
 				}
 
 				const increment = Number.parseInt(rawIncrement, this.numeralSystem === NumeralSystem.Hexadecimal ? 16 : 10);
 				if (isNaN(increment)) {
-					resolve({ errorMessage: `The entered number to increment by is not a valid ${numberType} number.` });
+					resolve({
+						errorMessage: vscode.l10n.t(
+							"The entered number to increment by is not a valid {0} number.",
+							numberType
+						)
+					});
 					return;
 				}
 
 				if (increment === 0) {
-					resolve({ errorMessage: "Increment cannot be 0." });
+					resolve({ errorMessage: vscode.l10n.t("Increment cannot be 0.") });
 					return;
 				}
 

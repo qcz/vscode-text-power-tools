@@ -25,25 +25,25 @@ export async function runJoinLinesCommand(options: JoinLinesOptions) {
 
 async function askForNumberOfJoinedLines(editor: vscode.TextEditor, options: JoinLinesOptions) {
 	vscode.window.showInputBox({
-		prompt: "Please enter the number of consecutive lines to join together",
+		prompt: vscode.l10n.t("Please enter the number of consecutive lines to join together"),
 	}).then(async (rawPadLength: string | undefined) => {
 		if (typeof rawPadLength === "undefined") {
 			return;
 		}
 
 		if (!rawPadLength) {
-			vscode.window.showErrorMessage("No line count entered.");
+			vscode.window.showErrorMessage(vscode.l10n.t("No line count entered."));
 			return;
 		}
 
 		const lineCount = Number.parseInt(rawPadLength, 10);
 		if (isNaN(lineCount)) {
-			vscode.window.showErrorMessage("The entered line count is not a valid number.");
+			vscode.window.showErrorMessage(vscode.l10n.t("The entered line count is not a valid number."));
 			return;
 		}
 
 		if (lineCount < 2 || lineCount > 100) {
-			vscode.window.showErrorMessage("The entered line count is not supported (≥ 2 and ≤ 100).");
+			vscode.window.showErrorMessage(vscode.l10n.t("The entered line count is not supported (≥ 2 and ≤ 100)."));
 			return;
 		}
 
@@ -57,14 +57,14 @@ async function askForNumberOfJoinedLines(editor: vscode.TextEditor, options: Joi
 
 async function askForJoinString(editor: vscode.TextEditor, numberOfJoinedLines: number) {
 	vscode.window.showInputBox({
-		prompt: "Please enter the string used for joining",
+		prompt: vscode.l10n.t("Please enter the string used for joining"),
 	}).then(async (joinString: string | undefined) => {
 		if (typeof joinString === "undefined") {
 			return;
 		}
 
 		if (joinString == null) {
-			vscode.window.showErrorMessage("No join string entered.");
+			vscode.window.showErrorMessage(vscode.l10n.t("No join string entered."));
 			return;
 		}
 

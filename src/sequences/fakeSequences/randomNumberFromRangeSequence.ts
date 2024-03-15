@@ -23,14 +23,13 @@ export class RandomNumberFromRangeSequence extends ASequenceBase {
 	}
 
 	public get name(): string {
-		let numberType;
-		if (this.numeralSystem === NumeralSystem.Decimal) {
-			numberType = this.isFloatingPoint ? "real" : "decimal";
+		if (this.numeralSystem === NumeralSystem.Decimal && this.isFloatingPoint) {
+			return vscode.l10n.t("Random real number from range");
+		} else if (this.numeralSystem === NumeralSystem.Decimal) {
+			return vscode.l10n.t("Random decimal number from range");
 		} else {
-			numberType = "hexadecimal";
+			return vscode.l10n.t("Random hexadecimal number from range");
 		}
-
-		return `Random ${numberType} number from range`;
 	}
 
 	public async createStandardGenerator(): Promise<() => IterableIterator<string>> {
@@ -100,15 +99,17 @@ export class RandomNumberFromRangeSequence extends ASequenceBase {
 
 	private askForRangeStart(): Promise<EnsureAllParametersAreSetResult> {
 		return new Promise<EnsureAllParametersAreSetResult>((resolve) => {
-			const numberType = this.numeralSystem === NumeralSystem.Hexadecimal ? "hex" : "decimal";
+			const numberType = this.numeralSystem === NumeralSystem.Hexadecimal
+				? vscode.l10n.t("hex")
+				: vscode.l10n.t("decimal");
 
 			vscode.window.showInputBox({
-				prompt: `Please enter the starting number in ${numberType} format (inclusive)`,
+				prompt: vscode.l10n.t("Please enter the starting number in {0} format (inclusive)", numberType),
 				value: "1",
 			}).then(async (rawRangeStart: string | undefined) => {
 				if (typeof rawRangeStart === "undefined"
 					|| rawRangeStart === "") {
-					resolve({ errorMessage: "No starting number entered." });
+					resolve({ errorMessage: vscode.l10n.t("No starting number entered.") });
 					return;
 				}
 
@@ -119,7 +120,12 @@ export class RandomNumberFromRangeSequence extends ASequenceBase {
 					rangeStart = Number.parseInt(rawRangeStart, this.numeralSystem === NumeralSystem.Hexadecimal ? 16 : 10);
 				}
 				if (isNaN(rangeStart)) {
-					resolve({ errorMessage: `The entered starting number is not a valid ${numberType} number.` });
+					resolve({
+						errorMessage: vscode.l10n.t(
+							"The entered starting number is not a valid {0} number.",
+							numberType
+						)
+					});
 					return;
 				}
 
@@ -131,15 +137,17 @@ export class RandomNumberFromRangeSequence extends ASequenceBase {
 
 	private askForRangeEnd(): Promise<EnsureAllParametersAreSetResult> {
 		return new Promise<EnsureAllParametersAreSetResult>((resolve) => {
-			const numberType = this.numeralSystem === NumeralSystem.Hexadecimal ? "hex" : "decimal";
+			const numberType = this.numeralSystem === NumeralSystem.Hexadecimal
+				? vscode.l10n.t("hex")
+				: vscode.l10n.t("decimal");
 
 			vscode.window.showInputBox({
-				prompt: `Please enter the ending number in ${numberType} format (inclusive)`,
+				prompt: vscode.l10n.t("Please enter the ending number in {0} format (inclusive)", numberType),
 				value: "1",
 			}).then(async (rawRangeEnd: string | undefined) => {
 				if (typeof rawRangeEnd === "undefined"
 					|| rawRangeEnd === "") {
-					resolve({ errorMessage: "No ending number entered." });
+					resolve({ errorMessage: vscode.l10n.t("No ending number entered.") });
 					return;
 				}
 
@@ -150,7 +158,12 @@ export class RandomNumberFromRangeSequence extends ASequenceBase {
 					rangeEnd = Number.parseInt(rawRangeEnd, this.numeralSystem === NumeralSystem.Hexadecimal ? 16 : 10);
 				}
 				if (isNaN(rangeEnd)) {
-					resolve({ errorMessage: `The entered ending number is not a valid ${numberType} number.` });
+					resolve({
+						errorMessage: vscode.l10n.t(
+							"The entered ending number is not a valid {0} number.",
+							numberType
+						)
+					});
 					return;
 				}
 

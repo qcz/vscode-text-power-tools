@@ -1,3 +1,4 @@
+import * as vscode from "vscode";
 import { CreateGeneratorResult, CreateSampleGeneratorResult, EnsureAllParametersAreSetResult, isSequenceErrorMessage } from "./sequenceTypes";
 
 export abstract class ASequenceBase {
@@ -39,7 +40,7 @@ export abstract class ASequenceBase {
 		}
 
 		if (isSequenceErrorMessage(generator)) {
-			return `Generator returned an error: ${generator.errorMessage}`;
+			return vscode.l10n.t("Generator returned an error: {0}", generator.errorMessage);
 		}
 
 		const iterator = generator();
@@ -60,10 +61,10 @@ export abstract class ASequenceBase {
 		}
 
 		if (sampleItems.length === 0) {
-			return "No samples available for this series – configuration may be invalid.";
+			return vscode.l10n.t("No samples available for this series – configuration may be invalid.");
 		}
 
 		const moreItemsAvailable = hasMoreItems ? "…" : "";
-		return `Sample: '${sampleItems.join("', '")}'${moreItemsAvailable}`;
+		return vscode.l10n.t("Sample: {0}", `${sampleItems.join("', '")}'${moreItemsAvailable}`);
 	}
 }

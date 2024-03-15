@@ -28,20 +28,20 @@ export async function runRepeatSelectionContentCommand(options?: RepeatSelection
 
 function askForRepeatCount(editor: vscode.TextEditor) {
 	vscode.window.showInputBox({
-		prompt: "Please enter how many times the selection content should be repeadted (at least 2)",
+		prompt: vscode.l10n.t("Please enter how many times the selection content should be repeadted (at least 2)"),
 	}).then(async (rawPadLength: string | undefined) => {
 		if (typeof rawPadLength === "undefined") {
 			return;
 		}
 
 		if (!rawPadLength) {
-			vscode.window.showErrorMessage("No repeat count entered.");
+			vscode.window.showErrorMessage(vscode.l10n.t("No repeat count entered."));
 			return;
 		}
 
 		const repeatCount = Number.parseInt(rawPadLength, 10);
 		if (isNaN(repeatCount) || repeatCount < 2) {
-			vscode.window.showErrorMessage("The entered repeat count is not a valid number.");
+			vscode.window.showErrorMessage(vscode.l10n.t("The entered repeat count is not a valid number."));
 			return;
 		}
 

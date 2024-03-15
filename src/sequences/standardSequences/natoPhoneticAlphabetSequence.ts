@@ -1,8 +1,9 @@
+import * as vscode from "vscode";
 import { AArraySequenceBase } from "../arraySeqenceBase";
 
 export class NatoPhoneticAlphabetSequence extends AArraySequenceBase {
 	public get name(): string {
-		return "NATO phonetic alphabet sequence items";
+		return vscode.l10n.t("NATO phonetic alphabet sequence items");
 	}
 
 	public get icon(): string {

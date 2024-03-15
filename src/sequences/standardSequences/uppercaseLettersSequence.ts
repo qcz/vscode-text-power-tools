@@ -1,8 +1,9 @@
+import * as vscode from "vscode";
 import { AArraySequenceBase } from "../arraySeqenceBase";
 
 export class UppercaseLettersSequence extends AArraySequenceBase {
 	public get name(): string {
-		return "Uppercase letters";
+		return vscode.l10n.t("Uppercase letters");
 	}
 
 	public get icon(): string {

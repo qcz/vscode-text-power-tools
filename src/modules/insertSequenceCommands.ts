@@ -155,7 +155,8 @@ export async function runInsertPredefinedSeriesCommand(
 	if (seqClass !== null) {
 		const generator = await seqClass.createGenerator();
 		if (isGeneratorCreationError(generator)) {
-			vscode.window.showErrorMessage(`Failed to generate items: ${generator.errorMessage}`);
+			vscode.window.showErrorMessage(
+				vscode.l10n.t("Failed to generate items: {0}", generator.errorMessage));
 			return;
 		}
 
@@ -169,7 +170,7 @@ interface SequenceQuickPickItem extends QuickPickItem {
 
 function showPredefinedSeriesPicker(editor: vscode.TextEditor, qpItems: SequenceQuickPickItem[]): void {
 	const qp = vscode.window.createQuickPick<SequenceQuickPickItem>();
-	qp.title = "Select a predefined series";
+	qp.title = vscode.l10n.t("Select a predefined series");
 	qp.items = qpItems;
 
 	qp.onDidChangeValue(() => {
