@@ -10,11 +10,11 @@ export function getFullDocumentRange(editor: vscode.TextEditor): vscode.Selectio
 }
 
 export function getPureSelections(editor: vscode.TextEditor): vscode.Selection[] {
-	return editor.selections || [];
+	return editor.selections != null ? [...editor.selections] : [];
 }
 
 export function getSelectionsOrFullDocument(editor: vscode.TextEditor): vscode.Selection[] {
-	var selections = editor.selections;
+	var selections = [...editor.selections];
 
 	if (!selections
 		|| !selections.length
