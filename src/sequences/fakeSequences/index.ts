@@ -15,17 +15,25 @@ import { RandomHexCharactersSequence } from "./randomHexCharactersSequence";
 import { IpAddressType, RandomIpAdressesSequence } from "./randomIpAdressesSequence";
 import { RandomNumberFromRangeSequence } from "./randomNumberFromRangeSequence";
 
+export const randomDecimalNumberFromRangeSequence = new RandomNumberFromRangeSequence(NumeralSystem.Decimal, false);
+export const randomRealNumberFromRangeSequence = new RandomNumberFromRangeSequence(NumeralSystem.Decimal, true);
+export const randomHexadecimalNumberFromRangeSequence = new RandomNumberFromRangeSequence(NumeralSystem.Hexadecimal, false);
+export const randomIpv4AddressesSequence = new RandomIpAdressesSequence(IpAddressType.Ipv4);
+export const randomIpv6AddressesSequence = new RandomIpAdressesSequence(IpAddressType.Ipv6);
+export const loremIpsumSentencesSequence = new LoremIpsumSentencesSequence();
+export const loremIpsumParagraphsSequence = new LoremIpsumParagraphsSequence();
+
 export function getKnownFakeSequences(context: vscode.ExtensionContext): ASequenceBase[] {
 	const ret: ASequenceBase[] = [];
 
 	ret.push(new RandomFromUserInputSequence(context, undefined));
-	ret.push(new RandomNumberFromRangeSequence(NumeralSystem.Decimal, false));
-	ret.push(new RandomNumberFromRangeSequence(NumeralSystem.Decimal, true));
-	ret.push(new RandomNumberFromRangeSequence(NumeralSystem.Hexadecimal, false));
+	ret.push(randomDecimalNumberFromRangeSequence);
+	ret.push(randomRealNumberFromRangeSequence);
+	ret.push(randomHexadecimalNumberFromRangeSequence);
 	ret.push(new RandomHexCharactersSequence(undefined));
 	ret.push(new RandomDecimalCharactersSequence(undefined));
-	ret.push(new RandomIpAdressesSequence(IpAddressType.Ipv4));
-	ret.push(new RandomIpAdressesSequence(IpAddressType.Ipv6));
+	ret.push(randomIpv4AddressesSequence);
+	ret.push(randomIpv6AddressesSequence);
 	ret.push(new RandomGuidsSequence("noDashes"));
 	ret.push(new RandomGuidsSequence("dashes"));
 	ret.push(new RandomGuidsSequence("dashesAndBraces"));
@@ -36,8 +44,8 @@ export function getKnownFakeSequences(context: vscode.ExtensionContext): ASequen
 	ret.push(new RandomCoordinatesSequence("Europe"));
 	ret.push(new RandomCoordinatesSequence("NorthAmerica"));
 	ret.push(new RandomCoordinatesSequence("SouthAmerica"));
-	ret.push(new LoremIpsumSentencesSequence());
-	ret.push(new LoremIpsumParagraphsSequence());
+	ret.push(loremIpsumSentencesSequence);
+	ret.push(loremIpsumParagraphsSequence);
 
 	for (const languageCode of ["de", "en", "fr", "hu"]) {
 		ret.push(new FakeFirstNamesSequence(languageCode));

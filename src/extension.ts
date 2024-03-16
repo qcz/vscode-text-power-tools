@@ -2,6 +2,8 @@
 import * as vscode from "vscode";
 import { NumberArithmetic, NumeralSystem } from "./interfaces";
 import { ASK_SPLIT_CHARACTER_FROM_USER, AffixTarget, Base4EncodingDirection, ChangeCaseType, ClipboardContentPasteType, FilterSourceType, FilterTarget, FilterType, InsertableSeries, InsertableStuff, LineNumberType, PadDirection, RemovedLineType, SortMethod, TextEncodingDirection, TextEncodingType, TextTransformationType, TrimDirection, ZalgificationIntensity, runAffixCommand, runBase64EncodingCommand, runChangeCaseCommand, runConvertNumberCommand, runConvertToZalgoCommand, runCopySelectionsToNewEditorCommand, runCountOccurrencesCommand, runExtractInfoCommand, runFilterTextCommand, runFormatContentAsTableCommand, runInsertLineNumbersCommand, runInsertNumberSequenceCommand, runInsertPredefinedSeriesCommand, runInsertStuffCommand, runJoinLinesCommand, runKeepOnlyCommand, runKeepRandomLinesCommand, runModifyTextEncodingCommand, runPadCommand, runPasteFromClipboardCommand, runRemoveControlCharactersCommand, runRemoveDuplicatesCommand, runRemoveLinesCommand, runRemoveNewLinesCommand, runRepeatSelectionContentCommand, runReplaceNewLinesAndWhitespaceWithASingleSpace, runReplaceWhitespaceWithASingleSpace, runSetTextSlotContentCommand, runSortCommand, runSplitLinesCommand, runTextTransformationCommand, runTrimCommand, runpasteTextSlotCommand } from "./modules";
+import * as fakeSequences from "./sequences/fakeSequences";
+import * as stanardSequences from "./sequences/standardSequences";
 
 export function activate(context: vscode.ExtensionContext) {
 	// Filter lines/extract info commands
@@ -290,22 +292,22 @@ function registerGenerateFakeDataCommands(context: vscode.ExtensionContext) {
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateRandomFromUserInput", () =>
 		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.RandomFromUserInput })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateRandomDecimalNumbersFromRange", () =>
-		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.RandomDecimalNumberFromRange })));
+		runInsertPredefinedSeriesCommand(context, { sequence: fakeSequences.randomDecimalNumberFromRangeSequence })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateRandomHexadecimalNumbersFromRange", () =>
-		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.RandomHexadecimalNumberFromRange })));
+		runInsertPredefinedSeriesCommand(context, { sequence: fakeSequences.randomHexadecimalNumberFromRangeSequence })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateRandomRealNumbersFromRange", () =>
-		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.RandomRealNumberFromRange })));
+		runInsertPredefinedSeriesCommand(context, { sequence: fakeSequences.randomRealNumberFromRangeSequence })));
 
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateRandomGuids", () =>
 		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.RandomGuids })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateRandomIpv4Addresses", () =>
-		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.RandomIpv4Addresses })));
+		runInsertPredefinedSeriesCommand(context, { sequence: fakeSequences.randomIpv4AddressesSequence })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateRandomIpv6Addresses", () =>
-		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.RandomIpv6Addresses })));
+		runInsertPredefinedSeriesCommand(context, { sequence: fakeSequences.randomIpv6AddressesSequence })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateLoremIpsumSentence", () =>
-		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.LoremIpsumSentences })));
+		runInsertPredefinedSeriesCommand(context, { sequence: fakeSequences.loremIpsumSentencesSequence })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateLoremIpsumParagraph", () =>
-		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.LoremIpsumParagraphs })));
+		runInsertPredefinedSeriesCommand(context, { sequence: fakeSequences.loremIpsumParagraphsSequence })));
 }
 
 function registerInsertFactsCommands(context: vscode.ExtensionContext) {
@@ -377,31 +379,31 @@ function registerInsertSeriesCommands(context: vscode.ExtensionContext) {
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertSequence", () =>
 		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.UserSelectionOfStandardSeries })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertLowercaseLetterSequence", () =>
-		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.LowercaseLetters })));
+		runInsertPredefinedSeriesCommand(context, { sequence: stanardSequences.lowercaseLetterSequence })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertUppercaseLetterSequence", () =>
-		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.UppercaseLetters })));
+		runInsertPredefinedSeriesCommand(context, { sequence: stanardSequences.uppercaseLetterSequence })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertLowercaseGreekLetterSequence", () =>
-		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.LowercaseGreekLetters })));
+		runInsertPredefinedSeriesCommand(context, { sequence: stanardSequences.lowercaseGreekLetterSequence })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertUppercaseGreekLetterSequence", () =>
-		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.UppercaseGreekLetters })));
+		runInsertPredefinedSeriesCommand(context, { sequence: stanardSequences.uppercaseGreekLetterSequence })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertNatoPhoneticAlphabetSequence", () =>
-		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.NatoPhoneticAlphabet })));
+		runInsertPredefinedSeriesCommand(context, { sequence: stanardSequences.natoPhoneticAlphabetSequence })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertLongEnglishMonthNamesSequence", () =>
-		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.LongEnglishMonthNames })));
+		runInsertPredefinedSeriesCommand(context, { sequence: stanardSequences.longEnglishMonthNamesSequence })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertShortEnglishMonthNamesSequence", () =>
-		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.ShortEnglishMonthNames })));
+		runInsertPredefinedSeriesCommand(context, { sequence: stanardSequences.shortEnglishMonthNamesSequence })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertLongLocaleMonthNamesSequence", () =>
-		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.LongLocaleMonthNames })));
+		runInsertPredefinedSeriesCommand(context, { sequence: stanardSequences.longCustomLocaleMonthNamesSequence })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertShortLocaleMonthNamesSequence", () =>
-		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.ShortLocaleMonthNames })));
+		runInsertPredefinedSeriesCommand(context, { sequence: stanardSequences.shortCustomLocaleMonthNamesSequence })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertLongEnglishDayNamesSequence", () =>
-		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.LongEnglishDayNames })));
+		runInsertPredefinedSeriesCommand(context, { sequence: stanardSequences.longEnglishDayNamesSequence })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertShortEnglishDayNamesSequence", () =>
-		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.ShortEnglishDayNames })));
+		runInsertPredefinedSeriesCommand(context, { sequence: stanardSequences.shortEnglishDayNamesSequence })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertLongLocaleDayNamesSequence", () =>
-		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.LongLocaleDayNames })));
+		runInsertPredefinedSeriesCommand(context, { sequence: stanardSequences.longCustomLocaleDayNamesSequence })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.insertShortLocaleDayNamesSequence", () =>
-		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.ShortLocaleDayNames })));
+		runInsertPredefinedSeriesCommand(context, { sequence: stanardSequences.shortCustomLocaleDayNamesSequence })));
 }
 
 function registerPasteCommands(context: vscode.ExtensionContext) {

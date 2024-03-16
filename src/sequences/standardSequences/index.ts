@@ -9,13 +9,27 @@ import { NumberSequece } from "./numberSequence";
 import { UppercaseGreekLettersSequence } from "./uppercaseGreekLettersSequence";
 import { UppercaseLettersSequence } from "./uppercaseLettersSequence";
 
+export const uppercaseLetterSequence = new UppercaseLettersSequence();
+export const lowercaseLetterSequence = new LowercaseLettersSequence();
+export const uppercaseGreekLetterSequence = new UppercaseGreekLettersSequence();
+export const lowercaseGreekLetterSequence = new LowercaseGreekLettersSequence();
+export const natoPhoneticAlphabetSequence = new NatoPhoneticAlphabetSequence();
+export const longEnglishDayNamesSequence = new DayNamesSequence("en-US", "long");
+export const shortEnglishDayNamesSequence = new DayNamesSequence("en-US", "short");
+export const longCustomLocaleDayNamesSequence = new DayNamesSequence(undefined, "long");
+export const shortCustomLocaleDayNamesSequence = new DayNamesSequence(undefined, "short");
+export const longEnglishMonthNamesSequence = new MonthNamesSequence("en-US", "long");
+export const shortEnglishMonthNamesSequence = new MonthNamesSequence("en-US", "short");
+export const longCustomLocaleMonthNamesSequence = new MonthNamesSequence(undefined, "long");
+export const shortCustomLocaleMonthNamesSequence = new MonthNamesSequence(undefined, "short");
+
 export function getKnownStandardSequences(): ASequenceBase[] {
 	return [
-		new UppercaseLettersSequence(),
-		new LowercaseLettersSequence(),
-		new UppercaseGreekLettersSequence(),
-		new LowercaseGreekLettersSequence(),
-		new NatoPhoneticAlphabetSequence(),
+		uppercaseLetterSequence,
+		lowercaseLetterSequence,
+		uppercaseGreekLetterSequence,
+		lowercaseGreekLetterSequence,
+		natoPhoneticAlphabetSequence,
 
 		new NumberSequece(NumeralSystem.Decimal, 1, 1),
 		new NumberSequece(NumeralSystem.Decimal, undefined, 1),
@@ -32,18 +46,18 @@ export function getKnownStandardSequences(): ASequenceBase[] {
 		new NumberSequece(NumeralSystem.Roman, 1, undefined),
 		new NumberSequece(NumeralSystem.Roman, undefined, undefined),
 
-		new DayNamesSequence("en-US", "long"),
-		new DayNamesSequence("en-US", "short"),
+		longEnglishDayNamesSequence,
+		shortEnglishDayNamesSequence,
 		new DayNamesSequence("en-US", "narrow"),
-		new DayNamesSequence(undefined, "long"),
-		new DayNamesSequence(undefined, "short"),
+		longCustomLocaleDayNamesSequence,
+		shortCustomLocaleDayNamesSequence,
 		new DayNamesSequence(undefined, "narrow"),
 
-		new MonthNamesSequence("en-US", "long"),
-		new MonthNamesSequence("en-US", "short"),
+		longEnglishMonthNamesSequence,
+		shortEnglishMonthNamesSequence,
 		new MonthNamesSequence("en-US", "narrow"),
-		new MonthNamesSequence(undefined, "long"),
-		new MonthNamesSequence(undefined, "short"),
+		longCustomLocaleMonthNamesSequence,
+		shortCustomLocaleMonthNamesSequence,
 		new MonthNamesSequence(undefined, "narrow"),
 	];
 };

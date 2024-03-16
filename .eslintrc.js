@@ -35,7 +35,7 @@ module.exports = {
             { selector: "class", format: ["PascalCase"] },
             { selector: "classProperty", format: ["camelCase"] },
             { selector: "classMethod", format: ["camelCase"] },
-            { selector: "variable", "modifiers": ["const", "global"], format: ["UPPER_CASE"]},
+            { selector: "variable", "modifiers": ["const", "global"], format: ["UPPER_CASE", "camelCase"]},
             { selector: "enum", format: ["PascalCase"] },
             { selector: "interface", format: ["PascalCase"] },
             { selector: "typeAlias", format: ["PascalCase"] },
