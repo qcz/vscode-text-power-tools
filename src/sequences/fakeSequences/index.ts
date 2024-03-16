@@ -7,6 +7,7 @@ import { FakeFullNamesSequence } from "./fakeFullNamesSequence";
 import { FakeLastNamesSequence } from "./fakeLastNamesSequence";
 import { LoremIpsumParagraphsSequence } from "./loremIpsumParagraphsSequence";
 import { LoremIpsumSentencesSequence } from "./loremIpsumSentencesSequence";
+import { RandomCoordinatesSequence } from "./randomCoordinatesSequence";
 import { RandomDecimalCharactersSequence } from "./randomDecimalCharactersSequence";
 import { RandomFromUserInputSequence } from "./randomFromUserInputSequence";
 import { RandomGuidsSequence } from "./randomGuidsSequence";
@@ -29,6 +30,12 @@ export function getKnownFakeSequences(context: vscode.ExtensionContext): ASequen
 	ret.push(new RandomGuidsSequence("dashes"));
 	ret.push(new RandomGuidsSequence("dashesAndBraces"));
 	ret.push(new RandomGuidsSequence("cSharpGuidConstructor"));
+	ret.push(new RandomCoordinatesSequence());
+	ret.push(new RandomCoordinatesSequence("Africa"));
+	ret.push(new RandomCoordinatesSequence("Asia"));
+	ret.push(new RandomCoordinatesSequence("Europe"));
+	ret.push(new RandomCoordinatesSequence("NorthAmerica"));
+	ret.push(new RandomCoordinatesSequence("SouthAmerica"));
 	ret.push(new LoremIpsumSentencesSequence());
 	ret.push(new LoremIpsumParagraphsSequence());
 
