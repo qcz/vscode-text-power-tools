@@ -4,11 +4,12 @@ import { NO_ACTIVE_EDITOR } from "../consts";
 import { getSelectionContent, getSelectionLines, getSelectionsOrFullDocument, replaceSelectionsWithLines } from "../helpers/vsCodeHelpers";
 
 export const enum TextEncodingType {
-	UrlEncoding = 1,
-	HtmlEntityEncoding = 2,
-	HtmlEntityEncodingWithNonAscii = 3,
-	XmlEntityEncoding = 4,
-	UnicodeEscapeSequences = 5,
+	UrlEncoding,
+	HtmlEntityEncoding,
+	HtmlEntityEncodingWithNonAscii,
+	HtmlEntityEncodingAllNamedReferences,
+	XmlEntityEncoding,
+	UnicodeEscapeSequences,
 	Json
 }
 
@@ -78,6 +79,16 @@ function runEncodingOnLine(options: IModifyTextEncodingOptions, currentSelection
 				currentSelectionLines.push(encodeEntities(lineContent, {
 					level: "html5",
 					mode: "nonAsciiPrintable"
+				}).replace(/\n/g, "&#13;"));
+			} else {
+				currentSelectionLines.push(decodeEntities(lineContent, { level: "html5" }).replace(/&#13;/g, "\n"));
+			}
+			break;
+		case TextEncodingType.HtmlEntityEncodingAllNamedReferences:
+			if (options.direction === TextEncodingDirection.Encode) {
+				currentSelectionLines.push(encodeEntities(lineContent, {
+					level: "html5",
+					mode: "extensive"
 				}).replace(/\n/g, "&#13;"));
 			} else {
 				currentSelectionLines.push(decodeEntities(lineContent, { level: "html5" }).replace(/&#13;/g, "\n"));

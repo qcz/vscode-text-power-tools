@@ -1118,6 +1118,16 @@
 				"title": "%command.encodeHtmlEntitiesWithNonAsciiOnEachLine.title%"
 			},
 			{
+				"command": "textPowerTools.encodeHtmlEntitiesAllNamedReferences",
+				"category": "Text Power Tools",
+				"title": "%command.encodeHtmlEntitiesAllNamedReferences.title%"
+			},
+			{
+				"command": "textPowerTools.encodeHtmlEntitiesAllNamedReferencesOnEachLine",
+				"category": "Text Power Tools",
+				"title": "%command.encodeHtmlEntitiesAllNamedReferencesOnEachLine.title%"
+			},
+			{
 				"command": "textPowerTools.decodeHtmlEntities",
 				"category": "Text Power Tools",
 				"title": "%command.decodeHtmlEntities.title%"
@@ -2080,20 +2090,28 @@
 					"group": "tpt_2_htmlXml@4"
 				},
 				{
-					"command": "textPowerTools.decodeHtmlEntities",
+					"command": "textPowerTools.encodeHtmlEntitiesAllNamedReferences",
 					"group": "tpt_2_htmlXml@5"
 				},
 				{
-					"command": "textPowerTools.encodeXmlEntities",
+					"command": "textPowerTools.encodeHtmlEntitiesAllNamedReferencesOnEachLine",
 					"group": "tpt_2_htmlXml@6"
 				},
 				{
-					"command": "textPowerTools.encodeXmlEntitiesOnEachLine",
+					"command": "textPowerTools.decodeHtmlEntities",
 					"group": "tpt_2_htmlXml@7"
 				},
 				{
-					"command": "textPowerTools.decodeXmlEntities",
+					"command": "textPowerTools.encodeXmlEntities",
 					"group": "tpt_2_htmlXml@8"
+				},
+				{
+					"command": "textPowerTools.encodeXmlEntitiesOnEachLine",
+					"group": "tpt_2_htmlXml@9"
+				},
+				{
+					"command": "textPowerTools.decodeXmlEntities",
+					"group": "tpt_2_htmlXml@10"
 				},
 				{
 					"command": "textPowerTools.escapeTextForJson",

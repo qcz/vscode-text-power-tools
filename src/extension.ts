@@ -523,6 +523,10 @@ function registerEncoderCommands(context: vscode.ExtensionContext) {
 		runModifyTextEncodingCommand({ type: TextEncodingType.HtmlEntityEncodingWithNonAscii, direction: TextEncodingDirection.Encode, onEachLine: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.encodeHtmlEntitiesWithNonAsciiOnEachLine", () =>
 		runModifyTextEncodingCommand({ type: TextEncodingType.HtmlEntityEncodingWithNonAscii, direction: TextEncodingDirection.Encode, onEachLine: true })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.encodeHtmlEntitiesAllNamedReferences", () =>
+		runModifyTextEncodingCommand({ type: TextEncodingType.HtmlEntityEncodingAllNamedReferences, direction: TextEncodingDirection.Encode, onEachLine: false })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.encodeHtmlEntitiesAllNamedReferencesOnEachLine", () =>
+		runModifyTextEncodingCommand({ type: TextEncodingType.HtmlEntityEncodingAllNamedReferences, direction: TextEncodingDirection.Encode, onEachLine: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.decodeHtmlEntities", () =>
 		runModifyTextEncodingCommand({ type: TextEncodingType.HtmlEntityEncoding, direction: TextEncodingDirection.Decode, onEachLine: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.encodeXmlEntities", () =>
