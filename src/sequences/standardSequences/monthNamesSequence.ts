@@ -13,8 +13,9 @@ export class MonthNamesSequence extends ASequenceBase {
 		const type = this.type === "long" ? vscode.l10n.t("Long")
 			: this.type === "narrow" ? vscode.l10n.t("Narrow")
 			: vscode.l10n.t("Short");
+
 		return typeof this.locale === "undefined" || this.locale === "" ? vscode.l10n.t("{0} current/custom locale month names", type)
-			: this.locale === "en-US" ? vscode.l10n.t("{0} English month names")
+			: this.locale === "en-US" ? vscode.l10n.t("{0} English month names", type)
 			: vscode.l10n.t("{0} {1} month names", type, getHumanizedLanguageName(this.locale));
 	}
 

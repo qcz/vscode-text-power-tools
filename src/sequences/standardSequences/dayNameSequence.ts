@@ -14,7 +14,7 @@ export class DayNamesSequence extends ASequenceBase {
 			: this.type === "narrow" ? vscode.l10n.t("Narrow")
 			: vscode.l10n.t("Short");
 		return typeof this.locale === "undefined" || this.locale === "" ? vscode.l10n.t("{0} current/custom locale day names", type)
-			: this.locale === "en-US" ? vscode.l10n.t("{0} English day names")
+			: this.locale === "en-US" ? vscode.l10n.t("{0} English day names", type)
 			: vscode.l10n.t("{0} {1} day names", type, getHumanizedLanguageName(this.locale));
 	}
 

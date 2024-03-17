@@ -25,9 +25,9 @@ export class NumberSequece extends ASequenceBase {
 			return vscode.l10n.t("{0} with custom starting number", type);
 		} else if (typeof this.increment === "undefined") {
 			return vscode.l10n.t("{0} with custom increment", type);
+		} else {
+			return type;
 		}
-
-		return "";
 	}
 
 	public get icon(): string {
