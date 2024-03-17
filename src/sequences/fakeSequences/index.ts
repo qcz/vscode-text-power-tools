@@ -20,6 +20,10 @@ export const randomRealNumberFromRangeSequence = new RandomNumberFromRangeSequen
 export const randomHexadecimalNumberFromRangeSequence = new RandomNumberFromRangeSequence(NumeralSystem.Hexadecimal, false);
 export const randomIpv4AddressesSequence = new RandomIpAdressesSequence(IpAddressType.Ipv4);
 export const randomIpv6AddressesSequence = new RandomIpAdressesSequence(IpAddressType.Ipv6);
+export const randomCoordinatesSequence = new RandomCoordinatesSequence();
+export const randomEuropeanCoordinatesSequence = new RandomCoordinatesSequence("Europe");
+export const randomNorthAmericanCoordinatesSequence = new RandomCoordinatesSequence("NorthAmerica");
+export const randomAsianCoordinatesSequence = new RandomCoordinatesSequence("Asia");
 export const loremIpsumSentencesSequence = new LoremIpsumSentencesSequence();
 export const loremIpsumParagraphsSequence = new LoremIpsumParagraphsSequence();
 
@@ -38,11 +42,11 @@ export function getKnownFakeSequences(context: vscode.ExtensionContext): ASequen
 	ret.push(new RandomGuidsSequence("dashes"));
 	ret.push(new RandomGuidsSequence("dashesAndBraces"));
 	ret.push(new RandomGuidsSequence("cSharpGuidConstructor"));
-	ret.push(new RandomCoordinatesSequence());
+	ret.push(randomCoordinatesSequence);
 	ret.push(new RandomCoordinatesSequence("Africa"));
-	ret.push(new RandomCoordinatesSequence("Asia"));
-	ret.push(new RandomCoordinatesSequence("Europe"));
-	ret.push(new RandomCoordinatesSequence("NorthAmerica"));
+	ret.push(randomAsianCoordinatesSequence);
+	ret.push(randomEuropeanCoordinatesSequence);
+	ret.push(randomNorthAmericanCoordinatesSequence);
 	ret.push(new RandomCoordinatesSequence("SouthAmerica"));
 	ret.push(loremIpsumSentencesSequence);
 	ret.push(loremIpsumParagraphsSequence);

@@ -304,6 +304,16 @@ function registerGenerateFakeDataCommands(context: vscode.ExtensionContext) {
 		runInsertPredefinedSeriesCommand(context, { sequence: fakeSequences.randomIpv4AddressesSequence })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateRandomIpv6Addresses", () =>
 		runInsertPredefinedSeriesCommand(context, { sequence: fakeSequences.randomIpv6AddressesSequence })));
+
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateRandomCoordinates", () =>
+		runInsertPredefinedSeriesCommand(context, { sequence: fakeSequences.randomCoordinatesSequence })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateRandomEuropeanCoordinates", () =>
+		runInsertPredefinedSeriesCommand(context, { sequence: fakeSequences.randomEuropeanCoordinatesSequence })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateRandomNorthAmericanCoordinates", () =>
+		runInsertPredefinedSeriesCommand(context, { sequence: fakeSequences.randomNorthAmericanCoordinatesSequence })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateRandomAsianCoordinates", () =>
+		runInsertPredefinedSeriesCommand(context, { sequence: fakeSequences.randomAsianCoordinatesSequence })));
+
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateLoremIpsumSentence", () =>
 		runInsertPredefinedSeriesCommand(context, { sequence: fakeSequences.loremIpsumSentencesSequence })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateLoremIpsumParagraph", () =>

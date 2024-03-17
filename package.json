@@ -638,9 +638,29 @@
 				"title": "%command.generateRandomIpv6Addresses.title%"
 			},
 			{
-				"command": "textPowerTools.generateLoremIpsumSentence",
+				"command": "textPowerTools.generateRandomIpv6Addresses",
 				"category": "Text Power Tools",
-				"title": "%command.generateLoremIpsumSentence.title%"
+				"title": "%command.generateRandomIpv6Addresses.title%"
+			},
+			{
+				"command": "textPowerTools.generateRandomCoordinates",
+				"category": "Text Power Tools",
+				"title": "%command.generateRandomCoordinates.title%"
+			},
+			{
+				"command": "textPowerTools.generateRandomEuropeanCoordinates",
+				"category": "Text Power Tools",
+				"title": "%command.generateRandomEuropeanCoordinates.title%"
+			},
+			{
+				"command": "textPowerTools.generateRandomNorthAmericanCoordinates",
+				"category": "Text Power Tools",
+				"title": "%command.generateRandomNorthAmericanCoordinates.title%"
+			},
+			{
+				"command": "textPowerTools.generateRandomAsianCoordinates",
+				"category": "Text Power Tools",
+				"title": "%command.generateRandomAsianCoordinates.title%"
 			},
 			{
 				"command": "textPowerTools.generateLoremIpsumParagraph",
@@ -1918,6 +1938,22 @@
 				{
 					"command": "textPowerTools.generateRandomIpv6Addresses",
 					"group": "tpt_3_generateItStuff@3"
+				},
+				{
+					"command": "textPowerTools.generateRandomCoordinates",
+					"group": "tpt_3_coordinates@1"
+				},
+				{
+					"command": "textPowerTools.generateRandomEuropeanCoordinates",
+					"group": "tpt_3_coordinates@2"
+				},
+				{
+					"command": "textPowerTools.generateRandomNorthAmericanCoordinates",
+					"group": "tpt_3_coordinates@3"
+				},
+				{
+					"command": "textPowerTools.generateRandomAsianCoordinates",
+					"group": "tpt_3_coordinates@4"
 				},
 				{
 					"command": "textPowerTools.generateLoremIpsumSentence",

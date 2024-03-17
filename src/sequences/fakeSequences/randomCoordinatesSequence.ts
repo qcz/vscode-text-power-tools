@@ -64,13 +64,13 @@ export class RandomCoordinatesSequence extends ASequenceBase {
 
 	public get name(): string {
 		if (this.continent) {
-			const continentName = this.continent === "Africa" ? vscode.l10n.t("Africa")
-				: this.continent === "Asia" ? vscode.l10n.t("Asia")
-				: this.continent === "Europe" ? vscode.l10n.t("Europe")
-				: this.continent === "NorthAmerica" ? vscode.l10n.t("North America")
-				: vscode.l10n.t("South America");
+			const continentName = this.continent === "Africa" ? vscode.l10n.t("African")
+				: this.continent === "Asia" ? vscode.l10n.t("Asian")
+				: this.continent === "Europe" ? vscode.l10n.t("European")
+				: this.continent === "NorthAmerica" ? vscode.l10n.t("North American")
+				: vscode.l10n.t("South American");
 
-			return vscode.l10n.t("Random WGS84 coordinates from {0}", continentName);
+			return vscode.l10n.t("Random {0} WGS84 coordinates", continentName);
 		}
 
 		return vscode.l10n.t("Random WGS84 coordinates");
