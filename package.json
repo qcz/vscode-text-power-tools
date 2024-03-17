@@ -2631,7 +2631,7 @@
 		"@types/robust-point-in-polygon": "^1.0.4",
 		"@types/semver-sort": "^0.0.1",
 		"@types/voca": "^1.4.0",
-		"@types/vscode": "^1.87.0",
+		"@types/vscode": "^1.75.0",
 		"@typescript-eslint/eslint-plugin": "^6.21.0",
 		"@typescript-eslint/parser": "^6.21.0",
 		"eslint": "^7.32.0",
