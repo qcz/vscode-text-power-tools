@@ -48,6 +48,7 @@ Text Power Tools is also available as a Web Extension so it can be used on sites
     * _GUIDs/UUIDs_ (globally unique identifiers or universally unique identifiers) using multiple predefined formats (no dashes, dashes, dashes and braces, C# Guid constructor).
         * To insert GUIDs with uppercase hex characters, set the value of the `textPowerTools.insertUppercaseGuids` setting to `true`. The default GUID style can be set using the `textPowerTools.defaultGuidType` setting.
     * _IPv4 and Ipv6 addresses_
+    * _WGS84 coordinates_, including generators for specific continents (some are available as a direct fucnction and all are available via the _Generate fake/random data..._ command).
     * _Lorem ipsum sentences_
     * _Lorem ipsum paragraphs_
     * _From comma separated list of items provided by the user_

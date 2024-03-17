@@ -1,7 +1,13 @@
 # Changelog
 
+## **1.46.0** (2023. 03. 17.)
+* Add _Generate random WGS84 coordinates_ functions, including generator functions for specific continents. (#79)
+* Add _Encode HTML entities (all named references)_ command.
+* Introduce localization support in collaboration with @wany-oh. (#82)
+* Partial Japanese localization by @wany-oh. (#82)
+
 ## **1.45.0** (2023. 11. 30.)
-* Add functions for sorting lines by decimal and hexadecimal numeric value.
+* Add functions for sorting lines by decimal and hexadecimal numeric value (#78)
 
 ## **1.44.0** (2023. 10. 07.)
 * Add _Keep a number of random lines_ and _Keep a percentage of random lines_ commands.
