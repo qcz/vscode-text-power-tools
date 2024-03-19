@@ -663,6 +663,11 @@
 				"title": "%command.generateRandomAsianCoordinates.title%"
 			},
 			{
+				"command": "textPowerTools.generateLoremIpsumSentence",
+				"category": "Text Power Tools",
+				"title": "%command.generateLoremIpsumSentence.title%"
+			},
+			{
 				"command": "textPowerTools.generateLoremIpsumParagraph",
 				"category": "Text Power Tools",
 				"title": "%command.generateLoremIpsumParagraph.title%"
