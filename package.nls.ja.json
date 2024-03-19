@@ -111,6 +111,10 @@
 	"command.generateRandomGuids.title": "GUIDを生成",
 	"command.generateRandomIpv4Addresses.title": "IPv4アドレスを生成",
 	"command.generateRandomIpv6Addresses.title": "IPv6アドレスを生成",
+	"command.generateRandomCoordinates.title": "WGS84位置座標を生成",
+	"command.generateRandomEuropeanCoordinates.title": "ヨーロッパのWGS84位置座標を生成",
+	"command.generateRandomNorthAmericanCoordinates.title": "北アメリカのWGS84位置座標を生成",
+	"command.generateRandomAsianCoordinates.title": "アジアのWGS84位置座標を生成",
 	"command.generateLoremIpsumSentence.title": "Lorem ipsumの一文を挿入",
 	"command.generateLoremIpsumParagraph.title": "Lorem ipsumの段落を挿入",
 	"command.insertFullFilePath.title": "ファイルのパスを挿入",
@@ -207,6 +211,8 @@
 	"command.encodeHtmlEntitiesOnEachLine.title": "HTMLエンティティにエンコード（行ごと）",
 	"command.encodeHtmlEntitiesWithNonAscii.title": "非ASCII文字をHTMLエンティティにエンコード",
 	"command.encodeHtmlEntitiesWithNonAsciiOnEachLine.title": "非ASCII文字をHTMLエンティティにエンコード（行ごと）",
+	"command.encodeHtmlEntitiesAllNamedReferences.title": "名前表現のある文字をHTMLエンティティにエンコード",
+	"command.encodeHtmlEntitiesAllNamedReferencesOnEachLine.title": "名前表現のある文字をHTMLエンティティにエンコード（行ごと）",
 	"command.decodeHtmlEntities.title": "HTMLエンティティをデコード",
 	"command.encodeXmlEntities.title": "XMLエンティティにエンコード",
 	"command.encodeXmlEntitiesOnEachLine.title": "XMLエンティティにエンコード（行ごと）",
@@ -271,5 +277,5 @@
 	"properties.loremIpsum.wordsPerSentence.max.description": "生成されたLorem ipsumテキストの文中の最大単語数。",
 	"properties.loremIpsum.sentencesPerParagraph.min.description": "生成されたLorem ipsumテキストの段落内の最小文章数。",
 	"properties.loremIpsum.sentencesPerParagraph.max.description": "生成されたLorem ipsumテキストの段落内の最大文章数。",
-	"properties.customLocale.description": "日時に関するコマンドを実行する際にシステムロケールの代わりに使用する、カスタムロケール（例えば `en-US`, `ja-JP`）。"
+	"properties.customLocale.description": "日時に関するコマンドを実行する際にシステムロケールの代わりに使用する、カスタムロケール（例: `en-US`, `ja-JP`）。"
 }
