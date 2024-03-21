@@ -119,6 +119,16 @@ Description:
 ### Formatting text as table
 ![sample formatting as table](images/formatAsTable.gif)
 
+## Localization
+
+Text Power Tools is fullly localizable. You have to translate the following two files:
+* `package.nls.json`
+* `l10n/bundle.l10n.json`.
+
+Translations provided by the community:
+* Brazilian Portuguese (@thiagojramos)
+* Japanese (@wany-oh)
+
 ## Requirements
 
 The extension requires at least version 1.75 of Visual Studio Code or other open source derivatives of it.
