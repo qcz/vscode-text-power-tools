@@ -279,7 +279,3 @@
 	"properties.loremIpsum.sentencesPerParagraph.max.description": "Número máximo de frases em um parágrafo nos textos Lorem ipsum gerados.",
 	"properties.customLocale.description": "Localização personalizada (ex.: `pt-BR`, `en-US`) a ser usada em vez da localização do sistema ao executar comandos relacionados a data e hora."
 }
-
-
-
-
