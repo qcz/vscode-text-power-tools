@@ -638,11 +638,6 @@
 				"title": "%command.generateRandomIpv6Addresses.title%"
 			},
 			{
-				"command": "textPowerTools.generateRandomIpv6Addresses",
-				"category": "Text Power Tools",
-				"title": "%command.generateRandomIpv6Addresses.title%"
-			},
-			{
 				"command": "textPowerTools.generateRandomCoordinates",
 				"category": "Text Power Tools",
 				"title": "%command.generateRandomCoordinates.title%"
