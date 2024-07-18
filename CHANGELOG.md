@@ -1,5 +1,9 @@
 # Changelog
 
+## **1.48.0** (2024. 07. 18.)
+* Remove ANSI escape codes (#92)
+* Complete Chinese localization by @coloraven. (#87)
+
 ## **1.47.0** (2024. 03. 21.)
 * Complete Japanese localization by @wany-oh. (#83)
 * Brazilian Portuguese localization by @thiagojramos (#86)
