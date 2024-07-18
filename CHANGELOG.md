@@ -1,10 +1,10 @@
 # Changelog
 
-## **1.47.0** (2023. 03. 21.)
+## **1.47.0** (2024. 03. 21.)
 * Complete Japanese localization by @wany-oh. (#83)
 * Brazilian Portuguese localization by @thiagojramos (#86)
 
-## **1.46.0** (2023. 03. 17.)
+## **1.46.0** (2024. 03. 17.)
 * Add _Generate random WGS84 coordinates_ functions, including generator functions for specific continents. (#79)
 * Add _Encode HTML entities (all named references)_ command.
 * Introduce localization support in collaboration with @wany-oh. (#82)
