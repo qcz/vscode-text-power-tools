@@ -18,6 +18,7 @@ export { runKeepRandomLinesCommand } from "./keepRandomLinesCommand";
 export { TextEncodingDirection, TextEncodingType, runModifyTextEncodingCommand } from "./modifyTextEncodingCommand";
 export { PadDirection, runPadCommand } from "./padCommand";
 export { ClipboardContentPasteType, runPasteFromClipboardCommand } from "./pasteFromClipboardCommand";
+export { runRemoveAnsiEscapeCodesCommand as removeAnsiEscapeCodesCommand } from "./removeAnsiEscapeCodesCommand";
 export { runRemoveControlCharactersCommand } from "./removeControlCharactersCommand";
 export { runRemoveDuplicatesCommand } from "./removeDuplicatesCommand";
 export { RemovedLineType, runRemoveLinesCommand } from "./removeLinesCommand";
@@ -30,3 +31,4 @@ export { runSplitLinesCommand } from "./splitLinesCommand";
 export { runSetTextSlotContentCommand, runpasteTextSlotCommand } from "./textSlotCommands";
 export { TextTransformationType, runTextTransformationCommand } from "./textTransformationCommand";
 export { TrimDirection, runTrimCommand } from "./trimCommand";
+

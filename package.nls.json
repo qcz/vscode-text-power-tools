@@ -251,6 +251,7 @@
 	"command.removeBlankLines.title": "Remove blank lines",
 	"command.removeSurplusBlankLines.title": "Remove surplus blank lines",
 	"command.removeControlCharacters.title": "Remove control characters",
+	"command.removeAnsiEscapeCodes.title": "Remove ANSI escape codes",
 	"submenu.filterLines.label": "Filter lines (like grep)",
 	"submenu.extraction.label": "Extract info",
 	"submenu.formatContent.label": "Format content",

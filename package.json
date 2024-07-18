@@ -1336,6 +1336,11 @@
 				"command": "textPowerTools.removeControlCharacters",
 				"category": "Text Power Tools",
 				"title": "%command.removeControlCharacters.title%"
+			},
+			{
+				"command": "textPowerTools.removeAnsiEscapeCodes",
+				"category": "Text Power Tools",
+				"title": "%command.removeAnsiEscapeCodes.title%"
 			}
 		],
 		"menus": {
@@ -2458,7 +2463,11 @@
 				},
 				{
 					"command": "textPowerTools.removeControlCharacters",
-					"group": "tpt_6_removeControlCharacters@1"
+					"group": "tpt_6_removeSpecialCharacters@1"
+				},
+				{
+					"command": "textPowerTools.removeAnsiEscapeCodes",
+					"group": "tpt_6_removeSpecialCharacters@2"
 				}
 			]
 		},
@@ -2663,6 +2672,7 @@
 		"semver-sort": "^0.0.4",
 		"sponge-case": "^1.0.1",
 		"stream-browserify": "^3.0.0",
+		"strip-ansi": "^7.1.0",
 		"swap-case": "^2.0.2",
 		"title-case": "^3.0.3",
 		"util": "^0.12.4",
