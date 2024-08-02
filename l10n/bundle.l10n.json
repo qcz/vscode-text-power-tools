@@ -94,6 +94,7 @@
   "The entered pad length is not a valid number.": "The entered pad length is not a valid number.",
   "Please enter the string used for padding": "Please enter the string used for padding",
   "No pad string entered.": "No pad string entered.",
+  "Failed to convert punycode encoded domain `{0}` back to Unicode": "Failed to convert punycode encoded domain `{0}` back to Unicode",
   "The selection/line starting with `{0}` is not a valid JSON escaped text": "The selection/line starting with `{0}` is not a valid JSON escaped text",
   "The selection/line `{0}` is not a valid JSON escaped text": "The selection/line `{0}` is not a valid JSON escaped text",
   "Please enter the number of lines to keep": "Please enter the number of lines to keep",

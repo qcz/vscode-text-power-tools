@@ -226,6 +226,8 @@
 	"command.base64EncodeTextOnEachLine.title": "Encode text with base64 on each line",
 	"command.base64DecodeText.title": "Decode base64 text",
 	"command.base64DecodeTextOnEachLine.title": "Decode base64 text on each line",
+	"command.encodeDomainNameWithPunycode.title": "Encode domain name with punycode (IDNA)",
+	"command.decodeDomainNameFromPunycode.title": "Decode domain name from punycode (IDNA)",
 	"command.duplicateSelectionContent.title": "Duplicate selection content",
 	"command.repeatSelectionContent.title": "Repeat selection content",
 	"command.copySelectionsToNewEditor.title": "Copy content of selections to a new editor",

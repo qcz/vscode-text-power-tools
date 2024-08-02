@@ -565,6 +565,10 @@ function registerEncoderCommands(context: vscode.ExtensionContext) {
 		runBase64EncodingCommand({ direction: Base4EncodingDirection.Decode, onEachLine: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.base64DecodeTextOnEachLine", () =>
 		runBase64EncodingCommand({ direction: Base4EncodingDirection.Decode, onEachLine: true })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.encodeDomainNameWithPunycode", () =>
+		runModifyTextEncodingCommand({ type: TextEncodingType.PunycodeDomainName, direction: TextEncodingDirection.Encode, onEachLine: true })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.decodeDomainNameFromPunycode", () =>
+		runModifyTextEncodingCommand({ type: TextEncodingType.PunycodeDomainName, direction: TextEncodingDirection.Decode, onEachLine: true })));
 }
 
 function registerSelectionCommands(context: vscode.ExtensionContext) {

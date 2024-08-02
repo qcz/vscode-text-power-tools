@@ -1213,6 +1213,16 @@
 				"title": "%command.base64DecodeTextOnEachLine.title%"
 			},
 			{
+				"command": "textPowerTools.encodeDomainNameWithPunycode",
+				"category": "Text Power Tools",
+				"title": "%command.encodeDomainNameWithPunycode.title%"
+			},
+			{
+				"command": "textPowerTools.decodeDomainNameFromPunycode",
+				"category": "Text Power Tools",
+				"title": "%command.decodeDomainNameFromPunycode.title%"
+			},
+			{
 				"command": "textPowerTools.duplicateSelectionContent",
 				"category": "Text Power Tools",
 				"title": "%command.duplicateSelectionContent.title%"
@@ -2189,6 +2199,14 @@
 				{
 					"command": "textPowerTools.base64DecodeTextOnEachLine",
 					"group": "tpt_5_base64@4"
+				},
+				{
+					"command": "textPowerTools.encodeDomainNameWithPunycode",
+					"group": "tpt_6_punycode@1"
+				},
+				{
+					"command": "textPowerTools.decodeDomainNameFromPunycode",
+					"group": "tpt_6_punycode@2"
 				}
 			],
 			"textPowerTools.joinSplitLines": [
@@ -2639,6 +2657,7 @@
 		"@types/node": "^12.12.0",
 		"@types/robust-point-in-polygon": "^1.0.4",
 		"@types/semver-sort": "^0.0.1",
+		"@types/tr46": "^5.0.0",
 		"@types/voca": "^1.4.0",
 		"@types/vscode": "^1.75.0",
 		"@typescript-eslint/eslint-plugin": "^6.21.0",
@@ -2675,6 +2694,7 @@
 		"strip-ansi": "^7.1.0",
 		"swap-case": "^2.0.2",
 		"title-case": "^3.0.3",
+		"tr46": "^5.0.0",
 		"util": "^0.12.4",
 		"uuid": "^8.3.2",
 		"voca": "^1.4.0",
