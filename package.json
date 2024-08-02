@@ -42,9 +42,11 @@
 		"unicode",
 		"join",
 		"split",
-		"uniq"
+		"uniq",
+		"punycode",
+		"idna"
 	],
-	"version": "1.48.0",
+	"version": "1.49.0",
 	"publisher": "qcz",
 	"private": true,
 	"engines": {

@@ -1,5 +1,8 @@
 # Changelog
 
+## **1.49.0** (2024. 08. 02.)
+* Add support for encoding/decoding domain names using punycode (IDNA, #88)
+
 ## **1.48.0** (2024. 07. 18.)
 * Remove ANSI escape codes (#92)
 * Complete Chinese localization by @coloraven. (#87)
