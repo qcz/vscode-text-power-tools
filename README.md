@@ -43,7 +43,14 @@ Text Power Tools is also available as a Web Extension so it can be used on sites
     (Note: current/custom locale means OS locale or the locale specified in the `textPowerTools.customLocale` setting)
 * **Generate fake/random data**:
     * _Random decimal, hexadecimal and real numbers from range_
-    * _Random hex/decimal character sequences_
+    * _Random words containing:_
+        - _uppercase letters_
+        - _lowercase letters_
+        - _uppercase and lowercase letters_
+        - _alphanumeric characters_
+        - _decimal characters_
+        - _hexadecimal characters_
+        - _ASCII characters_
     * _Fake first names, last names and full names_ in the following languages: English, French, German and Hungarian.
     * _GUIDs/UUIDs_ (globally unique identifiers or universally unique identifiers) using multiple predefined formats (no dashes, dashes, dashes and braces, C# Guid constructor).
         * To insert GUIDs with uppercase hex characters, set the value of the `textPowerTools.insertUppercaseGuids` setting to `true`. The default GUID style can be set using the `textPowerTools.defaultGuidType` setting.

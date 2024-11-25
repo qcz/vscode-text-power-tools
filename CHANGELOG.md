@@ -1,5 +1,10 @@
 # Changelog
 
+## **1.50.0** (2024. 11. 25.)
+* Add support for generating words with random lowercase letters, uppercase letters, lowercase and uppercase letters, alphanumeric characters, decimal characters, hexadecimal characters.
+* Fix: Sequence generators should not save user input from previous runs. (#96)
+* Fix: Do not remove punctuation when converting to sentence case. (#94)
+
 ## **1.49.0** (2024. 08. 02.)
 * Add support for encoding/decoding domain names using punycode (IDNA, #88)
 
