@@ -298,6 +298,21 @@ function registerGenerateFakeDataCommands(context: vscode.ExtensionContext) {
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateRandomRealNumbersFromRange", () =>
 		runInsertPredefinedSeriesCommand(context, { sequence: fakeSequences.randomRealNumberFromRangeSequence })));
 
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateWordsContainingRandomLowercaseLettersSequence", () =>
+		runInsertPredefinedSeriesCommand(context, { sequence: fakeSequences.wordsContainingRandomLowercaseLettersSequence })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateWordsContainingRandomUppercaseLettersSequence", () =>
+		runInsertPredefinedSeriesCommand(context, { sequence: fakeSequences.wordsContainingRandomUppercaseLettersSequence })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateWordsContainingRandomLettersSequence", () =>
+		runInsertPredefinedSeriesCommand(context, { sequence: fakeSequences.wordsContainingRandomLettersSequence })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateWordsContainingRandomAlphanumericCharactersSequence", () =>
+		runInsertPredefinedSeriesCommand(context, { sequence: fakeSequences.wordsContainingRandomAlphanumericCharactersSequence })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateWordsContainingRandomAsciiCharactersSequence", () =>
+		runInsertPredefinedSeriesCommand(context, { sequence: fakeSequences.wordsContainingRandomAsciiCharactersSequence })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateWordsContainingRandomDecimalCharactersSequence", () =>
+		runInsertPredefinedSeriesCommand(context, { sequence: fakeSequences.wordsContainingRandomDecimalCharactersSequence })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateWordsContainingRandomHexCharactersSequence", () =>
+		runInsertPredefinedSeriesCommand(context, { sequence: fakeSequences.wordsContainingRandomHexCharactersSequence })));
+
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateRandomGuids", () =>
 		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.RandomGuids })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateRandomIpv4Addresses", () =>

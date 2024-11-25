@@ -625,6 +625,41 @@
 				"title": "%command.generateFakeData.title%"
 			},
 			{
+				"command": "textPowerTools.generateWordsContainingRandomLowercaseLettersSequence",
+				"category": "Text Power Tools",
+				"title": "%command.generateWordsContainingRandomLowercaseLettersSequence.title%"
+			},
+			{
+				"command": "textPowerTools.generateWordsContainingRandomUppercaseLettersSequence",
+				"category": "Text Power Tools",
+				"title": "%command.generateWordsContainingRandomUppercaseLettersSequence.title%"
+			},
+			{
+				"command": "textPowerTools.generateWordsContainingRandomLettersSequence",
+				"category": "Text Power Tools",
+				"title": "%command.generateWordsContainingRandomLettersSequence.title%"
+			},
+			{
+				"command": "textPowerTools.generateWordsContainingRandomAlphanumericCharactersSequence",
+				"category": "Text Power Tools",
+				"title": "%command.generateWordsContainingRandomAlphanumericCharactersSequence.title%"
+			},
+			{
+				"command": "textPowerTools.generateWordsContainingRandomAsciiCharactersSequence",
+				"category": "Text Power Tools",
+				"title": "%command.generateWordsContainingRandomAsciiCharactersSequence.title%"
+			},
+			{
+				"command": "textPowerTools.generateWordsContainingRandomDecimalCharactersSequence",
+				"category": "Text Power Tools",
+				"title": "%command.generateWordsContainingRandomDecimalCharactersSequence.title%"
+			},
+			{
+				"command": "textPowerTools.generateWordsContainingRandomHexCharactersSequence",
+				"category": "Text Power Tools",
+				"title": "%command.generateWordsContainingRandomHexCharactersSequence.title%"
+			},
+			{
 				"command": "textPowerTools.generateRandomGuids",
 				"category": "Text Power Tools",
 				"title": "%command.generateRandomGuids.title%"
@@ -1934,51 +1969,79 @@
 				},
 				{
 					"command": "textPowerTools.generateRandomDecimalNumbersFromRange",
-					"group": "tpt_2_generateFromUserInput@1"
+					"group": "tpt_2_generateFromUserInput@2"
 				},
 				{
 					"command": "textPowerTools.generateRandomHexadecimalNumbersFromRange",
-					"group": "tpt_2_generateFromUserInput@1"
+					"group": "tpt_2_generateFromUserInput@3"
 				},
 				{
 					"command": "textPowerTools.generateRandomRealNumbersFromRange",
-					"group": "tpt_2_generateFromUserInput@1"
+					"group": "tpt_2_generateFromUserInput@4"
+				},
+				{
+					"command": "textPowerTools.generateWordsContainingRandomHexCharactersSequence",
+					"group": "tpt_3_generateWordsWithRandomCharacters@1"
+				},
+				{
+					"command": "textPowerTools.generateWordsContainingRandomDecimalCharactersSequence",
+					"group": "tpt_3_generateWordsWithRandomCharacters@2"
+				},
+				{
+					"command": "textPowerTools.generateWordsContainingRandomLowercaseLettersSequence",
+					"group": "tpt_3_generateWordsWithRandomCharacters@3"
+				},
+				{
+					"command": "textPowerTools.generateWordsContainingRandomUppercaseLettersSequence",
+					"group": "tpt_3_generateWordsWithRandomCharacters@4"
+				},
+				{
+					"command": "textPowerTools.generateWordsContainingRandomLettersSequence",
+					"group": "tpt_3_generateWordsWithRandomCharacters@5"
+				},
+				{
+					"command": "textPowerTools.generateWordsContainingRandomAlphanumericCharactersSequence",
+					"group": "tpt_3_generateWordsWithRandomCharacters@6"
+				},
+				{
+					"command": "textPowerTools.generateWordsContainingRandomAsciiCharactersSequence",
+					"group": "tpt_3_generateWordsWithRandomCharacters@7"
 				},
 				{
 					"command": "textPowerTools.generateRandomGuids",
-					"group": "tpt_3_generateItStuff@1"
+					"group": "tpt_4_generateItStuff@1"
 				},
 				{
 					"command": "textPowerTools.generateRandomIpv4Addresses",
-					"group": "tpt_3_generateItStuff@2"
+					"group": "tpt_4_generateItStuff@2"
 				},
 				{
 					"command": "textPowerTools.generateRandomIpv6Addresses",
-					"group": "tpt_3_generateItStuff@3"
+					"group": "tpt_4_generateItStuff@3"
 				},
 				{
 					"command": "textPowerTools.generateRandomCoordinates",
-					"group": "tpt_3_coordinates@1"
+					"group": "tpt_5_coordinates@1"
 				},
 				{
 					"command": "textPowerTools.generateRandomEuropeanCoordinates",
-					"group": "tpt_3_coordinates@2"
+					"group": "tpt_5_coordinates@2"
 				},
 				{
 					"command": "textPowerTools.generateRandomNorthAmericanCoordinates",
-					"group": "tpt_3_coordinates@3"
+					"group": "tpt_5_coordinates@3"
 				},
 				{
 					"command": "textPowerTools.generateRandomAsianCoordinates",
-					"group": "tpt_3_coordinates@4"
+					"group": "tpt_5_coordinates@4"
 				},
 				{
 					"command": "textPowerTools.generateLoremIpsumSentence",
-					"group": "tpt_4_generateLoremIpsum@1"
+					"group": "tpt_6_generateLoremIpsum@1"
 				},
 				{
 					"command": "textPowerTools.generateLoremIpsumParagraph",
-					"group": "tpt_4_generateLoremIpsum@3"
+					"group": "tpt_6_generateLoremIpsum@3"
 				}
 			],
 			"textPowerTools.convert": [
