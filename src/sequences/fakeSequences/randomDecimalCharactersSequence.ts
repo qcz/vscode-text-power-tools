@@ -1,14 +1,25 @@
 import * as vscode from "vscode";
-import { ASequenceBase } from "../sequenceBase";
-import { CreateSampleGeneratorResult, EnsureAllParametersAreSetResult, isSequenceErrorMessage, StringIteratorGeneratorFunction } from "../sequenceTypes";
+import { ParameterizedSequence } from "../sequenceBase";
+import { EnsureAllParametersAreSetResult, EnsureParameterIsSetResult, StringIteratorGeneratorFunction, isSequenceErrorMessage } from "../sequenceTypes";
 
 const CHAR_TABLE: string = "0123456789";
 
-export class RandomDecimalCharactersSequence extends ASequenceBase {
+interface SequenceGeneratorParameters {
+	numberOfCharacters: number;
+}
+
+export class RandomDecimalCharactersSequence extends ParameterizedSequence<SequenceGeneratorParameters> {
 	constructor(
-		private numberOfCharacters: number | undefined
+		numberOfCharacters: number | undefined
 	) {
-		super();
+		const defaultParameters = {
+			numberOfCharacters: numberOfCharacters
+		};
+		const sampleParameters = {
+			numberOfCharacters: numberOfCharacters ?? 2
+		};
+
+		super(defaultParameters, sampleParameters);
 	}
 
 	public get icon(): string {
@@ -23,29 +34,18 @@ export class RandomDecimalCharactersSequence extends ASequenceBase {
 		return vscode.l10n.t("Random decimal characters");
 	}
 
-	public async createStandardGenerator(): Promise<() => IterableIterator<string>> {
-		return this.createGeneratorFunctionInternal(this.numberOfCharacters);
-	}
-
-	public async createSampleGenerator(): Promise<CreateSampleGeneratorResult> {
-		return this.createGeneratorFunctionInternal(2);
-	}
-
-	public async createGeneratorFunctionInternal(numberOfCharacters: number | undefined)
-		: Promise<StringIteratorGeneratorFunction> {
+	protected createParameterizedGenerator(parameters: SequenceGeneratorParameters): StringIteratorGeneratorFunction {
 		var self = this;
-		const fun = function* (): IterableIterator<string> {
+		return function* (): IterableIterator<string> {
 			while (true) {
-				yield self.generateRandomItem(numberOfCharacters || 1);
+				yield self.generateRandomItem(parameters);
 			}
 		};
-
-		return fun;
 	}
 
-	public generateRandomItem(numberOfCharacters: number): string {
+	public generateRandomItem(parameters: SequenceGeneratorParameters): string {
 		let ret = "";
-		for (let i = 0; i < numberOfCharacters; i++) {
+		for (let i = 0; i < parameters.numberOfCharacters; i++) {
 			const index = Math.floor(Math.random() * 10);
 			ret += CHAR_TABLE[index];
 		}
@@ -53,19 +53,19 @@ export class RandomDecimalCharactersSequence extends ASequenceBase {
 		return ret;
 	}
 
-	public async ensureAllParametersAreSet(): Promise<EnsureAllParametersAreSetResult> {
-		if (typeof this.numberOfCharacters === "undefined") {
-			const res = await this.askForNumberOfCharacters();
+	public async ensureAllParametersAreSet(parameters: Partial<SequenceGeneratorParameters>): Promise<EnsureAllParametersAreSetResult<SequenceGeneratorParameters>> {
+		if (typeof parameters.numberOfCharacters === "undefined") {
+			const res = await this.askForNumberOfCharacters(parameters);
 			if (isSequenceErrorMessage(res)) {
 				return res;
 			}
 		}
 
-		return true;
+		return parameters as SequenceGeneratorParameters;
 	}
 
-	private askForNumberOfCharacters(): Promise<EnsureAllParametersAreSetResult> {
-		return new Promise<EnsureAllParametersAreSetResult>((resolve) => {
+	private askForNumberOfCharacters(parameters: Partial<SequenceGeneratorParameters>): Promise<EnsureParameterIsSetResult> {
+		return new Promise<EnsureParameterIsSetResult>((resolve) => {
 			vscode.window.showInputBox({
 				prompt: vscode.l10n.t("Please enter how many characters an item should contain"),
 				value: "1",
@@ -81,7 +81,7 @@ export class RandomDecimalCharactersSequence extends ASequenceBase {
 					return;
 				}
 
-				this.numberOfCharacters = startingNumber;
+				parameters.numberOfCharacters = startingNumber;
 				resolve(true);
 			});
 		});

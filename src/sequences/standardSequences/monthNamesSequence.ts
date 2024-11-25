@@ -1,10 +1,10 @@
 import * as vscode from "vscode";
 import { getExtensionSettings } from "../../helpers/tptSettings";
 import { getHumanizedLanguageName } from "../../helpers/utils";
-import { ASequenceBase } from "../sequenceBase";
+import { SequenceBase } from "../sequenceBase";
 import { StringIteratorGeneratorFunction } from "../sequenceTypes";
 
-export class MonthNamesSequence extends ASequenceBase {
+export class MonthNamesSequence extends SequenceBase {
 	constructor(private locale: string | undefined, private type: "long" | "short" | "narrow") {
 		super();
 	}
@@ -23,7 +23,7 @@ export class MonthNamesSequence extends ASequenceBase {
 		return "calendar";
 	}
 
-	public async createStandardGenerator(): Promise<StringIteratorGeneratorFunction> {
+	public async createGenerator(): Promise<StringIteratorGeneratorFunction> {
 		const settings = getExtensionSettings();
 		let locale = this.locale;
 		if (locale === "" || typeof locale === "undefined") {

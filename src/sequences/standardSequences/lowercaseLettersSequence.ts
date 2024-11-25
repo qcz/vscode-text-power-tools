@@ -1,7 +1,7 @@
 import * as vscode from "vscode";
-import { AArraySequenceBase } from "../arraySeqenceBase";
+import { SequenceGeneratorFromPredefinedArray } from "../sequenceBase";
 
-export class LowercaseLettersSequence extends AArraySequenceBase {
+export class LowercaseLettersSequence extends SequenceGeneratorFromPredefinedArray {
 	public get name(): string {
 		return vscode.l10n.t("Lowercase letters");
 	}

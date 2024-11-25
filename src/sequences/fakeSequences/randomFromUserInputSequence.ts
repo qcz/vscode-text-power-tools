@@ -1,14 +1,33 @@
 import * as vscode from "vscode";
 import { showHistoryQuickPick } from "../../helpers/vsCodeHelpers";
-import { ASequenceBase } from "../sequenceBase";
-import { CreateSampleGeneratorResult, EnsureAllParametersAreSetResult, isSequenceErrorMessage, StringIteratorGeneratorFunction } from "../sequenceTypes";
+import { ParameterizedSequence } from "../sequenceBase";
+import { EnsureAllParametersAreSetResult, EnsureParameterIsSetResult, StringIteratorGeneratorFunction, isSequenceErrorMessage } from "../sequenceTypes";
 
-export class RandomFromUserInputSequence extends ASequenceBase {
+interface SequenceGeneratorParameters {
+	inputList: string[];
+}
+
+export class RandomFromUserInputSequence extends ParameterizedSequence<SequenceGeneratorParameters> {
 	constructor(
-		private context: vscode.ExtensionContext,
-		private rawInputList: string | undefined
+		protected context: vscode.ExtensionContext,
+		rawInputList: string | undefined
 	) {
-		super();
+		const inputList: string[] | undefined = typeof rawInputList  !== "undefined"
+			? rawInputList
+				.split(",")
+				.map(x => x.trim())
+				.filter(x => x !== "")
+			: undefined;
+
+		const defaultParameters =  {
+			inputList: inputList
+		}
+
+		const sampleParameters = {
+			inputList: inputList ?? ["foo", "bar", "quux"]
+		};
+
+		super(defaultParameters, sampleParameters);
 	}
 
 	public get icon(): string {
@@ -23,33 +42,17 @@ export class RandomFromUserInputSequence extends ASequenceBase {
 		return vscode.l10n.t("Random items from user input");
 	}
 
-	public async createStandardGenerator(): Promise<() => IterableIterator<string>> {
-		return this.createGeneratorFunctionInternal(this.rawInputList);
-	}
-
-	public async createSampleGenerator(): Promise<CreateSampleGeneratorResult> {
-		return this.createGeneratorFunctionInternal("foo,bar,quux");
-	}
-
-	public async createGeneratorFunctionInternal(rawInputList: string | undefined)
-		: Promise<StringIteratorGeneratorFunction> {
+	public createParameterizedGenerator(parameters: SequenceGeneratorParameters): StringIteratorGeneratorFunction {
 		var self = this;
-		const fun = function* (): IterableIterator<string> {
-			const inputList: string[] = (rawInputList ?? "")
-				.split(",")
-				.map(x => x.trim())
-				.filter(x => x !== "");
-
-			if (inputList.length === 0) {
+		return function* (): IterableIterator<string> {
+			if (parameters.inputList.length === 0) {
 				return;
 			}
 
 			while (true) {
-				yield self.generateRandomItem(inputList);
+				yield self.generateRandomItem(parameters.inputList);
 			}
 		};
-
-		return fun;
 	}
 
 	public generateRandomItem(inputList: string[]): string {
@@ -57,19 +60,19 @@ export class RandomFromUserInputSequence extends ASequenceBase {
 		return inputList[index];
 	}
 
-	public async ensureAllParametersAreSet(): Promise<EnsureAllParametersAreSetResult> {
-		if (typeof this.rawInputList === "undefined") {
-			const res = await this.askForInputList();
+	public async ensureAllParametersAreSet(parameters: Partial<SequenceGeneratorParameters>): Promise<EnsureAllParametersAreSetResult<SequenceGeneratorParameters>> {
+		if (typeof parameters.inputList === "undefined") {
+			const res = await this.askForInputList(parameters);
 			if (isSequenceErrorMessage(res)) {
 				return res;
 			}
 		}
 
-		return true;
+		return parameters as SequenceGeneratorParameters;
 	}
 
-	private askForInputList(): Promise<EnsureAllParametersAreSetResult> {
-		return new Promise<EnsureAllParametersAreSetResult>((resolve) => {
+	private askForInputList(parameters: Partial<SequenceGeneratorParameters>): Promise<EnsureParameterIsSetResult> {
+		return new Promise<EnsureParameterIsSetResult>((resolve) => {
 			showHistoryQuickPick({
 				context: this.context,
 				title: vscode.l10n.t("Please enter the comma separated list of items"),
@@ -79,7 +82,11 @@ export class RandomFromUserInputSequence extends ASequenceBase {
 						resolve({ errorMessage: vscode.l10n.t("No items entered.") });
 					}
 
-					this.rawInputList = input;
+					parameters.inputList = input
+						.split(",")
+						.map(x => x.trim())
+						.filter(x => x !== "");
+
 					resolve(true);
 				}
 			});

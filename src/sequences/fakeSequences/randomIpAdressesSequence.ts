@@ -1,6 +1,6 @@
 import * as vscode from "vscode";
-import { ASequenceBase } from "../sequenceBase";
-import { CreateSampleGeneratorResult, StringIteratorGeneratorFunction } from "../sequenceTypes";
+import { SequenceBase } from "../sequenceBase";
+import { StringIteratorGeneratorFunction } from "../sequenceTypes";
 
 const LOWERCASE_CHAR_TABLE: string = "0123456789abcdef";
 
@@ -9,7 +9,7 @@ export enum IpAddressType {
 	Ipv6
 }
 
-export class RandomIpAdressesSequence extends ASequenceBase {
+export class RandomIpAdressesSequence extends SequenceBase {
 	public get name(): string {
 		if (this.type === IpAddressType.Ipv4) {
 			return vscode.l10n.t("Random IPv4 adresses");
@@ -32,25 +32,15 @@ export class RandomIpAdressesSequence extends ASequenceBase {
 		super();
 	}
 
-	public async createStandardGenerator(): Promise<() => IterableIterator<string>> {
-		return this.createGeneratorFunctionInternal();
-	}
-
-	public async createSampleGenerator(): Promise<CreateSampleGeneratorResult> {
-		return this.createGeneratorFunctionInternal();
-	}
-
-	public async createGeneratorFunctionInternal()
+	public async createGenerator()
 		: Promise<StringIteratorGeneratorFunction> {
 		const self = this;
 
-		const fun = function* (): IterableIterator<string> {
+		return function* (): IterableIterator<string> {
 			while (true) {
 				yield self.generateRandomItem();
 			}
 		};
-
-		return fun;
 	}
 
 	public generateRandomItem(): string {

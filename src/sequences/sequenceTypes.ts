@@ -19,6 +19,10 @@ export function isSequenceErrorMessage(o: any): o is SeuqnceErrorMessage {
 		&& typeof o["errorMessage"] === "string";
 }
 
-export type EnsureAllParametersAreSetResult =
+export type EnsureParameterIsSetResult =
 	true
+	| SeuqnceErrorMessage;
+
+export type EnsureAllParametersAreSetResult<T> =
+	T
 	| SeuqnceErrorMessage;

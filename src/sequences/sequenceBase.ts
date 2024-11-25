@@ -1,7 +1,8 @@
+import faker from "faker";
 import * as vscode from "vscode";
-import { CreateGeneratorResult, CreateSampleGeneratorResult, EnsureAllParametersAreSetResult, isSequenceErrorMessage } from "./sequenceTypes";
+import { CreateGeneratorResult, CreateSampleGeneratorResult, EnsureAllParametersAreSetResult, StringIteratorGeneratorFunction, isSequenceErrorMessage } from "./sequenceTypes";
 
-export abstract class ASequenceBase {
+export abstract class SequenceBase {
 	public abstract get name(): string;
 
 	public get icon(): string {
@@ -15,21 +16,8 @@ export abstract class ASequenceBase {
 		return 5;
 	}
 
-	public async ensureAllParametersAreSet(): Promise<EnsureAllParametersAreSetResult> {
-		return true;
-	};
-
-	public async createGenerator(): Promise<CreateGeneratorResult> {
-		const ensureResult = await this.ensureAllParametersAreSet();
-		if (isSequenceErrorMessage(ensureResult)) {
-			return ensureResult;
-		}
-
-		return await this.createStandardGenerator();
-	}
-	public abstract createStandardGenerator(): Promise<CreateGeneratorResult>;
-
-	public async createSampleGenerator(): Promise<CreateSampleGeneratorResult> {
+	public abstract createGenerator(): Promise<CreateGeneratorResult>;
+	public async createSampleGenerator(): Promise<CreateGeneratorResult | null> {
 		return null;
 	}
 
@@ -66,5 +54,85 @@ export abstract class ASequenceBase {
 
 		const moreItemsAvailable = hasMoreItems ? "…" : "";
 		return vscode.l10n.t("Sample: {0}", `${sampleItems.join("', '")}'${moreItemsAvailable}`);
+	}
+}
+
+export abstract class SequenceGeneratorFromPredefinedArray extends SequenceBase {
+	protected abstract get array(): string[];
+
+	public async createGenerator(): Promise<StringIteratorGeneratorFunction> {
+		const arr = this.array;
+		const fun = function* (): IterableIterator<string> {
+			for (const ele of arr) {
+				yield ele;
+			}
+		};
+
+		return fun;
+	}
+}
+
+export abstract class ParameterizedSequence<T> extends SequenceBase {
+	protected defaultParameters: Partial<T>;
+	protected sampleParameters: T;
+
+	constructor(defaultParameters: Partial<T>, sampleParameters: T) {
+		super();
+
+		this.defaultParameters = defaultParameters;
+		this.sampleParameters = sampleParameters;
+	}
+
+	public abstract ensureAllParametersAreSet(parameters: Partial<T>): Promise<EnsureAllParametersAreSetResult<T>>;
+
+	public async createGenerator(): Promise<CreateGeneratorResult> {
+		const ensureResult = await this.ensureAllParametersAreSet({ ...this.defaultParameters });
+		if (isSequenceErrorMessage(ensureResult)) {
+			return ensureResult;
+		}
+
+		return this.createParameterizedGenerator(ensureResult);
+	}
+
+	public async createSampleGenerator(): Promise<CreateSampleGeneratorResult> {
+		return await this.createParameterizedGenerator({ ...this.sampleParameters });
+	}
+
+	protected abstract createParameterizedGenerator(parameters: T): CreateGeneratorResult;
+}
+
+export abstract class FakerSequenceBase extends SequenceBase {
+	constructor(protected locale: string) {
+		super();
+	}
+
+	protected abstract generateFakerItem(): string;
+
+	public async createGenerator(): Promise<() => IterableIterator<string>> {
+		return this.createGeneratorFunctionInternal(() => {
+			faker.setLocale(this.locale);
+			faker.seed(Math.random());
+		});
+	}
+
+	public async createSampleGenerator(): Promise<CreateSampleGeneratorResult> {
+		return this.createGeneratorFunctionInternal(() => {
+			faker.setLocale(this.locale);
+			faker.seed(42);
+		});
+	}
+
+	public async createGeneratorFunctionInternal(initFaker: () => void): Promise<StringIteratorGeneratorFunction> {
+		const self = this;
+
+		const fun = function* (): IterableIterator<string> {
+			initFaker();
+
+			while (true) {
+				yield self.generateFakerItem();
+			}
+		};
+
+		return fun;
 	}
 }

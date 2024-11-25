@@ -1,7 +1,7 @@
 import * as vscode from "vscode";
 import { compareNumbers } from "../../helpers/utils";
 import { NumeralSystem } from "../../interfaces";
-import { ASequenceBase } from "../sequenceBase";
+import { SequenceBase } from "../sequenceBase";
 import { FakeFirstNamesSequence } from "./fakeFirstNamesSequence";
 import { FakeFullNamesSequence } from "./fakeFullNamesSequence";
 import { FakeLastNamesSequence } from "./fakeLastNamesSequence";
@@ -27,8 +27,8 @@ export const randomAsianCoordinatesSequence = new RandomCoordinatesSequence("Asi
 export const loremIpsumSentencesSequence = new LoremIpsumSentencesSequence();
 export const loremIpsumParagraphsSequence = new LoremIpsumParagraphsSequence();
 
-export function getKnownFakeSequences(context: vscode.ExtensionContext): ASequenceBase[] {
-	const ret: ASequenceBase[] = [];
+export function getKnownFakeSequences(context: vscode.ExtensionContext): SequenceBase[] {
+	const ret: SequenceBase[] = [];
 
 	ret.push(new RandomFromUserInputSequence(context, undefined));
 	ret.push(randomDecimalNumberFromRangeSequence);

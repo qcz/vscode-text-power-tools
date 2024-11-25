@@ -1,8 +1,8 @@
 import { v4 } from "uuid";
 import * as vscode from "vscode";
 import { getExtensionSettings } from "../../helpers/tptSettings";
-import { ASequenceBase } from "../sequenceBase";
-import { CreateSampleGeneratorResult, EnsureAllParametersAreSetResult, isSequenceErrorMessage, StringIteratorGeneratorFunction } from "../sequenceTypes";
+import { ParameterizedSequence } from "../sequenceBase";
+import { EnsureAllParametersAreSetResult, EnsureParameterIsSetResult, StringIteratorGeneratorFunction, isSequenceErrorMessage } from "../sequenceTypes";
 
 export type GeneratedGuidType = "noDashes" | "dashes" | "dashesAndBraces" | "cSharpGuidConstructor";
 export const KNOWN_GUID_TYPES: GeneratedGuidType[] = ["noDashes", "dashes", "dashesAndBraces", "cSharpGuidConstructor"];
@@ -16,7 +16,11 @@ const FORMAT_DASHES = vscode.l10n.t("Dashes");
 const FORMAT_DASHES_AND_BRACES = vscode.l10n.t("Dashes and braces");
 const FORMAT_CSHARP = vscode.l10n.t("C# Guid constructor");
 
-export class RandomGuidsSequence extends ASequenceBase {
+interface SequenceGeneratorParameters {
+	guidType: GeneratedGuidType;
+}
+
+export class RandomGuidsSequence extends ParameterizedSequence<SequenceGeneratorParameters> {
 	public get name(): string {
 		return this.guidType === "noDashes" ? vscode.l10n.t("Random UUIDs/GUIDs without dashes")
 			: this.guidType === "dashes" ? vscode.l10n.t("Random UUIDs/GUIDs with dashes")
@@ -40,32 +44,28 @@ export class RandomGuidsSequence extends ASequenceBase {
 	constructor(
 		private guidType: GeneratedGuidType | undefined
 	) {
-		super();
+		const defaultParameters = {
+			guidType: guidType
+		};
+		const sampleParameters = {
+			guidType: guidType ?? "dashes"
+		};
+
+		super(defaultParameters, sampleParameters);
 	}
 
-	public async createStandardGenerator(): Promise<() => IterableIterator<string>> {
-		return this.createGeneratorFunctionInternal(this.guidType);
-	}
-
-	public async createSampleGenerator(): Promise<CreateSampleGeneratorResult> {
-		return this.createGeneratorFunctionInternal(this.guidType);
-	}
-
-	public async createGeneratorFunctionInternal(guidType: GeneratedGuidType | undefined)
-		: Promise<StringIteratorGeneratorFunction> {
+	public createParameterizedGenerator(parameters: SequenceGeneratorParameters): StringIteratorGeneratorFunction {
 		const self = this;
 		const settings = getExtensionSettings();
 
-		const fun = function* (): IterableIterator<string> {
+		return function* (): IterableIterator<string> {
 			while (true) {
 				yield self.generateRandomItem(
-					guidType || "dashes",
+					parameters.guidType,
 					settings.insertUppercaseGuids
 				);
 			}
 		};
-
-		return fun;
 	}
 
 	public generateRandomItem(
@@ -89,19 +89,19 @@ export class RandomGuidsSequence extends ASequenceBase {
 		return guid;
 	}
 
-	public async ensureAllParametersAreSet(): Promise<EnsureAllParametersAreSetResult> {
+	public async ensureAllParametersAreSet(parameters: Partial<SequenceGeneratorParameters>): Promise<EnsureAllParametersAreSetResult<SequenceGeneratorParameters>> {
 		if (typeof this.guidType === "undefined") {
-			const res = await this.askForGuidType();
+			const res = await this.askForGuidType(parameters);
 			if (isSequenceErrorMessage(res)) {
 				return res;
 			}
 		}
 
-		return true;
+		return parameters as SequenceGeneratorParameters;
 	}
 
-	private askForGuidType(): Promise<EnsureAllParametersAreSetResult> {
-		return new Promise<EnsureAllParametersAreSetResult>((resolve) => {
+	private askForGuidType(parameters: Partial<SequenceGeneratorParameters>): Promise<EnsureParameterIsSetResult> {
+		return new Promise<EnsureParameterIsSetResult>((resolve) => {
 			const settings = getExtensionSettings();
 			let sampleGuid = v4();
 			if (settings.insertUppercaseGuids) {
@@ -123,7 +123,7 @@ export class RandomGuidsSequence extends ASequenceBase {
 				}
 
 
-				this.guidType = qp.activeItems[0].type;
+				parameters.guidType = qp.activeItems[0].type;
 
 				qp.hide();
 				qp.dispose();

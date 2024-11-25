@@ -2,16 +2,34 @@ import RomanNumeral from "js-roman-numerals";
 import * as vscode from "vscode";
 import { getExtensionSettings } from "../../helpers/tptSettings";
 import { NumeralSystem } from "../../interfaces";
-import { ASequenceBase } from "../sequenceBase";
-import { CreateSampleGeneratorResult, EnsureAllParametersAreSetResult, isSequenceErrorMessage } from "../sequenceTypes";
+import { ParameterizedSequence } from "../sequenceBase";
+import { EnsureAllParametersAreSetResult, EnsureParameterIsSetResult, isSequenceErrorMessage } from "../sequenceTypes";
 
-export class NumberSequece extends ASequenceBase {
-	constructor(
-		private numeralSystem: NumeralSystem,
-		private startingNumber: number | undefined,
-		private increment: number | undefined
-	) {
-		super();
+interface NumberSequenceGeneratorParameters {
+	startingNumber: number;
+	increment: number;
+}
+
+export class NumberSequece extends ParameterizedSequence<NumberSequenceGeneratorParameters> {
+	private numeralSystem: NumeralSystem;
+
+	constructor(options: {
+		numeralSystem: NumeralSystem,
+		startingNumber: number | undefined,
+		increment: number | undefined
+	}) {
+		const defaultParameters = {
+			startingNumber: options.startingNumber,
+			increment: options.increment
+		};
+		const sampleParameters = {
+			startingNumber: options.startingNumber ?? 42,
+			increment: options.increment ?? 5
+		}
+
+		super(defaultParameters, sampleParameters);
+
+		this.numeralSystem = options.numeralSystem;
 	}
 
 	public get name(): string {
@@ -19,11 +37,11 @@ export class NumberSequece extends ASequenceBase {
 			: this.numeralSystem === NumeralSystem.Roman ? vscode.l10n.t("Roman numbers")
 			: vscode.l10n.t("Decimal numbers");
 
-		if (typeof this.startingNumber === "undefined" && typeof this.increment === "undefined") {
+		if (typeof this.defaultParameters.startingNumber === "undefined" && typeof this.defaultParameters.increment === "undefined") {
 			return vscode.l10n.t("{0} with custom starting number and increment", type);
-		} else if (typeof this.startingNumber === "undefined") {
+		} else if (typeof this.defaultParameters.startingNumber === "undefined") {
 			return vscode.l10n.t("{0} with custom starting number", type);
-		} else if (typeof this.increment === "undefined") {
+		} else if (typeof this.defaultParameters.increment === "undefined") {
 			return vscode.l10n.t("{0} with custom increment", type);
 		} else {
 			return type;
@@ -34,66 +52,25 @@ export class NumberSequece extends ASequenceBase {
 		return "symbol-number";
 	}
 
-	public async createStandardGenerator(): Promise<() => IterableIterator<string>> {
-		const settings = getExtensionSettings();
-
-		let startingNumber = typeof this.startingNumber === "number"
-			? this.startingNumber
-			: 1;
-		let increment = this.increment || 1;
-
-		return this.createGeneratorFunctionInternal(
-			this.numeralSystem,
-			startingNumber,
-			increment,
-			settings.insertUppercaseHexNumbers
-		);
-	}
-
-	public async createSampleGenerator(): Promise<CreateSampleGeneratorResult> {
-		const settings = getExtensionSettings();
-
-		let startingNumber: number;
-		let increment: number;
-
-		if (typeof this.startingNumber === "undefined") {
-			startingNumber = 42;
-		} else {
-			startingNumber = this.startingNumber;
-		}
-
-		if (typeof this.increment === "undefined") {
-			increment = 5;
-		} else {
-			increment = this.increment;
-		}
-
-		return this.createGeneratorFunctionInternal(
-			this.numeralSystem,
-			startingNumber,
-			increment,
-			settings.insertUppercaseHexNumbers
-		);
-	}
-
-	private createGeneratorFunctionInternal(
-		numeralSystem: NumeralSystem,
-		startingNumber: number,
-		increment: number,
-		insertUppercaseHexNumbers: boolean
+	protected createParameterizedGenerator(
+		parameters: NumberSequenceGeneratorParameters
 	): () => IterableIterator<string> {
-		const fun = function* (): IterableIterator<string> {
-			let insertedNumber: number = startingNumber;
+		const settings = getExtensionSettings();
+
+		const self = this;
+
+		return function* (): IterableIterator<string> {
+			let insertedNumber: number = parameters.startingNumber;
 			while (true) {
-				if (numeralSystem === NumeralSystem.Roman) {
+				if (self.numeralSystem === NumeralSystem.Roman) {
 					if (insertedNumber > 3999 || insertedNumber < 1) {
 						yield insertedNumber.toString();
 					}
 
 					yield new RomanNumeral(insertedNumber).toString();
-				} else if (numeralSystem === NumeralSystem.Hexadecimal) {
+				} else if (self.numeralSystem === NumeralSystem.Hexadecimal) {
 					let insertedString = insertedNumber.toString(16);
-					if (insertUppercaseHexNumbers) {
+					if (settings.insertUppercaseHexNumbers) {
 						insertedString = insertedString.toLocaleUpperCase();
 					}
 
@@ -102,33 +79,33 @@ export class NumberSequece extends ASequenceBase {
 					yield insertedNumber.toString();
 				}
 
-				insertedNumber += increment;
+				insertedNumber += parameters.increment;
 			}
 		};
-
-		return fun;
 	}
 
-	public async ensureAllParametersAreSet(): Promise<EnsureAllParametersAreSetResult> {
-		if (typeof this.startingNumber === "undefined") {
-			const res = await this.askForStartingNumber();
+	public async ensureAllParametersAreSet(parameters: Partial<NumberSequenceGeneratorParameters>)
+		: Promise<EnsureAllParametersAreSetResult<NumberSequenceGeneratorParameters>>
+	{
+		if (typeof parameters.startingNumber === "undefined") {
+			const res = await this.askForStartingNumber(parameters);
 			if (isSequenceErrorMessage(res)) {
 				return res;
 			}
 		}
 
-		if (typeof this.increment === "undefined") {
-			const res = await this.askForIncrement();
+		if (typeof parameters.increment === "undefined") {
+			const res = await this.askForIncrement(parameters);
 			if (isSequenceErrorMessage(res)) {
 				return res;
 			}
 		}
 
-		return true;
+		return parameters as NumberSequenceGeneratorParameters;
 	}
 
-	private askForStartingNumber(): Promise<EnsureAllParametersAreSetResult> {
-		return new Promise<EnsureAllParametersAreSetResult>((resolve) => {
+	private askForStartingNumber(parameters: Partial<NumberSequenceGeneratorParameters>): Promise<EnsureParameterIsSetResult> {
+		return new Promise<EnsureParameterIsSetResult>((resolve) => {
 			const numberType = this.numeralSystem === NumeralSystem.Hexadecimal
 				? vscode.l10n.t("hex")
 				: vscode.l10n.t("decimal");
@@ -156,14 +133,14 @@ export class NumberSequece extends ASequenceBase {
 
 				// TODO: warn for too big Roman number
 
-				this.startingNumber = startingNumber;
+				parameters.startingNumber = startingNumber;
 				resolve(true);
 			});
 		});
 	}
 
-	private askForIncrement(): Promise<EnsureAllParametersAreSetResult> {
-		return new Promise<EnsureAllParametersAreSetResult>((resolve) => {
+	private askForIncrement(parameters: Partial<NumberSequenceGeneratorParameters>): Promise<EnsureParameterIsSetResult> {
+		return new Promise<EnsureParameterIsSetResult>((resolve) => {
 			const numberType = this.numeralSystem === NumeralSystem.Hexadecimal
 				? vscode.l10n.t("hex")
 				: vscode.l10n.t("decimal");
@@ -194,7 +171,7 @@ export class NumberSequece extends ASequenceBase {
 					return;
 				}
 
-				this.increment = increment;
+				parameters.increment = increment;
 				resolve(true);
 			});
 		});

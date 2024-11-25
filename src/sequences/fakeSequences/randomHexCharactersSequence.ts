@@ -1,12 +1,16 @@
 import * as vscode from "vscode";
 import { getExtensionSettings } from "../../helpers/tptSettings";
-import { ASequenceBase } from "../sequenceBase";
-import { CreateSampleGeneratorResult, EnsureAllParametersAreSetResult, isSequenceErrorMessage, StringIteratorGeneratorFunction } from "../sequenceTypes";
+import { ParameterizedSequence } from "../sequenceBase";
+import { EnsureAllParametersAreSetResult, EnsureParameterIsSetResult, StringIteratorGeneratorFunction, isSequenceErrorMessage } from "../sequenceTypes";
 
 const LOWERCASE_CHAR_TABLE: string = "0123456789abcdef";
 const UPPERCASE_CHAR_TABLE: string = "0123456789ABCDEF";
 
-export class RandomHexCharactersSequence extends ASequenceBase {
+interface SequenceGeneratorParameters {
+	numberOfCharacters: number;
+}
+
+export class RandomHexCharactersSequence extends ParameterizedSequence<SequenceGeneratorParameters> {
 	public get name(): string {
 		return vscode.l10n.t("Random hex characters");
 	}
@@ -20,34 +24,30 @@ export class RandomHexCharactersSequence extends ASequenceBase {
 	}
 
 	constructor(
-		private numberOfCharacters: number | undefined
+		numberOfCharacters: number | undefined
 	) {
-		super();
+		const defaultParameters = {
+			numberOfCharacters: numberOfCharacters,
+		};
+		const sampleParameters = {
+			numberOfCharacters: numberOfCharacters ?? 2
+		};
+
+		super(defaultParameters, sampleParameters);
 	}
 
-	public async createStandardGenerator(): Promise<() => IterableIterator<string>> {
-		return this.createGeneratorFunctionInternal(this.numberOfCharacters);
-	}
-
-	public async createSampleGenerator(): Promise<CreateSampleGeneratorResult> {
-		return this.createGeneratorFunctionInternal(2);
-	}
-
-	public async createGeneratorFunctionInternal(numberOfCharacters: number | undefined)
-		: Promise<StringIteratorGeneratorFunction> {
+	protected createParameterizedGenerator(parameters: SequenceGeneratorParameters): StringIteratorGeneratorFunction {
 		const self = this;
 		const settings = getExtensionSettings();
 
-		const fun = function* (): IterableIterator<string> {
+		return function* (): IterableIterator<string> {
 			while (true) {
 				yield self.generateRandomItem(
-					numberOfCharacters || 1,
+					parameters.numberOfCharacters,
 					settings.insertUppercaseHexNumbers
 				);
 			}
 		};
-
-		return fun;
 	}
 
 	public generateRandomItem(
@@ -65,19 +65,19 @@ export class RandomHexCharactersSequence extends ASequenceBase {
 		return ret;
 	}
 
-	public async ensureAllParametersAreSet(): Promise<EnsureAllParametersAreSetResult> {
-		if (typeof this.numberOfCharacters === "undefined") {
-			const res = await this.askForNumberOfCharacters();
+	public async ensureAllParametersAreSet(parameters: Partial<SequenceGeneratorParameters>): Promise<EnsureAllParametersAreSetResult<SequenceGeneratorParameters>> {
+		if (typeof parameters.numberOfCharacters === "undefined") {
+			const res = await this.askForNumberOfCharacters(parameters);
 			if (isSequenceErrorMessage(res)) {
 				return res;
 			}
 		}
 
-		return true;
+		return parameters as SequenceGeneratorParameters;
 	}
 
-	private askForNumberOfCharacters(): Promise<EnsureAllParametersAreSetResult> {
-		return new Promise<EnsureAllParametersAreSetResult>((resolve) => {
+	private askForNumberOfCharacters(parameters: Partial<SequenceGeneratorParameters>): Promise<EnsureParameterIsSetResult> {
+		return new Promise<EnsureParameterIsSetResult>((resolve) => {
 			vscode.window.showInputBox({
 				prompt: vscode.l10n.t("Please enter how many characters an item should contain"),
 				value: "1",
@@ -93,7 +93,7 @@ export class RandomHexCharactersSequence extends ASequenceBase {
 					return;
 				}
 
-				this.numberOfCharacters = startingNumber;
+				parameters.numberOfCharacters = startingNumber;
 				resolve(true);
 			});
 		});

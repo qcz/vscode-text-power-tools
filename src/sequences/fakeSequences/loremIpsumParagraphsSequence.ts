@@ -1,10 +1,9 @@
 import { LoremIpsum } from "lorem-ipsum";
 import * as vscode from "vscode";
 import { getExtensionSettings } from "../../helpers/tptSettings";
-import { ASequenceBase } from "../sequenceBase";
-import { CreateSampleGeneratorResult, StringIteratorGeneratorFunction } from "../sequenceTypes";
+import { SequenceBase } from "../sequenceBase";
 
-export class LoremIpsumParagraphsSequence extends ASequenceBase {
+export class LoremIpsumParagraphsSequence extends SequenceBase {
 	public get name(): string {
 		return vscode.l10n.t("Lorem ipsum paragraphs");
 	}
@@ -21,16 +20,7 @@ export class LoremIpsumParagraphsSequence extends ASequenceBase {
 		return 1;
 	}
 
-	public async createStandardGenerator(): Promise<() => IterableIterator<string>> {
-		return this.createGeneratorFunctionInternal();
-	}
-
-	public async createSampleGenerator(): Promise<CreateSampleGeneratorResult> {
-		return this.createGeneratorFunctionInternal();
-	}
-
-	public async createGeneratorFunctionInternal()
-		: Promise<StringIteratorGeneratorFunction> {
+	public async createGenerator(): Promise<() => IterableIterator<string>> {
 		const settings = getExtensionSettings();
 
 		const lorem = new LoremIpsum({
@@ -44,12 +34,10 @@ export class LoremIpsumParagraphsSequence extends ASequenceBase {
 			},
 		});
 
-		const fun = function* (): IterableIterator<string> {
+		return function* (): IterableIterator<string> {
 			while (true) {
 				yield lorem.generateParagraphs(1);
 			}
 		};
-
-		return fun;
 	}
 }
