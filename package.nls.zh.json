@@ -242,8 +242,6 @@
 	"command.caseInsensitiveKeepOnlyDuplicates.title": "筛选重复行-移除唯一行后再对重复行去重,大小写不敏感",
 	"command.keepOnlyAdjacentDuplicates.title": "筛选相邻重复行-移除唯一行后再对重复行去重",
 	"command.caseInsensitiveKeepOnlyAdjacentDuplicates.title": "筛选相邻重复行-移除唯一行后再对重复行去重,大小写不敏感",
-	"command.keepOnlyUniques.title": "筛选唯一行",
-	"command.caseInsensitiveKeepOnlyUniques.title": "筛选唯一行-大小写不敏感",
 	"command.keepNumberOfRandomLines.title": "随机保留指定行数-无选中则全文生效",
 	"command.keepPercentageOfRandomLines.title": "随机保留指定比例的行-无选中则全文生效",
 	"command.removeEmptyLines.title": "去除空行(仅有\\n,\\t的行)",

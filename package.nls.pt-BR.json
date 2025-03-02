@@ -242,8 +242,6 @@
 	"command.caseInsensitiveKeepOnlyDuplicates.title": "Manter apenas linhas duplicadas (insensível a maiúsculas)",
 	"command.keepOnlyAdjacentDuplicates.title": "Manter apenas duplicatas adjacentes",
 	"command.caseInsensitiveKeepOnlyAdjacentDuplicates.title": "Manter apenas duplicatas adjacentes (insensível a maiúsculas)",
-	"command.keepOnlyUniques.title": "Manter apenas linhas únicas",
-	"command.caseInsensitiveKeepOnlyUniques.title": "Manter apenas linhas únicas (insensível a maiúsculas)",
 	"command.keepNumberOfRandomLines.title": "Manter um número de linhas aleatórias",
 	"command.keepPercentageOfRandomLines.title": "Manter uma porcentagem de linhas aleatórias",
 	"command.removeEmptyLines.title": "Remover linhas vazias",

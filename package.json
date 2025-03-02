@@ -1355,14 +1355,14 @@
 				"title": "%command.caseInsensitiveKeepOnlyAdjacentDuplicates.title%"
 			},
 			{
-				"command": "textPowerTools.keepOnlyUniques",
+				"command": "textPowerTools.removeAnyLinesThatHaveDuplicates",
 				"category": "Text Power Tools",
-				"title": "%command.keepOnlyUniques.title%"
+				"title": "%command.removeAnyLinesThatHaveDuplicates.title%"
 			},
 			{
-				"command": "textPowerTools.caseInsensitiveKeepOnlyUniques",
+				"command": "textPowerTools.caseInsensitiveRemoveAnyLinesThatHaveDuplicates",
 				"category": "Text Power Tools",
-				"title": "%command.caseInsensitiveKeepOnlyUniques.title%"
+				"title": "%command.caseInsensitiveRemoveAnyLinesThatHaveDuplicates.title%"
 			},
 			{
 				"command": "textPowerTools.keepNumberOfRandomLines",
@@ -2540,11 +2540,11 @@
 					"group": "tpt_3_keepOnly@4"
 				},
 				{
-					"command": "textPowerTools.keepOnlyUniques",
+					"command": "textPowerTools.removeAnyLinesThatHaveDuplicates",
 					"group": "tpt_3_keepOnly@5"
 				},
 				{
-					"command": "textPowerTools.caseInsensitiveKeepOnlyUniques",
+					"command": "textPowerTools.caseInsensitiveRemoveAnyLinesThatHaveDuplicates",
 					"group": "tpt_3_keepOnly@6"
 				},
 				{

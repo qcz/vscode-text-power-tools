@@ -62,7 +62,8 @@ Text Power Tools is also available as a Web Extension so it can be used on sites
 * **Pad start and end of strings:** Pad the start or the end of selections to the desired length with default or custom character sequences. The default pad string can be customized with the `textPowerTools.defaultPadString` setting.
 * **Insert line numbers:** Inserts line numbers to the start of each line in every selection. Line numbers can be real line numbers in the file or can start with 1.
 * **Remove duplicated, adjacent duplicated, blank, surplus blank, empty, surplus empty lines, control characters and ANSI escape codes**
-* **Keep only duplicated**, **unique**, or **a number or percentage of random** lines
+* **Keep only duplicated**, or **a number or percentage of random** lines
+* **Remove any lines that have duplicates**
 * **Replace new lines and whitespace with a single space** and **replace whitespace with a single space**
 * **Split lines** by spaces, semicolons, commas, pipes or any custom string.
 * **Join every two or N lines** (using only the raw lines or glue them together with spaces, semicolons, commas, pipes or any custom string)
