@@ -1,5 +1,6 @@
 "use strict";
 import * as vscode from "vscode";
+import { clearHistoryState as clearGlobalStateValue } from "./helpers/vsCodeHelpers";
 import { NumberArithmetic, NumeralSystem } from "./interfaces";
 import { ASK_SPLIT_CHARACTER_FROM_USER, AffixTarget, Base4EncodingDirection, ChangeCaseType, ClipboardContentPasteType, FilterSourceType, FilterTarget, FilterType, InsertableSeries, InsertableStuff, LineNumberType, PadDirection, RemovedLineType, SortMethod, TextEncodingDirection, TextEncodingType, TextTransformationType, TrimDirection, ZalgificationIntensity, removeAnsiEscapeCodesCommand, runAffixCommand, runBase64EncodingCommand, runChangeCaseCommand, runConvertNumberCommand, runConvertToZalgoCommand, runCopySelectionsToNewEditorCommand, runCountOccurrencesCommand, runExtractInfoCommand, runFilterTextCommand, runFormatContentAsTableCommand, runInsertLineNumbersCommand, runInsertNumberSequenceCommand, runInsertPredefinedSeriesCommand, runInsertStuffCommand, runJoinLinesCommand, runKeepOnlyCommand, runKeepRandomLinesCommand, runModifyTextEncodingCommand, runPadCommand, runPasteFromClipboardCommand, runRemoveControlCharactersCommand, runRemoveDuplicatesCommand, runRemoveLinesCommand, runRemoveNewLinesCommand, runRepeatSelectionContentCommand, runReplaceNewLinesAndWhitespaceWithASingleSpace, runReplaceWhitespaceWithASingleSpace, runSetTextSlotContentCommand, runSortCommand, runSplitLinesCommand, runTextTransformationCommand, runTrimCommand, runpasteTextSlotCommand } from "./modules";
 import * as fakeSequences from "./sequences/fakeSequences";
@@ -48,6 +49,9 @@ function registerFilterLinesCommands(context: vscode.ExtensionContext) {
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.cutLinesIncludingStringToClipboard", () =>
 		runFilterTextCommand(context, { filterType: FilterType.Include, sourceType: FilterSourceType.String, target: FilterTarget.CutToClipboard })));
 
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.clearFilterTextStringHistory", () =>
+		clearGlobalStateValue(context, "history.filterText-" + FilterSourceType.String.toString())));
+
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.filterLinesMatchingRegex", () =>
 		runFilterTextCommand(context, { filterType: FilterType.Include, sourceType: FilterSourceType.Regex, target: FilterTarget.CurrentEditor })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.filterLinesMatchingRegexToNewEditor", () =>
@@ -56,6 +60,9 @@ function registerFilterLinesCommands(context: vscode.ExtensionContext) {
 		runFilterTextCommand(context, { filterType: FilterType.Include, sourceType: FilterSourceType.Regex, target: FilterTarget.CopyToClipboard })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.cutLinesMatchingRegexToClipboard", () =>
 		runFilterTextCommand(context, { filterType: FilterType.Include, sourceType: FilterSourceType.Regex, target: FilterTarget.CutToClipboard })));
+
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.clearFilterTextRegexHistory", () =>
+		clearGlobalStateValue(context, "history.filterText-" + FilterSourceType.Regex.toString())));
 
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.filterLinesIncludingSelection", () =>
 		runFilterTextCommand(context, { filterType: FilterType.Include, sourceType: FilterSourceType.Selection, target: FilterTarget.CurrentEditor })));
@@ -91,6 +98,12 @@ function registerExtractInfoCommands(context: vscode.ExtensionContext) {
 		runExtractInfoCommand(context, { inNewEditor: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.extractInformationToNewEditor", () =>
 		runExtractInfoCommand(context, { inNewEditor: true })));
+
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.clearExtractInformationHistory", () => {
+		clearGlobalStateValue(context, "history.extractInfo-filter");
+		clearGlobalStateValue(context, "history.extractInfo-replacement");
+	}));
+
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.countOccurrences", () =>
 		runCountOccurrencesCommand({ onlyAdjacent: false, inNewEditor: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.countOccurrencesToNewEditor", () =>
@@ -299,6 +312,9 @@ function registerGenerateFakeDataCommands(context: vscode.ExtensionContext) {
 
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateRandomFromUserInput", () =>
 		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.RandomFromUserInput })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.clearGenerateFromRandomUserInputHistory", () =>
+		clearGlobalStateValue(context, "history.generateItems-fromRandomUserInput")));
+
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateRandomDecimalNumbersFromRange", () =>
 		runInsertPredefinedSeriesCommand(context, { sequence: fakeSequences.randomDecimalNumberFromRangeSequence })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateRandomHexadecimalNumbersFromRange", () =>

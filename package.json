@@ -100,6 +100,11 @@
 				"title": "%command.cutLinesIncludingStringToClipboard.title%"
 			},
 			{
+				"command": "textPowerTools.clearFilterTextStringHistory",
+				"category": "Text Power Tools",
+				"title": "%command.clearFilterTextStringHistory.title%"
+			},
+			{
 				"command": "textPowerTools.filterLinesMatchingRegex",
 				"category": "Text Power Tools",
 				"title": "%command.filterLinesMatchingRegex.title%"
@@ -118,6 +123,11 @@
 				"command": "textPowerTools.cutLinesMatchingRegexToClipboard",
 				"category": "Text Power Tools",
 				"title": "%command.cutLinesMatchingRegexToClipboard.title%"
+			},
+			{
+				"command": "textPowerTools.clearFilterTextRegexHistory",
+				"category": "Text Power Tools",
+				"title": "%command.clearFilterTextRegexHistory.title%"
 			},
 			{
 				"command": "textPowerTools.filterLinesIncludingSelection",
@@ -188,6 +198,11 @@
 				"command": "textPowerTools.extractInformationToNewEditor",
 				"category": "Text Power Tools",
 				"title": "%command.extractInformationToNewEditor.title%"
+			},
+			{
+				"command": "textPowerTools.clearExtractInformationHistory",
+				"category": "Text Power Tools",
+				"title": "%command.clearExtractInformationHistory.title%"
 			},
 			{
 				"command": "textPowerTools.countOccurrences",
@@ -633,6 +648,11 @@
 				"command": "textPowerTools.generateRandomRealNumbersFromRange",
 				"category": "Text Power Tools",
 				"title": "%command.generateRandomRealNumbersFromRange.title%"
+			},
+			{
+				"command": "textPowerTools.clearGenerateFromRandomUserInputHistory",
+				"category": "Text Power Tools",
+				"title": "%command.clearGenerateFromRandomUserInputHistory.title%"
 			},
 			{
 				"command": "textPowerTools.generateFakeData",
@@ -1501,6 +1521,10 @@
 					"group": "tpt_filterLines_1_includingString@4"
 				},
 				{
+					"command": "textPowerTools.clearFilterTextStringHistory",
+					"group": "tpt_filterLines_1_includingString_clear@1"
+				},
+				{
 					"command": "textPowerTools.filterLinesMatchingRegex",
 					"group": "tpt_filterLines_2_matchingRegex@1"
 				},
@@ -1515,6 +1539,10 @@
 				{
 					"command": "textPowerTools.cutLinesMatchingRegexToClipboard",
 					"group": "tpt_filterLines_2_matchingRegex@4"
+				},
+				{
+					"command": "textPowerTools.clearFilterTextRegexHistory",
+					"group": "tpt_filterLines_2_matchingRegex_clear@1"
 				},
 				{
 					"command": "textPowerTools.filterLinesIncludingSelection",
@@ -1573,6 +1601,10 @@
 				{
 					"command": "textPowerTools.extractInformationToNewEditor",
 					"group": "tpt_1_extractInfo@2"
+				},
+				{
+					"command": "textPowerTools.clearExtractInformationHistory",
+					"group": "tpt_1_extractInfo_clear@1"
 				},
 				{
 					"command": "textPowerTools.countOccurrences",
@@ -1997,6 +2029,10 @@
 				{
 					"command": "textPowerTools.generateRandomRealNumbersFromRange",
 					"group": "tpt_2_generateFromUserInput@4"
+				},
+				{
+					"command": "textPowerTools.clearGenerateFromRandomUserInputHistory",
+					"group": "tpt_2_generateFromUserInput_clear@1"
 				},
 				{
 					"command": "textPowerTools.generateWordsContainingRandomHexCharactersSequence",

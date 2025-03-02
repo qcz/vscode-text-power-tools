@@ -4,6 +4,7 @@
 * Add _Reverse text_ command.
 * Add _Sort lines by the last word_ commands.
 * Rename _Keep only unique lines_ command to _Remove all lines that have duplicates_.
+* Add commands to clear history of commands that supports it (eg. filter text, extract information).
 
 ## **1.50.0** (2024. 11. 25.)
 * Add support for generating words with random lowercase letters, uppercase letters, lowercase and uppercase letters, alphanumeric characters, decimal characters, hexadecimal characters.

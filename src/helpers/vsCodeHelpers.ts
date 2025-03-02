@@ -204,3 +204,10 @@ export function showHistoryQuickPick(
 	qp.activeItems = [];
 	qp.show();
 }
+
+export function clearHistoryState(
+	context: vscode.ExtensionContext,
+	key: string,
+) {
+	context.globalState.update(key, undefined);
+}
