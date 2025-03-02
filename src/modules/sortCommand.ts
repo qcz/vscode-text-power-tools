@@ -16,6 +16,7 @@ export const enum SortMethod {
 	LengthCaseInsensitive,
 	WordCount,
 	GraphemeCount,
+	LastWord,
 	Shuffle,
 	Reverse,
 	DecimalNumberValue,
@@ -173,6 +174,20 @@ export async function runSortCommand(options: ISortOptions) {
 
 					return compareResult;
 				});
+				break;
+			case SortMethod.LastWord:
+				var sortSource = lines.map(x => {
+					const words = x.split(/\s+/);
+					return { originalText: x, lastWord: words.length > 0 ? words[words.length - 1] : "" };
+				});
+
+				sortSource.sort((a, b) => a.lastWord.localeCompare(b.lastWord))
+				lines = sortSource.map(x => x.originalText);
+
+				if (options.sortDirection === "descending") {
+					lines = lines.reverse();
+				}
+
 				break;
 			case SortMethod.Semver:
 				if (options.sortDirection === "ascending") {

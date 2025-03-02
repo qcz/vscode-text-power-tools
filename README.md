@@ -87,6 +87,7 @@ Text Power Tools is also available as a Web Extension so it can be used on sites
     * _Sort lines by length (and then case insensitive)_
     * _Sort lines by semver rules_
     * _Sort lines by word count_
+    * _Sort lines by last word_
     * _Sort lines by grapheme count_ (taking care of surrogate pairs and combining marks thanks to Voca)
     * _Sort lines containing IP addresses_ (including CIDR ranges)
     * _Sort lines by decimal/hexadecimal value_

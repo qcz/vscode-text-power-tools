@@ -555,6 +555,16 @@
 				"title": "%command.sortByGraphemeCountDescending.title%"
 			},
 			{
+				"command": "textPowerTools.sortByLastWordAscending",
+				"category": "Text Power Tools",
+				"title": "%command.sortByLastWordAscending.title%"
+			},
+			{
+				"command": "textPowerTools.sortByLastWordDescending",
+				"category": "Text Power Tools",
+				"title": "%command.sortByLastWordDescending.title%"
+			},
+			{
 				"command": "textPowerTools.semverSortAscending",
 				"category": "Text Power Tools",
 				"title": "%command.semverSortAscending.title%"
@@ -2411,36 +2421,44 @@
 					"group": "tpt_3_length@8"
 				},
 				{
+					"command": "textPowerTools.sortByLastWordAscending",
+					"group": "tpt_4_lastWord@1"
+				},
+				{
+					"command": "textPowerTools.sortByLastWordDescending",
+					"group": "tpt_4_lastWord@2"
+				},
+				{
 					"command": "textPowerTools.semverSortAscending",
-					"group": "tpt_4_semver@1"
+					"group": "tpt_5_semver@1"
 				},
 				{
 					"command": "textPowerTools.semverSortDescending",
-					"group": "tpt_4_semver@2"
+					"group": "tpt_5_semver@2"
 				},
 				{
 					"command": "textPowerTools.ipAddressSortAscending",
-					"group": "tpt_5_ipAddress@1"
+					"group": "tpt_6_ipAddress@1"
 				},
 				{
 					"command": "textPowerTools.ipAddressSortDescending",
-					"group": "tpt_5_ipAddress@2"
+					"group": "tpt_6_ipAddress@2"
 				},
 				{
 					"command": "textPowerTools.sortByDecimalValueAscending",
-					"group": "tpt_6_numberValue@1"
+					"group": "tpt_7_numberValue@1"
 				},
 				{
 					"command": "textPowerTools.sortByDecimalValueDescending",
-					"group": "tpt_6_numberValue@2"
+					"group": "tpt_7_numberValue@2"
 				},
 				{
 					"command": "textPowerTools.sortByHexadecimalValueAscending",
-					"group": "tpt_6_numberValue@3"
+					"group": "tpt_7_numberValue@3"
 				},
 				{
 					"command": "textPowerTools.sortByHexadecimalValueDescending",
-					"group": "tpt_6_numberValue@4"
+					"group": "tpt_7_numberValue@4"
 				},
 				{
 					"command": "textPowerTools.shuffleLines",

@@ -94,6 +94,8 @@
 	"command.sortByWordCountDescending.title": "Sort lines descending by word count",
 	"command.sortByGraphemeCountAscending.title": "Sort lines ascending by grapheme count",
 	"command.sortByGraphemeCountDescending.title": "Sort lines descending by grapheme count",
+	"command.sortByLastWordAscending.title": "Sort lines ascending by the last word",
+	"command.sortByLastWordDescending.title": "Sort lines descending by the last word",
 	"command.semverSortAscending.title": "Sort lines ascending using semver rules",
 	"command.semverSortDescending.title": "Sort lines descending using semver rules",
 	"command.ipAddressSortAscending.title": "Sort IP addresses ascending",

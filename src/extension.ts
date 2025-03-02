@@ -263,6 +263,12 @@ function registerSortCommands(context: vscode.ExtensionContext) {
 		runSortCommand({ sortMethod: SortMethod.GraphemeCount, sortDirection: "ascending" })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.sortByGraphemeCountDescending", () =>
 		runSortCommand({ sortMethod: SortMethod.GraphemeCount, sortDirection: "descending" })));
+
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.sortByLastWordAscending", () =>
+		runSortCommand({ sortMethod: SortMethod.LastWord, sortDirection: "ascending" })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.sortByLastWordDescending", () =>
+		runSortCommand({ sortMethod: SortMethod.LastWord, sortDirection: "descending" })));
+
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.semverSortAscending", () =>
 		runSortCommand({ sortMethod: SortMethod.Semver, sortDirection: "ascending" })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.semverSortDescending", () =>
