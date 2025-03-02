@@ -179,6 +179,8 @@ function registerChangeLettersCommands(context: vscode.ExtensionContext) {
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.changeCaseToSwapCase", () =>
 		runChangeCaseCommand({ type: ChangeCaseType.SwapCase })));
 
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.reverseText", () =>
+		runTextTransformationCommand({ type: TextTransformationType.Reverse })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.latinize", () =>
 		runTextTransformationCommand({ type: TextTransformationType.Latinize })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.slugify", () =>

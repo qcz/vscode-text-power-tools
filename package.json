@@ -365,6 +365,11 @@
 				"title": "%command.changeCaseToSwapCase.title%"
 			},
 			{
+				"command": "textPowerTools.reverseText",
+				"category": "Text Power Tools",
+				"title": "%command.reverse.title%"
+			},
+			{
 				"command": "textPowerTools.latinize",
 				"category": "Text Power Tools",
 				"title": "%command.latinize.title%"
@@ -1704,12 +1709,16 @@
 					"group": "tpt_1_changeCase@10"
 				},
 				{
-					"command": "textPowerTools.latinize",
+					"command": "textPowerTools.reverseText",
 					"group": "tpt_2_changeLetters@1"
 				},
 				{
-					"command": "textPowerTools.slugify",
+					"command": "textPowerTools.latinize",
 					"group": "tpt_2_changeLetters@2"
+				},
+				{
+					"command": "textPowerTools.slugify",
+					"group": "tpt_2_changeLetters@3"
 				},
 				{
 					"command": "textPowerTools.unicodeNormalizationNFC",

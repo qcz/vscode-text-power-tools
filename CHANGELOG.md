@@ -1,5 +1,8 @@
 # Changelog
 
+## **1.51.0** (????. ??. ??.)
+* Add _Reverse text_ command.
+
 ## **1.50.0** (2024. 11. 25.)
 * Add support for generating words with random lowercase letters, uppercase letters, lowercase and uppercase letters, alphanumeric characters, decimal characters, hexadecimal characters.
 * Fix: Sequence generators should not save user input from previous runs. (#96)
