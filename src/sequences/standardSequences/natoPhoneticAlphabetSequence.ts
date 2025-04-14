@@ -1,7 +1,7 @@
 import * as vscode from "vscode";
-import { AArraySequenceBase } from "../arraySeqenceBase";
+import { SequenceGeneratorFromPredefinedArray } from "../sequenceBase";
 
-export class NatoPhoneticAlphabetSequence extends AArraySequenceBase {
+export class NatoPhoneticAlphabetSequence extends SequenceGeneratorFromPredefinedArray {
 	public get name(): string {
 		return vscode.l10n.t("NATO phonetic alphabet sequence items");
 	}

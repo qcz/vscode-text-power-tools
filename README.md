@@ -21,7 +21,7 @@ Text Power Tools is also available as a Web Extension so it can be used on sites
 * **Change case of text (camelCase, PascalCase, snake_case, CONSTANT_CASE, dash-case, dot.case, Title Case, sPoNgE cAsE) and swap casing**.
     * *Note:* *UPPER CASE* and *lower case* is not implemented in this extension as it is available in VS Code by default via the *Transform to Title Case*, *Transform to Uppercase* and *Transform to Lower Case* commands.
 * **Separate words with spaces, forward slashes and backslashes**
-* **Slugify and latizine text** (latinize removes all diacritic characters)
+* **Reverse, slugify and latizine text** (latinize removes all diacritic characters)
 * **Insert decimal, hexadecimal and Roman numbers:** Inserts increasing/decreasing decimal, hex or Roman numbers. You can even specify the starting number and the step size for them. You can use one selection and it will prompt for how many elements to insert, or you can use multiple selections and it will insert the a number from the sequence into every selection.
     * *Protip:* When inserting hex numbers, by default they will be uppercase. To insert lowercase hex numbers, set the value of the `textPowerTools.insertUppercaseHexNumbers` setting to `false`.
 * **Convert numbers from decimal to hexadecimal and vice versa**
@@ -43,7 +43,14 @@ Text Power Tools is also available as a Web Extension so it can be used on sites
     (Note: current/custom locale means OS locale or the locale specified in the `textPowerTools.customLocale` setting)
 * **Generate fake/random data**:
     * _Random decimal, hexadecimal and real numbers from range_
-    * _Random hex/decimal character sequences_
+    * _Random words containing:_
+        - _uppercase letters_
+        - _lowercase letters_
+        - _uppercase and lowercase letters_
+        - _alphanumeric characters_
+        - _decimal characters_
+        - _hexadecimal characters_
+        - _ASCII characters_
     * _Fake first names, last names and full names_ in the following languages: English, French, German and Hungarian.
     * _GUIDs/UUIDs_ (globally unique identifiers or universally unique identifiers) using multiple predefined formats (no dashes, dashes, dashes and braces, C# Guid constructor).
         * To insert GUIDs with uppercase hex characters, set the value of the `textPowerTools.insertUppercaseGuids` setting to `true`. The default GUID style can be set using the `textPowerTools.defaultGuidType` setting.
@@ -54,8 +61,9 @@ Text Power Tools is also available as a Web Extension so it can be used on sites
     * _From comma separated list of items provided by the user_
 * **Pad start and end of strings:** Pad the start or the end of selections to the desired length with default or custom character sequences. The default pad string can be customized with the `textPowerTools.defaultPadString` setting.
 * **Insert line numbers:** Inserts line numbers to the start of each line in every selection. Line numbers can be real line numbers in the file or can start with 1.
-* **Remove duplicated, adjacent duplicated, blank, surplus blank, empty, surplus empty lines and control characters**
-* **Keep only duplicated**, **unique**, or **a number or percentage of random** lines
+* **Remove duplicated, adjacent duplicated, blank, surplus blank, empty, surplus empty lines, control characters and ANSI escape codes**
+* **Keep only duplicated**, or **a number or percentage of random** lines
+* **Remove any lines that have duplicates**
 * **Replace new lines and whitespace with a single space** and **replace whitespace with a single space**
 * **Split lines** by spaces, semicolons, commas, pipes or any custom string.
 * **Join every two or N lines** (using only the raw lines or glue them together with spaces, semicolons, commas, pipes or any custom string)
@@ -80,6 +88,7 @@ Text Power Tools is also available as a Web Extension so it can be used on sites
     * _Sort lines by length (and then case insensitive)_
     * _Sort lines by semver rules_
     * _Sort lines by word count_
+    * _Sort lines by last word_
     * _Sort lines by grapheme count_ (taking care of surrogate pairs and combining marks thanks to Voca)
     * _Sort lines containing IP addresses_ (including CIDR ranges)
     * _Sort lines by decimal/hexadecimal value_
@@ -93,7 +102,7 @@ Text Power Tools is also available as a Web Extension so it can be used on sites
   Text can be splitted by tabulators, semicolons, commas, pipes or any custom character sequences.
 * **Spread paste lines from clipboard** including support for skipping empty lines and pasting lines repeatedly if there are fewer lines on the clipboard than selections.
 * **Text slots**, which are permanent clipboard entries in your VS Code. There are 5 of them. You can store a text in one of these slots with a command, for example *Set text slot 1 content*, and paste it with *Paste text slot 1 content* later. Recommended to bind the paste commands you use to a key combo of your choice for the quick usage.
-* **Encode and decode various encoding formats**: URL encode, HTML entities, XML entities, Base64 and unicode escape sequences
+* **Encode and decode various encoding formats**: URL encode, HTML entities, XML entities, Base64, punycode for domain names, and unicode escape sequences
 * **Convert to Unicode normalization forms (NFC, NFD, NFKC, NFKD)**
 * **Convert to Zalgo text**
 * **Copy content of selections to a new editor**

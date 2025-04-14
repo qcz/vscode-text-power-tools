@@ -1,17 +1,20 @@
 import * as vscode from "vscode";
 import { getExtensionSettings } from "../../helpers/tptSettings";
 import { NumeralSystem } from "../../interfaces";
-import { ASequenceBase } from "../sequenceBase";
-import { CreateSampleGeneratorResult, EnsureAllParametersAreSetResult, isSequenceErrorMessage, StringIteratorGeneratorFunction } from "../sequenceTypes";
+import { ParameterizedSequence } from "../sequenceBase";
+import { EnsureAllParametersAreSetResult, EnsureParameterIsSetResult, StringIteratorGeneratorFunction, isSequenceErrorMessage } from "../sequenceTypes";
 
-export class RandomNumberFromRangeSequence extends ASequenceBase {
+interface SequenceGeneratorParameters {
+	rangeStart: number,
+	rangeEnd: number
+}
+
+export class RandomNumberFromRangeSequence extends ParameterizedSequence<SequenceGeneratorParameters> {
 	constructor(
 		private numeralSystem: NumeralSystem,
 		private isFloatingPoint: boolean,
-		private rangeStart?: number | undefined,
-		private rangeEnd?: number | undefined
 	) {
-		super();
+		super({}, { rangeStart: 24, rangeEnd: 42 });
 	}
 
 	public get icon(): string {
@@ -32,29 +35,17 @@ export class RandomNumberFromRangeSequence extends ASequenceBase {
 		}
 	}
 
-	public async createStandardGenerator(): Promise<() => IterableIterator<string>> {
+	protected createParameterizedGenerator(parameters: SequenceGeneratorParameters) : StringIteratorGeneratorFunction {
 		const settings = getExtensionSettings();
-		return this.createGeneratorFunctionInternal(this.rangeStart, this.rangeEnd, settings.insertUppercaseHexNumbers);
-	}
 
-	public async createSampleGenerator(): Promise<CreateSampleGeneratorResult> {
-		const settings = getExtensionSettings();
-		return this.createGeneratorFunctionInternal(24, 42, settings.insertUppercaseHexNumbers);
-	}
-
-	public async createGeneratorFunctionInternal(
-		rangeStart: number | undefined,
-		rangeEnd: number | undefined,
-		insertUppercaseHexNumbers: boolean
-	) : Promise<StringIteratorGeneratorFunction> {
 		var self = this;
 		const fun = function* (): IterableIterator<string> {
-			if (typeof rangeStart === "undefined" || typeof rangeEnd === "undefined") {
+			if (typeof parameters.rangeStart === "undefined" || typeof parameters.rangeEnd === "undefined") {
 				return;
 			}
 
 			while (true) {
-				yield self.generateRandomItem(rangeStart, rangeEnd, insertUppercaseHexNumbers);
+				yield self.generateRandomItem(parameters.rangeStart, parameters.rangeEnd, settings.insertUppercaseHexNumbers);
 			}
 		};
 
@@ -79,26 +70,26 @@ export class RandomNumberFromRangeSequence extends ASequenceBase {
 
 	}
 
-	public async ensureAllParametersAreSet(): Promise<EnsureAllParametersAreSetResult> {
-		if (typeof this.rangeStart === "undefined") {
-			const res = await this.askForRangeStart();
+	public async ensureAllParametersAreSet(parameters: Partial<SequenceGeneratorParameters>): Promise<EnsureAllParametersAreSetResult<SequenceGeneratorParameters>> {
+		if (typeof parameters.rangeStart === "undefined") {
+			const res = await this.askForRangeStart(parameters);
 			if (isSequenceErrorMessage(res)) {
 				return res;
 			}
 		}
 
-		if (typeof this.rangeEnd === "undefined") {
-			const res = await this.askForRangeEnd();
+		if (typeof parameters.rangeEnd === "undefined") {
+			const res = await this.askForRangeEnd(parameters);
 			if (isSequenceErrorMessage(res)) {
 				return res;
 			}
 		}
 
-		return true;
+		return parameters as SequenceGeneratorParameters;
 	}
 
-	private askForRangeStart(): Promise<EnsureAllParametersAreSetResult> {
-		return new Promise<EnsureAllParametersAreSetResult>((resolve) => {
+	private askForRangeStart(parameters: Partial<SequenceGeneratorParameters>): Promise<EnsureParameterIsSetResult> {
+		return new Promise<EnsureParameterIsSetResult>((resolve) => {
 			const numberType = this.numeralSystem === NumeralSystem.Hexadecimal
 				? vscode.l10n.t("hex")
 				: vscode.l10n.t("decimal");
@@ -129,14 +120,14 @@ export class RandomNumberFromRangeSequence extends ASequenceBase {
 					return;
 				}
 
-				this.rangeStart = rangeStart;
+				parameters.rangeStart = rangeStart;
 				resolve(true);
 			});
 		});
 	}
 
-	private askForRangeEnd(): Promise<EnsureAllParametersAreSetResult> {
-		return new Promise<EnsureAllParametersAreSetResult>((resolve) => {
+	private askForRangeEnd(parameters: Partial<SequenceGeneratorParameters>): Promise<EnsureParameterIsSetResult> {
+		return new Promise<EnsureParameterIsSetResult>((resolve) => {
 			const numberType = this.numeralSystem === NumeralSystem.Hexadecimal
 				? vscode.l10n.t("hex")
 				: vscode.l10n.t("decimal");
@@ -167,7 +158,7 @@ export class RandomNumberFromRangeSequence extends ASequenceBase {
 					return;
 				}
 
-				this.rangeEnd = rangeEnd;
+				parameters.rangeEnd = rangeEnd;
 				resolve(true);
 			});
 		});

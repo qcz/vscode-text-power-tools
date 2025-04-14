@@ -42,9 +42,11 @@
 		"unicode",
 		"join",
 		"split",
-		"uniq"
+		"uniq",
+		"punycode",
+		"idna"
 	],
-	"version": "1.47.1",
+	"version": "1.51.0",
 	"publisher": "qcz",
 	"private": true,
 	"engines": {
@@ -98,6 +100,11 @@
 				"title": "%command.cutLinesIncludingStringToClipboard.title%"
 			},
 			{
+				"command": "textPowerTools.clearFilterTextStringHistory",
+				"category": "Text Power Tools",
+				"title": "%command.clearFilterTextStringHistory.title%"
+			},
+			{
 				"command": "textPowerTools.filterLinesMatchingRegex",
 				"category": "Text Power Tools",
 				"title": "%command.filterLinesMatchingRegex.title%"
@@ -116,6 +123,11 @@
 				"command": "textPowerTools.cutLinesMatchingRegexToClipboard",
 				"category": "Text Power Tools",
 				"title": "%command.cutLinesMatchingRegexToClipboard.title%"
+			},
+			{
+				"command": "textPowerTools.clearFilterTextRegexHistory",
+				"category": "Text Power Tools",
+				"title": "%command.clearFilterTextRegexHistory.title%"
 			},
 			{
 				"command": "textPowerTools.filterLinesIncludingSelection",
@@ -186,6 +198,11 @@
 				"command": "textPowerTools.extractInformationToNewEditor",
 				"category": "Text Power Tools",
 				"title": "%command.extractInformationToNewEditor.title%"
+			},
+			{
+				"command": "textPowerTools.clearExtractInformationHistory",
+				"category": "Text Power Tools",
+				"title": "%command.clearExtractInformationHistory.title%"
 			},
 			{
 				"command": "textPowerTools.countOccurrences",
@@ -361,6 +378,11 @@
 				"command": "textPowerTools.changeCaseToSwapCase",
 				"category": "Text Power Tools",
 				"title": "%command.changeCaseToSwapCase.title%"
+			},
+			{
+				"command": "textPowerTools.reverseText",
+				"category": "Text Power Tools",
+				"title": "%command.reverse.title%"
 			},
 			{
 				"command": "textPowerTools.latinize",
@@ -548,6 +570,16 @@
 				"title": "%command.sortByGraphemeCountDescending.title%"
 			},
 			{
+				"command": "textPowerTools.sortByLastWordAscending",
+				"category": "Text Power Tools",
+				"title": "%command.sortByLastWordAscending.title%"
+			},
+			{
+				"command": "textPowerTools.sortByLastWordDescending",
+				"category": "Text Power Tools",
+				"title": "%command.sortByLastWordDescending.title%"
+			},
+			{
 				"command": "textPowerTools.semverSortAscending",
 				"category": "Text Power Tools",
 				"title": "%command.semverSortAscending.title%"
@@ -618,9 +650,49 @@
 				"title": "%command.generateRandomRealNumbersFromRange.title%"
 			},
 			{
+				"command": "textPowerTools.clearGenerateFromRandomUserInputHistory",
+				"category": "Text Power Tools",
+				"title": "%command.clearGenerateFromRandomUserInputHistory.title%"
+			},
+			{
 				"command": "textPowerTools.generateFakeData",
 				"category": "Text Power Tools",
 				"title": "%command.generateFakeData.title%"
+			},
+			{
+				"command": "textPowerTools.generateWordsContainingRandomLowercaseLettersSequence",
+				"category": "Text Power Tools",
+				"title": "%command.generateWordsContainingRandomLowercaseLettersSequence.title%"
+			},
+			{
+				"command": "textPowerTools.generateWordsContainingRandomUppercaseLettersSequence",
+				"category": "Text Power Tools",
+				"title": "%command.generateWordsContainingRandomUppercaseLettersSequence.title%"
+			},
+			{
+				"command": "textPowerTools.generateWordsContainingRandomLettersSequence",
+				"category": "Text Power Tools",
+				"title": "%command.generateWordsContainingRandomLettersSequence.title%"
+			},
+			{
+				"command": "textPowerTools.generateWordsContainingRandomAlphanumericCharactersSequence",
+				"category": "Text Power Tools",
+				"title": "%command.generateWordsContainingRandomAlphanumericCharactersSequence.title%"
+			},
+			{
+				"command": "textPowerTools.generateWordsContainingRandomAsciiCharactersSequence",
+				"category": "Text Power Tools",
+				"title": "%command.generateWordsContainingRandomAsciiCharactersSequence.title%"
+			},
+			{
+				"command": "textPowerTools.generateWordsContainingRandomDecimalCharactersSequence",
+				"category": "Text Power Tools",
+				"title": "%command.generateWordsContainingRandomDecimalCharactersSequence.title%"
+			},
+			{
+				"command": "textPowerTools.generateWordsContainingRandomHexCharactersSequence",
+				"category": "Text Power Tools",
+				"title": "%command.generateWordsContainingRandomHexCharactersSequence.title%"
 			},
 			{
 				"command": "textPowerTools.generateRandomGuids",
@@ -1213,6 +1285,16 @@
 				"title": "%command.base64DecodeTextOnEachLine.title%"
 			},
 			{
+				"command": "textPowerTools.encodeDomainNameWithPunycode",
+				"category": "Text Power Tools",
+				"title": "%command.encodeDomainNameWithPunycode.title%"
+			},
+			{
+				"command": "textPowerTools.decodeDomainNameFromPunycode",
+				"category": "Text Power Tools",
+				"title": "%command.decodeDomainNameFromPunycode.title%"
+			},
+			{
 				"command": "textPowerTools.duplicateSelectionContent",
 				"category": "Text Power Tools",
 				"title": "%command.duplicateSelectionContent.title%"
@@ -1293,14 +1375,14 @@
 				"title": "%command.caseInsensitiveKeepOnlyAdjacentDuplicates.title%"
 			},
 			{
-				"command": "textPowerTools.keepOnlyUniques",
+				"command": "textPowerTools.removeAnyLinesThatHaveDuplicates",
 				"category": "Text Power Tools",
-				"title": "%command.keepOnlyUniques.title%"
+				"title": "%command.removeAnyLinesThatHaveDuplicates.title%"
 			},
 			{
-				"command": "textPowerTools.caseInsensitiveKeepOnlyUniques",
+				"command": "textPowerTools.caseInsensitiveRemoveAnyLinesThatHaveDuplicates",
 				"category": "Text Power Tools",
-				"title": "%command.caseInsensitiveKeepOnlyUniques.title%"
+				"title": "%command.caseInsensitiveRemoveAnyLinesThatHaveDuplicates.title%"
 			},
 			{
 				"command": "textPowerTools.keepNumberOfRandomLines",
@@ -1336,6 +1418,11 @@
 				"command": "textPowerTools.removeControlCharacters",
 				"category": "Text Power Tools",
 				"title": "%command.removeControlCharacters.title%"
+			},
+			{
+				"command": "textPowerTools.removeAnsiEscapeCodes",
+				"category": "Text Power Tools",
+				"title": "%command.removeAnsiEscapeCodes.title%"
 			}
 		],
 		"menus": {
@@ -1434,6 +1521,10 @@
 					"group": "tpt_filterLines_1_includingString@4"
 				},
 				{
+					"command": "textPowerTools.clearFilterTextStringHistory",
+					"group": "tpt_filterLines_1_includingString_clear@1"
+				},
+				{
 					"command": "textPowerTools.filterLinesMatchingRegex",
 					"group": "tpt_filterLines_2_matchingRegex@1"
 				},
@@ -1448,6 +1539,10 @@
 				{
 					"command": "textPowerTools.cutLinesMatchingRegexToClipboard",
 					"group": "tpt_filterLines_2_matchingRegex@4"
+				},
+				{
+					"command": "textPowerTools.clearFilterTextRegexHistory",
+					"group": "tpt_filterLines_2_matchingRegex_clear@1"
 				},
 				{
 					"command": "textPowerTools.filterLinesIncludingSelection",
@@ -1506,6 +1601,10 @@
 				{
 					"command": "textPowerTools.extractInformationToNewEditor",
 					"group": "tpt_1_extractInfo@2"
+				},
+				{
+					"command": "textPowerTools.clearExtractInformationHistory",
+					"group": "tpt_1_extractInfo_clear@1"
 				},
 				{
 					"command": "textPowerTools.countOccurrences",
@@ -1652,12 +1751,16 @@
 					"group": "tpt_1_changeCase@10"
 				},
 				{
-					"command": "textPowerTools.latinize",
+					"command": "textPowerTools.reverseText",
 					"group": "tpt_2_changeLetters@1"
 				},
 				{
-					"command": "textPowerTools.slugify",
+					"command": "textPowerTools.latinize",
 					"group": "tpt_2_changeLetters@2"
+				},
+				{
+					"command": "textPowerTools.slugify",
+					"group": "tpt_2_changeLetters@3"
 				},
 				{
 					"command": "textPowerTools.unicodeNormalizationNFC",
@@ -1917,51 +2020,83 @@
 				},
 				{
 					"command": "textPowerTools.generateRandomDecimalNumbersFromRange",
-					"group": "tpt_2_generateFromUserInput@1"
+					"group": "tpt_2_generateFromUserInput@2"
 				},
 				{
 					"command": "textPowerTools.generateRandomHexadecimalNumbersFromRange",
-					"group": "tpt_2_generateFromUserInput@1"
+					"group": "tpt_2_generateFromUserInput@3"
 				},
 				{
 					"command": "textPowerTools.generateRandomRealNumbersFromRange",
-					"group": "tpt_2_generateFromUserInput@1"
+					"group": "tpt_2_generateFromUserInput@4"
+				},
+				{
+					"command": "textPowerTools.clearGenerateFromRandomUserInputHistory",
+					"group": "tpt_2_generateFromUserInput_clear@1"
+				},
+				{
+					"command": "textPowerTools.generateWordsContainingRandomHexCharactersSequence",
+					"group": "tpt_3_generateWordsWithRandomCharacters@1"
+				},
+				{
+					"command": "textPowerTools.generateWordsContainingRandomDecimalCharactersSequence",
+					"group": "tpt_3_generateWordsWithRandomCharacters@2"
+				},
+				{
+					"command": "textPowerTools.generateWordsContainingRandomLowercaseLettersSequence",
+					"group": "tpt_3_generateWordsWithRandomCharacters@3"
+				},
+				{
+					"command": "textPowerTools.generateWordsContainingRandomUppercaseLettersSequence",
+					"group": "tpt_3_generateWordsWithRandomCharacters@4"
+				},
+				{
+					"command": "textPowerTools.generateWordsContainingRandomLettersSequence",
+					"group": "tpt_3_generateWordsWithRandomCharacters@5"
+				},
+				{
+					"command": "textPowerTools.generateWordsContainingRandomAlphanumericCharactersSequence",
+					"group": "tpt_3_generateWordsWithRandomCharacters@6"
+				},
+				{
+					"command": "textPowerTools.generateWordsContainingRandomAsciiCharactersSequence",
+					"group": "tpt_3_generateWordsWithRandomCharacters@7"
 				},
 				{
 					"command": "textPowerTools.generateRandomGuids",
-					"group": "tpt_3_generateItStuff@1"
+					"group": "tpt_4_generateItStuff@1"
 				},
 				{
 					"command": "textPowerTools.generateRandomIpv4Addresses",
-					"group": "tpt_3_generateItStuff@2"
+					"group": "tpt_4_generateItStuff@2"
 				},
 				{
 					"command": "textPowerTools.generateRandomIpv6Addresses",
-					"group": "tpt_3_generateItStuff@3"
+					"group": "tpt_4_generateItStuff@3"
 				},
 				{
 					"command": "textPowerTools.generateRandomCoordinates",
-					"group": "tpt_3_coordinates@1"
+					"group": "tpt_5_coordinates@1"
 				},
 				{
 					"command": "textPowerTools.generateRandomEuropeanCoordinates",
-					"group": "tpt_3_coordinates@2"
+					"group": "tpt_5_coordinates@2"
 				},
 				{
 					"command": "textPowerTools.generateRandomNorthAmericanCoordinates",
-					"group": "tpt_3_coordinates@3"
+					"group": "tpt_5_coordinates@3"
 				},
 				{
 					"command": "textPowerTools.generateRandomAsianCoordinates",
-					"group": "tpt_3_coordinates@4"
+					"group": "tpt_5_coordinates@4"
 				},
 				{
 					"command": "textPowerTools.generateLoremIpsumSentence",
-					"group": "tpt_4_generateLoremIpsum@1"
+					"group": "tpt_6_generateLoremIpsum@1"
 				},
 				{
 					"command": "textPowerTools.generateLoremIpsumParagraph",
-					"group": "tpt_4_generateLoremIpsum@3"
+					"group": "tpt_6_generateLoremIpsum@3"
 				}
 			],
 			"textPowerTools.convert": [
@@ -2184,6 +2319,14 @@
 				{
 					"command": "textPowerTools.base64DecodeTextOnEachLine",
 					"group": "tpt_5_base64@4"
+				},
+				{
+					"command": "textPowerTools.encodeDomainNameWithPunycode",
+					"group": "tpt_6_punycode@1"
+				},
+				{
+					"command": "textPowerTools.decodeDomainNameFromPunycode",
+					"group": "tpt_6_punycode@2"
 				}
 			],
 			"textPowerTools.joinSplitLines": [
@@ -2314,36 +2457,44 @@
 					"group": "tpt_3_length@8"
 				},
 				{
+					"command": "textPowerTools.sortByLastWordAscending",
+					"group": "tpt_4_lastWord@1"
+				},
+				{
+					"command": "textPowerTools.sortByLastWordDescending",
+					"group": "tpt_4_lastWord@2"
+				},
+				{
 					"command": "textPowerTools.semverSortAscending",
-					"group": "tpt_4_semver@1"
+					"group": "tpt_5_semver@1"
 				},
 				{
 					"command": "textPowerTools.semverSortDescending",
-					"group": "tpt_4_semver@2"
+					"group": "tpt_5_semver@2"
 				},
 				{
 					"command": "textPowerTools.ipAddressSortAscending",
-					"group": "tpt_5_ipAddress@1"
+					"group": "tpt_6_ipAddress@1"
 				},
 				{
 					"command": "textPowerTools.ipAddressSortDescending",
-					"group": "tpt_5_ipAddress@2"
+					"group": "tpt_6_ipAddress@2"
 				},
 				{
 					"command": "textPowerTools.sortByDecimalValueAscending",
-					"group": "tpt_6_numberValue@1"
+					"group": "tpt_7_numberValue@1"
 				},
 				{
 					"command": "textPowerTools.sortByDecimalValueDescending",
-					"group": "tpt_6_numberValue@2"
+					"group": "tpt_7_numberValue@2"
 				},
 				{
 					"command": "textPowerTools.sortByHexadecimalValueAscending",
-					"group": "tpt_6_numberValue@3"
+					"group": "tpt_7_numberValue@3"
 				},
 				{
 					"command": "textPowerTools.sortByHexadecimalValueDescending",
-					"group": "tpt_6_numberValue@4"
+					"group": "tpt_7_numberValue@4"
 				},
 				{
 					"command": "textPowerTools.shuffleLines",
@@ -2425,11 +2576,11 @@
 					"group": "tpt_3_keepOnly@4"
 				},
 				{
-					"command": "textPowerTools.keepOnlyUniques",
+					"command": "textPowerTools.removeAnyLinesThatHaveDuplicates",
 					"group": "tpt_3_keepOnly@5"
 				},
 				{
-					"command": "textPowerTools.caseInsensitiveKeepOnlyUniques",
+					"command": "textPowerTools.caseInsensitiveRemoveAnyLinesThatHaveDuplicates",
 					"group": "tpt_3_keepOnly@6"
 				},
 				{
@@ -2458,7 +2609,11 @@
 				},
 				{
 					"command": "textPowerTools.removeControlCharacters",
-					"group": "tpt_6_removeControlCharacters@1"
+					"group": "tpt_6_removeSpecialCharacters@1"
+				},
+				{
+					"command": "textPowerTools.removeAnsiEscapeCodes",
+					"group": "tpt_6_removeSpecialCharacters@2"
 				}
 			]
 		},
@@ -2630,6 +2785,7 @@
 		"@types/node": "^12.12.0",
 		"@types/robust-point-in-polygon": "^1.0.4",
 		"@types/semver-sort": "^0.0.1",
+		"@types/tr46": "^5.0.0",
 		"@types/voca": "^1.4.0",
 		"@types/vscode": "^1.75.0",
 		"@typescript-eslint/eslint-plugin": "^6.21.0",
@@ -2663,8 +2819,10 @@
 		"semver-sort": "^0.0.4",
 		"sponge-case": "^1.0.1",
 		"stream-browserify": "^3.0.0",
+		"strip-ansi": "^7.1.0",
 		"swap-case": "^2.0.2",
 		"title-case": "^3.0.3",
+		"tr46": "^5.0.0",
 		"util": "^0.12.4",
 		"uuid": "^8.3.2",
 		"voca": "^1.4.0",

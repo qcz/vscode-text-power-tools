@@ -5,7 +5,7 @@ import { getExtensionSettings } from "../helpers/tptSettings";
 import { getKnownFakeSequences } from "../sequences/fakeSequences";
 import { RandomFromUserInputSequence } from "../sequences/fakeSequences/randomFromUserInputSequence";
 import { GeneratedGuidType, KNOWN_GUID_TYPES, RandomGuidsSequence } from "../sequences/fakeSequences/randomGuidsSequence";
-import { ASequenceBase } from "../sequences/sequenceBase";
+import { SequenceBase } from "../sequences/sequenceBase";
 import { insertSequenceInternal } from "../sequences/sequenceInserter";
 import { isSequenceErrorMessage as isGeneratorCreationError, isSequenceErrorMessage } from "../sequences/sequenceTypes";
 import { getKnownStandardSequences } from "../sequences/standardSequences";
@@ -19,7 +19,7 @@ export const enum InsertableSeries {
 
 interface IInsertPredefinedSeriesOptions {
 	series?: InsertableSeries;
-	sequence?: ASequenceBase;
+	sequence?: SequenceBase;
 };
 
 export async function runInsertPredefinedSeriesCommand(
@@ -34,7 +34,7 @@ export async function runInsertPredefinedSeriesCommand(
 
 	const settings = getExtensionSettings();
 
-	let sequence: ASequenceBase | null = null;
+	let sequence: SequenceBase | null = null;
 
 	if (typeof options.series !== "undefined") {
 		switch (options.series) {
@@ -75,7 +75,7 @@ export async function runInsertPredefinedSeriesCommand(
 }
 
 interface SequenceQuickPickItem extends QuickPickItem {
-	sequenceInstance: ASequenceBase;
+	sequenceInstance: SequenceBase;
 }
 
 function showPredefinedSeriesPicker(editor: vscode.TextEditor, qpItems: SequenceQuickPickItem[]): void {

@@ -1,7 +1,8 @@
 "use strict";
 import * as vscode from "vscode";
+import { clearHistoryState as clearGlobalStateValue } from "./helpers/vsCodeHelpers";
 import { NumberArithmetic, NumeralSystem } from "./interfaces";
-import { ASK_SPLIT_CHARACTER_FROM_USER, AffixTarget, Base4EncodingDirection, ChangeCaseType, ClipboardContentPasteType, FilterSourceType, FilterTarget, FilterType, InsertableSeries, InsertableStuff, LineNumberType, PadDirection, RemovedLineType, SortMethod, TextEncodingDirection, TextEncodingType, TextTransformationType, TrimDirection, ZalgificationIntensity, runAffixCommand, runBase64EncodingCommand, runChangeCaseCommand, runConvertNumberCommand, runConvertToZalgoCommand, runCopySelectionsToNewEditorCommand, runCountOccurrencesCommand, runExtractInfoCommand, runFilterTextCommand, runFormatContentAsTableCommand, runInsertLineNumbersCommand, runInsertNumberSequenceCommand, runInsertPredefinedSeriesCommand, runInsertStuffCommand, runJoinLinesCommand, runKeepOnlyCommand, runKeepRandomLinesCommand, runModifyTextEncodingCommand, runPadCommand, runPasteFromClipboardCommand, runRemoveControlCharactersCommand, runRemoveDuplicatesCommand, runRemoveLinesCommand, runRemoveNewLinesCommand, runRepeatSelectionContentCommand, runReplaceNewLinesAndWhitespaceWithASingleSpace, runReplaceWhitespaceWithASingleSpace, runSetTextSlotContentCommand, runSortCommand, runSplitLinesCommand, runTextTransformationCommand, runTrimCommand, runpasteTextSlotCommand } from "./modules";
+import { ASK_SPLIT_CHARACTER_FROM_USER, AffixTarget, Base4EncodingDirection, ChangeCaseType, ClipboardContentPasteType, FilterSourceType, FilterTarget, FilterType, InsertableSeries, InsertableStuff, LineNumberType, PadDirection, RemovedLineType, SortMethod, TextEncodingDirection, TextEncodingType, TextTransformationType, TrimDirection, ZalgificationIntensity, removeAnsiEscapeCodesCommand, runAffixCommand, runBase64EncodingCommand, runChangeCaseCommand, runConvertNumberCommand, runConvertToZalgoCommand, runCopySelectionsToNewEditorCommand, runCountOccurrencesCommand, runExtractInfoCommand, runFilterTextCommand, runFormatContentAsTableCommand, runInsertLineNumbersCommand, runInsertNumberSequenceCommand, runInsertPredefinedSeriesCommand, runInsertStuffCommand, runJoinLinesCommand, runKeepOnlyCommand, runKeepRandomLinesCommand, runModifyTextEncodingCommand, runPadCommand, runPasteFromClipboardCommand, runRemoveControlCharactersCommand, runRemoveDuplicatesCommand, runRemoveLinesCommand, runRemoveNewLinesCommand, runRepeatSelectionContentCommand, runReplaceNewLinesAndWhitespaceWithASingleSpace, runReplaceWhitespaceWithASingleSpace, runSetTextSlotContentCommand, runSortCommand, runSplitLinesCommand, runTextTransformationCommand, runTrimCommand, runpasteTextSlotCommand } from "./modules";
 import * as fakeSequences from "./sequences/fakeSequences";
 import * as stanardSequences from "./sequences/standardSequences";
 
@@ -48,6 +49,9 @@ function registerFilterLinesCommands(context: vscode.ExtensionContext) {
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.cutLinesIncludingStringToClipboard", () =>
 		runFilterTextCommand(context, { filterType: FilterType.Include, sourceType: FilterSourceType.String, target: FilterTarget.CutToClipboard })));
 
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.clearFilterTextStringHistory", () =>
+		clearGlobalStateValue(context, "history.filterText-" + FilterSourceType.String.toString())));
+
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.filterLinesMatchingRegex", () =>
 		runFilterTextCommand(context, { filterType: FilterType.Include, sourceType: FilterSourceType.Regex, target: FilterTarget.CurrentEditor })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.filterLinesMatchingRegexToNewEditor", () =>
@@ -56,6 +60,9 @@ function registerFilterLinesCommands(context: vscode.ExtensionContext) {
 		runFilterTextCommand(context, { filterType: FilterType.Include, sourceType: FilterSourceType.Regex, target: FilterTarget.CopyToClipboard })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.cutLinesMatchingRegexToClipboard", () =>
 		runFilterTextCommand(context, { filterType: FilterType.Include, sourceType: FilterSourceType.Regex, target: FilterTarget.CutToClipboard })));
+
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.clearFilterTextRegexHistory", () =>
+		clearGlobalStateValue(context, "history.filterText-" + FilterSourceType.Regex.toString())));
 
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.filterLinesIncludingSelection", () =>
 		runFilterTextCommand(context, { filterType: FilterType.Include, sourceType: FilterSourceType.Selection, target: FilterTarget.CurrentEditor })));
@@ -91,6 +98,12 @@ function registerExtractInfoCommands(context: vscode.ExtensionContext) {
 		runExtractInfoCommand(context, { inNewEditor: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.extractInformationToNewEditor", () =>
 		runExtractInfoCommand(context, { inNewEditor: true })));
+
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.clearExtractInformationHistory", () => {
+		clearGlobalStateValue(context, "history.extractInfo-filter");
+		clearGlobalStateValue(context, "history.extractInfo-replacement");
+	}));
+
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.countOccurrences", () =>
 		runCountOccurrencesCommand({ onlyAdjacent: false, inNewEditor: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.countOccurrencesToNewEditor", () =>
@@ -179,6 +192,8 @@ function registerChangeLettersCommands(context: vscode.ExtensionContext) {
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.changeCaseToSwapCase", () =>
 		runChangeCaseCommand({ type: ChangeCaseType.SwapCase })));
 
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.reverseText", () =>
+		runTextTransformationCommand({ type: TextTransformationType.Reverse })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.latinize", () =>
 		runTextTransformationCommand({ type: TextTransformationType.Latinize })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.slugify", () =>
@@ -261,6 +276,12 @@ function registerSortCommands(context: vscode.ExtensionContext) {
 		runSortCommand({ sortMethod: SortMethod.GraphemeCount, sortDirection: "ascending" })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.sortByGraphemeCountDescending", () =>
 		runSortCommand({ sortMethod: SortMethod.GraphemeCount, sortDirection: "descending" })));
+
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.sortByLastWordAscending", () =>
+		runSortCommand({ sortMethod: SortMethod.LastWord, sortDirection: "ascending" })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.sortByLastWordDescending", () =>
+		runSortCommand({ sortMethod: SortMethod.LastWord, sortDirection: "descending" })));
+
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.semverSortAscending", () =>
 		runSortCommand({ sortMethod: SortMethod.Semver, sortDirection: "ascending" })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.semverSortDescending", () =>
@@ -291,12 +312,30 @@ function registerGenerateFakeDataCommands(context: vscode.ExtensionContext) {
 
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateRandomFromUserInput", () =>
 		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.RandomFromUserInput })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.clearGenerateFromRandomUserInputHistory", () =>
+		clearGlobalStateValue(context, "history.generateItems-fromRandomUserInput")));
+
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateRandomDecimalNumbersFromRange", () =>
 		runInsertPredefinedSeriesCommand(context, { sequence: fakeSequences.randomDecimalNumberFromRangeSequence })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateRandomHexadecimalNumbersFromRange", () =>
 		runInsertPredefinedSeriesCommand(context, { sequence: fakeSequences.randomHexadecimalNumberFromRangeSequence })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateRandomRealNumbersFromRange", () =>
 		runInsertPredefinedSeriesCommand(context, { sequence: fakeSequences.randomRealNumberFromRangeSequence })));
+
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateWordsContainingRandomLowercaseLettersSequence", () =>
+		runInsertPredefinedSeriesCommand(context, { sequence: fakeSequences.wordsContainingRandomLowercaseLettersSequence })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateWordsContainingRandomUppercaseLettersSequence", () =>
+		runInsertPredefinedSeriesCommand(context, { sequence: fakeSequences.wordsContainingRandomUppercaseLettersSequence })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateWordsContainingRandomLettersSequence", () =>
+		runInsertPredefinedSeriesCommand(context, { sequence: fakeSequences.wordsContainingRandomLettersSequence })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateWordsContainingRandomAlphanumericCharactersSequence", () =>
+		runInsertPredefinedSeriesCommand(context, { sequence: fakeSequences.wordsContainingRandomAlphanumericCharactersSequence })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateWordsContainingRandomAsciiCharactersSequence", () =>
+		runInsertPredefinedSeriesCommand(context, { sequence: fakeSequences.wordsContainingRandomAsciiCharactersSequence })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateWordsContainingRandomDecimalCharactersSequence", () =>
+		runInsertPredefinedSeriesCommand(context, { sequence: fakeSequences.wordsContainingRandomDecimalCharactersSequence })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateWordsContainingRandomHexCharactersSequence", () =>
+		runInsertPredefinedSeriesCommand(context, { sequence: fakeSequences.wordsContainingRandomHexCharactersSequence })));
 
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.generateRandomGuids", () =>
 		runInsertPredefinedSeriesCommand(context, { series: InsertableSeries.RandomGuids })));
@@ -565,6 +604,10 @@ function registerEncoderCommands(context: vscode.ExtensionContext) {
 		runBase64EncodingCommand({ direction: Base4EncodingDirection.Decode, onEachLine: false })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.base64DecodeTextOnEachLine", () =>
 		runBase64EncodingCommand({ direction: Base4EncodingDirection.Decode, onEachLine: true })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.encodeDomainNameWithPunycode", () =>
+		runModifyTextEncodingCommand({ type: TextEncodingType.PunycodeDomainName, direction: TextEncodingDirection.Encode, onEachLine: true })));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.decodeDomainNameFromPunycode", () =>
+		runModifyTextEncodingCommand({ type: TextEncodingType.PunycodeDomainName, direction: TextEncodingDirection.Decode, onEachLine: true })));
 }
 
 function registerSelectionCommands(context: vscode.ExtensionContext) {
@@ -607,9 +650,9 @@ function registerRemoveCommands(context: vscode.ExtensionContext) {
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.caseInsensitiveKeepOnlyAdjacentDuplicates", () =>
 		runKeepOnlyCommand({ what: "duplicates", onlyAdjacent: true, caseSensitive: false })));
 
-	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.keepOnlyUniques", () =>
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.removeAnyLinesThatHaveDuplicates", () =>
 		runKeepOnlyCommand({ what: "uniques", onlyAdjacent: false, caseSensitive: true })));
-	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.caseInsensitiveKeepOnlyUniques", () =>
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.caseInsensitiveRemoveAnyLinesThatHaveDuplicates", () =>
 		runKeepOnlyCommand({ what: "uniques", onlyAdjacent: false, caseSensitive: false })));
 
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.keepNumberOfRandomLines", () =>
@@ -627,6 +670,8 @@ function registerRemoveCommands(context: vscode.ExtensionContext) {
 		runRemoveLinesCommand({ type: RemovedLineType.Blank, onlySurplus: true })));
 	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.removeControlCharacters", () =>
 		runRemoveControlCharactersCommand()));
+	context.subscriptions.push(vscode.commands.registerCommand("textPowerTools.removeAnsiEscapeCodes", () =>
+		removeAnsiEscapeCodesCommand()));
 }
 
 // this method is called when your extension is deactivated

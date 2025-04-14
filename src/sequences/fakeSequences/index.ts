@@ -1,17 +1,16 @@
 import * as vscode from "vscode";
 import { compareNumbers } from "../../helpers/utils";
 import { NumeralSystem } from "../../interfaces";
-import { ASequenceBase } from "../sequenceBase";
+import { SequenceBase } from "../sequenceBase";
 import { FakeFirstNamesSequence } from "./fakeFirstNamesSequence";
 import { FakeFullNamesSequence } from "./fakeFullNamesSequence";
 import { FakeLastNamesSequence } from "./fakeLastNamesSequence";
 import { LoremIpsumParagraphsSequence } from "./loremIpsumParagraphsSequence";
 import { LoremIpsumSentencesSequence } from "./loremIpsumSentencesSequence";
+import { WordsContainingRandomAlphanumericCharactersSequence, WordsContainingRandomAsciiCharactersSequence, WordsContainingRandomDecimalCharactersSequence, WordsContainingRandomHexCharactersSequence, WordsContainingRandomLettersSequence, WordsContainingRandomLowercaseLettersSequence, WordsContainingRandomUppercaseLettersSequence } from "./randomCharactersSequence";
 import { RandomCoordinatesSequence } from "./randomCoordinatesSequence";
-import { RandomDecimalCharactersSequence } from "./randomDecimalCharactersSequence";
 import { RandomFromUserInputSequence } from "./randomFromUserInputSequence";
 import { RandomGuidsSequence } from "./randomGuidsSequence";
-import { RandomHexCharactersSequence } from "./randomHexCharactersSequence";
 import { IpAddressType, RandomIpAdressesSequence } from "./randomIpAdressesSequence";
 import { RandomNumberFromRangeSequence } from "./randomNumberFromRangeSequence";
 
@@ -26,16 +25,28 @@ export const randomNorthAmericanCoordinatesSequence = new RandomCoordinatesSeque
 export const randomAsianCoordinatesSequence = new RandomCoordinatesSequence("Asia");
 export const loremIpsumSentencesSequence = new LoremIpsumSentencesSequence();
 export const loremIpsumParagraphsSequence = new LoremIpsumParagraphsSequence();
+export const wordsContainingRandomHexCharactersSequence = new WordsContainingRandomHexCharactersSequence();
+export const wordsContainingRandomDecimalCharactersSequence = new WordsContainingRandomDecimalCharactersSequence();
+export const wordsContainingRandomLowercaseLettersSequence = new WordsContainingRandomLowercaseLettersSequence();
+export const wordsContainingRandomUppercaseLettersSequence = new WordsContainingRandomUppercaseLettersSequence();
+export const wordsContainingRandomLettersSequence = new WordsContainingRandomLettersSequence();
+export const wordsContainingRandomAlphanumericCharactersSequence = new WordsContainingRandomAlphanumericCharactersSequence();
+export const wordsContainingRandomAsciiCharactersSequence = new WordsContainingRandomAsciiCharactersSequence();
 
-export function getKnownFakeSequences(context: vscode.ExtensionContext): ASequenceBase[] {
-	const ret: ASequenceBase[] = [];
+export function getKnownFakeSequences(context: vscode.ExtensionContext): SequenceBase[] {
+	const ret: SequenceBase[] = [];
 
 	ret.push(new RandomFromUserInputSequence(context, undefined));
 	ret.push(randomDecimalNumberFromRangeSequence);
 	ret.push(randomRealNumberFromRangeSequence);
 	ret.push(randomHexadecimalNumberFromRangeSequence);
-	ret.push(new RandomHexCharactersSequence(undefined));
-	ret.push(new RandomDecimalCharactersSequence(undefined));
+	ret.push(wordsContainingRandomHexCharactersSequence);
+	ret.push(wordsContainingRandomDecimalCharactersSequence);
+	ret.push(wordsContainingRandomLettersSequence);
+	ret.push(wordsContainingRandomUppercaseLettersSequence);
+	ret.push(wordsContainingRandomLettersSequence);
+	ret.push(wordsContainingRandomAlphanumericCharactersSequence);
+	ret.push(wordsContainingRandomAsciiCharactersSequence);
 	ret.push(randomIpv4AddressesSequence);
 	ret.push(randomIpv6AddressesSequence);
 	ret.push(new RandomGuidsSequence("noDashes"));

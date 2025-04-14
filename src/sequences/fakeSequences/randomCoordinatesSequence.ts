@@ -1,8 +1,7 @@
 import classifyPoint from "robust-point-in-polygon";
 import * as vscode from "vscode";
 import { Boundary, CONTINENT_BOUNDARIES, Continent } from "../../helpers/continents";
-import { ASequenceBase } from "../sequenceBase";
-import { CreateSampleGeneratorResult, StringIteratorGeneratorFunction } from "../sequenceTypes";
+import { SequenceBase } from "../sequenceBase";
 
 interface BoundingBox {
 	minLat: number;
@@ -11,7 +10,7 @@ interface BoundingBox {
 	maxLon: number;
 };
 
-export class RandomCoordinatesSequence extends ASequenceBase {
+export class RandomCoordinatesSequence extends SequenceBase {
 	private boundaries: Boundary[];
 	private boundingBox: BoundingBox | null = null;
 
@@ -76,23 +75,13 @@ export class RandomCoordinatesSequence extends ASequenceBase {
 		return vscode.l10n.t("Random WGS84 coordinates");
 	}
 
-	public async createStandardGenerator(): Promise<() => IterableIterator<string>> {
-		return this.createGeneratorFunctionInternal();
-	}
-
-	public async createSampleGenerator(): Promise<CreateSampleGeneratorResult> {
-		return this.createGeneratorFunctionInternal();
-	}
-
-	public async createGeneratorFunctionInternal() : Promise<StringIteratorGeneratorFunction> {
+	public async createGenerator(): Promise<() => IterableIterator<string>> {
 		var self = this;
-		const fun = function* (): IterableIterator<string> {
+		return function* (): IterableIterator<string> {
 			while (true) {
 				yield self.generateRandomItem();
 			}
 		};
-
-		return fun;
 	}
 
 	public generateRandomItem(): string {

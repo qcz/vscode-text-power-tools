@@ -1,10 +1,28 @@
 # Changelog
 
-## **1.47.0** (2023. 03. 21.)
+## **1.51.0** (2025. 03. 02.)
+* Add _Reverse text_ command. (#104)
+* Add _Sort lines by the last word_ commands. (#103)
+* Rename _Keep only unique lines_ command to _Remove all lines that have duplicates_. (#76)
+* Add commands to clear history of commands that supports it (eg. filter text, extract information). (#102)
+
+## **1.50.0** (2024. 11. 25.)
+* Add support for generating words with random lowercase letters, uppercase letters, lowercase and uppercase letters, alphanumeric characters, decimal characters, hexadecimal characters.
+* Fix: Sequence generators should not save user input from previous runs. (#96)
+* Fix: Do not remove punctuation when converting to sentence case. (#94)
+
+## **1.49.0** (2024. 08. 02.)
+* Add support for encoding/decoding domain names using punycode (IDNA, #88)
+
+## **1.48.0** (2024. 07. 18.)
+* Remove ANSI escape codes (#92)
+* Complete Chinese localization by @coloraven. (#87)
+
+## **1.47.0** (2024. 03. 21.)
 * Complete Japanese localization by @wany-oh. (#83)
 * Brazilian Portuguese localization by @thiagojramos (#86)
 
-## **1.46.0** (2023. 03. 17.)
+## **1.46.0** (2024. 03. 17.)
 * Add _Generate random WGS84 coordinates_ functions, including generator functions for specific continents. (#79)
 * Add _Encode HTML entities (all named references)_ command.
 * Introduce localization support in collaboration with @wany-oh. (#82)

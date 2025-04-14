@@ -36,6 +36,11 @@ const CHANGE_CASE_OPTIONS: cc.Options = {
 	stripRegexp: /[^\p{L}\d]+/giu
 };
 
+const PRESERVE_PUNCTUATIONS_CHANGE_CASE_OPTIONS: cc.Options = {
+	...CHANGE_CASE_OPTIONS,
+	stripRegexp: /[^\p{L}\p{P}\d]+/giu
+};
+
 export async function runChangeCaseCommand(options: IChangeCaseOptions) {
 	const editor = vscode.window.activeTextEditor;
 	if (!editor) {
@@ -80,7 +85,7 @@ export async function runChangeCaseCommand(options: IChangeCaseOptions) {
 					currentSelectionLines.push(spongeCase(lineContent));
 					break;
 				case ChangeCaseType.SentenceCase:
-					currentSelectionLines.push(sentenceCase(lineContent, CHANGE_CASE_OPTIONS,));
+					currentSelectionLines.push(sentenceCase(lineContent, PRESERVE_PUNCTUATIONS_CHANGE_CASE_OPTIONS));
 					break;
 				case ChangeCaseType.SeparateWithSpaces:
 					currentSelectionLines.push(cc.noCase(lineContent, {

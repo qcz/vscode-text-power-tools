@@ -242,8 +242,6 @@
 	"command.caseInsensitiveKeepOnlyDuplicates.title": "重複する行以外を削除（大文字と小文字を区別）",
 	"command.keepOnlyAdjacentDuplicates.title": "隣接して重複する行以外を削除",
 	"command.caseInsensitiveKeepOnlyAdjacentDuplicates.title": "隣接して重複する行以外を削除（大文字と小文字を区別）",
-	"command.keepOnlyUniques.title": "重複する行を全て削除",
-	"command.caseInsensitiveKeepOnlyUniques.title": "重複する行を全て削除（大文字と小文字を区別）",
 	"command.keepNumberOfRandomLines.title": "任意の行数をランダムに抽出",
 	"command.keepPercentageOfRandomLines.title": "割合を指定して行をランダムに抽出",
 	"command.removeEmptyLines.title": "空行を削除",

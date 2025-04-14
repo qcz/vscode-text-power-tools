@@ -18,9 +18,11 @@ export async function runInsertNumberSequenceCommand(options: InsertNumberSequen
 		return;
 	}
 
-	const generatorResult = await new NumberSequece(options.numeralSystem,
-		options.askForStartingNumber ? undefined : 1,
-		options.askForIncrements ? undefined : 1).createGenerator();
+	const generatorResult = await new NumberSequece({
+		numeralSystem: options.numeralSystem,
+		startingNumber: options.askForStartingNumber ? undefined : 1,
+		increment: options.askForIncrements ? undefined : 1
+	}).createGenerator();
 
 	if (isSequenceErrorMessage(generatorResult)) {
 		vscode.window.showErrorMessage(generatorResult.errorMessage);

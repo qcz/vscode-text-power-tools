@@ -52,7 +52,6 @@
   "Random IPv4 adresses": "ランダムなIPv4アドレス",
   "Random IPv6 adresses": "ランダムなIPv6アドレス",
   "Random hex characters": "ランダムな16進数の数字",
-  "Please enter how many characters an item should contain": "要素の文字数を指定します",
   "No number of characters entered.": "要素の文字数が入力されませんでした。",
   "The entered number of characters is not valid.": "入力された要素の文字数は有効な値ではありません。",
   "No dashes": "ダッシュ無し",

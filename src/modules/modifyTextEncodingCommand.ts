@@ -1,4 +1,5 @@
 import { decode as decodeEntities, encode as encodeEntities } from "html-entities";
+import * as tr46 from "tr46";
 import * as vscode from "vscode";
 import { NO_ACTIVE_EDITOR } from "../consts";
 import { getSelectionContent, getSelectionLines, getSelectionsOrFullDocument, replaceSelectionsWithLines } from "../helpers/vsCodeHelpers";
@@ -10,7 +11,8 @@ export const enum TextEncodingType {
 	HtmlEntityEncodingAllNamedReferences,
 	XmlEntityEncoding,
 	UnicodeEscapeSequences,
-	Json
+	PunycodeDomainName,
+	Json,
 }
 
 export const enum TextEncodingDirection {
@@ -119,6 +121,28 @@ function runEncodingOnLine(options: IModifyTextEncodingOptions, currentSelection
 			}
 
 			break;
+		case TextEncodingType.PunycodeDomainName:
+			if (options.direction === TextEncodingDirection.Encode) {
+				currentSelectionLines.push(tr46.toASCII(lineContent, {
+					transitionalProcessing: !lineContent.match(
+						/\.(?:art|be|ca|de|swiss|fr|pm|re|tf|wf|yt)\.?$/
+					),
+				}));
+			} else {
+				const result = tr46.toUnicode(lineContent, {
+					transitionalProcessing: !lineContent.match(
+						/\.(?:art|be|ca|de|swiss|fr|pm|re|tf|wf|yt)\.?$/
+					)
+				// tr46 ts typing is not accurate
+				}) as unknown as { error: boolean; domain: string; };
+
+				if (result != null && !result.error) {
+					currentSelectionLines.push(result.domain);
+				} else {
+					complainAboutInvalidPunycodeDomain(lineContent);
+				}
+			}
+			break;
 		case TextEncodingType.Json:
 			if (options.direction === TextEncodingDirection.Encode) {
 				const jsonifiedContent = JSON.stringify(lineContent);
@@ -145,6 +169,25 @@ function runEncodingOnLine(options: IModifyTextEncodingOptions, currentSelection
 
 	return true;
 }
+
+function complainAboutInvalidPunycodeDomain(lineContent: string) {
+	let errorMessage;
+	if (lineContent.length > 15) {
+		errorMessage = vscode.l10n.t(
+			"Failed to convert punycode encoded domain `{0}` back to Unicode",
+			lineContent.substring(0, 15)
+		);
+	} else {
+		errorMessage = vscode.l10n.t(
+			"Failed to convert punycode encoded domain `{0}` back to Unicode",
+			lineContent
+		);
+	}
+
+	vscode.window.showErrorMessage(errorMessage);
+}
+
+
 
 function complainAboutJsonStringError(lineContent: string) {
 	let errorMessage;

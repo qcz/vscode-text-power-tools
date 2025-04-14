@@ -1,5 +1,5 @@
 import { NumeralSystem } from "../../interfaces";
-import { ASequenceBase } from "../sequenceBase";
+import { SequenceBase } from "../sequenceBase";
 import { DayNamesSequence } from "./dayNameSequence";
 import { LowercaseGreekLettersSequence } from "./lowercaseGreekLettersSequence";
 import { LowercaseLettersSequence } from "./lowercaseLettersSequence";
@@ -23,7 +23,7 @@ export const shortEnglishMonthNamesSequence = new MonthNamesSequence("en-US", "s
 export const longCustomLocaleMonthNamesSequence = new MonthNamesSequence(undefined, "long");
 export const shortCustomLocaleMonthNamesSequence = new MonthNamesSequence(undefined, "short");
 
-export function getKnownStandardSequences(): ASequenceBase[] {
+export function getKnownStandardSequences(): SequenceBase[] {
 	return [
 		uppercaseLetterSequence,
 		lowercaseLetterSequence,
@@ -31,20 +31,20 @@ export function getKnownStandardSequences(): ASequenceBase[] {
 		lowercaseGreekLetterSequence,
 		natoPhoneticAlphabetSequence,
 
-		new NumberSequece(NumeralSystem.Decimal, 1, 1),
-		new NumberSequece(NumeralSystem.Decimal, undefined, 1),
-		new NumberSequece(NumeralSystem.Decimal, 1, undefined),
-		new NumberSequece(NumeralSystem.Decimal, undefined, undefined),
+		new NumberSequece({ numeralSystem: NumeralSystem.Decimal, startingNumber: 1, increment: 1 }),
+		new NumberSequece({ numeralSystem: NumeralSystem.Decimal, startingNumber: undefined, increment: 1 }),
+		new NumberSequece({ numeralSystem: NumeralSystem.Decimal, startingNumber: 1, increment: undefined }),
+		new NumberSequece({ numeralSystem: NumeralSystem.Decimal, startingNumber: undefined, increment: undefined }),
 
-		new NumberSequece(NumeralSystem.Hexadecimal, 1, 1),
-		new NumberSequece(NumeralSystem.Hexadecimal, undefined, 1),
-		new NumberSequece(NumeralSystem.Hexadecimal, 1, undefined),
-		new NumberSequece(NumeralSystem.Hexadecimal, undefined, undefined),
+		new NumberSequece({ numeralSystem: NumeralSystem.Hexadecimal, startingNumber: 1, increment: 1 }),
+		new NumberSequece({ numeralSystem: NumeralSystem.Hexadecimal, startingNumber: undefined, increment: 1 }),
+		new NumberSequece({ numeralSystem: NumeralSystem.Hexadecimal, startingNumber: 1, increment: undefined }),
+		new NumberSequece({ numeralSystem: NumeralSystem.Hexadecimal, startingNumber: undefined, increment: undefined }),
 
-		new NumberSequece(NumeralSystem.Roman, 1, 1),
-		new NumberSequece(NumeralSystem.Roman, undefined, 1),
-		new NumberSequece(NumeralSystem.Roman, 1, undefined),
-		new NumberSequece(NumeralSystem.Roman, undefined, undefined),
+		new NumberSequece({ numeralSystem: NumeralSystem.Roman, startingNumber: 1, increment: 1 }),
+		new NumberSequece({ numeralSystem: NumeralSystem.Roman, startingNumber: undefined, increment: 1 }),
+		new NumberSequece({ numeralSystem: NumeralSystem.Roman, startingNumber: 1, increment: undefined }),
+		new NumberSequece({ numeralSystem: NumeralSystem.Roman, startingNumber: undefined, increment: undefined }),
 
 		longEnglishDayNamesSequence,
 		shortEnglishDayNamesSequence,
